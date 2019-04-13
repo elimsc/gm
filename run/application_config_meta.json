@@ -1,0 +1,348 @@
+{
+  "keys": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+  "middleware": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+  "auth": {
+    "key": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js"
+  },
+  "view": {
+    "mapping": {
+      ".html": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js"
+    },
+    "root": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view\\config\\config.default.js",
+    "defaultViewEngine": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "assets": {
+    "publicPath": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+    "devServer": {
+      "debug": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+      "command": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+      "port": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+      "env": {
+        "APP_ROOT": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+        "BROWSER": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+        "ESLINT": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+        "SOCKET_SERVER": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+        "PUBLIC_PATH": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js"
+      },
+      "enable": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-assets\\config\\config.default.js",
+      "autoPort": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-assets\\config\\config.default.js",
+      "portPath": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-assets\\config\\config.default.js",
+      "timeout": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-assets\\config\\config.default.js",
+      "waitStart": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-assets\\config\\config.default.js"
+    },
+    "isLocalOrUnittest": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-assets\\config\\config.default.js",
+    "url": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-assets\\config\\config.default.js",
+    "templatePath": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-assets\\config\\config.default.js",
+    "templateViewEngine": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-assets\\config\\config.default.js",
+    "crossorigin": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-assets\\config\\config.default.js",
+    "contextKey": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-assets\\config\\config.default.js"
+  },
+  "security": {
+    "csrf": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+    "domainWhiteList": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js",
+    "xframe": {
+      "enable": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "mysql": {
+    "client": {
+      "host": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+      "port": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+      "user": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+      "password": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+      "database": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js"
+    },
+    "app": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+    "agent": "C:\\Users\\ifgame\\Desktop\\umi-gm\\config\\config.default.js",
+    "default": {
+      "database": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-mysql\\config\\config.default.js",
+      "connectionLimit": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-mysql\\config\\config.default.js"
+    }
+  },
+  "session": {
+    "maxAge": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "helper": {
+    "shtml": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-schedule\\config\\config.default.js"
+  },
+  "multipart": {
+    "mode": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-multipart\\config\\config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "nunjucks": {
+    "autoescape": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "throwOnUndefined": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "trimBlocks": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "lstripBlocks": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "cache": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg-view-nunjucks\\config\\config.local.js"
+  },
+  "env": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+  "name": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "version": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "description": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "private": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "scripts": {
+      "start": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "stop": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "dev": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "debug": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "build": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "umi:dev": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "umi:build": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "test": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "cov": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "lint": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "ci": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "autod": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+    },
+    "dependencies": {
+      "antd": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "bcrypt": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "dva": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "egg": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "egg-mysql": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "egg-scripts": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "egg-view-assets": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "egg-view-nunjucks": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "jsonwebtoken": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "react": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "react-dom": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "autod": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "autod-egg": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "babel-eslint": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "egg-bin": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "egg-ci": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "egg-mock": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "eslint": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "eslint-config-egg": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "eslint-config-umi": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "eslint-plugin-flowtype": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "eslint-plugin-import": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "eslint-plugin-jsx-a11y": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "eslint-plugin-react": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "husky": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "lint-staged": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "react-test-renderer": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "umi": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "umi-plugin-react": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+    },
+    "engines": {
+      "node": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+    },
+    "ci": {
+      "version": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+    },
+    "repository": {
+      "type": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "url": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+    },
+    "author": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "license": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+  },
+  "baseDir": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "strict": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "depth": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "logger": {
+    "dir": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "env": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "level": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "logging": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+  "serverTimeout": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "port": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "C:\\Users\\ifgame\\Desktop\\umi-gm\\node_modules\\egg\\config\\config.default.js"
+}

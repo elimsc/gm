@@ -1,0 +1,263 @@
+2019-04-10 14:08:33,406 ERROR 12812 [-/::1/-/5ms GET /] nodejs.TypeError: Cannot read property 'state' of undefined
+    at auth (C:\Users\ifgame\Desktop\umi-gm\app\middleware\auth.js:3:27)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:56
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at i18n (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-i18n\app\middleware\i18n.js:13:12)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at dta (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-security\lib\middlewares\dta.js:12:12)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at xframe (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-security\lib\middlewares\xframe.js:7:11)
+
+pid: 12812
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 14:08:33,464 ERROR 12812 [-/::1/-/0ms GET /] nodejs.TypeError: Cannot read property 'state' of undefined
+    at auth (C:\Users\ifgame\Desktop\umi-gm\app\middleware\auth.js:3:27)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:56
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at i18n (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-i18n\app\middleware\i18n.js:13:12)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at dta (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-security\lib\middlewares\dta.js:12:12)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at xframe (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-security\lib\middlewares\xframe.js:7:11)
+
+pid: 12812
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 17:04:36,093 ERROR 6064 [-/::1/-/7ms GET /login] nodejs.Error: data and hash arguments required
+    at Object.compareSync (C:\Users\ifgame\Desktop\umi-gm\node_modules\bcrypt\bcrypt.js:167:15)
+    at LoginController.login (C:\Users\ifgame\Desktop\umi-gm\app\controller\login.js:14:16)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\router.js:190:18
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+
+pid: 6064
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 17:44:57,785 ERROR 14924 [-/::1/-/4ms POST /api/login] nodejs.Error: data and hash arguments required
+    at Object.compareSync (C:\Users\ifgame\Desktop\umi-gm\node_modules\bcrypt\bcrypt.js:167:15)
+    at LoginController.login (C:\Users\ifgame\Desktop\umi-gm\app\controller\login.js:14:16)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\router.js:190:18
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+
+pid: 14924
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 17:45:46,080 ERROR 15208 [-/::1/-/4ms POST /login] nodejs.Error: data and hash arguments required
+    at Object.compareSync (C:\Users\ifgame\Desktop\umi-gm\node_modules\bcrypt\bcrypt.js:167:15)
+    at LoginController.login (C:\Users\ifgame\Desktop\umi-gm\app\controller\login.js:14:16)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\router.js:190:18
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+
+pid: 15208
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 17:47:20,913 ERROR 12100 [-/::1/-/10ms POST /api/login] nodejs.Error: data and hash arguments required
+    at Object.compareSync (C:\Users\ifgame\Desktop\umi-gm\node_modules\bcrypt\bcrypt.js:167:15)
+    at LoginController.login (C:\Users\ifgame\Desktop\umi-gm\app\controller\login.js:14:16)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\router.js:190:18
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+
+pid: 12100
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 18:11:13,193 ERROR 11344 [-/::1/-/4ms POST /api/login] nodejs.Error: data and hash arguments required
+    at Object.compareSync (C:\Users\ifgame\Desktop\umi-gm\node_modules\bcrypt\bcrypt.js:167:15)
+    at LoginController.login (C:\Users\ifgame\Desktop\umi-gm\app\controller\login.js:15:16)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\router.js:190:18
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+
+pid: 11344
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 18:54:55,659 ERROR 4848 [-/::1/-/100ms POST /api/login] nodejs.Error: secretOrPrivateKey must have a value
+    at Object.module.exports [as sign] (C:\Users\ifgame\Desktop\umi-gm\node_modules\jsonwebtoken\sign.js:107:20)
+    at LoginController.login (C:\Users\ifgame\Desktop\umi-gm\app\controller\login.js:19:25)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 4848
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 18:56:43,630 ERROR 17392 [-/::1/-/100ms POST /api/login] nodejs.Error: "exp" is not allowed in "options"
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\jsonwebtoken\sign.js:47:17
+    at Array.forEach (<anonymous>)
+    at validate (C:\Users\ifgame\Desktop\umi-gm\node_modules\jsonwebtoken\sign.js:43:6)
+    at validateOptions (C:\Users\ifgame\Desktop\umi-gm\node_modules\jsonwebtoken\sign.js:58:10)
+    at Object.module.exports [as sign] (C:\Users\ifgame\Desktop\umi-gm\node_modules\jsonwebtoken\sign.js:141:5)
+    at LoginController.login (C:\Users\ifgame\Desktop\umi-gm\app\controller\login.js:19:25)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 17392
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 18:57:06,530 ERROR 17392 [-/::1/-/82ms POST /api/login] nodejs.Error: "exp" is not allowed in "options"
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\jsonwebtoken\sign.js:47:17
+    at Array.forEach (<anonymous>)
+    at validate (C:\Users\ifgame\Desktop\umi-gm\node_modules\jsonwebtoken\sign.js:43:6)
+    at validateOptions (C:\Users\ifgame\Desktop\umi-gm\node_modules\jsonwebtoken\sign.js:58:10)
+    at Object.module.exports [as sign] (C:\Users\ifgame\Desktop\umi-gm\node_modules\jsonwebtoken\sign.js:141:5)
+    at LoginController.login (C:\Users\ifgame\Desktop\umi-gm\app\controller\login.js:19:25)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 17392
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 20:20:10,009 ERROR 14188 [-/::1/-/4ms POST /api/user] nodejs.JsonWebTokenError: invalid token
+    at Object.module.exports [as verify] (C:\Users\ifgame\Desktop\umi-gm\node_modules\jsonwebtoken\verify.js:75:17)
+    at auth (C:\Users\ifgame\Desktop\umi-gm\app\middleware\auth.js:17:33)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:56
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at i18n (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-i18n\app\middleware\i18n.js:13:12)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at dta (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-security\lib\middlewares\dta.js:12:12)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+name: "JsonWebTokenError"
+message: "invalid token"
+pid: 14188
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 20:25:00,261 ERROR 12992 [-/::1/-/19ms POST /api/user] nodejs.TypeError: this.ctx.logger is not a function
+    at UserController.post (C:\Users\ifgame\Desktop\umi-gm\app\controller\user.js:10:14)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:45:18)
+    at auth (C:\Users\ifgame\Desktop\umi-gm\app\middleware\auth.js:20:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 12992
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 20:25:25,131 ERROR 12992 [-/::1/-/1ms POST /api/user] nodejs.TypeError: this.ctx.logger is not a function
+    at UserController.post (C:\Users\ifgame\Desktop\umi-gm\app\controller\user.js:10:14)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:45:18)
+    at auth (C:\Users\ifgame\Desktop\umi-gm\app\middleware\auth.js:20:13)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 12992
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-10 20:29:19,083 ERROR 7588 [-/::1/-/81ms POST /api/login] nodejs.TypeError: Cannot read property 'key' of undefined
+    at LoginController.login (C:\Users\ifgame\Desktop\umi-gm\app\controller\login.js:19:60)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 7588
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-11 09:35:49,549 ERROR 2860 [-/::1/-/41ms POST /api/login/check] nodejs.TypeError: Cannot read property 'username' of undefined
+    at LoginController.check (C:\Users\ifgame\Desktop\umi-gm\app\controller\login.js:44:31)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\router.js:190:18
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:36:12
+
+pid: 2860
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-11 10:57:27,837 ERROR 13164 [-/::1/-/26ms POST /api/logout] nodejs.TypeError: Cannot read property 'id' of undefined
+    at LoginController.logout (C:\Users\ifgame\Desktop\umi-gm\app\controller\login.js:60:43)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\router.js:190:18
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:36:12
+
+pid: 13164
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-11 10:57:42,687 ERROR 13164 [-/::1/-/1ms POST /api/logout] nodejs.TypeError: Cannot read property 'id' of undefined
+    at LoginController.logout (C:\Users\ifgame\Desktop\umi-gm\app\controller\login.js:60:43)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\router.js:190:18
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:36:12
+
+pid: 13164
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-12 20:30:33,563 ERROR 12076 [-/::1/-/4ms GET /api/demo] nodejs.TypeError: bodyConstruct is not a function
+    at PlayerService.list (C:\Users\ifgame\Desktop\umi-gm\app\service\player.js:17:12)
+    at HomeController.demo (C:\Users\ifgame\Desktop\umi-gm\app\controller\home.js:12:40)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:45:18)
+    at C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\router.js:190:18
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+
+pid: 12076
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-12 20:32:55,862 ERROR 12784 [-/::1/-/9ms GET /api/demo] nodejs.TypeError: md5Hash is not a function
+    at md5 (C:\Users\ifgame\Desktop\umi-gm\app\util\gmsrv.js:6:10)
+    at exports.genBody (C:\Users\ifgame\Desktop\umi-gm\app\util\gmsrv.js:36:17)
+    at PlayerService.list (C:\Users\ifgame\Desktop\umi-gm\app\service\player.js:17:12)
+    at HomeController.demo (C:\Users\ifgame\Desktop\umi-gm\app\controller\home.js:12:40)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (C:\Users\ifgame\Desktop\umi-gm\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (C:\Users\ifgame\Desktop\umi-gm\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:44:32)
+    at next (C:\Users\ifgame\Desktop\umi-gm\node_modules\koa-compose\index.js:45:18)
+
+pid: 12784
+hostname: DESKTOP-NCOD5CJ
+

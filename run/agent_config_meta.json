@@ -1,0 +1,349 @@
+{
+  "keys": "/mnt/g/umi-gm/config/config.default.js",
+  "middleware": "/mnt/g/umi-gm/config/config.default.js",
+  "auth": {
+    "key": "/mnt/g/umi-gm/config/config.default.js"
+  },
+  "view": {
+    "mapping": {
+      ".html": "/mnt/g/umi-gm/config/config.default.js"
+    },
+    "root": "/mnt/g/umi-gm/node_modules/_egg-view@2.1.2@egg-view/config/config.default.js",
+    "cache": "/mnt/g/umi-gm/node_modules/_egg-view@2.1.2@egg-view/config/config.local.js",
+    "defaultExtension": "/mnt/g/umi-gm/node_modules/_egg-view@2.1.2@egg-view/config/config.default.js",
+    "defaultViewEngine": "/mnt/g/umi-gm/node_modules/_egg-view@2.1.2@egg-view/config/config.default.js"
+  },
+  "assets": {
+    "publicPath": "/mnt/g/umi-gm/config/config.default.js",
+    "devServer": {
+      "debug": "/mnt/g/umi-gm/config/config.default.js",
+      "command": "/mnt/g/umi-gm/config/config.default.js",
+      "port": "/mnt/g/umi-gm/config/config.default.js",
+      "env": {
+        "APP_ROOT": "/mnt/g/umi-gm/config/config.default.js",
+        "BROWSER": "/mnt/g/umi-gm/config/config.default.js",
+        "ESLINT": "/mnt/g/umi-gm/config/config.default.js",
+        "SOCKET_SERVER": "/mnt/g/umi-gm/config/config.default.js",
+        "PUBLIC_PATH": "/mnt/g/umi-gm/config/config.default.js"
+      },
+      "enable": "/mnt/g/umi-gm/node_modules/_egg-view-assets@1.5.0@egg-view-assets/config/config.default.js",
+      "autoPort": "/mnt/g/umi-gm/node_modules/_egg-view-assets@1.5.0@egg-view-assets/config/config.default.js",
+      "portPath": "/mnt/g/umi-gm/node_modules/_egg-view-assets@1.5.0@egg-view-assets/config/config.default.js",
+      "timeout": "/mnt/g/umi-gm/node_modules/_egg-view-assets@1.5.0@egg-view-assets/config/config.default.js",
+      "waitStart": "/mnt/g/umi-gm/node_modules/_egg-view-assets@1.5.0@egg-view-assets/config/config.default.js"
+    },
+    "isLocalOrUnittest": "/mnt/g/umi-gm/node_modules/_egg-view-assets@1.5.0@egg-view-assets/config/config.default.js",
+    "url": "/mnt/g/umi-gm/node_modules/_egg-view-assets@1.5.0@egg-view-assets/config/config.default.js",
+    "templatePath": "/mnt/g/umi-gm/node_modules/_egg-view-assets@1.5.0@egg-view-assets/config/config.default.js",
+    "templateViewEngine": "/mnt/g/umi-gm/node_modules/_egg-view-assets@1.5.0@egg-view-assets/config/config.default.js",
+    "crossorigin": "/mnt/g/umi-gm/node_modules/_egg-view-assets@1.5.0@egg-view-assets/config/config.default.js",
+    "contextKey": "/mnt/g/umi-gm/node_modules/_egg-view-assets@1.5.0@egg-view-assets/config/config.default.js"
+  },
+  "security": {
+    "csrf": "/mnt/g/umi-gm/config/config.default.js",
+    "domainWhiteList": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js",
+    "protocolWhiteList": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js",
+    "defaultMiddleware": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js",
+    "xframe": {
+      "enable": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js",
+      "value": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js"
+    },
+    "hsts": {
+      "enable": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.local.js",
+      "maxAge": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js",
+      "includeSubdomains": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js"
+    },
+    "dta": {
+      "enable": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js"
+    },
+    "noopen": {
+      "enable": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js"
+    },
+    "nosniff": {
+      "enable": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js",
+      "value": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js"
+    },
+    "xssProtection": {
+      "enable": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js",
+      "value": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js"
+    },
+    "csp": {
+      "enable": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js",
+      "policy": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js",
+      "checkAddress": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js"
+    }
+  },
+  "mysql": {
+    "client": {
+      "host": "/mnt/g/umi-gm/config/config.default.js",
+      "port": "/mnt/g/umi-gm/config/config.default.js",
+      "user": "/mnt/g/umi-gm/config/config.default.js",
+      "password": "/mnt/g/umi-gm/config/config.default.js",
+      "database": "/mnt/g/umi-gm/config/config.default.js"
+    },
+    "app": "/mnt/g/umi-gm/config/config.default.js",
+    "agent": "/mnt/g/umi-gm/config/config.default.js",
+    "default": {
+      "database": "/mnt/g/umi-gm/node_modules/_egg-mysql@3.0.0@egg-mysql/config/config.default.js",
+      "connectionLimit": "/mnt/g/umi-gm/node_modules/_egg-mysql@3.0.0@egg-mysql/config/config.default.js"
+    }
+  },
+  "session": {
+    "maxAge": "/mnt/g/umi-gm/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js",
+    "key": "/mnt/g/umi-gm/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js",
+    "httpOnly": "/mnt/g/umi-gm/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js",
+    "encrypt": "/mnt/g/umi-gm/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js"
+  },
+  "helper": {
+    "shtml": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security/config/config.default.js"
+  },
+  "jsonp": {
+    "limit": "/mnt/g/umi-gm/node_modules/_egg-jsonp@2.0.0@egg-jsonp/config/config.default.js",
+    "callback": "/mnt/g/umi-gm/node_modules/_egg-jsonp@2.0.0@egg-jsonp/config/config.default.js",
+    "csrf": "/mnt/g/umi-gm/node_modules/_egg-jsonp@2.0.0@egg-jsonp/config/config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "/mnt/g/umi-gm/node_modules/_egg-onerror@2.1.0@egg-onerror/config/config.default.js",
+    "appErrorFilter": "/mnt/g/umi-gm/node_modules/_egg-onerror@2.1.0@egg-onerror/config/config.default.js",
+    "templatePath": "/mnt/g/umi-gm/node_modules/_egg-onerror@2.1.0@egg-onerror/config/config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "/mnt/g/umi-gm/node_modules/_egg-i18n@2.0.0@egg-i18n/config/config.default.js",
+    "dirs": "/mnt/g/umi-gm/node_modules/_egg-i18n@2.0.0@egg-i18n/config/config.default.js",
+    "queryField": "/mnt/g/umi-gm/node_modules/_egg-i18n@2.0.0@egg-i18n/config/config.default.js",
+    "cookieField": "/mnt/g/umi-gm/node_modules/_egg-i18n@2.0.0@egg-i18n/config/config.default.js",
+    "cookieMaxAge": "/mnt/g/umi-gm/node_modules/_egg-i18n@2.0.0@egg-i18n/config/config.default.js"
+  },
+  "watcher": {
+    "type": "/mnt/g/umi-gm/node_modules/_egg-watcher@3.1.0@egg-watcher/config/config.local.js",
+    "eventSources": {
+      "default": "/mnt/g/umi-gm/node_modules/_egg-watcher@3.1.0@egg-watcher/config/config.default.js",
+      "development": "/mnt/g/umi-gm/node_modules/_egg-watcher@3.1.0@egg-watcher/config/config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "/mnt/g/umi-gm/node_modules/_egg-schedule@3.6.1@egg-schedule/config/config.default.js",
+      "file": "/mnt/g/umi-gm/node_modules/_egg-schedule@3.6.1@egg-schedule/config/config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "/mnt/g/umi-gm/node_modules/_egg-schedule@3.6.1@egg-schedule/config/config.default.js"
+  },
+  "multipart": {
+    "mode": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js",
+    "autoFields": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js",
+    "defaultCharset": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js",
+    "fieldNameSize": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js",
+    "fieldSize": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js",
+    "fields": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js",
+    "fileSize": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js",
+    "files": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js",
+    "fileExtensions": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js",
+    "whitelist": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js",
+    "tmpdir": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js",
+    "cleanSchedule": {
+      "cron": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "/mnt/g/umi-gm/node_modules/_egg-development@2.4.2@egg-development/config/config.default.js",
+    "ignoreDirs": "/mnt/g/umi-gm/node_modules/_egg-development@2.4.2@egg-development/config/config.default.js",
+    "fastReady": "/mnt/g/umi-gm/node_modules/_egg-development@2.4.2@egg-development/config/config.default.js",
+    "reloadOnDebug": "/mnt/g/umi-gm/node_modules/_egg-development@2.4.2@egg-development/config/config.default.js",
+    "overrideDefault": "/mnt/g/umi-gm/node_modules/_egg-development@2.4.2@egg-development/config/config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "/mnt/g/umi-gm/node_modules/_egg-logrotator@3.0.7@egg-logrotator/config/config.default.js",
+    "hourDelimiter": "/mnt/g/umi-gm/node_modules/_egg-logrotator@3.0.7@egg-logrotator/config/config.default.js",
+    "filesRotateBySize": "/mnt/g/umi-gm/node_modules/_egg-logrotator@3.0.7@egg-logrotator/config/config.default.js",
+    "maxFileSize": "/mnt/g/umi-gm/node_modules/_egg-logrotator@3.0.7@egg-logrotator/config/config.default.js",
+    "maxFiles": "/mnt/g/umi-gm/node_modules/_egg-logrotator@3.0.7@egg-logrotator/config/config.default.js",
+    "rotateDuration": "/mnt/g/umi-gm/node_modules/_egg-logrotator@3.0.7@egg-logrotator/config/config.default.js",
+    "maxDays": "/mnt/g/umi-gm/node_modules/_egg-logrotator@3.0.7@egg-logrotator/config/config.default.js"
+  },
+  "static": {
+    "prefix": "/mnt/g/umi-gm/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
+    "dir": "/mnt/g/umi-gm/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
+    "dynamic": "/mnt/g/umi-gm/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
+    "preload": "/mnt/g/umi-gm/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
+    "buffer": "/mnt/g/umi-gm/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
+    "maxFiles": "/mnt/g/umi-gm/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js"
+  },
+  "nunjucks": {
+    "autoescape": "/mnt/g/umi-gm/node_modules/_egg-view-nunjucks@2.2.0@egg-view-nunjucks/config/config.default.js",
+    "throwOnUndefined": "/mnt/g/umi-gm/node_modules/_egg-view-nunjucks@2.2.0@egg-view-nunjucks/config/config.default.js",
+    "trimBlocks": "/mnt/g/umi-gm/node_modules/_egg-view-nunjucks@2.2.0@egg-view-nunjucks/config/config.default.js",
+    "lstripBlocks": "/mnt/g/umi-gm/node_modules/_egg-view-nunjucks@2.2.0@egg-view-nunjucks/config/config.default.js",
+    "cache": "/mnt/g/umi-gm/node_modules/_egg-view-nunjucks@2.2.0@egg-view-nunjucks/config/config.local.js"
+  },
+  "env": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "name": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "proxy": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "maxProxyCount": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "protocolHeaders": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "ipHeaders": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "hostHeaders": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "pkg": {
+    "name": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "version": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "description": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "private": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "scripts": {
+      "start": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "stop": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "dev": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "debug": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "build": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "umi:dev": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "umi:build": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "test": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "cov": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "lint": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "ci": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "autod": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+    },
+    "dependencies": {
+      "antd": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "bcrypt": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "dva": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "egg": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "egg-mysql": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "egg-scripts": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "egg-view-assets": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "egg-view-nunjucks": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "jsonwebtoken": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "react": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "react-dom": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+    },
+    "devDependencies": {
+      "autod": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "autod-egg": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "babel-eslint": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "egg-bin": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "egg-ci": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "egg-mock": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "eslint": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "eslint-config-egg": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "eslint-config-umi": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "eslint-plugin-flowtype": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "eslint-plugin-import": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "eslint-plugin-jsx-a11y": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "eslint-plugin-react": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "husky": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "lint-staged": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "react-test-renderer": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "umi": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "umi-plugin-react": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+    },
+    "engines": {
+      "node": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+    },
+    "ci": {
+      "version": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+    },
+    "repository": {
+      "type": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "url": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+    },
+    "author": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "license": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+  },
+  "baseDir": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "HOME": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "rundir": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "dump": {
+    "ignore": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "notFound": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "sitefile": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "middlewares": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "httpClient": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+  },
+  "bodyParser": {
+    "enable": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "encoding": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "formLimit": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "jsonLimit": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "strict": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "queryString": {
+      "arrayLimit": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "depth": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "parameterLimit": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+    }
+  },
+  "logger": {
+    "dir": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "encoding": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "env": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "level": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "consoleLevel": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "disableConsoleAfterReady": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "outputJSON": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "buffer": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "appLogName": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "coreLogName": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "agentLogName": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "errorLogName": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "coreLogger": {
+      "consoleLevel": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.local.js"
+    },
+    "allowDebugAtProd": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "dnsCacheLookupInterval": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "dnsCacheMaxLength": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "request": {
+      "timeout": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "freeSocketTimeout": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "maxSockets": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "maxFreeSockets": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "freeSocketTimeout": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "maxSockets": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "maxFreeSockets": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "logging": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+  },
+  "coreMiddleware": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "workerStartTimeout": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "serverTimeout": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "port": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+      "hostname": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js",
+    "responseTimeout": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+  },
+  "onClientError": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/config.default.js"
+}
