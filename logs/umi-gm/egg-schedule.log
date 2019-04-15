@@ -296,3 +296,5 @@
 2019-04-15 12:24:40,209 INFO 3097 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
 2019-04-15 12:26:34,170 INFO 3110 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
 2019-04-15 12:26:34,170 INFO 3110 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-04-15 12:27:07,123 INFO 3124 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-04-15 12:27:07,124 INFO 3124 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
