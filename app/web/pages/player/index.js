@@ -193,7 +193,7 @@ class PlayerMan extends React.Component {
           <Table
             rowKey={record => record.guid}
             style={{marginTop: 20}}
-            pagination={{defaultPageSize: 5}}
+            pagination={{pageSize: 5}}
             columns={columns}
             dataSource={data} />
         </Card>

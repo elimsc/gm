@@ -2172,3 +2172,79 @@
 2019-04-15 12:27:07,602 INFO 3124 [egg-watcher:application] watcher start success
 2019-04-15 12:27:07,617 INFO 3124 [egg-mysql] instance[0] status OK, rds currentTime: Mon Apr 15 2019 12:27:07 GMT+0800 (GMT+08:00)
 2019-04-15 12:27:07,642 INFO 3124 [egg:core] dump config after ready, 22ms
+2019-04-15 14:27:58,343 INFO 3372 [egg:logger] init all loggers with options: {"dir":"/mnt/g/umi-gm/logs/umi-gm","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"umi-gm-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-04-15 14:27:58,446 INFO 3372 [egg-multipart] stream mode enable
+2019-04-15 14:27:58,448 INFO 3372 [egg-mysql] connecting root@localhost:3306/gm2
+2019-04-15 14:27:59,597 INFO 3372 [egg-static] starting static serve /public/ -> /mnt/g/umi-gm/app/public
+2019-04-15 14:27:59,603 INFO 3372 [egg-security] use methodnoallow middleware
+2019-04-15 14:27:59,605 INFO 3372 [egg-security] use noopen middleware
+2019-04-15 14:27:59,607 INFO 3372 [egg-security] use nosniff middleware
+2019-04-15 14:27:59,608 INFO 3372 [egg-security] use xssProtection middleware
+2019-04-15 14:27:59,608 INFO 3372 [egg-security] use xframe middleware
+2019-04-15 14:27:59,614 INFO 3372 [egg-security] use dta middleware
+2019-04-15 14:27:59,614 INFO 3372 [egg-security] compose 6 middlewares into one security middleware
+2019-04-15 14:27:59,763 INFO 3372 [egg:core] dump config after load, 99ms
+2019-04-15 14:27:59,808 INFO 3372 [egg-watcher:application] watcher start success
+2019-04-15 14:27:59,829 INFO 3372 [egg-mysql] instance[0] status OK, rds currentTime: Mon Apr 15 2019 14:27:59 GMT+0800 (GMT+08:00)
+2019-04-15 14:27:59,860 INFO 3372 [egg:core] dump config after ready, 28ms
+2019-04-15 14:28:02,414 INFO 3392 [egg:logger] init all loggers with options: {"dir":"/mnt/g/umi-gm/logs/umi-gm","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"umi-gm-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-04-15 14:28:02,536 INFO 3392 [egg-multipart] stream mode enable
+2019-04-15 14:28:02,539 INFO 3392 [egg-mysql] connecting root@localhost:3306/gm2
+2019-04-15 14:28:02,940 INFO 3392 [egg-static] starting static serve /public/ -> /mnt/g/umi-gm/app/public
+2019-04-15 14:28:02,944 INFO 3392 [egg-security] use methodnoallow middleware
+2019-04-15 14:28:02,946 INFO 3392 [egg-security] use noopen middleware
+2019-04-15 14:28:02,947 INFO 3392 [egg-security] use nosniff middleware
+2019-04-15 14:28:02,948 INFO 3392 [egg-security] use xssProtection middleware
+2019-04-15 14:28:02,949 INFO 3392 [egg-security] use xframe middleware
+2019-04-15 14:28:02,950 INFO 3392 [egg-security] use dta middleware
+2019-04-15 14:28:02,950 INFO 3392 [egg-security] compose 6 middlewares into one security middleware
+2019-04-15 14:28:02,985 INFO 3392 [egg:core] dump config after load, 22ms
+2019-04-15 14:28:03,019 INFO 3392 [egg-watcher:application] watcher start success
+2019-04-15 14:28:03,032 INFO 3392 [egg-mysql] instance[0] status OK, rds currentTime: Mon Apr 15 2019 14:28:03 GMT+0800 (GMT+08:00)
+2019-04-15 14:28:03,058 INFO 3392 [egg:core] dump config after ready, 22ms
+2019-04-15 14:28:09,037 INFO 3404 [egg:logger] init all loggers with options: {"dir":"/mnt/g/umi-gm/logs/umi-gm","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"umi-gm-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-04-15 14:28:09,205 INFO 3404 [egg-multipart] stream mode enable
+2019-04-15 14:28:09,252 INFO 3404 [egg-mysql] connecting root@localhost:3306/gm2
+2019-04-15 14:28:10,964 INFO 3404 [egg-static] starting static serve /public/ -> /mnt/g/umi-gm/app/public
+2019-04-15 14:28:10,968 INFO 3404 [egg-security] use methodnoallow middleware
+2019-04-15 14:28:10,970 INFO 3404 [egg-security] use noopen middleware
+2019-04-15 14:28:11,025 INFO 3404 [egg-security] use nosniff middleware
+2019-04-15 14:28:11,026 INFO 3404 [egg-security] use xssProtection middleware
+2019-04-15 14:28:11,027 INFO 3404 [egg-security] use xframe middleware
+2019-04-15 14:28:11,028 INFO 3404 [egg-security] use dta middleware
+2019-04-15 14:28:11,028 INFO 3404 [egg-security] compose 6 middlewares into one security middleware
+2019-04-15 14:28:11,197 INFO 3404 [egg:core] dump config after load, 97ms
+2019-04-15 14:28:11,241 INFO 3404 [egg-watcher:application] watcher start success
+2019-04-15 14:28:11,256 INFO 3404 [egg-mysql] instance[0] status OK, rds currentTime: Mon Apr 15 2019 14:28:11 GMT+0800 (GMT+08:00)
+2019-04-15 14:28:11,298 INFO 3404 [egg:core] dump config after ready, 39ms
+2019-04-15 14:28:15,969 INFO 3420 [egg:logger] init all loggers with options: {"dir":"/mnt/g/umi-gm/logs/umi-gm","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"umi-gm-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-04-15 14:28:16,082 INFO 3420 [egg-multipart] stream mode enable
+2019-04-15 14:28:16,085 INFO 3420 [egg-mysql] connecting root@localhost:3306/gm2
+2019-04-15 14:28:16,489 INFO 3420 [egg-static] starting static serve /public/ -> /mnt/g/umi-gm/app/public
+2019-04-15 14:28:16,493 INFO 3420 [egg-security] use methodnoallow middleware
+2019-04-15 14:28:16,495 INFO 3420 [egg-security] use noopen middleware
+2019-04-15 14:28:16,496 INFO 3420 [egg-security] use nosniff middleware
+2019-04-15 14:28:16,497 INFO 3420 [egg-security] use xssProtection middleware
+2019-04-15 14:28:16,498 INFO 3420 [egg-security] use xframe middleware
+2019-04-15 14:28:16,499 INFO 3420 [egg-security] use dta middleware
+2019-04-15 14:28:16,499 INFO 3420 [egg-security] compose 6 middlewares into one security middleware
+2019-04-15 14:28:16,534 INFO 3420 [egg:core] dump config after load, 22ms
+2019-04-15 14:28:16,568 INFO 3420 [egg-watcher:application] watcher start success
+2019-04-15 14:28:16,582 INFO 3420 [egg-mysql] instance[0] status OK, rds currentTime: Mon Apr 15 2019 14:28:16 GMT+0800 (GMT+08:00)
+2019-04-15 14:28:16,609 INFO 3420 [egg:core] dump config after ready, 24ms
+2019-04-15 14:28:21,631 INFO 3432 [egg:logger] init all loggers with options: {"dir":"/mnt/g/umi-gm/logs/umi-gm","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"umi-gm-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-04-15 14:28:21,820 INFO 3432 [egg-multipart] stream mode enable
+2019-04-15 14:28:21,841 INFO 3432 [egg-mysql] connecting root@localhost:3306/gm2
+2019-04-15 14:28:22,831 INFO 3432 [egg-static] starting static serve /public/ -> /mnt/g/umi-gm/app/public
+2019-04-15 14:28:22,844 INFO 3432 [egg-security] use methodnoallow middleware
+2019-04-15 14:28:22,847 INFO 3432 [egg-security] use noopen middleware
+2019-04-15 14:28:22,873 INFO 3432 [egg-security] use nosniff middleware
+2019-04-15 14:28:22,874 INFO 3432 [egg-security] use xssProtection middleware
+2019-04-15 14:28:22,875 INFO 3432 [egg-security] use xframe middleware
+2019-04-15 14:28:22,876 INFO 3432 [egg-security] use dta middleware
+2019-04-15 14:28:22,876 INFO 3432 [egg-security] compose 6 middlewares into one security middleware
+2019-04-15 14:28:24,550 INFO 3432 [egg:core] dump config after load, 2s
+2019-04-15 14:28:24,606 INFO 3432 [egg-watcher:application] watcher start success
+2019-04-15 14:28:24,620 INFO 3432 [egg-mysql] instance[0] status OK, rds currentTime: Mon Apr 15 2019 14:28:24 GMT+0800 (GMT+08:00)
+2019-04-15 14:28:24,715 INFO 3432 [egg:core] dump config after ready, 92ms
+2019-04-15 14:28:39,417 INFO 3432 [egg-view-nunjucks] loading templates from ["/mnt/g/umi-gm/app/view"]

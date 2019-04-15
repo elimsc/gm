@@ -49,22 +49,16 @@ class UserService extends Service {
     if (value.password) {
       const hashed_pass = bcrypt.hashSync(value.password, 10);
       password = hashed_pass;
+      value.password = password;
     }
 
     let result;
-    if (password) { // 修改密码需要独立的操作
-      try {
-        result = await this.app.mysql.update('user', { ...value, password });
-      } catch (e) {
-        return false;
-      }
-    } else {
-      try {
-        result = await this.app.mysql.update('user', value);
-      } catch (e) {
-        return false;
-      }
+    try {
+      result = await this.app.mysql.update('user', value);
+    } catch (e) {
+      return false;
     }
+
     return result.affectedRows === 1;
   }
 

@@ -58,3 +58,4 @@ hostname: DESKTOP-NCOD5CJ
 2019-04-13 17:15:48,754 ERROR 4978 [egg-view-assets] Run "umi dev" failed after 60s
 2019-04-13 17:53:44,182 ERROR 5384 [egg-view-assets] Run "umi dev" failed after 60s
 2019-04-15 11:13:21,185 ERROR 1303 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-15 14:28:55,675 ERROR 3355 [egg-view-assets] Run "umi dev" failed after 60s

@@ -298,3 +298,15 @@
 2019-04-15 12:26:34,170 INFO 3110 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
 2019-04-15 12:27:07,123 INFO 3124 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
 2019-04-15 12:27:07,124 INFO 3124 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-04-15 14:27:58,444 INFO 3372 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-04-15 14:27:58,444 INFO 3372 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-04-15 14:27:59,877 INFO 3355 [Timer] /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 34320132ms at 2019-04-16 00:00:00.009
+2019-04-15 14:27:59,878 INFO 3355 [Timer] /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 34321123ms at 2019-04-16 00:00:01.001
+2019-04-15 14:28:02,534 INFO 3392 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-04-15 14:28:02,534 INFO 3392 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-04-15 14:28:09,203 INFO 3404 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-04-15 14:28:09,203 INFO 3404 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-04-15 14:28:16,081 INFO 3420 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-04-15 14:28:16,081 INFO 3420 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-04-15 14:28:21,818 INFO 3432 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-04-15 14:28:21,818 INFO 3432 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
