@@ -1,6 +1,5 @@
 import React from 'react';
-import Form from 'antd/lib/form';
-import { Card, Row, Col, Input, Button, Table, Menu, Empty } from 'antd';
+import { Card, Row, Col, Input, Button, Table, Menu, Empty, Form, Select } from 'antd';
 import BasicInfo from './components/playerinfo/BasicInfo';
 import BagInfo from './components/playerinfo/BagInfo';
 import WarehouseInfo from './components/playerinfo/WarehouseInfo';
@@ -36,10 +35,31 @@ const data = [
     sex: '男',
     menpai: '正剑门',
     level: '50',
-    guid: '123131231423434535',
+    guid: '123131231423434531',
   },
   {
     name: '小小号2',
+    sex: '男',
+    menpai: '正剑门',
+    level: '50',
+    guid: '123131231423434532',
+  },
+  {
+    name: '小小号3',
+    sex: '男',
+    menpai: '正剑门',
+    level: '50',
+    guid: '123131231423434533',
+  },
+  {
+    name: '小小号3',
+    sex: '男',
+    menpai: '正剑门',
+    level: '50',
+    guid: '123131231423434534',
+  },
+  {
+    name: '小小号3',
     sex: '男',
     menpai: '正剑门',
     level: '50',
@@ -50,7 +70,21 @@ const data = [
     sex: '男',
     menpai: '正剑门',
     level: '50',
-    guid: '123131231423434535',
+    guid: '123131231423434536',
+  },
+  {
+    name: '小小号3',
+    sex: '男',
+    menpai: '正剑门',
+    level: '50',
+    guid: '123131231423434537',
+  },
+  {
+    name: '小小号3',
+    sex: '男',
+    menpai: '正剑门',
+    level: '50',
+    guid: '123131231423434538',
   },
 ];
 
@@ -64,12 +98,17 @@ class PlayerMan extends React.Component {
     this.state = {
       player: null,
       menu: 'basic-info', // 当前选中menu
+      filter: {},
     }
   }
 
   handleSearch(e) {
     e.preventDefault();
-    console.log(e);
+    this.props.form.validateFieldsAndScroll((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
   }
 
   select(menu) {
@@ -77,6 +116,8 @@ class PlayerMan extends React.Component {
   }
 
   render() {
+
+    const {getFieldDecorator} = this.props.form;
 
     // 玩家查询结果列表用
     const columns = [
@@ -87,8 +128,8 @@ class PlayerMan extends React.Component {
       },
       {
         title: '性别',
-        dataIndex: 'sex',
-        key: 'sex',
+        dataIndex: 'gender',
+        key: 'gender',
       },
       {
         title: '门派',
@@ -101,7 +142,7 @@ class PlayerMan extends React.Component {
         key: 'level',
       },
       {
-        title: 'guid',
+        title: 'GUID',
         dataIndex: 'guid',
         key: 'guid',
       },
@@ -122,28 +163,41 @@ class PlayerMan extends React.Component {
           <Form layout="inline" onSubmit={(e) => this.handleSearch(e)}>
             <Row>
               <Col span={6}>
-                <Form.Item label="查询内容">
-                  <Input />
+                <Form.Item label="选中输入类型" >
+                {getFieldDecorator('type', {
+                  initialValue: '0',
+                })(
+                  <Select style={{width: 100}}>
+                    <Select.Option value="0">角色名</Select.Option>
+                    <Select.Option value="1">guid</Select.Option>
+                    <Select.Option value="2">uid</Select.Option>
+                  </Select>
+                )}
                 </Form.Item>
               </Col>
               <Col span={6}>
-                <Form.Item label="查询">
+                <Form.Item label="角色名或GUID">
+                {getFieldDecorator('name', {
+                  initialValue: '',
+                })(
                   <Input />
+                )}
                 </Form.Item>
               </Col>
-              <Col span={6}>
-                <Form.Item label="服务器">
-                  <Input />
-                </Form.Item>
-              </Col>
-              <Col span={6}>
+
+              <Col span={4}>
                 <Button htmlType="submit" type="primary">查询</Button>
               </Col>
             </Row>
           </Form>
-          <Table rowKey={record => record.name} style={{marginTop: 20}} columns={columns} dataSource={data} />
+          <Table
+            rowKey={record => record.guid}
+            style={{marginTop: 20}}
+            pagination={{defaultPageSize: 5}}
+            columns={columns}
+            dataSource={data} />
         </Card>
-        <Card style={{marginTop: 30, minHeight: 800}} title="当前选中玩家：小小玩家1">
+        <Card style={{marginTop: 30, minHeight: 1000}} title="当前选中玩家：小小玩家1">
           <Row>
             <Col span={4}>
               <Menu mode="inline" selectedKeys={[this.state.menu]} defaultOpenKeys={['playerinfo']}>
@@ -260,4 +314,4 @@ function show(key) {
   }
 }
 
-export default PlayerMan;
+export default Form.create()(PlayerMan);

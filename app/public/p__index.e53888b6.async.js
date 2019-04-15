@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[9],{"HxS+":function(e,t,l){"use strict";var o=l("g09b");Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var a=o(l("q1tI")),n=e=>a.default.createElement("h1",null,"Hello from here");t.default=n}}]);

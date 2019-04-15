@@ -1,7 +1,6 @@
 import React from 'react';
 
-import TableInfo from '@/components/TablelInfo';
-import { Divider } from 'antd';
+import TableInfoList from '@/components/TableInfoList';
 
 const data = [
   [
@@ -44,12 +43,7 @@ const data = [
 class WarehouseInfo extends React.Component {
   render() {
     return (
-      data.map((value, index) => (
-        <div>
-          <TableInfo style={{marginLeft: 20}} data={value} />
-          <Divider />
-        </div>
-      ))
+      <TableInfoList data={data} />
     );
   }
 }

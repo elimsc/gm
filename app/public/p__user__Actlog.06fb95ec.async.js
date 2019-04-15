@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[15],{smXi:function(e,t,n){"use strict";var a=n("g09b");Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var d=a(n("q1tI"));class r extends d.default.Component{render(){return d.default.createElement("h1",null,"\u8fd9\u91cc\u662f\u64cd\u4f5c\u8bb0\u5f55")}}var u=r;t.default=u}}]);

@@ -29,7 +29,7 @@ const TableInfo = (props) => {
       <Row gutter={24}>
         <Col span={8}>
           {data.map((data, index) => {
-            if (index % 3 == 0) {
+            if (index % 3 === 0) {
               return (
                 <Form.Item key={`${index}`} label={data.title}>
                   <Input value={data.value} />
@@ -40,7 +40,7 @@ const TableInfo = (props) => {
         </Col>
         <Col span={8}>
           {data.map((data, index) => {
-            if (index % 3 == 1) {
+            if (index % 3 === 1) {
               return (
                 <Form.Item key={`${index}`} label={data.title}>
                   <Input value={data.value} />
@@ -51,7 +51,7 @@ const TableInfo = (props) => {
         </Col>
         <Col span={8}>
           {data.map((data, index) => {
-            if (index % 3 == 2) {
+            if (index % 3 === 2) {
               return (
                 <Form.Item key={`${index}`} label={data.title}>
                   <Input value={data.value} />

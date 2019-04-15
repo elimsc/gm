@@ -64,7 +64,7 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "/mnt/g/umi-gm/node_modules/_egg-onerror@2.1.0@egg-onerror/lib/onerror_page.mustache"
+      "templatePath": "/mnt/g/umi-gm/node_modules/egg-onerror/lib/onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
@@ -76,8 +76,8 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "/mnt/g/umi-gm/node_modules/_egg-watcher@3.1.0@egg-watcher/lib/event-sources/default",
-        "development": "/mnt/g/umi-gm/node_modules/_egg-watcher@3.1.0@egg-watcher/lib/event-sources/development"
+        "default": "/mnt/g/umi-gm/node_modules/egg-watcher/lib/event-sources/default",
+        "development": "/mnt/g/umi-gm/node_modules/egg-watcher/lib/event-sources/development"
       }
     },
     "customLogger": {
@@ -204,7 +204,7 @@
         "stop": "egg-scripts stop",
         "dev": "egg-bin dev",
         "debug": "egg-bin debug",
-        "build": "umi build",
+        "build": "UMI_ENV=prod CI=true umi build",
         "umi:dev": "umi dev",
         "umi:build": "UMI_ENV=prod CI=true umi build",
         "test": "egg-bin test",
@@ -370,8 +370,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-session@3.1.0@egg-session",
+      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
+      "path": "/mnt/g/umi-gm/node_modules/egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -383,8 +383,8 @@
         "session"
       ],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-security@2.5.0@egg-security",
+      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
+      "path": "/mnt/g/umi-gm/node_modules/egg-security",
       "version": "2.5.0"
     },
     "jsonp": {
@@ -396,8 +396,8 @@
         "security"
       ],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-jsonp@2.0.0@egg-jsonp",
+      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
+      "path": "/mnt/g/umi-gm/node_modules/egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -409,8 +409,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-onerror@2.1.0@egg-onerror",
+      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
+      "path": "/mnt/g/umi-gm/node_modules/egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -420,8 +420,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-i18n@2.0.0@egg-i18n",
+      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
+      "path": "/mnt/g/umi-gm/node_modules/egg-i18n",
       "version": "2.0.0"
     },
     "watcher": {
@@ -431,8 +431,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-watcher@3.1.0@egg-watcher",
+      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
+      "path": "/mnt/g/umi-gm/node_modules/egg-watcher",
       "version": "3.1.0"
     },
     "schedule": {
@@ -442,8 +442,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-schedule@3.6.1@egg-schedule",
+      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
+      "path": "/mnt/g/umi-gm/node_modules/egg-schedule",
       "version": "3.6.1"
     },
     "multipart": {
@@ -455,8 +455,8 @@
         "schedule"
       ],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-multipart@2.4.0@egg-multipart",
+      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
+      "path": "/mnt/g/umi-gm/node_modules/egg-multipart",
       "version": "2.4.0"
     },
     "development": {
@@ -470,8 +470,8 @@
       "env": [
         "local"
       ],
-      "from": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-development@2.4.2@egg-development",
+      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
+      "path": "/mnt/g/umi-gm/node_modules/egg-development",
       "version": "2.4.2"
     },
     "logrotator": {
@@ -483,8 +483,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-logrotator@3.0.7@egg-logrotator",
+      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
+      "path": "/mnt/g/umi-gm/node_modules/egg-logrotator",
       "version": "3.0.7"
     },
     "static": {
@@ -494,8 +494,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-static@2.2.0@egg-static",
+      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
+      "path": "/mnt/g/umi-gm/node_modules/egg-static",
       "version": "2.2.0"
     },
     "view": {
@@ -505,8 +505,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/_egg@2.21.1@egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-view@2.1.2@egg-view",
+      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
+      "path": "/mnt/g/umi-gm/node_modules/egg-view",
       "version": "2.1.2"
     },
     "assets": {
@@ -519,7 +519,7 @@
       "optionalDependencies": [],
       "env": [],
       "from": "/mnt/g/umi-gm/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-view-assets@1.5.0@egg-view-assets",
+      "path": "/mnt/g/umi-gm/node_modules/egg-view-assets",
       "version": "1.5.0"
     },
     "nunjucks": {
@@ -533,7 +533,7 @@
       "optionalDependencies": [],
       "env": [],
       "from": "/mnt/g/umi-gm/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-view-nunjucks@2.2.0@egg-view-nunjucks",
+      "path": "/mnt/g/umi-gm/node_modules/egg-view-nunjucks",
       "version": "2.2.0"
     },
     "mysql": {
@@ -544,7 +544,7 @@
       "optionalDependencies": [],
       "env": [],
       "from": "/mnt/g/umi-gm/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/_egg-mysql@3.0.0@egg-mysql",
+      "path": "/mnt/g/umi-gm/node_modules/egg-mysql",
       "version": "3.0.0"
     }
   }

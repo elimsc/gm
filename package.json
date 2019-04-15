@@ -8,7 +8,7 @@
     "stop": "egg-scripts stop",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
-    "build": "umi build",
+    "build": "UMI_ENV=prod CI=true umi build",
     "umi:dev": "umi dev",
     "umi:build": "UMI_ENV=prod CI=true umi build",
     "test": "egg-bin test",

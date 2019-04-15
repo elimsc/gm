@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[5],{n8Fl:function(e,n,t){"use strict";var a=t("g09b");Object.defineProperty(n,"__esModule",{value:!0}),n.default=void 0;var d=a(t("q1tI"));class l extends d.default.Component{render(){return d.default.createElement("h1",null,"GM\u7ba1\u7406--\u64cd\u4f5c\u65e5\u5fd7")}}var r=l;n.default=r}}]);

@@ -11,7 +11,7 @@ module.exports = appInfo => {
 
   config.auth = {
     key: '123456',
-  }
+  };
 
   config.view = {
     mapping: {
