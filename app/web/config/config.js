@@ -3,7 +3,7 @@ export default {
     [
       'umi-plugin-react',
       {
-        dva: true,
+        dva: false,
         antd: true,
         dynamicImport: {
           webpackChunkName: true,
@@ -13,4 +13,5 @@ export default {
   ],
   runtimePublicPath: true,
   cssModulesWithAffix: true,
+  extraBabelPresets: ['mobx'],
 };

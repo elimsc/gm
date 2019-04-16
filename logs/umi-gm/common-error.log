@@ -59,3 +59,27 @@ hostname: DESKTOP-NCOD5CJ
 2019-04-13 17:53:44,182 ERROR 5384 [egg-view-assets] Run "umi dev" failed after 60s
 2019-04-15 11:13:21,185 ERROR 1303 [egg-view-assets] Run "umi dev" failed after 60s
 2019-04-15 14:28:55,675 ERROR 3355 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-16 10:09:25,810 ERROR 667 [-/127.0.0.1/-/0ms GET /] nodejs.ECONNREFUSEDError: connect ECONNREFUSED 127.0.0.1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+    --------------------
+    at Protocol._enqueue (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at PoolConnection.connect (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:118:18)
+    at Pool.getConnection (/mnt/g/umi-gm/node_modules/mysql/lib/Pool.js:48:16)
+    at /mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:12:10)
+    at Pool.ret [as getConnection] (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:56:34)
+    at Pool.query (/mnt/g/umi-gm/node_modules/mysql/lib/Pool.js:202:8)
+    at /mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:29:7
+    sql: select now() as currentTime;
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "127.0.0.1"
+port: 3306
+fatal: true
+name: "ECONNREFUSEDError"
+pid: 667
+hostname: DESKTOP-NCOD5CJ
+

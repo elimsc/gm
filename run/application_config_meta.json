@@ -215,7 +215,6 @@
     "dependencies": {
       "antd": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "bcrypt": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "dva": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-mysql": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-scripts": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
