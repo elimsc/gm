@@ -183,7 +183,7 @@
         "port": "3306",
         "user": "root",
         "password": "<String len: 4>",
-        "database": "gm2"
+        "database": "gm"
       }
     },
     "env": "local",
@@ -222,6 +222,8 @@
         "egg-view-assets": "^1.3.0",
         "egg-view-nunjucks": "^2.2.0",
         "jsonwebtoken": "^8.5.1",
+        "mobx": "^5.9.4",
+        "mobx-react": "^5.4.3",
         "react": "^16.7.0",
         "react-dom": "^16.7.0"
       },
@@ -229,6 +231,7 @@
         "autod": "^3.0.1",
         "autod-egg": "^1.1.0",
         "babel-eslint": "^9.0.0",
+        "babel-preset-mobx": "^2.0.0",
         "egg-bin": "^4.11.0",
         "egg-ci": "^1.11.0",
         "egg-mock": "^3.21.0",
@@ -545,6 +548,15 @@
       "from": "/mnt/g/umi-gm/config/plugin.js",
       "path": "/mnt/g/umi-gm/node_modules/egg-mysql",
       "version": "3.0.0"
+    },
+    "egg-mock": {
+      "enable": true,
+      "path": "/mnt/g/umi-gm/node_modules/egg-mock",
+      "name": "egg-mock",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "version": "3.22.2"
     }
   }
 }

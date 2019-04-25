@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 
 class UserService extends Service {
 
+  // 用户列表
   async list({ pageSize, page, username }) {
     const condition = {};
     if (username) {
@@ -20,6 +21,7 @@ class UserService extends Service {
     return users;
   }
 
+  // 指定条件下的用户数量
   async count({ username }) {
     const condition = {};
     if (username) {
@@ -44,6 +46,17 @@ class UserService extends Service {
     }
   }
 
+  // 删除用户
+  async delete(username) {
+    try {
+      const result = await this.app.mysql.delete('user', { username });
+      return result.affectedRows === 1;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // 更新用户信息
   async update(value) {
     let password;
     if (value.password) {
@@ -55,11 +68,10 @@ class UserService extends Service {
     let result;
     try {
       result = await this.app.mysql.update('user', value);
+      return result.affectedRows === 1;
     } catch (e) {
       return false;
     }
-
-    return result.affectedRows === 1;
   }
 
 }

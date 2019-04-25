@@ -16,11 +16,11 @@ const PAYLOAD = {
     pay_type: -1,
     part_id: -1,
   },
-}
+};
 
 const GM_KEY = 'WmwcCCbA*f1gTc12aPcv3_#md5_key';
 
-exports.genBody = (head = {}, body = {}, token_param_list = []) => {
+const genBody = (head = {}, body = {}, token_param_list = []) => {
   // 组合值
   const payload = {
     head: { ...PAYLOAD.head, ...head },
@@ -35,4 +35,37 @@ exports.genBody = (head = {}, body = {}, token_param_list = []) => {
   payload.head.token = token;
 
   return payload;
-}
+};
+
+
+/**
+ * {
+ *  name: 'name1',
+ *  cnt: 2,
+ * }
+ * 在参数
+ * {
+ *  name: '名字',
+ *  cnt: '数量'
+ * }
+ * 转化为
+ * [
+ * {key: 'name', title: '姓名', value: 'name1'},
+ * {key: 'cnt', title: '数量'， value: 2}
+ * ]
+ * @param src 数据源
+ * @param tpl 转化模板
+ */
+const tableInfoConv = (src, tpl) => {
+  return Object.keys(src).map(k => {
+    return { key: k, title: tpl[k], value: src[k] };
+  });
+};
+
+const tableInfoListConv = (src, tpl) => {
+  return src.map(data => {
+    return tableInfoConv(data, tpl);
+  });
+};
+
+module.exports = { tableInfoConv, tableInfoListConv, genBody };

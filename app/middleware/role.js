@@ -1,7 +1,7 @@
 'use strict';
 
 
-// 判断用户是否有运营管理员权限
+// 判断用户是否有有指定的权限
 module.exports = options => {
   return async function role(ctx, next) {
     const expect_role = options.role;

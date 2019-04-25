@@ -216,7 +216,7 @@
         "port": "3306",
         "user": "root",
         "password": "<String len: 4>",
-        "database": "gm2"
+        "database": "gm"
       }
     },
     "env": "local",
@@ -249,6 +249,7 @@
       "dependencies": {
         "antd": "^3.15.0",
         "bcrypt": "^3.0.5",
+        "dva": "^2.4.1",
         "egg": "^2.15.1",
         "egg-mysql": "^3.0.0",
         "egg-scripts": "^2.11.0",
@@ -262,6 +263,7 @@
         "autod": "^3.0.1",
         "autod-egg": "^1.1.0",
         "babel-eslint": "^9.0.0",
+        "babel-preset-mobx": "^2.0.0",
         "egg-bin": "^4.11.0",
         "egg-ci": "^1.11.0",
         "egg-mock": "^3.21.0",

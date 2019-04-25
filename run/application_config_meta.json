@@ -215,6 +215,7 @@
     "dependencies": {
       "antd": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "bcrypt": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+      "dva": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-mysql": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-scripts": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
@@ -228,6 +229,7 @@
       "autod": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "autod-egg": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "babel-eslint": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+      "babel-preset-mobx": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-bin": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-ci": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-mock": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",

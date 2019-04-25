@@ -11,7 +11,7 @@ const BasicLayout = props => {
   });
   if (props.location.pathname === '/login') {
     return (
-      <LoginLayout>
+      <LoginLayout style={{ opacity: 0 }}>
         {props.children}
       </LoginLayout>
     );

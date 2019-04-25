@@ -32,7 +32,7 @@ module.exports = options => {
           };
         }
       } catch (e) {
-        console.log(e);
+        ctx.logger.debug(e);
         ctx.body = {
           code: -10,
           message: '没有登陆',

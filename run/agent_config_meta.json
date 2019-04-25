@@ -221,6 +221,8 @@
       "egg-view-assets": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-view-nunjucks": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "jsonwebtoken": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+      "mobx": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+      "mobx-react": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "react": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "react-dom": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js"
     },
@@ -228,6 +230,7 @@
       "autod": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "autod-egg": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "babel-eslint": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+      "babel-preset-mobx": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-bin": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-ci": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-mock": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
