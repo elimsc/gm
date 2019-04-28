@@ -207,32 +207,25 @@
       "umi:dev": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "umi:build": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "test": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "cov": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "lint": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "ci": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "autod": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js"
+      "lint": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js"
     },
     "dependencies": {
       "antd": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "bcrypt": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+      "dva": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-mysql": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-scripts": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-view-assets": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-view-nunjucks": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "jsonwebtoken": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "mobx": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "mobx-react": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "react": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "react-dom": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js"
+      "react-dom": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+      "umi-plugin-react": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js"
     },
     "devDependencies": {
-      "autod": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "autod-egg": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "babel-eslint": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "babel-preset-mobx": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-bin": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "egg-ci": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "egg-mock": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "eslint": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "eslint-config-egg": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
@@ -241,11 +234,8 @@
       "eslint-plugin-import": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "eslint-plugin-jsx-a11y": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "eslint-plugin-react": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "husky": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "lint-staged": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "react-test-renderer": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "umi": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-      "umi-plugin-react": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js"
+      "umi": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js"
     },
     "engines": {
       "node": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js"

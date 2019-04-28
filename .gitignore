@@ -18,5 +18,5 @@
 .umi-production
 
 # logs
-/run/**.json
-/logs/umi-gm/**.log
+/run/**
+/logs/**

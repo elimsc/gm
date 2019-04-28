@@ -48,3 +48,15 @@
 2019-04-25 12:53:09,722 INFO 3130 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
 2019-04-25 12:53:44,422 INFO 3142 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
 2019-04-25 12:53:44,422 INFO 3142 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-04-25 20:07:51,534 INFO 5517 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-04-25 20:07:51,534 INFO 5517 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-04-25 20:07:54,813 INFO 5499 [Timer] /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 13925198ms at 2019-04-26 00:00:00.011
+2019-04-25 20:07:54,813 INFO 5499 [Timer] /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 13926187ms at 2019-04-26 00:00:01.000
+2019-04-28 15:38:16,674 INFO 10991 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-04-28 15:38:16,674 INFO 10991 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-04-28 15:38:17,265 INFO 10979 [Timer] /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 30102745ms at 2019-04-29 00:00:00.010
+2019-04-28 15:38:17,266 INFO 10979 [Timer] /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 30103735ms at 2019-04-29 00:00:01.001
+2019-04-28 15:39:27,670 INFO 11080 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-04-28 15:39:27,670 INFO 11080 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-04-28 15:39:28,179 INFO 11064 [Timer] /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 30031832ms at 2019-04-29 00:00:00.011
+2019-04-28 15:39:28,180 INFO 11064 [Timer] /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 30032820ms at 2019-04-29 00:00:01.000

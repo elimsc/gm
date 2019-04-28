@@ -10,3 +10,51 @@
 2019-04-25 12:28:47,588 INFO 2815 [egg:core] dump config after ready, 5ms
 2019-04-25 12:28:47,827 WARN 2815 [egg-view-assets] dev server will be killed
 2019-04-25 12:28:47,829 INFO 2815 [egg-view-assets] Run "umi dev" exit with code null
+2019-04-25 20:07:42,247 INFO 5499 [egg:logger] init all loggers with options: {"dir":"/mnt/g/umi-gm/logs/umi-gm","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"umi-gm-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2019-04-25 20:07:44,404 INFO 5499 [egg:core] dump config after load, 25ms
+2019-04-25 20:07:44,773 INFO 5499 [egg-watcher] Start watching: ["/mnt/g/umi-gm/app","/mnt/g/umi-gm/config","/mnt/g/umi-gm/mocks","/mnt/g/umi-gm/mocks_proxy","/mnt/g/umi-gm/app.js"]
+2019-04-25 20:07:44,773 INFO 5499 [egg-watcher] Start watching: "/mnt/g/umi-gm/app"
+2019-04-25 20:07:44,775 INFO 5499 [egg-watcher] Start watching: "/mnt/g/umi-gm/config"
+2019-04-25 20:07:44,775 INFO 5499 [egg-watcher] Start watching: "/mnt/g/umi-gm/mocks"
+2019-04-25 20:07:44,776 INFO 5499 [egg-watcher] Start watching: "/mnt/g/umi-gm/mocks_proxy"
+2019-04-25 20:07:44,776 INFO 5499 [egg-watcher] Start watching: "/mnt/g/umi-gm/app.js"
+2019-04-25 20:07:44,777 INFO 5499 [egg-watcher:agent] watcher start success
+2019-04-25 20:07:45,107 INFO 5499 [egg:core] dump config after ready, 6ms
+2019-04-25 20:08:45,654 ERROR 5499 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-28 15:03:49,476 INFO 10826 [egg:logger] init all loggers with options: {"dir":"/mnt/g/umi-gm/logs/umi-gm","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"umi-gm-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2019-04-28 15:03:50,192 INFO 10826 [egg:core] dump config after load, 8ms
+2019-04-28 15:03:50,312 INFO 10826 [egg-watcher] Start watching: ["/mnt/g/umi-gm/app","/mnt/g/umi-gm/config","/mnt/g/umi-gm/mocks","/mnt/g/umi-gm/mocks_proxy","/mnt/g/umi-gm/app.js"]
+2019-04-28 15:03:50,312 INFO 10826 [egg-watcher] Start watching: "/mnt/g/umi-gm/app"
+2019-04-28 15:03:50,313 INFO 10826 [egg-watcher] Start watching: "/mnt/g/umi-gm/config"
+2019-04-28 15:03:50,313 INFO 10826 [egg-watcher] Start watching: "/mnt/g/umi-gm/mocks"
+2019-04-28 15:03:50,313 INFO 10826 [egg-watcher] Start watching: "/mnt/g/umi-gm/mocks_proxy"
+2019-04-28 15:03:50,313 INFO 10826 [egg-watcher] Start watching: "/mnt/g/umi-gm/app.js"
+2019-04-28 15:03:50,313 INFO 10826 [egg-watcher:agent] watcher start success
+2019-04-28 15:03:50,359 INFO 10826 [egg:core] dump config after ready, 8ms
+2019-04-28 15:03:54,596 WARN 10826 [egg-view-assets] dev server will be killed
+2019-04-28 15:03:54,598 INFO 10826 [egg-view-assets] Run "umi dev" exit with code null
+2019-04-28 15:38:12,776 INFO 10979 [egg:logger] init all loggers with options: {"dir":"/mnt/g/umi-gm/logs/umi-gm","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"umi-gm-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2019-04-28 15:38:13,145 INFO 10979 [egg:core] dump config after load, 19ms
+2019-04-28 15:38:13,235 INFO 10979 [egg-watcher] Start watching: ["/mnt/g/umi-gm/app","/mnt/g/umi-gm/config","/mnt/g/umi-gm/mocks","/mnt/g/umi-gm/mocks_proxy","/mnt/g/umi-gm/app.js"]
+2019-04-28 15:38:13,235 INFO 10979 [egg-watcher] Start watching: "/mnt/g/umi-gm/app"
+2019-04-28 15:38:13,236 INFO 10979 [egg-watcher] Start watching: "/mnt/g/umi-gm/config"
+2019-04-28 15:38:13,236 INFO 10979 [egg-watcher] Start watching: "/mnt/g/umi-gm/mocks"
+2019-04-28 15:38:13,236 INFO 10979 [egg-watcher] Start watching: "/mnt/g/umi-gm/mocks_proxy"
+2019-04-28 15:38:13,236 INFO 10979 [egg-watcher] Start watching: "/mnt/g/umi-gm/app.js"
+2019-04-28 15:38:13,237 INFO 10979 [egg-watcher:agent] watcher start success
+2019-04-28 15:38:13,287 INFO 10979 [egg:core] dump config after ready, 8ms
+2019-04-28 15:39:12,775 INFO 10979 [egg-watcher] Recieved a change event from eventSource: {"event":"change","path":"/mnt/g/umi-gm/app/web/config/config.js","stat":{"dev":15,"mode":33279,"nlink":1,"uid":1000,"gid":1000,"rdev":0,"blksize":4096,"ino":844424930132127,"size":259,"blocks":0,"atimeMs":1555381187328.8877,"mtimeMs":1556437152715.379,"ctimeMs":1556437152715.379,"birthtimeMs":1556437152715.379,"atime":"2019-04-16T02:19:47.329Z","mtime":"2019-04-28T07:39:12.715Z","ctime":"2019-04-28T07:39:12.715Z","birthtime":"2019-04-28T07:39:12.715Z"},"remove":false,"isDirectory":false,"isFile":true}
+2019-04-28 15:39:12,782 INFO 10979 [egg-watcher] Recieved a change event from eventSource: {"event":"change","path":"/mnt/g/umi-gm/app/web/config/config.js","stat":{"dev":15,"mode":33279,"nlink":1,"uid":1000,"gid":1000,"rdev":0,"blksize":4096,"ino":844424930132127,"size":259,"blocks":0,"atimeMs":1555381187328.8877,"mtimeMs":1556437152715.379,"ctimeMs":1556437152715.379,"birthtimeMs":1556437152715.379,"atime":"2019-04-16T02:19:47.329Z","mtime":"2019-04-28T07:39:12.715Z","ctime":"2019-04-28T07:39:12.715Z","birthtime":"2019-04-28T07:39:12.715Z"},"remove":false,"isDirectory":false,"isFile":true}
+2019-04-28 15:39:12,783 INFO 10979 [egg-watcher] Recieved a change event from eventSource: {"event":"change","path":"/mnt/g/umi-gm/app/web/config/config.js","stat":{"dev":15,"mode":33279,"nlink":1,"uid":1000,"gid":1000,"rdev":0,"blksize":4096,"ino":844424930132127,"size":259,"blocks":0,"atimeMs":1555381187328.8877,"mtimeMs":1556437152715.379,"ctimeMs":1556437152715.379,"birthtimeMs":1556437152715.379,"atime":"2019-04-16T02:19:47.329Z","mtime":"2019-04-28T07:39:12.715Z","ctime":"2019-04-28T07:39:12.715Z","birthtime":"2019-04-28T07:39:12.715Z"},"remove":false,"isDirectory":false,"isFile":true}
+2019-04-28 15:39:12,784 INFO 10979 [egg-watcher] Recieved a change event from eventSource: {"event":"change","path":"/mnt/g/umi-gm/app/web/config/config.js","stat":{"dev":15,"mode":33279,"nlink":1,"uid":1000,"gid":1000,"rdev":0,"blksize":4096,"ino":844424930132127,"size":259,"blocks":0,"atimeMs":1555381187328.8877,"mtimeMs":1556437152715.379,"ctimeMs":1556437152715.379,"birthtimeMs":1556437152715.379,"atime":"2019-04-16T02:19:47.329Z","mtime":"2019-04-28T07:39:12.715Z","ctime":"2019-04-28T07:39:12.715Z","birthtime":"2019-04-28T07:39:12.715Z"},"remove":false,"isDirectory":false,"isFile":true}
+2019-04-28 15:39:12,985 WARN 10979 [agent:development] reload worker because /mnt/g/umi-gm/app/web/config/config.js change
+2019-04-28 15:39:23,910 INFO 11064 [egg:logger] init all loggers with options: {"dir":"/mnt/g/umi-gm/logs/umi-gm","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"umi-gm-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2019-04-28 15:39:24,217 INFO 11064 [egg:core] dump config after load, 10ms
+2019-04-28 15:39:24,309 INFO 11064 [egg-watcher] Start watching: ["/mnt/g/umi-gm/app","/mnt/g/umi-gm/config","/mnt/g/umi-gm/mocks","/mnt/g/umi-gm/mocks_proxy","/mnt/g/umi-gm/app.js"]
+2019-04-28 15:39:24,309 INFO 11064 [egg-watcher] Start watching: "/mnt/g/umi-gm/app"
+2019-04-28 15:39:24,310 INFO 11064 [egg-watcher] Start watching: "/mnt/g/umi-gm/config"
+2019-04-28 15:39:24,310 INFO 11064 [egg-watcher] Start watching: "/mnt/g/umi-gm/mocks"
+2019-04-28 15:39:24,310 INFO 11064 [egg-watcher] Start watching: "/mnt/g/umi-gm/mocks_proxy"
+2019-04-28 15:39:24,310 INFO 11064 [egg-watcher] Start watching: "/mnt/g/umi-gm/app.js"
+2019-04-28 15:39:24,310 INFO 11064 [egg-watcher:agent] watcher start success
+2019-04-28 15:39:24,362 INFO 11064 [egg:core] dump config after ready, 9ms

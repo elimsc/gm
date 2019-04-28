@@ -13,5 +13,4 @@ export default {
   ],
   runtimePublicPath: true,
   cssModulesWithAffix: true,
-  extraBabelPresets: ['mobx'],
 };
