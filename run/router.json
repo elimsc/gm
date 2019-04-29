@@ -150,6 +150,123 @@
   {
     "name": null,
     "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/list",
+    "regexp": "/^\\/api\\/player\\/list(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/basic-info",
+    "regexp": "/^\\/api\\/player\\/basic-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/bag-info",
+    "regexp": "/^\\/api\\/player\\/bag-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/warehouse-info",
+    "regexp": "/^\\/api\\/player\\/warehouse-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/equip-info",
+    "regexp": "/^\\/api\\/player\\/equip-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/skill-info",
+    "regexp": "/^\\/api\\/player\\/skill-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/title-info",
+    "regexp": "/^\\/api\\/player\\/title-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/pet-info",
+    "regexp": "/^\\/api\\/player\\/pet-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/task-info",
+    "regexp": "/^\\/api\\/player\\/task-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
       "HEAD",
       "GET"
     ],

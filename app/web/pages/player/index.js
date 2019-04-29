@@ -1,104 +1,26 @@
 import React from 'react';
-import { Card, Row, Col, Input, Button, Table, Menu, Empty, Form, Select } from 'antd';
-import BasicInfo from './components/playerinfo/BasicInfo';
-import BagInfo from './components/playerinfo/BagInfo';
-import WarehouseInfo from './components/playerinfo/WarehouseInfo';
-import EquipInfo from './components/playerinfo/EquipInfo';
-import SkillInfo from './components/playerinfo/SkillInfo';
-import TitleInfo from './components/playerinfo/TitleInfo';
-import PetInfo from './components/playerinfo/PetInfo';
-import TaskInfo from './components/playerinfo/TaskInfo';
-import HomeInfo from './components/playerinfo/HomeInfo';
-import EmailInfo from './components/playerinfo/EmailInfo';
-import MarriageInfo from './components/playerinfo/MarriageInfo';
-import Money from './components/gmact/Money';
-import Exp from './components/gmact/Exp';
-import ChangePass from './components/gmact/ChangePass';
-import Forcedown from './components/gmact/Forcedown';
-import PetsymbolLevel from './components/gmact/PetsymbolLevel';
-import PracLevel from './components/gmact/PracLevel';
-import Prop from './components/gmact/Prop';
-import SecureCode from './components/gmact/SecureCode';
-import UntiePhone from './components/gmact/UntiePhone';
-import TitleM from './components/gmact/TitleM';
-import ClearSecureCode from './components/clear/ClearSecureCode';
-import UnusualGang from './components/clear/UnusualGang';
-import UnusualTask from './components/clear/UnusualTask';
-import BanTalk from './components/ban/BanTalk';
-import BanLog from './components/ban/BanLog';
-import BanAccount from './components/ban/BanAccount';
+import { Card, Row, Col, Input, Button, Table, Menu, Form, Select, Spin } from 'antd';
+import Switch from './components/Switch';
 
-// temp data
-const data = [
-  {
-    name: '小小号1',
-    sex: '男',
-    menpai: '正剑门',
-    level: '50',
-    guid: '123131231423434531',
-  },
-  {
-    name: '小小号2',
-    sex: '男',
-    menpai: '正剑门',
-    level: '50',
-    guid: '123131231423434532',
-  },
-  {
-    name: '小小号3',
-    sex: '男',
-    menpai: '正剑门',
-    level: '50',
-    guid: '123131231423434533',
-  },
-  {
-    name: '小小号3',
-    sex: '男',
-    menpai: '正剑门',
-    level: '50',
-    guid: '123131231423434534',
-  },
-  {
-    name: '小小号3',
-    sex: '男',
-    menpai: '正剑门',
-    level: '50',
-    guid: '123131231423434535',
-  },
-  {
-    name: '小小号3',
-    sex: '男',
-    menpai: '正剑门',
-    level: '50',
-    guid: '123131231423434536',
-  },
-  {
-    name: '小小号3',
-    sex: '男',
-    menpai: '正剑门',
-    level: '50',
-    guid: '123131231423434537',
-  },
-  {
-    name: '小小号3',
-    sex: '男',
-    menpai: '正剑门',
-    level: '50',
-    guid: '123131231423434538',
-  },
-];
+import { list, fetchInfo } from '../../service/player';
 
 
 
-
-class PlayerMan extends React.Component {
+class PlayerMan extends React.PureComponent {
 
   constructor(props) {
     super(props);
     this.state = {
-      player: null,
       menu: 'basic-info', // 当前选中menu
-      filter: {},
+      filter: {
+        type: "",
+        name: "",
+      },
+      playerList: [],
+      playerListLoading: false,
+      selectedPlayer: null, // 当前选中玩家
+      data: [],
+      dataLoading: false,
     }
   }
 
@@ -107,17 +29,43 @@ class PlayerMan extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        this.setState({ playerListLoading: true });
+        if (values.name === "") { // 输入框内容为空时，清除玩家列表数据
+          this.setState({ playerList: [] });
+        } else {
+          list(values).then((data) => {
+            this.setState({ playerList: data.payload });
+          })
+        }
+        this.setState({ playerListLoading: false });
       }
     });
   }
 
   select(menu) {
-    this.setState({ menu });
+    if (menu.endsWith('info')) {
+      this.fetchData({ menu });
+    } else {
+      this.setState({ menu });
+    }
   }
 
-  render() {
+  // 根据选中玩家和选中菜单获取数据并更新状态
+  fetchData(v) {
+    const player = v.selectedPlayer || this.state.selectedPlayer || null;
+    this.setState({ ...v });
+    if (!player) return; // 没有当前选中用户时，不请求服务端
+    const menu = v.menu || this.state.menu;
+    this.setState({ dataLoading: true });
+    fetchInfo(menu, player).then(data => {
+      this.setState({ data: data.payload, dataLoading: false });
+    });
+  }
 
-    const {getFieldDecorator} = this.props.form;
+
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    const { playerList, playerListLoading, selectedPlayer, menu, data, dataLoading } = this.state;
 
     // 玩家查询结果列表用
     const columns = [
@@ -128,8 +76,8 @@ class PlayerMan extends React.Component {
       },
       {
         title: '性别',
-        dataIndex: 'gender',
-        key: 'gender',
+        dataIndex: 'sex',
+        key: 'sex',
       },
       {
         title: '门派',
@@ -149,8 +97,10 @@ class PlayerMan extends React.Component {
       {
         title: '操作',
         key: 'action',
-        render: () => (
-          <Button type="primary">选中</Button>
+        render: (data) => (
+          <Button onClick={() => {
+            this.fetchData({ selectedPlayer: data });
+          }} type="primary">选中</Button>
         )
       }
     ];
@@ -164,24 +114,24 @@ class PlayerMan extends React.Component {
             <Row>
               <Col span={6}>
                 <Form.Item label="选中输入类型" >
-                {getFieldDecorator('type', {
-                  initialValue: '0',
-                })(
-                  <Select style={{width: 100}}>
-                    <Select.Option value="0">角色名</Select.Option>
-                    <Select.Option value="1">guid</Select.Option>
-                    <Select.Option value="2">uid</Select.Option>
-                  </Select>
-                )}
+                  {getFieldDecorator('type', {
+                    initialValue: '0',
+                  })(
+                    <Select style={{ width: 100 }}>
+                      <Select.Option value="0">角色名</Select.Option>
+                      <Select.Option value="1">guid</Select.Option>
+                      <Select.Option value="2">uid</Select.Option>
+                    </Select>
+                  )}
                 </Form.Item>
               </Col>
               <Col span={6}>
                 <Form.Item label="角色名或GUID">
-                {getFieldDecorator('name', {
-                  initialValue: '',
-                })(
-                  <Input />
-                )}
+                  {getFieldDecorator('name', {
+                    initialValue: '',
+                  })(
+                    <Input />
+                  )}
                 </Form.Item>
               </Col>
 
@@ -191,13 +141,14 @@ class PlayerMan extends React.Component {
             </Row>
           </Form>
           <Table
+            loading={playerListLoading}
             rowKey={record => record.guid}
-            style={{marginTop: 20}}
-            pagination={{pageSize: 5}}
+            style={{ marginTop: 20 }}
+            pagination={{ pageSize: 5 }}
             columns={columns}
-            dataSource={data} />
+            dataSource={playerList} />
         </Card>
-        <Card style={{marginTop: 30, minHeight: 1000}} title="当前选中玩家：小小玩家1">
+        <Card style={{ marginTop: 30, minHeight: 1000 }} title={selectedPlayer && selectedPlayer.name ? "当前选中玩家：" + selectedPlayer.name : '无选中玩家'}>
           <Row>
             <Col span={4}>
               <Menu mode="inline" selectedKeys={[this.state.menu]} defaultOpenKeys={['playerinfo']}>
@@ -239,7 +190,9 @@ class PlayerMan extends React.Component {
               </Menu>
             </Col>
             <Col span={20}>
-              {show(this.state.menu)}
+              <Spin tip="加载中..." spinning={dataLoading}>
+                <Switch menu={menu} data={data} />
+              </Spin>
             </Col>
           </Row>
         </Card>
@@ -248,70 +201,6 @@ class PlayerMan extends React.Component {
   }
 }
 
-// 根据当前选中菜单显示信息
-function show(key) {
-  switch (key) {
-    case 'basic-info':
-      return <BasicInfo />;
-    case 'bag-info':
-      return <BagInfo />;
-    case 'warehouse-info':
-      return <WarehouseInfo />;
-    case 'equip-info':
-      return <EquipInfo />;
-    case 'skill-info':
-      return <SkillInfo />;
-    case 'title-info':
-      return <TitleInfo />;
-    case 'pet-info':
-      return <PetInfo />;
-    case 'task-info':
-      return <TaskInfo />;
-    case 'home-info':
-      return <HomeInfo />;
-    case 'email-info':
-      return <EmailInfo />;
-    case 'marriage-info':
-      return <MarriageInfo />;
 
-    case 'money':
-      return <Money />;
-    case 'exp':
-      return <Exp />;
-    case 'change-pass':
-      return <ChangePass />;
-    case 'forcedown':
-      return <Forcedown />
-    case 'petsymbol-level':
-      return <PetsymbolLevel />;
-    case 'prac-level':
-      return <PracLevel />;
-    case 'prop':
-      return <Prop />;
-    case 'secure-code':
-      return <SecureCode />;
-    case 'title':
-      return <TitleM /> ;
-    case 'untie-phone':
-      return <UntiePhone />;
-
-    case 'clear-secure-code':
-      return <ClearSecureCode />;
-    case 'unusual-gang':
-      return <UnusualGang />;
-    case 'unusual-task':
-      return <UnusualTask />;
-
-    case 'ban-talk':
-      return <BanTalk />;
-    case 'ban-log':
-      return <BanLog />;
-    case 'ban-account':
-      return <BanAccount />;
-
-    default:
-      break;
-  }
-}
 
 export default Form.create()(PlayerMan);

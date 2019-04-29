@@ -1,8 +1,8 @@
 import { post } from "../utils/request";
 
 // 登陆
-export async function login({username, password}) {
-  return post('/api/login', {username, password});
+export async function login({ username, password }) {
+  return post('/api/login', { username, password });
 }
 
 // 验证当前用户是否已登陆

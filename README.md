@@ -1,5 +1,3 @@
-# Example for building frontend app with [umi](https://github.com/umijs/umi)
-
 ## Development
 
 ```bash
@@ -25,7 +23,12 @@ $ npm start
 ```
 
 ### code 说明
-0 一般成功
-1 一般错误
--10 没有登陆
--11 没有权限
+0 一般成功  
+1 一般错误  
+-10 没有登陆  
+-11 没有权限  
+
+### TODO
+后端数据返回虚拟数据（即除去请求服务器外的所有逻辑）  
+字段名的转换（前后端字段的名字不依赖）  
+

@@ -1,1 +1,38 @@
 2019-04-25 20:08:45,646 ERROR 5499 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-28 17:14:21,667 ERROR 11934 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-29 10:16:50,817 ERROR 837 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-29 10:27:49,814 ERROR 1368 nodejs.Error: [egg-view-assets] Run "umi dev" exit with code 1
+    at DevServer.exit (/mnt/g/umi-gm/node_modules/egg-view-assets/lib/dev_server.js:124:21)
+    at ChildProcess.proc.once.code (/mnt/g/umi-gm/node_modules/egg-view-assets/lib/dev_server.js:64:36)
+    at Object.onceWrapper (events.js:277:13)
+    at ChildProcess.emit (events.js:189:13)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:248:12)
+
+pid: 1368
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-29 10:29:42,242 ERROR 2016 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-29 11:52:16,961 ERROR 3615 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-29 11:58:33,788 ERROR 3633 nodejs.ServerNoResponseError: server 127.0.0.1:61450 no response in 40002ms, maybe the socket is end on the other side. (address: 127.0.0.1:61450)
+    at Timeout._heartbeatTimer.setInterval [as _onTimeout] (/mnt/g/umi-gm/node_modules/tcp-base/lib/base.js:427:21)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ServerNoResponseError"
+pid: 3633
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-29 11:59:49,238 ERROR 3700 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-29 13:00:22,233 ERROR 4537 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-29 15:08:02,401 ERROR 4537 nodejs.ClusterClientNoResponseError: client no response in 76099ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (/mnt/g/umi-gm/node_modules/cluster-client/lib/leader.js:77:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 4537
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-29 15:09:22,581 ERROR 6508 [egg-view-assets] Run "umi dev" failed after 60s

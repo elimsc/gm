@@ -13,7 +13,7 @@ import { Form, Row, Col, Input } from 'antd';
  */
 
 const TableInfo = (props) => {
-  const {data} = props;
+  const { data } = props;
   const formItemLayout = {
     labelCol: {
       xs: { span: 24 },
@@ -24,6 +24,9 @@ const TableInfo = (props) => {
       sm: { span: 16 },
     },
   };
+  if (!(data instanceof Array)) {
+    return null;
+  }
   return (
     <Form {...formItemLayout} style={props.style}>
       <Row gutter={24}>
@@ -63,7 +66,7 @@ const TableInfo = (props) => {
       </Row>
     </Form>
   );
- };
+};
 
 
- export default TableInfo;
+export default TableInfo;

@@ -27,6 +27,17 @@ module.exports = app => {
   router.post('/api/broadcast/tpl/add', auth, role_operation, controller.broadcast.addTpl); // 添加公告模板
   router.delete('/api/broadcast/tpl/:id', auth, role_operation, controller.broadcast.deleteTpl);
 
+  // 玩家相关
+  router.post('/api/player/list', auth, controller.player.list);
+  router.post('/api/player/basic-info', auth, controller.player.basicInfo);
+  router.post('/api/player/bag-info', auth, controller.player.bagInfo);
+  router.post('/api/player/warehouse-info', auth, controller.player.wareHouseInfo);
+  router.post('/api/player/equip-info', auth, controller.player.equipInfo);
+  router.post('/api/player/skill-info', auth, controller.player.skillInfo);
+  router.post('/api/player/title-info', auth, controller.player.titleInfo);
+  router.post('/api/player/pet-info', auth, controller.player.petInfo);
+  router.post('/api/player/task-info', auth, controller.player.taskInfo);
+
   // router.all('/api/*', controller.home.api);
   router.get('*', controller.home.index);
 };
