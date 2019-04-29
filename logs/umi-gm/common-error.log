@@ -36,3 +36,4 @@ pid: 4537
 hostname: DESKTOP-NCOD5CJ
 
 2019-04-29 15:09:22,581 ERROR 6508 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-29 16:56:09,017 ERROR 7562 [egg-view-assets] Run "umi dev" failed after 60s

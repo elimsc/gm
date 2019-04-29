@@ -1437,3 +1437,9 @@ hostname: DESKTOP-NCOD5CJ
   menpai: '正剑门',
   level: '50',
   guid: '123131231423434532' }
+2019-04-29 16:55:43,497 INFO 7599 [-/::1/-/3ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-29 16:55:44,415 INFO 7599 [-/::1/-/3ms POST /api/player/basic-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }

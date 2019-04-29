@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[16],{MPJL:function(e,t,n){"use strict";var a=n("g09b");Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var d=a(n("q1tI"));class r extends d.default.Component{render(){return d.default.createElement("h1",null,"\u4fee\u6539\u5bc6\u7801")}}var u=r;t.default=u}}]);
