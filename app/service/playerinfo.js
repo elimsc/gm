@@ -14,32 +14,39 @@ class PlayerinfoService extends BaseReqService {
         menpai: 2,
         name: '俞天荷',
       }];
-    } 
+    }
     if (result.data && result.data.body && result.data.body.rolelist) {
       return result.data.body.rolelist;
     }
     return [];
-    // return genBody({ cmd: 1001 }, { name, type }, [ 'name', 'type' ]);
   }
 
   // 角色基本信息查询
   async basicInfo({ guid }) {
-    const result = [
-      { title: 'HP', value: '123123123132' },
-      { title: 'H1P', value: '123123123132' },
-      { title: 'HP2', value: '123123123132' },
-      { title: 'HP4', value: '123123123132' },
-      { title: 'HP5', value: '123123123132' },
-      { title: 'HP6', value: '123123123132' },
-      { title: 'HP7', value: '123123123132' },
-      { title: 'HP8', value: '123123123132' },
-      { title: '攻击', value: '21' },
-      { title: '物防', value: '0' },
-      { title: 'H2P', value: '123123123132' },
-      { title: 'H3P', value: '123123123132' },
-      { title: 'H4P', value: '123123123132' },
-    ];
-    return result;
+    const result = await this.request({ cmd: 1003 }, { guid }, [ 'guid' ]);
+    console.log(result);
+    if (!result) return [];
+    if (result.data && result.data.body) {
+      // 处理返回结果
+      const src = result.data.body;
+      const tpl = {
+        mt_leader_value: '队长值',
+        mt_heroic_value: '侠义值',
+        mt_love: '恩爱值',
+        mt_xianyuan: '仙缘',
+        mt_bind_xianyuan: '绑定仙缘',
+        mt_yinliang: '银两',
+        mt_dianquan: '点券',
+        mt_banggong: '帮贡',
+        mt_menpaiweiwang: '门派威望',
+        last_login_time: '最后一次登录时间',
+        last_logout_time: '最后一次登出时间',
+        create_time: '角色创建时间',
+        scene_id: '角色所在场景',
+      };
+      return this.ctx.helper.tableInfoConv(src, tpl);
+    }
+    return [];
   }
 
   // 角色背包信息查询

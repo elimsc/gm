@@ -29,7 +29,7 @@ const genBody = (head = {}, body = {}, token_param_list = []) => {
   // 计算token
   const md5 = crypto.createHash('md5');
   const token_param_value = token_param_list.map(v => payload.body[v]);
-  const sign_data = payload.body.part_id + token_param_value.join('') + GM_KEY;
+  const sign_data = `${payload.body.part_id}` + token_param_value.join('') + GM_KEY;
   const token = md5.update(sign_data).digest('hex');
 
   payload.head.token = token;

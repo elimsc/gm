@@ -45,3 +45,67 @@ pid: 8599
 hostname: DESKTOP-NCOD5CJ
 
 2019-04-30 16:11:16,804 ERROR 8582 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-30 18:20:49,790 ERROR 9017 [egg-view-assets] Run "umi dev" failed after 60s
+2019-04-30 18:28:32,454 ERROR 9252 [-/::1/-/1093ms GET /api/srv/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":0,"errorSocketCount":1,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1022,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 9252
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 18:29:30,393 ERROR 9252 [-/::1/-/1014ms GET /api/srv/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":2,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":2,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1008,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 9252
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 18:48:47,747 ERROR 9492 [-/::1/-/3030ms POST /api/player/playerinfo/basic-info] nodejs.ResponseTimeoutError: Response timeout for 3000ms, POST http://192.168.1.205:20843/ -1 (connected: true, keepalive socket: false, agent status: {"createSocketCount":3,"createSocketErrorCount":0,"closeSocketCount":3,"errorSocketCount":0,"timeoutSocketCount":2,"requestCount":2,"freeSockets":{},"sockets":{},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+headers: {}
+    at Timeout._onTimeout (/mnt/g/umi-gm/node_modules/urllib/lib/urllib.js:869:15)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ResponseTimeoutError"
+requestId: 3
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":3006,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"192.168.1.205","remotePort":20843,"socketHandledRequests":1,"socketHandledResponses":0}
+pid: 9492
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 18:57:41,413 ERROR 9528 nodejs.ServerNoResponseError: server 127.0.0.1:52613 no response in 40001ms, maybe the socket is end on the other side. (address: 127.0.0.1:52613)
+    at Timeout._heartbeatTimer.setInterval [as _onTimeout] (/mnt/g/umi-gm/node_modules/tcp-base/lib/base.js:427:21)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ServerNoResponseError"
+pid: 9528
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 18:59:45,030 ERROR 9577 [egg-view-assets] Run "umi dev" failed after 60s

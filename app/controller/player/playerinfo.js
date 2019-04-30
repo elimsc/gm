@@ -28,7 +28,7 @@ class PlayerInfoController extends BaseController {
    * 玩家基本信息
    */
   async basicInfo() {
-    const result = await this.playerService.basicInfo({});
+    const result = await this.playerService.basicInfo({ ...this.ctx.request.body });
     this.ctx.body = this.success(result);
   }
 
