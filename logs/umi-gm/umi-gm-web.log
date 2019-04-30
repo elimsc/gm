@@ -2168,3 +2168,31 @@ hostname: DESKTOP-NCOD5CJ
 2019-04-30 15:10:54,540 INFO 7603 [-/::1/-/1ms POST /api/player/gmact/prop] { names: [ '11', '22' ], counts: [ '1', '2' ] }
 2019-04-30 15:13:29,924 INFO 7656 [-/::1/-/54ms POST /api/player/gmact/change-pass] { value: '11111' }
 2019-04-30 15:15:17,057 INFO 7704 [-/::1/-/54ms POST /api/player/gmact/untie-phone] {}
+2019-04-30 15:27:00,195 INFO 7906 [-/::1/-/52ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 15:27:15,620 INFO 7906 [-/::1/-/4ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 15:29:20,854 INFO 7918 [-/::1/-/54ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 15:32:11,311 INFO 7954 [-/::1/-/51ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 15:32:41,033 INFO 7966 [-/::1/-/51ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 15:32:45,759 INFO 7966 [-/::1/-/6ms POST /api/player/playerinfo/basic-info] { gender: 0,
+  guid: '1810453929253996333',
+  level: 43,
+  menpai: 0,
+  name: '俞天荷' }
+2019-04-30 15:32:47,043 INFO 7966 [-/::1/-/4ms POST /api/player/playerinfo/bag-info] { gender: 0,
+  guid: '1810453929253996333',
+  level: 43,
+  menpai: 0,
+  name: '俞天荷' }
+2019-04-30 15:32:48,712 INFO 7966 [-/::1/-/3ms POST /api/player/playerinfo/warehouse-info] { gender: 0,
+  guid: '1810453929253996333',
+  level: 43,
+  menpai: 0,
+  name: '俞天荷' }
+2019-04-30 15:32:49,313 INFO 7966 [-/::1/-/2ms POST /api/player/playerinfo/equip-info] { gender: 0,
+  guid: '1810453929253996333',
+  level: 43,
+  menpai: 0,
+  name: '俞天荷' }
+2019-04-30 15:37:33,566 INFO 8063 [-/::1/-/49ms POST /api/player/clear/secure-code] {}
+2019-04-30 15:37:37,851 INFO 8063 [-/::1/-/2ms POST /api/player/clear/un-gang] {}
+2019-04-30 15:37:42,417 INFO 8063 [-/::1/-/1ms POST /api/player/clear/un-task] {}

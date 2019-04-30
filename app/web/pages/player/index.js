@@ -38,25 +38,21 @@ class PlayerMan extends React.PureComponent {
             this.setState({ playerListLoading: false });
           })
         }
-        
+
       }
     });
   }
 
   select(menu) {
-    if (menu.endsWith('info')) {
-      this.fetchData({ menu });
-    } else {
-      this.setState({ menu });
-    }
+    this.fetchData({ menu });
   }
 
   // 根据选中玩家和选中菜单获取数据并更新状态
   fetchData(v) {
     const player = v.selectedPlayer || this.state.selectedPlayer || null;
-    this.setState({ ...v });
-    if (!player) return; // 没有当前选中用户时，不请求服务端
     const menu = v.menu || this.state.menu;
+    this.setState({ ...v });
+    if (!player || !menu.endsWith('info')) return; // 没有当前选中用户时，不请求服务端
     this.setState({ dataLoading: true });
     fetchInfo(menu, player).then(data => {
       this.setState({ data: data.payload, dataLoading: false });

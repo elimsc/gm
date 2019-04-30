@@ -19,4 +19,4 @@
 
 # logs
 /run/**
-/logs/**/**
+/logs/**/*.log
