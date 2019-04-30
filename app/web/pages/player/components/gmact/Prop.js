@@ -1,19 +1,28 @@
 import React from 'react';
 import { Form, Input, Button, message, Icon } from 'antd';
+import { prop } from '../../../../service/gmact';
+
 
 let id = 0;
 
+/**
+ * 发放道具
+ */
 class Prop extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+    }
+  }
+
   remove = (k) => {
     const { form } = this.props;
-    // can use data-binding to get
     const keys = form.getFieldValue('keys');
-    // We need at least one passenger
     if (keys.length === 1) {
       return;
     }
 
-    // can use data-binding to set
     form.setFieldsValue({
       keys: keys.filter(key => key !== k),
     });
@@ -21,11 +30,8 @@ class Prop extends React.Component {
 
   add = () => {
     const { form } = this.props;
-    // can use data-binding to get
     const keys = form.getFieldValue('keys');
     const nextKeys = keys.concat(id++);
-    // can use data-binding to set
-    // important! notify form to detect changes
     form.setFieldsValue({
       keys: nextKeys,
     });
@@ -33,12 +39,21 @@ class Prop extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({ loading: true });
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log(values);
-        message.info('数据已提交');
+        prop(values).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('出错啦');
+          }
+        })
       }
     });
+    this.props.form.resetFields();
+    this.setState({ loading: false });
   }
 
   render() {
@@ -85,7 +100,7 @@ class Prop extends React.Component {
             <Input placeholder="道具名" style={{ width: '90%', marginRight: 8 }} />
           )}
           {keys.length > 1 ? (
-          <Icon
+            <Icon
               className="dynamic-delete-button"
               type="minus-circle-o"
               onClick={() => this.remove(k)}
@@ -96,14 +111,14 @@ class Prop extends React.Component {
           label="道具数量"
           {...formItemLayout}
         >
-          {getFieldDecorator(`count[${k}]`, {
+          {getFieldDecorator(`counts[${k}]`, {
             validateTrigger: ['onChange', 'onBlur'],
             rules: [{
               required: true,
               message: "道具数量不能为空",
             }],
           })(
-            <Input placeholder="数量" style={{ width: '90%', marginRight: 8 }} />
+            <Input placeholder="数量" type="number" style={{ width: '90%', marginRight: 8 }} />
           )}
         </Form.Item>
       </div>
@@ -111,7 +126,7 @@ class Prop extends React.Component {
 
 
     return (
-      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+      <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{ marginTop: 40 }}>
         {formItems}
         <Form.Item {...tailFormItemLayout}>
           <Button type="dashed" onClick={() => this.add()} style={{ width: '60%' }}>

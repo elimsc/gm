@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 
 class LoginController extends BaseController {
   /**
-   * POST: /api/login
+   * POST /api/login
    * 处理用户登陆逻辑
    */
   async login() {
@@ -35,7 +35,7 @@ class LoginController extends BaseController {
   }
 
   /**
-   * POST: /api/login/check
+   * POST /api/login/check
    * 检查当前用户是否已登陆
    */
   async check() {
@@ -51,7 +51,7 @@ class LoginController extends BaseController {
   }
 
   /**
-   * POST: /api/logout
+   * POST /api/logout
    * 用户注销
    */
   async logout() {

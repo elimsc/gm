@@ -2,71 +2,23 @@
 
 const BaseReqService = require('./basereq');
 
-const URL = 'demoh';
-
-class PlayerService extends BaseReqService {
+class PlayerinfoService extends BaseReqService {
   // 角色列表查询
   async list({ name, type }) {
-    // const result = await this.request(URL, { cmd: 1001 }, { name, type }, [ 'name', 'type' ]);
-    const result = [
-      {
-        name: '小小号1',
-        sex: '男',
-        menpai: '正剑门',
-        level: '50',
-        guid: '123131231423434531',
-      },
-      {
-        name: '小小号2',
-        sex: '男',
-        menpai: '正剑门',
-        level: '50',
-        guid: '123131231423434532',
-      },
-      {
-        name: '小小号3',
-        sex: '男',
-        menpai: '正剑门',
-        level: '50',
-        guid: '123131231423434533',
-      },
-      {
-        name: '小小号3',
-        sex: '男',
-        menpai: '正剑门',
-        level: '50',
-        guid: '123131231423434534',
-      },
-      {
-        name: '小小号3',
-        sex: '男',
-        menpai: '正剑门',
-        level: '50',
-        guid: '123131231423434535',
-      },
-      {
-        name: '小小号3',
-        sex: '男',
-        menpai: '正剑门',
-        level: '50',
-        guid: '123131231423434536',
-      },
-      {
-        name: '小小号3',
-        sex: '男',
-        menpai: '正剑门',
-        level: '50',
-        guid: '123131231423434537',
-      },
-      {
-        name: '小小号3',
-        sex: '男',
-        menpai: '正剑门',
-        level: '50',
-        guid: '123131231423434538',
-      },
-    ];
-    return result;
+    const result = await this.request({ cmd: 1001 }, { name, type }, [ 'name', 'type' ]);
+    if (!result) { // 异常发生
+      return [{
+        gender: 1,
+        guid: '1828468287530731054',
+        level: 70,
+        menpai: 2,
+        name: '俞天荷',
+      }];
+    } 
+    if (result.data && result.data.body && result.data.body.rolelist) {
+      return result.data.body.rolelist;
+    }
+    return [];
     // return genBody({ cmd: 1001 }, { name, type }, [ 'name', 'type' ]);
   }
 
@@ -448,4 +400,4 @@ class PlayerService extends BaseReqService {
   }
 }
 
-module.exports = PlayerService;
+module.exports = PlayerinfoService;

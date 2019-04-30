@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Row, Col, Input, Button, Table, Menu, Form, Select, Spin } from 'antd';
 import Switch from './components/Switch';
 
-import { list, fetchInfo } from '../../service/player';
+import { list, fetchInfo } from '../../service/playerinfo';
 
 
 
@@ -29,15 +29,16 @@ class PlayerMan extends React.PureComponent {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        this.setState({ playerListLoading: true });
         if (values.name === "") { // 输入框内容为空时，清除玩家列表数据
           this.setState({ playerList: [] });
         } else {
+          this.setState({ playerListLoading: true });
           list(values).then((data) => {
             this.setState({ playerList: data.payload });
+            this.setState({ playerListLoading: false });
           })
         }
-        this.setState({ playerListLoading: false });
+        
       }
     });
   }
@@ -76,8 +77,8 @@ class PlayerMan extends React.PureComponent {
       },
       {
         title: '性别',
-        dataIndex: 'sex',
-        key: 'sex',
+        dataIndex: 'gender',
+        key: 'gender',
       },
       {
         title: '门派',
@@ -191,7 +192,7 @@ class PlayerMan extends React.PureComponent {
             </Col>
             <Col span={20}>
               <Spin tip="加载中..." spinning={dataLoading}>
-                <Switch menu={menu} data={data} />
+                <Switch menu={menu} data={data} show={selectedPlayer && selectedPlayer.guid ? true : true} />
               </Spin>
             </Col>
           </Row>

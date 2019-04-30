@@ -19,28 +19,28 @@ class SrvForceDown extends React.Component {
 
     const formItemLayout = {
       labelCol: {
-        xs: {span: 24},
-        sm: {span: 8},
+        xs: { span: 24 },
+        sm: { span: 8 },
       },
       wrapperCol: {
-        xs: {span: 24},
-        sm: {span: 10}
+        xs: { span: 24 },
+        sm: { span: 10 }
       }
     }
 
     const tailFormItemLayout = {
       wrapperCol: {
-        xs: {span: 24, offset: 0},
-        sm: {span: 10, offset: 8},
+        xs: { span: 24, offset: 0 },
+        sm: { span: 10, offset: 8 },
       }
     }
 
     return (
       <Card>
-        <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+        <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{ marginTop: 40 }}>
           <Form.Item label="选择服务器">
             {getFieldDecorator('srv', {
-              rules: [{required: true, message: '请选择服务器'}]
+              rules: [{ required: true, message: '请选择服务器' }]
             })(
               <Select placeholder="请选择服务器">
                 <Select.Option value="srv1">服务器1</Select.Option>

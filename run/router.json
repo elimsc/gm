@@ -166,8 +166,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/basic-info",
-    "regexp": "/^\\/api\\/player\\/basic-info(?:\\/(?=$))?$/",
+    "path": "/api/player/playerinfo/basic-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/basic-info(?:\\/(?=$))?$/",
     "stack": [
       "auth",
       "wrappedController"
@@ -179,8 +179,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/bag-info",
-    "regexp": "/^\\/api\\/player\\/bag-info(?:\\/(?=$))?$/",
+    "path": "/api/player/playerinfo/bag-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/bag-info(?:\\/(?=$))?$/",
     "stack": [
       "auth",
       "wrappedController"
@@ -192,8 +192,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/warehouse-info",
-    "regexp": "/^\\/api\\/player\\/warehouse-info(?:\\/(?=$))?$/",
+    "path": "/api/player/playerinfo/warehouse-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/warehouse-info(?:\\/(?=$))?$/",
     "stack": [
       "auth",
       "wrappedController"
@@ -205,8 +205,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/equip-info",
-    "regexp": "/^\\/api\\/player\\/equip-info(?:\\/(?=$))?$/",
+    "path": "/api/player/playerinfo/equip-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/equip-info(?:\\/(?=$))?$/",
     "stack": [
       "auth",
       "wrappedController"
@@ -218,8 +218,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/skill-info",
-    "regexp": "/^\\/api\\/player\\/skill-info(?:\\/(?=$))?$/",
+    "path": "/api/player/playerinfo/skill-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/skill-info(?:\\/(?=$))?$/",
     "stack": [
       "auth",
       "wrappedController"
@@ -231,8 +231,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/title-info",
-    "regexp": "/^\\/api\\/player\\/title-info(?:\\/(?=$))?$/",
+    "path": "/api/player/playerinfo/title-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/title-info(?:\\/(?=$))?$/",
     "stack": [
       "auth",
       "wrappedController"
@@ -244,8 +244,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/pet-info",
-    "regexp": "/^\\/api\\/player\\/pet-info(?:\\/(?=$))?$/",
+    "path": "/api/player/playerinfo/pet-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/pet-info(?:\\/(?=$))?$/",
     "stack": [
       "auth",
       "wrappedController"
@@ -257,8 +257,268 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/task-info",
-    "regexp": "/^\\/api\\/player\\/task-info(?:\\/(?=$))?$/",
+    "path": "/api/player/playerinfo/task-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/task-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/ban/account",
+    "regexp": "/^\\/api\\/player\\/ban\\/account(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/ban/log",
+    "regexp": "/^\\/api\\/player\\/ban\\/log(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/ban/talk",
+    "regexp": "/^\\/api\\/player\\/ban\\/talk(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/money",
+    "regexp": "/^\\/api\\/player\\/gmact\\/money(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/prop",
+    "regexp": "/^\\/api\\/player\\/gmact\\/prop(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/exp",
+    "regexp": "/^\\/api\\/player\\/gmact\\/exp(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/titlem",
+    "regexp": "/^\\/api\\/player\\/gmact\\/titlem(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/prac-level",
+    "regexp": "/^\\/api\\/player\\/gmact\\/prac-level(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/petsymbol-level",
+    "regexp": "/^\\/api\\/player\\/gmact\\/petsymbol-level(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/forcedown",
+    "regexp": "/^\\/api\\/player\\/gmact\\/forcedown(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/secure-code",
+    "regexp": "/^\\/api\\/player\\/gmact\\/secure-code(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/change-pass",
+    "regexp": "/^\\/api\\/player\\/gmact\\/change-pass(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/untie-phone",
+    "regexp": "/^\\/api\\/player\\/gmact\\/untie-phone(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/clear/secure-code",
+    "regexp": "/^\\/api\\/player\\/clear\\/secure-code(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/clear/un-gang",
+    "regexp": "/^\\/api\\/player\\/clear\\/un-gang(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/clear/un-task",
+    "regexp": "/^\\/api\\/player\\/clear\\/un-task(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/batchact",
+    "regexp": "/^\\/api\\/batchact(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/sysact/activity",
+    "regexp": "/^\\/api\\/sysact\\/activity(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/sysact/gmins",
+    "regexp": "/^\\/api\\/sysact\\/gmins(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/sysact/srvforcedown",
+    "regexp": "/^\\/api\\/sysact\\/srvforcedown(?:\\/(?=$))?$/",
     "stack": [
       "auth",
       "wrappedController"

@@ -17,26 +17,57 @@ module.exports = app => {
   router.post('/api/login/check', auth, controller.login.check);
   router.post('/api/logout', auth, controller.login.logout);
 
-  // 管理员相关
+  // GM管理
   router.post('/api/user', auth, role_super, controller.user.create); // 添加管理员
   router.get('/api/user/list', auth, role_super, controller.user.list); // 获取管理员列表
   router.post('/api/user/update', auth, role_super, controller.user.update); // 更新管理员信息
 
-  // 广播相关
+  // 服务器广播
   router.get('/api/broadcast/tpl/list', auth, role_operation, controller.broadcast.listTpl); // 显示所有的公告模板
   router.post('/api/broadcast/tpl/add', auth, role_operation, controller.broadcast.addTpl); // 添加公告模板
-  router.delete('/api/broadcast/tpl/:id', auth, role_operation, controller.broadcast.deleteTpl);
+  router.delete('/api/broadcast/tpl/:id', auth, role_operation, controller.broadcast.deleteTpl); // 删除公告模板
 
-  // 玩家相关
-  router.post('/api/player/list', auth, controller.player.list);
-  router.post('/api/player/basic-info', auth, controller.player.basicInfo);
-  router.post('/api/player/bag-info', auth, controller.player.bagInfo);
-  router.post('/api/player/warehouse-info', auth, controller.player.wareHouseInfo);
-  router.post('/api/player/equip-info', auth, controller.player.equipInfo);
-  router.post('/api/player/skill-info', auth, controller.player.skillInfo);
-  router.post('/api/player/title-info', auth, controller.player.titleInfo);
-  router.post('/api/player/pet-info', auth, controller.player.petInfo);
-  router.post('/api/player/task-info', auth, controller.player.taskInfo);
+  // 玩家操作--玩家基本信息
+  router.post('/api/player/list', auth, controller.player.playerinfo.list); // 玩家列表
+  router.post('/api/player/playerinfo/basic-info', auth, controller.player.playerinfo.basicInfo); // 角色基本信息
+  router.post('/api/player/playerinfo/bag-info', auth, controller.player.playerinfo.bagInfo); // 角色背包信息
+  router.post('/api/player/playerinfo/warehouse-info', auth, controller.player.playerinfo.wareHouseInfo); // 角色仓库信息
+  router.post('/api/player/playerinfo/equip-info', auth, controller.player.playerinfo.equipInfo); // 角色装备信息
+  router.post('/api/player/playerinfo/skill-info', auth, controller.player.playerinfo.skillInfo); // 角色技能信息
+  router.post('/api/player/playerinfo/title-info', auth, controller.player.playerinfo.titleInfo); // 角色称号信息
+  router.post('/api/player/playerinfo/pet-info', auth, controller.player.playerinfo.petInfo); // 角色宠物信息
+  router.post('/api/player/playerinfo/task-info', auth, controller.player.playerinfo.taskInfo); // 角色任务信息
+
+  // 玩家操作--封号禁言
+  router.post('/api/player/ban/account', auth, controller.player.ban.banAccount); // 封号
+  router.post('/api/player/ban/log', auth, controller.player.ban.banLog); // 禁言记录
+  router.post('/api/player/ban/talk', auth, controller.player.ban.banTalk); // 禁言
+
+  // 玩家操作--GM操作
+  router.post('/api/player/gmact/money', auth, controller.player.gmact.money); // 发放货币
+  router.post('/api/player/gmact/prop', auth, controller.player.gmact.prop); // 发放道具
+  router.post('/api/player/gmact/exp', auth, controller.player.gmact.exp); // 添加/扣除禁言
+  router.post('/api/player/gmact/titlem', auth, controller.player.gmact.titlem); // 添加/删除称号
+  router.post('/api/player/gmact/prac-level', auth, controller.player.gmact.pracLevel); // 修改修炼等级
+  router.post('/api/player/gmact/petsymbol-level', auth, controller.player.gmact.petsymbolLevel); // 修改宠物符等级
+  router.post('/api/player/gmact/forcedown', auth, controller.player.gmact.forcedown); // 踢玩家下线
+  router.post('/api/player/gmact/secure-code', auth, controller.player.gmact.secureCode); // 安全修改
+  router.post('/api/player/gmact/change-pass', auth, controller.player.gmact.changePass); // 修改密码
+  router.post('/api/player/gmact/untie-phone', auth, controller.player.gmact.untiePhone); // 解除绑定手机
+
+  // 玩家操作 -- 清除数据
+  router.post('/api/player/clear/secure-code', auth, controller.player.clear.clearSecureCode); // 清除安全码
+  router.post('/api/player/clear/un-gang', auth, controller.player.clear.clearUnGang); // 清除非正常帮会数据
+  router.post('/api/player/clear/un-task', auth, controller.player.clear.clearUnTask); // 清除非正常任务
+
+  // 批量操作
+  router.post('/api/batchact', auth, controller.batchact.act);
+
+  // 系统操作
+  router.post('/api/sysact/activity', auth, controller.sysact.activity);
+  router.post('/api/sysact/gmins', auth, controller.sysact.gmins);
+  router.post('/api/sysact/srvforcedown', auth, controller.sysact.srvForceDown);
+
 
   // router.all('/api/*', controller.home.api);
   router.get('*', controller.home.index);

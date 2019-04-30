@@ -1,4 +1,7 @@
 'use strict';
+/**
+ * GM管理
+ */
 
 const BaseController = require('./base');
 

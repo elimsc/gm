@@ -1,17 +1,17 @@
 'use strict';
 
 /**
- * 玩家信息相关控制器
+ * 玩家操作 -- 玩家信息
  */
 
-const BaseController = require('./base');
+const BaseController = require('../base');
 
-class PlayerController extends BaseController {
+class PlayerInfoController extends BaseController {
 
   constructor(props) {
     super(props);
     this.logger.info(this.ctx.request.body);
-    this.playerService = this.ctx.service.player;
+    this.playerService = this.ctx.service.playerinfo;
   }
 
   /**
@@ -19,12 +19,13 @@ class PlayerController extends BaseController {
    * 玩家列表
    */
   async list() {
-    const result = await this.playerService.list({});
+    const { name, type } = this.ctx.request.body;
+    const result = await this.playerService.list({ name, type: parseInt(type) });
     this.ctx.body = this.success(result);
   }
 
   /**
-   * POST player/basicInfo
+   * POST player/playerinfo/basic-info
    * 玩家基本信息
    */
   async basicInfo() {
@@ -33,7 +34,7 @@ class PlayerController extends BaseController {
   }
 
   /**
-   * POST player/bagInfo
+   * POST player/playerinfo/bag-info
    * 玩家背包信息
    */
   async bagInfo() {
@@ -42,7 +43,7 @@ class PlayerController extends BaseController {
   }
 
   /**
-   * POST player/wareHouseInfo
+   * POST player/playerinfo/warehouse-info
    * 玩家仓库信息
    */
   async wareHouseInfo() {
@@ -51,7 +52,7 @@ class PlayerController extends BaseController {
   }
 
   /**
-   * POST player/equipInfo
+   * POST player/playerinfo/equip-info
    * 玩家装备信息
    */
   async equipInfo() {
@@ -60,7 +61,7 @@ class PlayerController extends BaseController {
   }
 
   /**
-   * POST player/equipInfo
+   * POST player/playerinfo/skill-info
    * 玩家技能信息
    */
   async skillInfo() {
@@ -69,7 +70,7 @@ class PlayerController extends BaseController {
   }
 
   /**
-   * POST player/titleInfo
+   * POST player/playerinfo/title-info
    * 玩家称号信息
    */
   async titleInfo() {
@@ -78,7 +79,7 @@ class PlayerController extends BaseController {
   }
 
   /**
-   * POST player/petInfo
+   * POST player/playerinfo/pet-info
    * 玩家宠物信息
    */
   async petInfo() {
@@ -87,7 +88,7 @@ class PlayerController extends BaseController {
   }
 
   /**
-   * POST player/taskInfo
+   * POST player/playerinfo/task-info
    * 玩家任务信息
    */
   async taskInfo() {
@@ -96,4 +97,4 @@ class PlayerController extends BaseController {
   }
 }
 
-module.exports = PlayerController;
+module.exports = PlayerInfoController;

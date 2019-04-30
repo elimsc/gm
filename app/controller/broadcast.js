@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * 系统广播
+ */
+
 const BaseController = require('./base');
 
 class BroadcastController extends BaseController {

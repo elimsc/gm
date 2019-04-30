@@ -33,7 +33,7 @@ class Switch extends React.PureComponent {
 
 
   render() {
-    const { data, menu } = this.props;
+    const { data, menu, show } = this.props;
     switch (menu) {
       case 'basic-info':
         return <BasicInfo data={data} />;
@@ -59,39 +59,39 @@ class Switch extends React.PureComponent {
         return <MarriageInfo />;
 
       case 'money':
-        return <Money />;
+        return show ? <Money /> : null;
       case 'exp':
-        return <Exp />;
+        return show ? <Exp /> : null;
       case 'change-pass':
-        return <ChangePass />;
+        return show ? <ChangePass /> : null;
       case 'forcedown':
-        return <Forcedown />
+        return show ? <Forcedown /> : null;
       case 'petsymbol-level':
-        return <PetsymbolLevel />;
+        return show ? <PetsymbolLevel /> : null;
       case 'prac-level':
-        return <PracLevel />;
+        return show ? <PracLevel /> : null;
       case 'prop':
-        return <Prop />;
+        return show ? <Prop /> : null;
       case 'secure-code':
-        return <SecureCode />;
+        return show ? <SecureCode /> : null;
       case 'title':
-        return <TitleM />;
+        return show ? <TitleM /> : null;
       case 'untie-phone':
-        return <UntiePhone />;
+        return show ? <UntiePhone /> : null;
 
       case 'clear-secure-code':
-        return <ClearSecureCode />;
+        return show ? <ClearSecureCode /> : null;
       case 'unusual-gang':
-        return <UnusualGang />;
+        return show ? <UnusualGang /> : null;
       case 'unusual-task':
-        return <UnusualTask />;
+        return show ? <UnusualTask /> : null;
 
       case 'ban-talk':
-        return <BanTalk />;
+        return show ? <BanTalk /> : null;
       case 'ban-log':
-        return <BanLog />;
+        return show ? <BanLog /> : null;
       case 'ban-account':
-        return <BanAccount />;
+        return show ? <BanAccount /> : null;
 
       default:
         break;

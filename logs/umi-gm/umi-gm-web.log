@@ -1443,3 +1443,688 @@ hostname: DESKTOP-NCOD5CJ
   menpai: '正剑门',
   level: '50',
   guid: '123131231423434531' }
+2019-04-29 17:03:24,725 INFO 7865 [-/::1/-/2ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-29 17:03:26,063 INFO 7865 [-/::1/-/3ms POST /api/player/basic-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:03:27,663 INFO 7865 [-/::1/-/2ms POST /api/player/bag-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:03:28,093 INFO 7865 [-/::1/-/1ms POST /api/player/warehouse-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:03:29,480 INFO 7865 [-/::1/-/4ms POST /api/player/equip-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:03:30,086 INFO 7865 [-/::1/-/2ms POST /api/player/skill-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:03:31,127 INFO 7865 [-/::1/-/2ms POST /api/player/title-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:03:31,837 INFO 7865 [-/::1/-/1ms POST /api/player/pet-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:12,944 INFO 8023 [-/::1/-/4ms POST /api/playerinfo/list] { type: '0', name: '1' }
+2019-04-29 17:07:13,793 INFO 8023 [-/::1/-/3ms POST /api/playerinfo/basic-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:15,345 INFO 8035 [-/::1/-/43ms POST /api/playerinfo/bag-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:15,837 INFO 8035 [-/::1/-/10ms POST /api/playerinfo/warehouse-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:23,122 INFO 8035 [-/::1/-/3ms POST /api/playerinfo/equip-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:23,697 INFO 8035 [-/::1/-/4ms POST /api/playerinfo/skill-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:24,654 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/title-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:25,174 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/pet-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:25,639 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/task-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:29,471 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/title-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:30,062 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/skill-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:30,534 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/equip-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:34,046 INFO 8035 [-/::1/-/1ms POST /api/playerinfo/basic-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:54,007 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/basic-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:54,622 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/bag-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:55,102 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/warehouse-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:55,798 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/warehouse-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:56,246 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/equip-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:56,670 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/skill-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:57,222 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/title-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:58,167 INFO 8035 [-/::1/-/3ms POST /api/playerinfo/warehouse-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:07:58,718 INFO 8035 [-/::1/-/1ms POST /api/playerinfo/warehouse-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:09,368 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/basic-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:09,942 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/bag-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:12,631 INFO 8035 [-/::1/-/1ms POST /api/playerinfo/warehouse-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:13,134 INFO 8035 [-/::1/-/1ms POST /api/playerinfo/equip-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:14,382 INFO 8035 [-/::1/-/1ms POST /api/playerinfo/skill-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:15,137 INFO 8035 [-/::1/-/6ms POST /api/playerinfo/title-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:16,126 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/pet-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:16,703 INFO 8035 [-/::1/-/3ms POST /api/playerinfo/task-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:20,046 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/task-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:20,463 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/pet-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:26,471 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/basic-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:27,031 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/bag-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:08:27,374 INFO 8035 [-/::1/-/2ms POST /api/playerinfo/warehouse-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:38:49,700 INFO 8562 [-/::1/-/43ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-29 17:38:50,585 INFO 8562 [-/::1/-/9ms POST /api/player/playerinfo/basic-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:38:52,038 INFO 8562 [-/::1/-/5ms POST /api/player/playerinfo/bag-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:38:52,512 INFO 8562 [-/::1/-/2ms POST /api/player/playerinfo/warehouse-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:38:53,656 INFO 8562 [-/::1/-/2ms POST /api/player/playerinfo/equip-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:38:54,256 INFO 8562 [-/::1/-/2ms POST /api/player/playerinfo/skill-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:38:54,888 INFO 8562 [-/::1/-/2ms POST /api/player/playerinfo/title-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:38:55,490 INFO 8562 [-/::1/-/4ms POST /api/player/playerinfo/pet-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:38:56,480 INFO 8562 [-/::1/-/1ms POST /api/player/playerinfo/task-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:38:58,149 INFO 8562 [-/::1/-/14ms POST /api/player/playerinfo/pet-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-29 17:38:58,744 INFO 8562 [-/::1/-/2ms POST /api/player/playerinfo/title-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-30 09:52:47,124 INFO 3226 [-/::1/-/2ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 09:52:48,869 INFO 3226 [-/::1/-/3ms POST /api/player/playerinfo/basic-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-30 09:52:50,761 INFO 3226 [-/::1/-/5ms POST /api/player/playerinfo/bag-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-30 09:52:51,396 INFO 3226 [-/::1/-/1ms POST /api/player/playerinfo/warehouse-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-30 09:52:56,095 INFO 3226 [-/::1/-/4ms POST /api/player/playerinfo/equip-info] { name: '小小号1',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434531' }
+2019-04-30 09:54:25,217 INFO 3226 [-/::1/-/2ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 09:54:26,905 INFO 3226 [-/::1/-/1ms POST /api/player/playerinfo/basic-info] { name: '小小号3',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434535' }
+2019-04-30 09:54:29,620 INFO 3226 [-/::1/-/2ms POST /api/player/playerinfo/bag-info] { name: '小小号3',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434535' }
+2019-04-30 09:54:32,556 INFO 3226 [-/::1/-/2ms POST /api/player/playerinfo/basic-info] { name: '小小号3',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434535' }
+2019-04-30 09:54:35,644 INFO 3226 [-/::1/-/2ms POST /api/player/playerinfo/bag-info] { name: '小小号3',
+  sex: '男',
+  menpai: '正剑门',
+  level: '50',
+  guid: '123131231423434535' }
+2019-04-30 10:01:35,000 INFO 3346 [-/::1/-/6ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 10:02:43,284 INFO 3358 [-/::1/-/3ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 10:04:16,479 INFO 3394 [-/::1/-/5ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 10:04:36,568 INFO 3418 [-/::1/-/40ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 10:07:00,098 INFO 3418 [-/::1/-/6ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:07:47,027 INFO 3418 [-/::1/-/4ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:09:50,866 INFO 3443 [-/::1/-/52ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 10:09:50,879 INFO 3443 [-/::1/-/66ms POST /api/player/list] nodejs.Error [ERR_CRYPTO_HASH_FINALIZED]: Digest already called
+    at Hash.update (internal/crypto/hash.js:55:11)
+    at genBody (/mnt/g/umi-gm/app/extend/helper.js:33:21)
+    at PlayerinfoService.request (/mnt/g/umi-gm/app/service/basereq.js:13:13)
+    at PlayerinfoService.list (/mnt/g/umi-gm/app/service/playerinfo.js:10:31)
+    at PlayerInfoController.list (/mnt/g/umi-gm/app/controller/playerinfo.js:23:45)
+    at Object.callFn (/mnt/g/umi-gm/node_modules/egg-core/lib/utils/index.js:44:21)
+    at Object.classControllerMiddleware (/mnt/g/umi-gm/node_modules/egg-core/lib/loader/mixin/controller.js:87:20)
+    at Object.callFn (/mnt/g/umi-gm/node_modules/@eggjs/router/lib/utils.js:12:21)
+    at wrappedController (/mnt/g/umi-gm/node_modules/@eggjs/router/lib/egg_router.js:322:18)
+    at dispatch (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:44:32)
+
+pid: 3443
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 10:10:41,025 INFO 3467 [-/::1/-/47ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 10:12:24,444 INFO 3491 [-/::1/-/3ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 10:12:56,019 INFO 3491 [-/::1/-/3ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:15:13,477 INFO 3503 [-/::1/-/4ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:19:58,678 INFO 3515 [-/::1/-/4ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:21:17,847 INFO 3527 [-/::1/-/6ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:23:56,310 INFO 3587 [-/::1/-/4ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:23:56,334 INFO 3587 [-/::1/-/30ms POST /api/player/list] nodejs.TypeError: Cannot read property 'rolelist' of undefined
+    at PlayerinfoService.list (/mnt/g/umi-gm/app/service/playerinfo.js:70:24)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 3587
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 10:24:30,354 INFO 3587 [-/::1/-/2ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:24:30,377 INFO 3587 [-/::1/-/25ms POST /api/player/list] nodejs.TypeError: Cannot read property 'rolelist' of undefined
+    at PlayerinfoService.list (/mnt/g/umi-gm/app/service/playerinfo.js:70:24)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 3587
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 10:25:03,479 INFO 3599 [-/::1/-/46ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:25:03,532 INFO 3599 [-/::1/-/100ms POST /api/player/list] nodejs.TypeError: Cannot read property 'rolelist' of undefined
+    at PlayerinfoService.list (/mnt/g/umi-gm/app/service/playerinfo.js:71:24)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 3599
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 10:25:26,156 INFO 3599 [-/::1/-/14ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:25:26,206 INFO 3599 [-/::1/-/64ms POST /api/player/list] nodejs.TypeError: Cannot read property 'rolelist' of undefined
+    at PlayerinfoService.list (/mnt/g/umi-gm/app/service/playerinfo.js:71:24)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 3599
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 10:25:59,902 INFO 3623 [-/::1/-/46ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:26:09,677 INFO 3623 [-/::1/-/6ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 10:26:09,684 INFO 3623 [-/::1/-/12ms POST /api/player/list] nodejs.TypeError: Cannot read property 'rolelist' of undefined
+    at PlayerinfoService.list (/mnt/g/umi-gm/app/service/playerinfo.js:70:29)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 3623
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 10:27:25,803 INFO 3623 [-/::1/-/2ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:27:28,552 INFO 3623 [-/::1/-/1ms POST /api/player/playerinfo/basic-info] { gender: 1,
+  guid: '1828468287530731054',
+  level: 70,
+  menpai: 2,
+  name: '俞天荷' }
+2019-04-30 10:27:51,914 INFO 3623 [-/::1/-/3ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:27:58,591 INFO 3623 [-/::1/-/1ms POST /api/player/list] { type: '0', name: '俞天' }
+2019-04-30 10:27:58,817 INFO 3623 [-/::1/-/227ms POST /api/player/list] nodejs.TypeError: Cannot read property 'rolelist' of undefined
+    at PlayerinfoService.list (/mnt/g/umi-gm/app/service/playerinfo.js:70:29)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+
+pid: 3623
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 10:30:41,275 INFO 3669 [-/::1/-/3ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 10:31:18,450 INFO 3681 [-/::1/-/52ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:31:54,559 INFO 3693 [-/::1/-/53ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:32:13,258 INFO 3693 [-/::1/-/3ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:33:04,993 INFO 3717 [-/::1/-/46ms POST /api/player/playerinfo/basic-info] { gender: 1,
+  guid: '1828468287530731054',
+  level: 70,
+  menpai: 2,
+  name: '俞天荷' }
+2019-04-30 10:33:06,056 INFO 3717 [-/::1/-/3ms POST /api/player/playerinfo/bag-info] { gender: 1,
+  guid: '1828468287530731054',
+  level: 70,
+  menpai: 2,
+  name: '俞天荷' }
+2019-04-30 10:33:06,591 INFO 3717 [-/::1/-/1ms POST /api/player/playerinfo/basic-info] { gender: 1,
+  guid: '1828468287530731054',
+  level: 70,
+  menpai: 2,
+  name: '俞天荷' }
+2019-04-30 10:33:07,118 INFO 3717 [-/::1/-/2ms POST /api/player/playerinfo/bag-info] { gender: 1,
+  guid: '1828468287530731054',
+  level: 70,
+  menpai: 2,
+  name: '俞天荷' }
+2019-04-30 10:33:07,582 INFO 3717 [-/::1/-/2ms POST /api/player/playerinfo/warehouse-info] { gender: 1,
+  guid: '1828468287530731054',
+  level: 70,
+  menpai: 2,
+  name: '俞天荷' }
+2019-04-30 10:33:08,214 INFO 3717 [-/::1/-/1ms POST /api/player/playerinfo/basic-info] { gender: 1,
+  guid: '1828468287530731054',
+  level: 70,
+  menpai: 2,
+  name: '俞天荷' }
+2019-04-30 10:33:29,071 INFO 3717 [-/::1/-/1ms POST /api/player/playerinfo/bag-info] { gender: 1,
+  guid: '1828468287530731054',
+  level: 70,
+  menpai: 2,
+  name: '俞天荷' }
+2019-04-30 10:34:26,409 INFO 3717 [-/::1/-/2ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:34:29,634 INFO 3717 [-/::1/-/5ms POST /api/player/list] { type: '0', name: '俞天荷' }
+2019-04-30 10:34:50,472 INFO 3717 [-/::1/-/2ms POST /api/player/playerinfo/basic-info] { gender: 1,
+  guid: '1828468287530731054',
+  level: 70,
+  menpai: 2,
+  name: '俞天荷' }
+2019-04-30 10:45:56,236 INFO 3962 [-/::1/-/3ms POST /api/player/list] undefined
+2019-04-30 10:45:58,824 INFO 3962 [-/::1/-/2ms POST /api/player/list] undefined
+2019-04-30 10:46:04,409 INFO 3962 [-/::1/-/2ms POST /api/player/list] undefined
+2019-04-30 10:46:09,827 INFO 3962 [-/::1/-/1ms POST /api/player/list] undefined
+2019-04-30 10:47:54,677 INFO 3993 [-/::1/-/3ms POST /api/player/list] undefined
+2019-04-30 10:48:09,293 INFO 3993 [-/::1/-/37ms POST /api/player/playerinfo/basic-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:12,369 INFO 3993 [-/::1/-/3ms POST /api/player/playerinfo/bag-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:13,769 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/warehouse-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:15,009 INFO 3993 [-/::1/-/76ms POST /api/player/playerinfo/bag-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:20,067 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/basic-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:21,999 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/bag-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:28,880 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/warehouse-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:29,567 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/equip-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:30,592 INFO 3993 [-/::1/-/3ms POST /api/player/playerinfo/skill-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:31,223 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/title-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:31,903 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/pet-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:33,239 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/title-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:34,157 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/pet-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:35,567 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/title-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:36,295 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/skill-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:37,111 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/equip-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:37,727 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/warehouse-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:39,008 INFO 3993 [-/::1/-/3ms POST /api/player/playerinfo/bag-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:39,807 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/basic-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:40,991 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/bag-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:48:41,878 INFO 3993 [-/::1/-/1ms POST /api/player/playerinfo/basic-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:49:19,832 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/skill-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:49:21,326 INFO 3993 [-/::1/-/40ms POST /api/player/playerinfo/equip-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:49:22,366 INFO 3993 [-/::1/-/31ms POST /api/player/playerinfo/warehouse-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:49:23,551 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/bag-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:49:24,479 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/basic-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:49:28,568 INFO 3993 [-/::1/-/3ms POST /api/player/playerinfo/pet-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:49:29,207 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/title-info] [controller.playerinfo] 1828468287530731054
+2019-04-30 10:49:38,273 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/title-info] [controller.playerinfo] 1810453929253996333
+2019-04-30 10:50:24,400 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/bag-info] [controller.playerinfo] 1810453929253996333
+2019-04-30 10:50:25,175 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/basic-info] [controller.playerinfo] 1810453929253996333
+2019-04-30 10:50:27,479 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/warehouse-info] [controller.playerinfo] 1810453929253996333
+2019-04-30 10:50:29,048 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/bag-info] [controller.playerinfo] 1810453929253996333
+2019-04-30 10:50:29,983 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/basic-info] [controller.playerinfo] 1810453929253996333
+2019-04-30 10:50:30,927 INFO 3993 [-/::1/-/1ms POST /api/player/playerinfo/bag-info] [controller.playerinfo] 1810453929253996333
+2019-04-30 10:50:31,904 INFO 3993 [-/::1/-/3ms POST /api/player/playerinfo/warehouse-info] [controller.playerinfo] 1810453929253996333
+2019-04-30 10:50:32,919 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/skill-info] [controller.playerinfo] 1810453929253996333
+2019-04-30 10:50:33,686 INFO 3993 [-/::1/-/1ms POST /api/player/playerinfo/equip-info] [controller.playerinfo] 1810453929253996333
+2019-04-30 10:50:34,303 INFO 3993 [-/::1/-/2ms POST /api/player/playerinfo/skill-info] [controller.playerinfo] 1810453929253996333
+2019-04-30 12:21:57,661 INFO 5474 [-/::1/-/48ms POST /api/player/gmact/money] { dianquan: 0, yinliang: 0, xianyuan: 0, bxianyuan: 0 }
+2019-04-30 12:24:19,872 INFO 5498 [-/::1/-/39ms POST /api/player/gmact/money] { dianquan: '111', yinliang: 0, xianyuan: 0, bxianyuan: 0 }
+2019-04-30 12:25:47,763 INFO 5498 [-/::1/-/6ms POST /api/player/gmact/money] { dianquan: 0, yinliang: 0, xianyuan: 0, bxianyuan: '1' }
+2019-04-30 12:26:02,728 INFO 5510 [-/::1/-/49ms POST /api/player/gmact/money] { dianquan: '1', yinliang: 0, xianyuan: 0, bxianyuan: 0 }
+2019-04-30 12:34:23,984 INFO 5654 [-/::1/-/49ms POST /api/player/gmact/prop] { names: [ '啊是大', '阿萨大大' ], counts: [ '1', '1' ] }
+2019-04-30 12:38:25,177 INFO 5654 [-/::1/-/6ms POST /api/player/list] undefined
+2019-04-30 12:38:26,253 ERROR 5654 [-/::1/-/1040ms POST /api/player/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":0,"errorSocketCount":1,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1016,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 5654
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 12:38:35,345 INFO 5654 [-/::1/-/2ms POST /api/player/list] undefined
+2019-04-30 12:38:36,392 ERROR 5654 [-/::1/-/1009ms POST /api/player/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":2,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":2,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1006,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 5654
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 12:42:47,363 INFO 5749 [-/::1/-/3ms POST /api/player/list] undefined
+2019-04-30 12:42:48,451 ERROR 5749 [-/::1/-/1035ms POST /api/player/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":0,"errorSocketCount":1,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1015,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 5749
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 12:45:05,610 INFO 5821 [-/::1/-/9ms POST /api/player/list] undefined
+2019-04-30 12:45:06,722 ERROR 5821 [-/::1/-/1084ms POST /api/player/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":0,"errorSocketCount":1,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1060,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 5821
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 12:45:37,543 INFO 5833 [-/::1/-/36ms POST /api/player/list] undefined
+2019-04-30 12:45:38,590 ERROR 5833 [-/::1/-/1064ms POST /api/player/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":0,"errorSocketCount":1,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1013,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 5833
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 12:46:56,186 INFO 5845 [-/::1/-/41ms POST /api/player/list] undefined
+2019-04-30 12:46:57,211 ERROR 5845 [-/::1/-/1061ms POST /api/player/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":0,"errorSocketCount":1,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1012,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 5845
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 12:48:25,155 INFO 5857 [-/::1/-/51ms POST /api/player/list] undefined
+2019-04-30 12:48:26,245 ERROR 5857 [-/::1/-/1080ms POST /api/player/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":0,"errorSocketCount":1,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1015,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 5857
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 12:49:49,853 INFO 5869 [-/::1/-/38ms POST /api/player/list] undefined
+2019-04-30 12:49:50,891 ERROR 5869 [-/::1/-/1057ms POST /api/player/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":0,"errorSocketCount":1,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1011,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 5869
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 12:50:55,860 INFO 5905 [-/::1/-/62ms POST /api/player/list] undefined
+2019-04-30 12:54:49,395 INFO 5917 [-/::1/-/53ms POST /api/player/list] undefined
+2019-04-30 13:01:58,112 INFO 5929 [-/::1/-/139ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 13:02:13,519 INFO 5941 [-/::1/-/54ms POST /api/player/playerinfo/basic-info] { gender: 1,
+  guid: '1828468287530731054',
+  level: 70,
+  menpai: 2,
+  name: '俞天荷' }
+2019-04-30 13:04:17,381 INFO 5989 [-/::1/-/53ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 13:04:18,422 ERROR 5989 [-/::1/-/1075ms POST /api/player/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":0,"errorSocketCount":1,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1013,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 5989
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 13:04:29,765 INFO 5989 [-/::1/-/5ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 13:04:30,847 ERROR 5989 [-/::1/-/1011ms POST /api/player/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":2,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":2,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1005,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 5989
+hostname: DESKTOP-NCOD5CJ
+
+2019-04-30 13:07:31,350 INFO 6001 [-/::1/-/3ms POST /api/player/list] { type: '0', name: '1' }
+2019-04-30 13:07:32,456 ERROR 6001 [-/::1/-/1035ms POST /api/player/list] nodejs.RequestError: connect ECONNREFUSED 192.168.1.205:20843, POST http://192.168.1.205:20843/ -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":0,"errorSocketCount":1,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"192.168.1.205:20843:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)
+errno: "ECONNREFUSED"
+code: "ECONNREFUSED"
+syscall: "connect"
+address: "192.168.1.205"
+port: 20843
+name: "RequestError"
+data: undefined
+path: "/"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1014,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 6001
+hostname: DESKTOP-NCOD5CJ
+

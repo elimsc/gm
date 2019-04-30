@@ -13,6 +13,6 @@ export async function list({ type, name }) {
  * @param {object} value 请求体
  */
 export async function fetchInfo(type, value) {
-  return post(`/api/player/${type}`, value);
+  return post(`/api/player/playerinfo/${type}`, value);
 }
 
