@@ -9,6 +9,7 @@ class BaseReqService extends Service {
     const genBody = this.ctx.helper.genBody;
     try {
       return await this.ctx.curl(URL, {
+        timeout: 3000,
         method: 'POST',
         contentType: 'json', // 请求体为json
         dataType: 'json', // 响应体为json

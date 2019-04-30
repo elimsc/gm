@@ -10,7 +10,6 @@ class BanController extends BaseController {
   constructor(props) {
     super(props);
     this.banService = this.ctx.service.ban;
-    this.logger.info(this.ctx.request.body);
   }
 
   /**

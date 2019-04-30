@@ -7,10 +7,6 @@
 const BaseController = require('./base');
 
 class BatchActController extends BaseController {
-  constructor(props) {
-    super(props);
-    this.logger.info(this.ctx.request.body);
-  }
 
   // 批量操作
   async act() {

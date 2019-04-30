@@ -33,7 +33,7 @@ class Switch extends React.PureComponent {
 
 
   render() {
-    const { data, menu, show } = this.props;
+    const { data, menu, guid } = this.props;
     switch (menu) {
       case 'basic-info':
         return <BasicInfo data={data} />;
@@ -59,39 +59,39 @@ class Switch extends React.PureComponent {
         return <MarriageInfo />;
 
       case 'money':
-        return show ? <Money /> : null;
+        return guid ? <Money guid={guid} /> : null;
       case 'exp':
-        return show ? <Exp /> : null;
+        return guid ? <Exp guid={guid} /> : null;
       case 'change-pass':
-        return show ? <ChangePass /> : null;
+        return guid ? <ChangePass guid={guid} /> : null;
       case 'forcedown':
-        return show ? <Forcedown /> : null;
+        return guid ? <Forcedown guid={guid} /> : null;
       case 'petsymbol-level':
-        return show ? <PetsymbolLevel /> : null;
+        return guid ? <PetsymbolLevel guid={guid} /> : null;
       case 'prac-level':
-        return show ? <PracLevel /> : null;
+        return guid ? <PracLevel guid={guid} /> : null;
       case 'prop':
-        return show ? <Prop /> : null;
+        return guid ? <Prop guid={guid} /> : null;
       case 'secure-code':
-        return show ? <SecureCode /> : null;
+        return guid ? <SecureCode guid={guid} /> : null;
       case 'title':
-        return show ? <TitleM /> : null;
+        return guid ? <TitleM guid={guid} /> : null;
       case 'untie-phone':
-        return show ? <UntiePhone /> : null;
+        return guid ? <UntiePhone guid={guid} /> : null;
 
       case 'clear-secure-code':
-        return show ? <ClearSecureCode /> : null;
+        return guid ? <ClearSecureCode guid={guid} /> : null;
       case 'unusual-gang':
-        return show ? <UnusualGang /> : null;
+        return guid ? <UnusualGang guid={guid} /> : null;
       case 'unusual-task':
-        return show ? <UnusualTask /> : null;
+        return guid ? <UnusualTask guid={guid} /> : null;
 
       case 'ban-talk':
-        return show ? <BanTalk /> : null;
+        return guid ? <BanTalk guid={guid} /> : null;
       case 'ban-log':
-        return show ? <BanLog /> : null;
+        return guid ? <BanLog guid={guid} /> : null;
       case 'ban-account':
-        return show ? <BanAccount /> : null;
+        return guid ? <BanAccount guid={guid} /> : null;
 
       default:
         break;

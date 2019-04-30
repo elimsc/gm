@@ -3,6 +3,10 @@
 const Controller = require('egg').Controller;
 
 class BaseController extends Controller {
+  constructor(props) {
+    super(props);
+    this.logger.debug(this.ctx.request.body);
+  }
 
   // 成功
   success(payload = {}, message = '操作成功') {

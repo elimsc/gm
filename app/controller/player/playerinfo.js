@@ -10,7 +10,6 @@ class PlayerInfoController extends BaseController {
 
   constructor(props) {
     super(props);
-    this.logger.info(this.ctx.request.body);
     this.playerService = this.ctx.service.playerinfo;
   }
 

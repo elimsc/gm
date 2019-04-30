@@ -9,7 +9,6 @@ const BaseController = require('../base');
 class ClearController extends BaseController {
   constructor(props) {
     super(props);
-    this.logger.info(this.ctx.request.body);
     this.clearService = this.ctx.service.clear;
   }
 

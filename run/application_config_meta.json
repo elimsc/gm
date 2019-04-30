@@ -97,6 +97,24 @@
       "connectionLimit": "/mnt/g/umi-gm/node_modules/egg-mysql/config/config.default.js"
     }
   },
+  "logger": {
+    "consoleLevel": "/mnt/g/umi-gm/config/config.local.js",
+    "dir": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+    "encoding": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+    "env": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+    "level": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+    "disableConsoleAfterReady": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+    "outputJSON": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+    "buffer": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+    "appLogName": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+    "coreLogName": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+    "agentLogName": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+    "errorLogName": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
+    "coreLogger": {
+      "consoleLevel": "/mnt/g/umi-gm/node_modules/egg/config/config.local.js"
+    },
+    "allowDebugAtProd": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js"
+  },
   "session": {
     "maxAge": "/mnt/g/umi-gm/node_modules/egg-session/config/config.default.js",
     "key": "/mnt/g/umi-gm/node_modules/egg-session/config/config.default.js",
@@ -280,24 +298,6 @@
       "depth": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
       "parameterLimit": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js"
     }
-  },
-  "logger": {
-    "dir": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-    "encoding": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-    "env": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-    "level": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-    "consoleLevel": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-    "disableConsoleAfterReady": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-    "outputJSON": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-    "buffer": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-    "appLogName": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-    "coreLogName": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-    "agentLogName": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-    "errorLogName": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",
-    "coreLogger": {
-      "consoleLevel": "/mnt/g/umi-gm/node_modules/egg/config/config.local.js"
-    },
-    "allowDebugAtProd": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js"
   },
   "httpclient": {
     "enableDNSCache": "/mnt/g/umi-gm/node_modules/egg/config/config.default.js",

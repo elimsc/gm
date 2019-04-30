@@ -287,7 +287,7 @@
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
-      "consoleLevel": "INFO",
+      "consoleLevel": "DEBUG",
       "disableConsoleAfterReady": false,
       "outputJSON": false,
       "buffer": true,

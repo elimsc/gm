@@ -9,7 +9,6 @@ const BaseController = require('../base');
 class GmactController extends BaseController {
   constructor(props) {
     super(props);
-    this.logger.info(this.ctx.request.body);
     this.gmactService = this.ctx.service.gmact;
   }
 

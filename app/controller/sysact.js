@@ -7,10 +7,6 @@
 const BaseController = require('./base');
 
 class SysActControler extends BaseController {
-  constructor(props) {
-    super(props);
-    this.logger.info(this.ctx.request.body);
-  }
 
   // 服务与活动管理
   async activity() {

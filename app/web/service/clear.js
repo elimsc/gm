@@ -1,13 +1,13 @@
 import { post } from "../utils/request";
 
-export async function clearSecureCode() {
-  return post(`/api/player/clear/secure-code`);
+export async function clearSecureCode({ guid }) {
+  return post(`/api/player/clear/secure-code`, { guid });
 }
 
-export async function clearUnGang() {
-  return post(`/api/player/clear/un-gang`);
+export async function clearUnGang({ guid }) {
+  return post(`/api/player/clear/un-gang`, { guid });
 }
 
-export async function clearUnTask() {
-  return post(`/api/player/clear/un-task`);
+export async function clearUnTask({ guid }) {
+  return post(`/api/player/clear/un-task`, { guid });
 }

@@ -188,7 +188,11 @@ class PlayerMan extends React.PureComponent {
             </Col>
             <Col span={20}>
               <Spin tip="加载中..." spinning={dataLoading}>
-                <Switch menu={menu} data={data} show={selectedPlayer && selectedPlayer.guid ? true : true} />
+                <Switch 
+                  menu={menu} 
+                  data={data} 
+                  guid={selectedPlayer && selectedPlayer.guid ? true : true} 
+                  />
               </Spin>
             </Col>
           </Row>
