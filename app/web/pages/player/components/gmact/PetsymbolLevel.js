@@ -1,15 +1,34 @@
 import React from 'react';
 import { Form, Input, Button, message } from 'antd';
 
+import { petsymbolLevel } from '../../../../service/gmact';
+
 
 class PetsymbolLevel extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+    }
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log(values);
-        message.info('数据已提交');
+        this.setState({ loading: true });
+        petsymbolLevel({ value: values['petsymbol_level'] }).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('操作失败');
+          }
+          this.setState({ loading: false });
+          this.props.form.resetFields(['petsymbol_level']);
+        });
+
       }
     });
   }
@@ -41,18 +60,18 @@ class PetsymbolLevel extends React.Component {
     };
 
     return (
-      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+      <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{ marginTop: 40 }}>
         <Form.Item label="设置宠物符等级">
           {getFieldDecorator('petsymbol_level', {
-              rules: [{
-                required: true, message: '不能为空',
-              }],
-            })(
-              <Input />
-            )}
+            rules: [{
+              required: true, message: '不能为空',
+            }],
+          })(
+            <Input type="number" />
+          )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">提交</Button>
+          <Button type="primary" htmlType="submit" loading={this.state.loading}>提交</Button>
         </Form.Item>
       </Form>
     );

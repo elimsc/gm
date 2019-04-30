@@ -1,16 +1,32 @@
 import React from 'react';
 import { Card, Form, Input, Button, message } from 'antd';
 
+import { changePass } from '../../../../service/gmact';
+
 
 class ChangePass extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+    }
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log(values);
-        this.props.form.resetFields();
-        message.info('提交成功');
+        this.setState({ loading: true });
+        changePass({ value: values['password'] }).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('操作失败');
+          }
+          this.setState({ loading: false });
+          this.props.form.resetFields();
+        });
       }
     });
   }
@@ -51,7 +67,7 @@ class ChangePass extends React.Component {
     };
 
     return (
-      <Form {...formItemLayout} style={{marginTop: 50}} onSubmit={this.handleSubmit}>
+      <Form {...formItemLayout} style={{ marginTop: 50 }} onSubmit={this.handleSubmit}>
         <Form.Item
           label="新密码"
         >
@@ -75,7 +91,7 @@ class ChangePass extends React.Component {
           )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">提交</Button>
+          <Button loading={this.state.loading} type="primary" htmlType="submit">提交</Button>
         </Form.Item>
       </Form>
     );

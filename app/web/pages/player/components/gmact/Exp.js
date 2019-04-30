@@ -1,15 +1,36 @@
 import React from 'react';
 import { Form, Input, Button, message, Divider, Select } from 'antd';
 
+import { exp } from '../../../../service/gmact';
 
-class Exp extends React.Component {
+
+class Exp extends React.PureComponent {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading1: false,
+      loading2: false,
+      loading3: false
+    }
+  }
 
   handleSubmit1 = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll(['jinyan'], (err, values) => {
       if (!err) {
         console.log(values);
-        message.info('数据已提交');
+        this.setState({ loading1: true });
+        exp({ type: 1, data: values }).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('操作失败');
+          }
+          this.setState({ loading1: false });
+          this.props.form.resetFields(['jinyan']);
+        });
+
       }
     });
   }
@@ -19,7 +40,17 @@ class Exp extends React.Component {
     this.props.form.validateFieldsAndScroll(['player_level'], (err, values) => {
       if (!err) {
         console.log(values);
-        message.info('数据已提交');
+        this.setState({ loading2: true });
+        exp({ type: 2, data: values }).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('操作失败');
+          }
+          this.setState({ loading2: false });
+          this.props.form.resetFields(['player_level']);
+        });
+
       }
     });
   }
@@ -30,7 +61,17 @@ class Exp extends React.Component {
     this.props.form.validateFieldsAndScroll(['pet_name', 'pet_level'], (err, values) => {
       if (!err) {
         console.log(values);
-        message.info('数据已提交');
+        this.setState({ loading3: true });
+        exp({ type: 3, data: values }).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('操作失败');
+          }
+          this.setState({ loading3: false });
+          this.props.form.resetFields(['pet_name', 'pet_level']);
+        });
+
       }
     });
   }
@@ -63,60 +104,60 @@ class Exp extends React.Component {
 
     return (
       <div>
-        <Form {...formItemLayout} onSubmit={this.handleSubmit1} style={{marginTop: 30}}>
+        <Form {...formItemLayout} onSubmit={this.handleSubmit1} style={{ marginTop: 30 }}>
           <Form.Item label="玩家添加经验">
             {getFieldDecorator('jinyan', {
-                rules: [{
-                  required: true, message: '不能为空'
-                }],
-              })(
-                <Input />
-              )}
+              rules: [{
+                required: true, message: '不能为空'
+              }],
+            })(
+              <Input type="number" />
+            )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit">提交</Button>
+            <Button type="primary" htmlType="submit" loading={this.state.loading1}>提交</Button>
           </Form.Item>
         </Form>
         <Divider />
-        <Form {...formItemLayout} onSubmit={this.handleSubmit2} style={{marginTop: 30}}>
+        <Form {...formItemLayout} onSubmit={this.handleSubmit2} style={{ marginTop: 30 }}>
           <Form.Item label="设置玩家等级">
             {getFieldDecorator('player_level', {
-                rules: [{
-                  required: true, message: '不能为空'
-                }],
-              })(
-                <Input />
-              )}
+              rules: [{
+                required: true, message: '不能为空'
+              }],
+            })(
+              <Input type="number" />
+            )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit">提交</Button>
+            <Button type="primary" htmlType="submit" loading={this.state.loading2}>提交</Button>
           </Form.Item>
         </Form>
         <Divider />
-        <Form {...formItemLayout} onSubmit={this.handleSubmit3} style={{marginTop: 30}}>
+        <Form {...formItemLayout} onSubmit={this.handleSubmit3} style={{ marginTop: 30 }}>
           <Form.Item label="选择宠物">
             {getFieldDecorator('pet_name', {
-                rules: [{
-                  required: true, message: '不能为空'
-                }],
-              })(
-                <Select placeholder="选择宠物">
-                  <Select.Option value="1">宠物1</Select.Option>
-                  <Select.Option value="2">宠物2</Select.Option>
-                </Select>
-              )}
+              rules: [{
+                required: true, message: '不能为空'
+              }],
+            })(
+              <Select placeholder="选择宠物">
+                <Select.Option value="1">宠物1</Select.Option>
+                <Select.Option value="2">宠物2</Select.Option>
+              </Select>
+            )}
           </Form.Item>
           <Form.Item label="设置宠物等级">
             {getFieldDecorator('pet_level', {
-                rules: [{
-                  required: true, message: '不能为空'
-                }],
-              })(
-                <Input />
-              )}
+              rules: [{
+                required: true, message: '不能为空'
+              }],
+            })(
+              <Input type="number" />
+            )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout} >
-            <Button type="primary" htmlType="submit">提交</Button>
+            <Button type="primary" htmlType="submit" loading={this.state.loading3}>提交</Button>
           </Form.Item>
         </Form>
       </div>

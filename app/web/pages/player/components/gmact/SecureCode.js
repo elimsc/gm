@@ -1,16 +1,33 @@
 import React from 'react';
 import { Form, Input, Button, message } from 'antd';
 
+import { changeSecureCode } from '../../../../service/gmact';
+
 
 class SecureCode extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+    }
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log(values);
-        this.props.form.resetFields();
-        message.info('提交成功');
+        this.setState({ loading: true });
+        changeSecureCode({ value: values['secure_code'] }).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('操作失败');
+          }
+          this.setState({ loading: false });
+          this.props.form.resetFields();
+        });
       }
     });
   }
@@ -51,7 +68,7 @@ class SecureCode extends React.Component {
     };
 
     return (
-      <Form {...formItemLayout} style={{marginTop: 50}} onSubmit={this.handleSubmit}>
+      <Form {...formItemLayout} style={{ marginTop: 50 }} onSubmit={this.handleSubmit}>
         <Form.Item
           label="新安全码"
         >
@@ -75,7 +92,7 @@ class SecureCode extends React.Component {
           )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">提交</Button>
+          <Button loading={this.state.loading} type="primary" htmlType="submit">提交</Button>
         </Form.Item>
       </Form>
     );
