@@ -64,20 +64,21 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "/mnt/g/umi-gm/node_modules/egg-onerror/lib/onerror_page.mustache"
+      "templatePath": "/Users/zh/Desktop/gm/node_modules/egg-onerror/lib/onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
       "dirs": [],
       "queryField": "locale",
       "cookieField": "locale",
+      "cookieDomain": "",
       "cookieMaxAge": "1y"
     },
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "/mnt/g/umi-gm/node_modules/egg-watcher/lib/event-sources/default",
-        "development": "/mnt/g/umi-gm/node_modules/egg-watcher/lib/event-sources/development"
+        "default": "/Users/zh/Desktop/gm/node_modules/egg-watcher/lib/event-sources/default",
+        "development": "/Users/zh/Desktop/gm/node_modules/egg-watcher/lib/event-sources/development"
       }
     },
     "customLogger": {
@@ -100,7 +101,7 @@
       "files": 10,
       "fileExtensions": [],
       "whitelist": null,
-      "tmpdir": "/tmp/egg-multipart-tmp/umi-gm",
+      "tmpdir": "/var/folders/bl/2rm6g1qd5yl39rxgwprjjkkc0000gn/T/egg-multipart-tmp/umi-gm",
       "cleanSchedule": {
         "cron": "0 30 4 * * *"
       }
@@ -123,14 +124,14 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "/mnt/g/umi-gm/app/public",
+      "dir": "/Users/zh/Desktop/gm/app/public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
       "maxFiles": 1000
     },
     "view": {
-      "root": "/mnt/g/umi-gm/app/view",
+      "root": "/Users/zh/Desktop/gm/app/view",
       "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
@@ -151,9 +152,9 @@
         "command": "umi dev",
         "autoPort": false,
         "port": 8000,
-        "portPath": "/mnt/g/umi-gm/run/assetsPort",
+        "portPath": "/Users/zh/Desktop/gm/run/assetsPort",
         "env": {
-          "APP_ROOT": "/mnt/g/umi-gm/app/web",
+          "APP_ROOT": "/Users/zh/Desktop/gm/app/web",
           "BROWSER": "none",
           "ESLINT": "none",
           "SOCKET_SERVER": "http://127.0.0.1:8000",
@@ -182,7 +183,7 @@
         "host": "localhost",
         "port": "3306",
         "user": "root",
-        "password": "<String len: 4>",
+        "password": "<String len: 0>",
         "database": "gm"
       }
     },
@@ -251,9 +252,9 @@
       "author": "",
       "license": "MIT"
     },
-    "baseDir": "/mnt/g/umi-gm",
-    "HOME": "/home/zh",
-    "rundir": "/mnt/g/umi-gm/run",
+    "baseDir": "/Users/zh/Desktop/gm",
+    "HOME": "/Users/zh",
+    "rundir": "/Users/zh/Desktop/gm/run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -283,7 +284,7 @@
       }
     },
     "logger": {
-      "dir": "/mnt/g/umi-gm/logs/umi-gm",
+      "dir": "/Users/zh/Desktop/gm/logs/umi-gm",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -362,8 +363,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-session",
+      "from": "/Users/zh/Desktop/gm/node_modules/egg/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -375,8 +376,8 @@
         "session"
       ],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-security",
+      "from": "/Users/zh/Desktop/gm/node_modules/egg/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-security",
       "version": "2.5.0"
     },
     "jsonp": {
@@ -388,8 +389,8 @@
         "security"
       ],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-jsonp",
+      "from": "/Users/zh/Desktop/gm/node_modules/egg/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -401,8 +402,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-onerror",
+      "from": "/Users/zh/Desktop/gm/node_modules/egg/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -412,9 +413,9 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-i18n",
-      "version": "2.0.0"
+      "from": "/Users/zh/Desktop/gm/node_modules/egg/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-i18n",
+      "version": "2.1.1"
     },
     "watcher": {
       "enable": true,
@@ -423,8 +424,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-watcher",
+      "from": "/Users/zh/Desktop/gm/node_modules/egg/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-watcher",
       "version": "3.1.0"
     },
     "schedule": {
@@ -434,9 +435,9 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-schedule",
-      "version": "3.6.1"
+      "from": "/Users/zh/Desktop/gm/node_modules/egg/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-schedule",
+      "version": "3.6.2"
     },
     "multipart": {
       "enable": true,
@@ -447,9 +448,9 @@
         "schedule"
       ],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-multipart",
-      "version": "2.4.0"
+      "from": "/Users/zh/Desktop/gm/node_modules/egg/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-multipart",
+      "version": "2.5.0"
     },
     "development": {
       "enable": true,
@@ -462,8 +463,8 @@
       "env": [
         "local"
       ],
-      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-development",
+      "from": "/Users/zh/Desktop/gm/node_modules/egg/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-development",
       "version": "2.4.2"
     },
     "logrotator": {
@@ -475,8 +476,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-logrotator",
+      "from": "/Users/zh/Desktop/gm/node_modules/egg/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-logrotator",
       "version": "3.1.0"
     },
     "static": {
@@ -486,8 +487,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-static",
+      "from": "/Users/zh/Desktop/gm/node_modules/egg/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-static",
       "version": "2.2.0"
     },
     "view": {
@@ -497,8 +498,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/node_modules/egg/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-view",
+      "from": "/Users/zh/Desktop/gm/node_modules/egg/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-view",
       "version": "2.1.2"
     },
     "assets": {
@@ -510,8 +511,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-view-assets",
+      "from": "/Users/zh/Desktop/gm/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-view-assets",
       "version": "1.5.0"
     },
     "nunjucks": {
@@ -524,8 +525,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-view-nunjucks",
+      "from": "/Users/zh/Desktop/gm/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-view-nunjucks",
       "version": "2.2.0"
     },
     "mysql": {
@@ -535,8 +536,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/mnt/g/umi-gm/config/plugin.js",
-      "path": "/mnt/g/umi-gm/node_modules/egg-mysql",
+      "from": "/Users/zh/Desktop/gm/config/plugin.js",
+      "path": "/Users/zh/Desktop/gm/node_modules/egg-mysql",
       "version": "3.0.0"
     }
   }

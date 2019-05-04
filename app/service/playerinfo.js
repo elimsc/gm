@@ -24,7 +24,6 @@ class PlayerinfoService extends BaseReqService {
   // 角色基本信息查询
   async basicInfo({ guid }) {
     const result = await this.request({ cmd: 1003 }, { guid }, [ 'guid' ]);
-    console.log(result);
     if (!result) return [];
     if (result.data && result.data.body) {
       // 处理返回结果

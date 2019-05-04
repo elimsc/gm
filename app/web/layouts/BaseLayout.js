@@ -4,6 +4,7 @@ import {
 } from 'antd';
 import Link from 'umi/link';
 import router from 'umi/router';
+import {connect} from 'dva';
 
 import { check, logout } from '../service/login';
 import styles from './BaseLayout.css';
@@ -14,6 +15,9 @@ const {
 const SubMenu = Menu.SubMenu;
 const Option = Select.Option;
 
+@connect(({global}) => ({
+  global
+}))
 class BaseLayout extends React.Component {
   constructor(props) {
     super(props);
@@ -29,9 +33,13 @@ class BaseLayout extends React.Component {
     const data = await check();
     console.log("base layout did mount =================== ")
     console.log(data);
-    if (data.code === -10) {
+    if (data.code === -10) { // 未登陆 
       router.replace('/login');
     } else {
+      await this.props.dispatch({ // 获取服务器列表
+        type: 'global/fetchSrvList',
+        payload: {},
+      });
       this.setState({ loading: false, username: data.payload.username, role: parseInt(data.payload.role) });
     }
   }
@@ -55,6 +63,13 @@ class BaseLayout extends React.Component {
     });
   }
 
+  handleSrvSelect = (part_id) => {
+    this.props.dispatch({
+      type: 'global/save',
+      payload: {currentSelect: part_id}
+    })
+  }
+
   render() {
 
     const userDropDown = (
@@ -64,6 +79,8 @@ class BaseLayout extends React.Component {
         <Menu.Item onClick={() => this.go_route('/user/actlog')} key="actlog">操作记录</Menu.Item>
       </Menu>
     );
+
+    const {srvList} = this.props.global;
 
 
     return (
@@ -138,18 +155,12 @@ class BaseLayout extends React.Component {
                 />
               </div>
               <div className={styles.headerItem}>
-                <Select className={styles.select} placeholder="选择登陆类型" style={{ width: 120 }}>
-                  <Option value="ifgame">ifgame</Option>
+                <Select onChange={this.handleSrvSelect} className={styles.select} placeholder="选择区服" style={{ width: 120 }}>
+                  {srvList.map(v => (
+                    <Option key={v.part_id} value={v.part_id}>{v.name}</Option>
+                  ))}
                 </Select>
-                <Select className={styles.select} placeholder="选择登陆类型" style={{ width: 120 }}>
-                  <Option value="ifgame">ifgame</Option>
-                </Select>
-                <Select className={styles.select} placeholder="选择登陆类型" style={{ width: 120 }}>
-                  <Option value="ifgame">ifgame</Option>
-                </Select>
-                <Select className={styles.select} placeholder="选择登陆类型" style={{ width: 120 }}>
-                  <Option value="ifgame">ifgame</Option>
-                </Select>
+                
               </div>
               <div className={styles.headerItem} style={{ float: 'right', marginRight: 50 }}>
                 <Dropdown overlay={userDropDown} trigger={['click']}>

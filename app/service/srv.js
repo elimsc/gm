@@ -8,7 +8,7 @@ const BaseReqService = require('./basereq');
 class SrvService extends BaseReqService {
   async list() {
     const result = await this.request({ cmd: 3001 });
-    if (!result) return [];
+    if (!result) return [{ part_id: 1, name: '测试五' }];
     if (result.data && result.data.body && result.data.body.partlist) {
       return result.data.body.partlist;
     }
