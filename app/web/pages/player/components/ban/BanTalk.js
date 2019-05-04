@@ -1,15 +1,31 @@
 import React from 'react';
 import { Form, Input, Button, message, DatePicker } from 'antd';
 
+import {banTalk} from '../../../../service/ban';
 
 class BanTalk extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+    }
+  }
 
   handleSubmit = (e) => {
+    const {guid, part_id} = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log(values);
-        message.info('数据已提交');
+        console.log({...values, guid, part_id});
+        this.setState({loading: true});
+        banTalk({...values, guid, part_id}).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('操作失败');
+          }
+          this.setState({loading: false});
+        })
       }
     });
   }
@@ -42,11 +58,11 @@ class BanTalk extends React.Component {
 
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-        <Form.Item label="禁言时长">
+        <Form.Item label="禁言时长（分）">
           {getFieldDecorator('time-range', {
-              rules: [{ type: 'array', required: true, message: '请输入禁言的时长' }],
+              rules: [{ required: true, message: '请输入禁言的时长' }],
             })(
-              <Input placeholder="单位为分钟" />
+              <Input type="number" placeholder="单位为分钟" />
             )}
         </Form.Item>
         <Form.Item label="原因">
@@ -60,7 +76,7 @@ class BanTalk extends React.Component {
         </Form.Item>
 
         <Form.Item {...tailFormItemLayout}>
-          <Button type="danger" htmlType="submit">禁言</Button>
+          <Button loading={this.state.loading} type="danger" htmlType="submit">禁言</Button>
         </Form.Item>
       </Form>
     );

@@ -1,8 +1,12 @@
 import React from 'react';
 
+import TableInfoList from '../../../../components/TableInfoList';
+
 class HomeInfo extends React.Component {
   render() {
-    return <h1>title info</h1>;
+    return (
+      <TableInfoList data={this.props.data} />
+    );
   }
 }
 

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Card, Row, Col, Input, Button, Table, Menu, Form, Select, Spin } from 'antd';
-import Switch from './components/Switch';
+import { connect } from 'dva';
 
+import Switch from './components/Switch';
 import { list, fetchInfo } from '../../service/playerinfo';
 
 
-
+@connect(({global}) => ({global}))
 class PlayerMan extends React.PureComponent {
 
   constructor(props) {
@@ -24,7 +25,7 @@ class PlayerMan extends React.PureComponent {
     }
   }
 
-  handleSearch(e) {
+  handleSearch = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
@@ -33,7 +34,7 @@ class PlayerMan extends React.PureComponent {
           this.setState({ playerList: [] });
         } else {
           this.setState({ playerListLoading: true });
-          list(values).then((data) => {
+          list({...values, ...this.props.global}).then((data) => {
             this.setState({ playerList: data.payload });
             this.setState({ playerListLoading: false });
           })
@@ -54,7 +55,7 @@ class PlayerMan extends React.PureComponent {
     this.setState({ ...v });
     if (!player || !menu.endsWith('info')) return; // 没有当前选中用户时，不请求服务端
     this.setState({ dataLoading: true });
-    fetchInfo(menu, player).then(data => {
+    fetchInfo(menu, {...player, ...this.props.global}).then(data => {
       this.setState({ data: data.payload, dataLoading: false });
     });
   }
@@ -109,32 +110,26 @@ class PlayerMan extends React.PureComponent {
         <Card>
           <Form layout="inline" onSubmit={(e) => this.handleSearch(e)}>
             <Row>
-              <Col span={6}>
-                <Form.Item label="选中输入类型" >
-                  {getFieldDecorator('type', {
-                    initialValue: '0',
-                  })(
-                    <Select style={{ width: 100 }}>
-                      <Select.Option value="0">角色名</Select.Option>
-                      <Select.Option value="1">guid</Select.Option>
-                      <Select.Option value="2">uid</Select.Option>
-                    </Select>
-                  )}
-                </Form.Item>
-              </Col>
-              <Col span={6}>
-                <Form.Item label="角色名或GUID">
-                  {getFieldDecorator('name', {
-                    initialValue: '',
-                  })(
-                    <Input />
-                  )}
-                </Form.Item>
-              </Col>
+              <Form.Item style={{marginRight: 40}} label="选中输入类型" >
+                {getFieldDecorator('type', {
+                  initialValue: '0',
+                })(
+                  <Select style={{ width: 100 }}>
+                    <Select.Option value="0">角色名</Select.Option>
+                    <Select.Option value="1">guid</Select.Option>
+                    <Select.Option value="2">uid</Select.Option>
+                  </Select>
+                )}
+              </Form.Item>
+              <Form.Item style={{marginRight: 40}} label="角色名或GUID">
+                {getFieldDecorator('name', {
+                  initialValue: '',
+                })(
+                  <Input />
+                )}
+              </Form.Item>
 
-              <Col span={4}>
-                <Button htmlType="submit" type="primary">查询</Button>
-              </Col>
+              <Button style={{marginTop: 5}} htmlType="submit" type="primary">查询</Button>
             </Row>
           </Form>
           <Table
@@ -191,7 +186,8 @@ class PlayerMan extends React.PureComponent {
                 <Switch 
                   menu={menu} 
                   data={data} 
-                  guid={selectedPlayer && selectedPlayer.guid ? true : true} 
+                  guid={selectedPlayer && selectedPlayer.guid ? selectedPlayer.guid : true}
+                  part_id={this.props.global.part_id} 
                   />
               </Spin>
             </Col>

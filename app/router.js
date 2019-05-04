@@ -40,6 +40,9 @@ module.exports = app => {
   router.post('/api/player/playerinfo/title-info', auth, controller.player.playerinfo.titleInfo); // 角色称号信息
   router.post('/api/player/playerinfo/pet-info', auth, controller.player.playerinfo.petInfo); // 角色宠物信息
   router.post('/api/player/playerinfo/task-info', auth, controller.player.playerinfo.taskInfo); // 角色任务信息
+  router.post('/api/player/playerinfo/home-info', auth, controller.player.playerinfo.homeInfo); // 角色家园信息
+  router.post('/api/player/playerinfo/email-info', auth, controller.player.playerinfo.emailInfo); // 角色邮件信息
+  router.post('/api/player/playerinfo/marriage-info', auth, controller.player.playerinfo.marriageInfo);
 
   // 玩家操作--封号禁言
   router.post('/api/player/ban/account', auth, controller.player.ban.banAccount); // 封号

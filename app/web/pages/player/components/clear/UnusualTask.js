@@ -13,8 +13,9 @@ class UnusualTask extends React.Component {
   }
 
   handleClick = () => {
+    const {part_id, guid} = this.props;
     this.setState({ loading: true });
-    clearUnTask().then(data => {
+    clearUnTask({part_id, guid}).then(data => {
       if (data.code === 0) {
         message.success('操作成功');
       } else {

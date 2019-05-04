@@ -18,8 +18,8 @@ class PlayerInfoController extends BaseController {
    * 玩家列表
    */
   async list() {
-    const { name, type } = this.ctx.request.body;
-    const result = await this.playerService.list({ name, type: parseInt(type) });
+    const { name, type, part_id } = this.ctx.request.body;
+    const result = await this.playerService.list({ name, type: parseInt(type), part_id });
     this.ctx.body = this.success(result);
   }
 
@@ -37,7 +37,7 @@ class PlayerInfoController extends BaseController {
    * 玩家背包信息
    */
   async bagInfo() {
-    const result = await this.playerService.bagInfo({});
+    const result = await this.playerService.bagInfo({ ...this.ctx.request.body });
     this.ctx.body = this.success(result);
   }
 
@@ -46,7 +46,7 @@ class PlayerInfoController extends BaseController {
    * 玩家仓库信息
    */
   async wareHouseInfo() {
-    const result = await this.playerService.wareHouseInfo({});
+    const result = await this.playerService.wareHouseInfo({ ...this.ctx.request.body });
     this.ctx.body = this.success(result);
   }
 
@@ -55,7 +55,7 @@ class PlayerInfoController extends BaseController {
    * 玩家装备信息
    */
   async equipInfo() {
-    const result = await this.playerService.equipInfo({});
+    const result = await this.playerService.equipInfo({ ...this.ctx.request.body });
     this.ctx.body = this.success(result);
   }
 
@@ -64,7 +64,7 @@ class PlayerInfoController extends BaseController {
    * 玩家技能信息
    */
   async skillInfo() {
-    const result = await this.playerService.skillInfo({});
+    const result = await this.playerService.skillInfo({ ...this.ctx.request.body });
     this.ctx.body = this.success(result);
   }
 
@@ -73,7 +73,7 @@ class PlayerInfoController extends BaseController {
    * 玩家称号信息
    */
   async titleInfo() {
-    const result = await this.playerService.titleInfo({});
+    const result = await this.playerService.titleInfo({ ...this.ctx.request.body });
     this.ctx.body = this.success(result);
   }
 
@@ -82,7 +82,7 @@ class PlayerInfoController extends BaseController {
    * 玩家宠物信息
    */
   async petInfo() {
-    const result = await this.playerService.petInfo({});
+    const result = await this.playerService.petInfo({ ...this.ctx.request.body });
     this.ctx.body = this.success(result);
   }
 
@@ -91,7 +91,34 @@ class PlayerInfoController extends BaseController {
    * 玩家任务信息
    */
   async taskInfo() {
-    const result = await this.playerService.taskInfo({});
+    const result = await this.playerService.taskInfo({ ...this.ctx.request.body });
+    this.ctx.body = this.success(result);
+  }
+
+  /**
+   * POST player/playerinfo/home-info
+   * 玩家家园信息
+   */
+  async homeInfo() {
+    const result = await this.playerService.homeInfo({ ...this.ctx.request.body });
+    this.ctx.body = this.success(result);
+  }
+
+  /**
+   * POST player/playerinfo/email-info
+   * 玩家邮件信息
+   */
+  async emailInfo() {
+    const result = await this.playerService.emailInfo({ ...this.ctx.request.body });
+    this.ctx.body = this.success(result);
+  }
+
+  /**
+   * POST player/playerinfo/marriage-info
+   * 玩家家园信息
+   */
+  async marriageInfo() {
+    const result = await this.playerService.marriageInfo({ ...this.ctx.request.body });
     this.ctx.body = this.success(result);
   }
 }

@@ -13,8 +13,9 @@ class Forcedown extends React.Component {
   }
 
   handleClick = () => {
+    const {guid, part_id} = this.props;
     this.setState({ loading: true });
-    forcedown().then(data => {
+    forcedown({guid, part_id}).then(data => {
       if (data.code === 0) {
         message.success('操作成功');
       } else {

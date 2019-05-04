@@ -38,12 +38,13 @@ class Prop extends React.Component {
   }
 
   handleSubmit = (e) => {
+    const {guid, part_id} = this.props;
     e.preventDefault();
     this.setState({ loading: true });
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log(values);
-        prop(values).then(data => {
+        prop({...values, guid, part_id}).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
           } else {

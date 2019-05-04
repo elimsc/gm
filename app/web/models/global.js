@@ -4,7 +4,7 @@ export default {
   namespace: 'global',
   state: {
     srvList: [],
-    currentSelect: -1,
+    part_id: -1,
   },
   effects: {
     *fetchSrvList({payload}, {put, call}) {

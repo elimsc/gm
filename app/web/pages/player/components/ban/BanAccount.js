@@ -1,15 +1,32 @@
 import React from 'react';
 import { Form, Input, Button, message, DatePicker } from 'antd';
 
+import {banAccount} from '../../../../service/ban';
+
 
 class BanAccount extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+    }
+  }
 
   handleSubmit = (e) => {
+    const {guid, part_id} = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log(values);
-        message.info('数据已提交');
+        console.log({...values, guid, part_id});
+        this.setState({loading: true});
+        banAccount({...values, guid, part_id}).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('操作失败');
+          }
+          this.setState({loading: false});
+        })
       }
     });
   }
@@ -60,7 +77,7 @@ class BanAccount extends React.Component {
         </Form.Item>
 
         <Form.Item {...tailFormItemLayout}>
-          <Button type="danger" htmlType="submit">封号</Button>
+          <Button loading={this.state.loading} type="danger" htmlType="submit">封号</Button>
         </Form.Item>
       </Form>
     );

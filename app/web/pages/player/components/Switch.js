@@ -33,7 +33,7 @@ class Switch extends React.PureComponent {
 
 
   render() {
-    const { data, menu, guid } = this.props;
+    const { data, menu, guid, part_id } = this.props;
     switch (menu) {
       case 'basic-info':
         return <BasicInfo data={data} />;
@@ -52,46 +52,46 @@ class Switch extends React.PureComponent {
       case 'task-info':
         return <TaskInfo data={data} />;
       case 'home-info':
-        return <HomeInfo />;
+        return <HomeInfo data={data} />;
       case 'email-info':
-        return <EmailInfo />;
+        return <EmailInfo data={data} />;
       case 'marriage-info':
-        return <MarriageInfo />;
+        return <MarriageInfo data={data} />;
 
       case 'money':
-        return guid ? <Money guid={guid} /> : null;
+        return guid ? <Money guid={guid} part_id={part_id} /> : null;
       case 'exp':
-        return guid ? <Exp guid={guid} /> : null;
+        return guid ? <Exp guid={guid} part_id={part_id} /> : null;
       case 'change-pass':
-        return guid ? <ChangePass guid={guid} /> : null;
+        return guid ? <ChangePass guid={guid} part_id={part_id} /> : null;
       case 'forcedown':
-        return guid ? <Forcedown guid={guid} /> : null;
+        return guid ? <Forcedown guid={guid} part_id={part_id} /> : null;
       case 'petsymbol-level':
-        return guid ? <PetsymbolLevel guid={guid} /> : null;
+        return guid ? <PetsymbolLevel guid={guid} part_id={part_id} /> : null;
       case 'prac-level':
-        return guid ? <PracLevel guid={guid} /> : null;
+        return guid ? <PracLevel guid={guid} part_id={part_id} /> : null;
       case 'prop':
-        return guid ? <Prop guid={guid} /> : null;
+        return guid ? <Prop guid={guid} part_id={part_id} /> : null;
       case 'secure-code':
-        return guid ? <SecureCode guid={guid} /> : null;
+        return guid ? <SecureCode guid={guid} part_id={part_id} /> : null;
       case 'title':
-        return guid ? <TitleM guid={guid} /> : null;
+        return guid ? <TitleM guid={guid} part_id={part_id} /> : null;
       case 'untie-phone':
-        return guid ? <UntiePhone guid={guid} /> : null;
+        return guid ? <UntiePhone guid={guid} part_id={part_id} /> : null;
 
       case 'clear-secure-code':
-        return guid ? <ClearSecureCode guid={guid} /> : null;
+        return guid ? <ClearSecureCode guid={guid} part_id={part_id} /> : null;
       case 'unusual-gang':
-        return guid ? <UnusualGang guid={guid} /> : null;
+        return guid ? <UnusualGang guid={guid} part_id={part_id} /> : null;
       case 'unusual-task':
-        return guid ? <UnusualTask guid={guid} /> : null;
+        return guid ? <UnusualTask guid={guid} part_id={part_id} /> : null;
 
       case 'ban-talk':
-        return guid ? <BanTalk guid={guid} /> : null;
+        return guid ? <BanTalk guid={guid} part_id={part_id} /> : null;
       case 'ban-log':
-        return guid ? <BanLog guid={guid} /> : null;
+        return guid ? <BanLog guid={guid} part_id={part_id} /> : null;
       case 'ban-account':
-        return guid ? <BanAccount guid={guid} /> : null;
+        return guid ? <BanAccount guid={guid} part_id={part_id} /> : null;
 
       default:
         break;

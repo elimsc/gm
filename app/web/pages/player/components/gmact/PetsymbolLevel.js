@@ -14,12 +14,13 @@ class PetsymbolLevel extends React.Component {
   }
 
   handleSubmit = (e) => {
+    const {guid, part_id} = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log(values);
         this.setState({ loading: true });
-        petsymbolLevel({ value: values['petsymbol_level'] }).then(data => {
+        petsymbolLevel({ value: values['petsymbol_level'], guid, part_id }).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
           } else {

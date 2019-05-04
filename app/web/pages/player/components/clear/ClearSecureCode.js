@@ -14,8 +14,9 @@ class ClearSecureCode extends React.Component {
   }
 
   handleClick = () => {
+    const {part_id, guid} = this.props;
     this.setState({ loading: true });
-    clearSecureCode().then(data => {
+    clearSecureCode({part_id, guid}).then(data => {
       if (data.code === 0) {
         message.success('操作成功');
       } else {

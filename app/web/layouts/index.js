@@ -1,7 +1,9 @@
 import React from 'react';
 import BaseLayout from './BaseLayout';
 import LoginLayout from './LoginLayout';
-import { message } from 'antd';
+import { message, LocaleProvider } from 'antd';
+
+import zhCN from 'antd/lib/locale-provider/zh_CN';
 
 const BasicLayout = props => {
   message.config({
@@ -11,15 +13,20 @@ const BasicLayout = props => {
   });
   if (props.location.pathname === '/login') {
     return (
-      <LoginLayout style={{ opacity: 0 }}>
-        {props.children}
-      </LoginLayout>
+      <LocaleProvider locale={zhCN}>
+        <LoginLayout style={{ opacity: 0 }}>
+          {props.children}
+        </LoginLayout>
+      </LocaleProvider>
     );
   }
   return (
+  <LocaleProvider locale={zhCN}>
     <BaseLayout>
       {props.children}
     </BaseLayout>
+  </LocaleProvider>
+
   );
 };
 

@@ -13,12 +13,13 @@ class PracLevel extends React.Component {
   }
 
   handleSubmit = (e) => {
+    const {guid, part_id} = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log(values);
         this.setState({ loading: true });
-        pracLevel({ value: values['prac_level'] }).then(data => {
+        pracLevel({ value: values['prac_level'], guid, part_id }).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
           } else {

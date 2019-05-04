@@ -16,12 +16,13 @@ class Exp extends React.PureComponent {
   }
 
   handleSubmit1 = (e) => {
+    const {guid, part_id} = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll(['jinyan'], (err, values) => {
       if (!err) {
         console.log(values);
         this.setState({ loading1: true });
-        exp({ type: 1, data: values }).then(data => {
+        exp({ type: 1, data: values, guid, part_id }).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
           } else {
@@ -36,12 +37,13 @@ class Exp extends React.PureComponent {
   }
 
   handleSubmit2 = (e) => {
+    const {guid, part_id} = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll(['player_level'], (err, values) => {
       if (!err) {
         console.log(values);
         this.setState({ loading2: true });
-        exp({ type: 2, data: values }).then(data => {
+        exp({ type: 2, data: values, guid, part_id }).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
           } else {
@@ -56,13 +58,14 @@ class Exp extends React.PureComponent {
   }
 
   handleSubmit3 = (e) => {
+    const {guid, part_id} = this.props;
     e.preventDefault();
     console.log(this.props.form);
     this.props.form.validateFieldsAndScroll(['pet_name', 'pet_level'], (err, values) => {
       if (!err) {
         console.log(values);
         this.setState({ loading3: true });
-        exp({ type: 3, data: values }).then(data => {
+        exp({ type: 3, data: values, guid, part_id }).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
           } else {

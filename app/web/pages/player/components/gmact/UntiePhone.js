@@ -12,8 +12,9 @@ class UntiePhone extends React.Component {
   }
 
   handleClick = () => {
+    const {guid, part_id} = this.props;
     this.setState({ loading: true });
-    untiePhone().then(data => {
+    untiePhone({guid, part_id}).then(data => {
       if (data.code === 0) {
         message.success('操作成功');
       } else {

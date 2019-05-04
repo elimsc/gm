@@ -66,7 +66,7 @@ class BaseLayout extends React.Component {
   handleSrvSelect = (part_id) => {
     this.props.dispatch({
       type: 'global/save',
-      payload: {currentSelect: part_id}
+      payload: {part_id}
     })
   }
 

@@ -283,6 +283,45 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/api/player/playerinfo/home-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/home-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/playerinfo/email-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/email-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/playerinfo/marriage-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/marriage-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/api/player/ban/account",
     "regexp": "/^\\/api\\/player\\/ban\\/account(?:\\/(?=$))?$/",
     "stack": [

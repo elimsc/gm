@@ -14,12 +14,13 @@ class SecureCode extends React.Component {
   }
 
   handleSubmit = (e) => {
+    const {guid, part_id} = this.props;
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log(values);
         this.setState({ loading: true });
-        changeSecureCode({ value: values['secure_code'] }).then(data => {
+        changeSecureCode({ value: values['secure_code'], guid, part_id }).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
           } else {

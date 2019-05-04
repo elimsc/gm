@@ -4,8 +4,8 @@ const BaseReqService = require('./basereq');
 
 class PlayerinfoService extends BaseReqService {
   // 角色列表查询
-  async list({ name, type }) {
-    const result = await this.request({ cmd: 1001 }, { name, type }, [ 'name', 'type' ]);
+  async list({ name, type, part_id }) {
+    const result = await this.request({ cmd: 1001 }, { name, type, part_id }, [ 'name', 'type' ]);
     if (!result) { // 异常发生
       return [{
         gender: 1,
@@ -22,8 +22,8 @@ class PlayerinfoService extends BaseReqService {
   }
 
   // 角色基本信息查询
-  async basicInfo({ guid }) {
-    const result = await this.request({ cmd: 1003 }, { guid }, [ 'guid' ]);
+  async basicInfo({ guid, part_id }) {
+    const result = await this.request({ cmd: 1003 }, { guid, part_id }, [ 'guid' ]);
     if (!result) return [];
     if (result.data && result.data.body) {
       // 处理返回结果
@@ -49,7 +49,7 @@ class PlayerinfoService extends BaseReqService {
   }
 
   // 角色背包信息查询
-  async bagInfo({ guid }) {
+  async bagInfo({ guid, part_id }) {
     const result = [
       [
         { title: '道具名称', value: '道具1' },
@@ -148,7 +148,7 @@ class PlayerinfoService extends BaseReqService {
   }
 
   // 角色装备信息查询
-  async equipInfo({ guid }) {
+  async equipInfo({ guid, part_id }) {
     const result = [
       [
         { title: '装备名称', value: '装备1' },
@@ -201,7 +201,7 @@ class PlayerinfoService extends BaseReqService {
   }
 
   // 角色技能信息查询
-  async skillInfo({ guid }) {
+  async skillInfo({ guid, part_id }) {
     const result = [
       [
         { title: '技能名称', value: '技能1' },
@@ -237,7 +237,7 @@ class PlayerinfoService extends BaseReqService {
   }
 
   // 角色称号信息查询
-  async titleInfo({ guid }) {
+  async titleInfo({ guid, part_id }) {
     const result = [
       [
         { title: '称号名称', value: '称号11111111111' },
@@ -403,6 +403,18 @@ class PlayerinfoService extends BaseReqService {
 
     ];
     return data;
+  }
+
+  async homeInfo({ guid, part_id }) {
+    return [];
+  }
+
+  async emailInfo({ guid, part_id }) {
+    return [];
+  }
+
+  async marriageInfo({ guid, part_id }) {
+    return [];
   }
 }
 

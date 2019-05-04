@@ -15,12 +15,13 @@ class TitleM extends React.Component {
   }
 
   handleSubmit1 = (e) => {
+    const {guid, part_id} = this.props; 
     e.preventDefault();
     this.props.form.validateFieldsAndScroll(['add_title'], (err, values) => {
       if (!err) {
         console.log(values);
         this.setState({ loading1: true });
-        titlem({ type: 1, data: values }).then(data => {
+        titlem({ type: 1, data: values, guid, part_id }).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
           } else {
@@ -34,12 +35,13 @@ class TitleM extends React.Component {
   }
 
   handleSubmit2 = (e) => {
+    const {guid, part_id} = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll(['del_title'], (err, values) => {
       if (!err) {
         console.log(values);
         this.setState({ loading2: true });
-        titlem({ type: 2, data: values }).then(data => {
+        titlem({ type: 2, data: values, guid, part_id }).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
           } else {
