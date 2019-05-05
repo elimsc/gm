@@ -1,6 +1,7 @@
 'use strict';
 
 const BaseReqService = require('./basereq');
+const moment = require('moment');
 
 class PlayerinfoService extends BaseReqService {
   // 角色列表查询
@@ -28,6 +29,7 @@ class PlayerinfoService extends BaseReqService {
     if (result.data && result.data.body) {
       // 处理返回结果
       const src = result.data.body;
+
       const tpl = {
         mt_leader_value: '队长值',
         mt_heroic_value: '侠义值',
@@ -43,7 +45,17 @@ class PlayerinfoService extends BaseReqService {
         create_time: '角色创建时间',
         scene_id: '角色所在场景',
       };
-      return this.ctx.helper.tableInfoConv(src, tpl);
+
+      const pretttyTime = t => {
+        return moment(t).format('YYYY-MM-DD HH:mm:ss');
+      };
+      const fns = {
+        last_login_time: pretttyTime,
+        last_logout_time: pretttyTime,
+        create_time: pretttyTime,
+      };
+
+      return this.ctx.helper.tableInfoConv(src, tpl, fns);
     }
     return [];
   }

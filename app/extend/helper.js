@@ -55,16 +55,20 @@ const genBody = (head = {}, body = {}, token_param_list = []) => {
  * ]
  * @param {object} src 数据源
  * @param {object} tpl 转化模板
+ * @param {object} fns 数据输出函数
  */
-const tableInfoConv = (src, tpl) => {
+const tableInfoConv = (src, tpl, fns) => {
   return Object.keys(src).map(k => {
+    if (fns[k]) {
+      return { key: k, title: tpl[k], value: fns[k](src[k]) };
+    }
     return { key: k, title: tpl[k], value: src[k] };
   });
 };
 
-const tableInfoListConv = (src, tpl) => {
+const tableInfoListConv = (src, tpl, fns) => {
   return src.map(data => {
-    return tableInfoConv(data, tpl);
+    return tableInfoConv(data, tpl, fns);
   });
 };
 
