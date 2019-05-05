@@ -42,33 +42,35 @@ class GmMan extends React.Component {
   }
 
   fetch(params = {}) {
-    this.setState({loading: true});
-    list({...this.state.filter, ...params}).then(data => {
-      if (data.code === 0) {
-        const pagination = { ...this.state.pagination };
-        pagination.total = data.payload.count;
-        this.setState({
-          loading: false,
-          data: data.payload.users,
-          pagination,
-        });
-      }
+    this.setState({ loading: true });
+    list({ ...this.state.filter, ...params }).then(data => {
+      setTimeout(() => {
+        if (data.code === 0) {
+          const pagination = { ...this.state.pagination };
+          pagination.total = data.payload.count;
+          this.setState({
+            loading: false,
+            data: data.payload.users,
+            pagination,
+          });
+        }
+      }, 200);
     })
 
   }
 
   handleAuthoritySubmit = (e) => {
     e.preventDefault();
-    this.props.form.validateFields(['id', 'role'],(err, values) => {
+    this.props.form.validateFields(['id', 'role'], (err, values) => {
       if (!err) {
-        this.setState({loading: true});
+        this.setState({ loading: true });
         changeRole(values).then(data => {
           if (data.code === 0) {
             message.success('修改成功');
           } else {
             message.error('修改失败');
           }
-          this.setState({loading: false, showAuthorityModal: false});
+          this.setState({ loading: false, showAuthorityModal: false });
           this.fetch({
             pageSize: this.state.pagination.pageSize,
             page: this.state.pagination.current,
@@ -80,10 +82,10 @@ class GmMan extends React.Component {
 
   handleSearch = (e) => {
     e.preventDefault();
-    this.props.form.validateFields(['username'],(err, values) => {
+    this.props.form.validateFields(['username'], (err, values) => {
       if (!err) {
         this.setState((prevState, prevProps) => (
-          {loading: true, filter: { username: values['username'], pagination: {...prevState.pagination, current: 1} }}
+          { loading: true, filter: { username: values['username'], pagination: { ...prevState.pagination, current: 1 } } }
         ));
         this.fetch({
           pageSize: this.state.pagination.pageSize,
@@ -136,12 +138,12 @@ class GmMan extends React.Component {
           destroyOnClose
           visible={this.state.showAuthorityModal}
         >
-          <Form style={{marginTop: 40 }} onSubmit={this.handleAuthoritySubmit}>
+          <Form style={{ marginTop: 40 }} onSubmit={this.handleAuthoritySubmit}>
             {getFieldDecorator('id', {
-                initialValue: this.state.selectUser.id,
-              })(
-                <Input type="hidden" />
-              )}
+              initialValue: this.state.selectUser.id,
+            })(
+              <Input type="hidden" />
+            )}
             <Form.Item label="权限" {...formItemLayout}>
               {getFieldDecorator('role', {
                 initialValue: this.state.selectUser.role ? this.state.selectUser.role : 1,
@@ -180,7 +182,7 @@ class GmMan extends React.Component {
           </Form.Item>
         </Form>
         <Table
-          style={{marginTop: 30}}
+          style={{ marginTop: 30 }}
           columns={columns}
           rowKey={record => record.id}
           dataSource={this.state.data}

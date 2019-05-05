@@ -57,7 +57,7 @@ const genBody = (head = {}, body = {}, token_param_list = []) => {
  * @param {object} tpl 转化模板
  * @param {object} fns 数据输出函数
  */
-const tableInfoConv = (src, tpl, fns) => {
+const tableInfoConv = (src, tpl, fns = {}) => {
   return Object.keys(src).map(k => {
     if (fns[k]) {
       return { key: k, title: tpl[k], value: fns[k](src[k]) };

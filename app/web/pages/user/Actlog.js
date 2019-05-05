@@ -39,15 +39,17 @@ class ActLog extends React.Component {
   fetch(params = {}) {
     this.setState({ loading: true });
     curActlogList({ ...params }).then(data => {
-      if (data.code === 0) {
-        const pagination = { ...this.state.pagination };
-        pagination.total = data.payload.count;
-        this.setState({
-          loading: false,
-          data: data.payload.logs,
-          pagination,
-        });
-      }
+      setTimeout(() => {
+        if (data.code === 0) {
+          const pagination = { ...this.state.pagination };
+          pagination.total = data.payload.count;
+          this.setState({
+            loading: false,
+            data: data.payload.logs,
+            pagination,
+          });
+        }
+      }, 200);
     })
 
   }

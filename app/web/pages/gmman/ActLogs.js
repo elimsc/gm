@@ -37,15 +37,17 @@ class ActLogs extends React.Component {
   fetch(params = {}) {
     this.setState({ loading: true });
     actLogList({ ...this.state.filter, ...params }).then(data => {
-      if (data.code === 0) {
-        const pagination = { ...this.state.pagination };
-        pagination.total = data.payload.count;
-        this.setState({
-          loading: false,
-          data: data.payload.logs,
-          pagination,
-        });
-      }
+      setTimeout(() => { // 闪屏的解决
+        if (data.code === 0) {
+          const pagination = { ...this.state.pagination };
+          pagination.total = data.payload.count;
+          this.setState({
+            loading: false,
+            data: data.payload.logs,
+            pagination,
+          });
+        }
+      }, 200);
     })
 
   }
@@ -92,7 +94,6 @@ class ActLogs extends React.Component {
         return moment(text).format("YYYY-MM-DD HH:mm:ss");
       }
     }];
-
 
     return (
       <Card>

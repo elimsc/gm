@@ -6,3 +6,39 @@
 2019-05-05 18:16:02,021 INFO 2088 [Timer] /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 20638979ms at 2019-05-06 00:00:01.000
 2019-05-05 18:16:01,559 INFO 2100 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
 2019-05-05 18:16:01,559 INFO 2100 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:18:49,185 INFO 2215 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:18:49,185 INFO 2215 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:18:49,748 INFO 2198 [Timer] /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 20470264ms at 2019-05-06 00:00:00.012
+2019-05-05 18:18:49,748 INFO 2198 [Timer] /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 20471252ms at 2019-05-06 00:00:01.000
+2019-05-05 18:19:21,713 INFO 2273 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:19:21,713 INFO 2273 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:23:35,896 INFO 2613 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:23:35,896 INFO 2613 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:24:21,457 INFO 2688 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:24:21,457 INFO 2688 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:24:59,982 INFO 2715 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:24:59,982 INFO 2715 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:26:31,229 INFO 2742 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:26:31,229 INFO 2742 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:26:47,401 INFO 2769 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:26:47,401 INFO 2769 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:28:30,580 INFO 2796 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:28:30,580 INFO 2796 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:28:34,665 INFO 2815 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:28:34,665 INFO 2815 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:28:54,642 INFO 2842 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:28:54,642 INFO 2842 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:29:05,175 INFO 2862 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:29:05,175 INFO 2862 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:29:34,269 INFO 2889 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:29:34,269 INFO 2889 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:30:11,906 INFO 2929 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:30:11,906 INFO 2929 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:30:45,247 INFO 2957 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:30:45,247 INFO 2957 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:31:33,292 INFO 2977 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:31:33,292 INFO 2977 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:31:48,764 INFO 3005 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:31:48,764 INFO 3005 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2019-05-05 18:31:52,540 INFO 3025 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/clean_log.js
+2019-05-05 18:31:52,540 INFO 3025 [egg-schedule]: register schedule /mnt/g/umi-gm/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
