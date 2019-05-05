@@ -2357,3 +2357,496 @@ res: {"status":-2,"statusCode":-2,"statusMessage":null,"headers":{},"size":0,"ab
 pid: 7135
 hostname: zhs-MacBook-Air.local
 
+2019-05-05 13:49:22,508 ERROR 25898 [egg-view-assets] Run "umi dev" failed after 60s
+2019-05-05 14:51:39,588 ERROR 27627 [-/::1/-/61ms POST /api/user] nodejs.TypeError: Cannot read property 'app' of undefined
+    at new BaseContextClass (/mnt/g/umi-gm/node_modules/egg-core/lib/utils/base_context_class.js:25:20)
+    at new BaseContextClass (/mnt/g/umi-gm/node_modules/egg/lib/core/base_context_class.js:13:1)
+    at new BaseController (/mnt/g/umi-gm/app/controller/base.js:7:5)
+    at new UserController (/mnt/g/umi-gm/app/controller/user.js:8:1)
+    at classControllerMiddleware (/mnt/g/umi-gm/node_modules/egg-core/lib/loader/mixin/controller.js:83:26)
+    at dispatch (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:44:32)
+    at next (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:45:18)
+    at role (/mnt/g/umi-gm/app/middleware/role.js:10:13)
+    at dispatch (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:44:32)
+    at next (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:45:18)
+
+pid: 27627
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 14:51:40,799 ERROR 27627 [-/::1/-/1049ms GET /api/srv/list] nodejs.ConnectionTimeoutError: Connect timeout for 1000ms, POST http://192.168.1.205:20843/ -2 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":0,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+headers: {}
+    at Timeout._onTimeout (/mnt/g/umi-gm/node_modules/urllib/lib/urllib.js:855:15)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ConnectionTimeoutError"
+requestId: 1
+data: undefined
+path: "/"
+status: -2
+headers: {}
+res: {"status":-2,"statusCode":-2,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1035,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 27627
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 14:53:40,782 ERROR 27627 [-/::1/-/4ms POST /api/user] nodejs.TypeError: Cannot read property 'app' of undefined
+    at new BaseContextClass (/mnt/g/umi-gm/node_modules/egg-core/lib/utils/base_context_class.js:25:20)
+    at new BaseContextClass (/mnt/g/umi-gm/node_modules/egg/lib/core/base_context_class.js:13:1)
+    at new BaseController (/mnt/g/umi-gm/app/controller/base.js:7:5)
+    at new UserController (/mnt/g/umi-gm/app/controller/user.js:8:1)
+    at classControllerMiddleware (/mnt/g/umi-gm/node_modules/egg-core/lib/loader/mixin/controller.js:83:26)
+    at dispatch (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:44:32)
+    at next (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:45:18)
+    at role (/mnt/g/umi-gm/app/middleware/role.js:10:13)
+    at dispatch (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:44:32)
+    at next (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:45:18)
+
+pid: 27627
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 14:53:41,924 ERROR 27627 [-/::1/-/1014ms GET /api/srv/list] nodejs.ConnectionTimeoutError: Connect timeout for 1000ms, POST http://192.168.1.205:20843/ -2 (connected: false, keepalive socket: false, agent status: {"createSocketCount":2,"createSocketErrorCount":0,"closeSocketCount":2,"errorSocketCount":0,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+headers: {}
+    at Timeout._onTimeout (/mnt/g/umi-gm/node_modules/urllib/lib/urllib.js:855:15)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ConnectionTimeoutError"
+requestId: 2
+data: undefined
+path: "/"
+status: -2
+headers: {}
+res: {"status":-2,"statusCode":-2,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1007,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 27627
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 14:56:02,908 ERROR 27725 [-/::1/-/73ms POST /api/user] nodejs.TypeError: Cannot read property 'app' of undefined
+    at new BaseContextClass (/mnt/g/umi-gm/node_modules/egg-core/lib/utils/base_context_class.js:25:20)
+    at new BaseContextClass (/mnt/g/umi-gm/node_modules/egg/lib/core/base_context_class.js:13:1)
+    at new BaseController (/mnt/g/umi-gm/app/controller/base.js:7:5)
+    at new UserController (/mnt/g/umi-gm/app/controller/user.js:8:1)
+    at classControllerMiddleware (/mnt/g/umi-gm/node_modules/egg-core/lib/loader/mixin/controller.js:83:26)
+    at dispatch (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:44:32)
+    at next (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:45:18)
+    at role (/mnt/g/umi-gm/app/middleware/role.js:10:13)
+    at dispatch (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:44:32)
+    at next (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:45:18)
+
+pid: 27725
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 14:56:04,060 ERROR 27725 [-/::1/-/1016ms GET /api/srv/list] nodejs.ConnectionTimeoutError: Connect timeout for 1000ms, POST http://192.168.1.205:20843/ -2 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":0,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+headers: {}
+    at Timeout._onTimeout (/mnt/g/umi-gm/node_modules/urllib/lib/urllib.js:855:15)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ConnectionTimeoutError"
+requestId: 1
+data: undefined
+path: "/"
+status: -2
+headers: {}
+res: {"status":-2,"statusCode":-2,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1008,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 27725
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 14:57:22,780 ERROR 27782 [-/::1/-/57ms POST /api/user] nodejs.TypeError: Cannot read property 'app' of undefined
+    at new BaseContextClass (/mnt/g/umi-gm/node_modules/egg-core/lib/utils/base_context_class.js:25:20)
+    at new BaseContextClass (/mnt/g/umi-gm/node_modules/egg/lib/core/base_context_class.js:13:1)
+    at new BaseController (/mnt/g/umi-gm/app/controller/base.js:7:5)
+    at new UserController (/mnt/g/umi-gm/app/controller/user.js:8:1)
+    at classControllerMiddleware (/mnt/g/umi-gm/node_modules/egg-core/lib/loader/mixin/controller.js:83:26)
+    at dispatch (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:44:32)
+    at next (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:45:18)
+    at role (/mnt/g/umi-gm/app/middleware/role.js:10:13)
+    at dispatch (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:44:32)
+    at next (/mnt/g/umi-gm/node_modules/@eggjs/router/node_modules/koa-compose/index.js:45:18)
+
+pid: 27782
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 14:57:23,937 ERROR 27782 [-/::1/-/1028ms GET /api/srv/list] nodejs.ConnectionTimeoutError: Connect timeout for 1000ms, POST http://192.168.1.205:20843/ -2 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":0,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+headers: {}
+    at Timeout._onTimeout (/mnt/g/umi-gm/node_modules/urllib/lib/urllib.js:855:15)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ConnectionTimeoutError"
+requestId: 1
+data: undefined
+path: "/"
+status: -2
+headers: {}
+res: {"status":-2,"statusCode":-2,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1013,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 27782
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:03:44,562 ERROR 27966 [-/::1/-/154ms POST /api/user] nodejs.ER_BAD_NULL_ERRORError: ER_BAD_NULL_ERROR: Column 'object' cannot be null
+    at Query.Sequence._packetToError (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:91:28)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:525:10)
+    at Socket.emit (events.js:189:13)
+    at addChunk (_stream_readable.js:284:12)
+    --------------------
+    at Pool.query (/mnt/g/umi-gm/node_modules/mysql/lib/Pool.js:199:23)
+    at /mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:12:10)
+    at Pool.ret [as query] (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:56:34)
+    at RDSClient.proto._query (/mnt/g/umi-gm/node_modules/ali-rds/lib/client.js:34:20)
+    at RDSClient.proto.query (/mnt/g/umi-gm/node_modules/ali-rds/lib/operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (/mnt/g/umi-gm/node_modules/co/index.js:65:19)
+    at /mnt/g/umi-gm/node_modules/co/index.js:54:5
+    sql: INSERT INTO `actlog`(`subject`, `object`, `action`) VALUES('super', NULL, '添加管理员')
+code: "ER_BAD_NULL_ERROR"
+errno: 1048
+sqlMessage: "Column 'object' cannot be null"
+sqlState: "23000"
+index: 0
+sql: "INSERT INTO `actlog`(`subject`, `object`, `action`) VALUES('super', NULL, '添加管理员')"
+name: "ER_BAD_NULL_ERRORError"
+pid: 27966
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:06:07,474 ERROR 28014 [-/::1/-/1063ms GET /api/srv/list] nodejs.ConnectionTimeoutError: Connect timeout for 1000ms, POST http://192.168.1.205:20843/ -2 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":0,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+headers: {}
+    at Timeout._onTimeout (/mnt/g/umi-gm/node_modules/urllib/lib/urllib.js:855:15)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ConnectionTimeoutError"
+requestId: 1
+data: undefined
+path: "/"
+status: -2
+headers: {}
+res: {"status":-2,"statusCode":-2,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1010,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 28014
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:06:21,590 ERROR 28070 [-/::1/-/1144ms GET /api/srv/list] nodejs.ConnectionTimeoutError: Connect timeout for 1000ms, POST http://192.168.1.205:20843/ -2 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":0,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+headers: {}
+    at Timeout._onTimeout (/mnt/g/umi-gm/node_modules/urllib/lib/urllib.js:855:15)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ConnectionTimeoutError"
+requestId: 1
+data: undefined
+path: "/"
+status: -2
+headers: {}
+res: {"status":-2,"statusCode":-2,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1010,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 28070
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:06:38,293 ERROR 28096 [-/::1/-/1019ms GET /api/srv/list] nodejs.ConnectionTimeoutError: Connect timeout for 1000ms, POST http://192.168.1.205:20843/ -2 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":0,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+headers: {}
+    at Timeout._onTimeout (/mnt/g/umi-gm/node_modules/urllib/lib/urllib.js:855:15)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ConnectionTimeoutError"
+requestId: 1
+data: undefined
+path: "/"
+status: -2
+headers: {}
+res: {"status":-2,"statusCode":-2,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1008,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 28096
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:07:24,429 ERROR 28122 [-/::1/-/1021ms GET /api/srv/list] nodejs.ConnectionTimeoutError: Connect timeout for 1000ms, POST http://192.168.1.205:20843/ -2 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":0,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+headers: {}
+    at Timeout._onTimeout (/mnt/g/umi-gm/node_modules/urllib/lib/urllib.js:855:15)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ConnectionTimeoutError"
+requestId: 1
+data: undefined
+path: "/"
+status: -2
+headers: {}
+res: {"status":-2,"statusCode":-2,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1008,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 28122
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:08:15,889 ERROR 28174 [-/::1/-/1053ms GET /api/srv/list] nodejs.ConnectionTimeoutError: Connect timeout for 1000ms, POST http://192.168.1.205:20843/ -2 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":0,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+headers: {}
+    at Timeout._onTimeout (/mnt/g/umi-gm/node_modules/urllib/lib/urllib.js:855:15)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ConnectionTimeoutError"
+requestId: 1
+data: undefined
+path: "/"
+status: -2
+headers: {}
+res: {"status":-2,"statusCode":-2,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1012,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 28174
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:08:51,045 ERROR 28174 [-/::1/-/1015ms GET /api/srv/list] nodejs.ConnectionTimeoutError: Connect timeout for 1000ms, POST http://192.168.1.205:20843/ -2 (connected: false, keepalive socket: false, agent status: {"createSocketCount":2,"createSocketErrorCount":0,"closeSocketCount":2,"errorSocketCount":0,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+headers: {}
+    at Timeout._onTimeout (/mnt/g/umi-gm/node_modules/urllib/lib/urllib.js:855:15)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ConnectionTimeoutError"
+requestId: 2
+data: undefined
+path: "/"
+status: -2
+headers: {}
+res: {"status":-2,"statusCode":-2,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1001,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 28174
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:09:02,993 ERROR 28224 [-/::1/-/141ms POST /api/user] nodejs.ER_BAD_NULL_ERRORError: ER_BAD_NULL_ERROR: Column 'object' cannot be null
+    at Query.Sequence._packetToError (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:91:28)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:525:10)
+    at Socket.emit (events.js:189:13)
+    at addChunk (_stream_readable.js:284:12)
+    --------------------
+    at Pool.query (/mnt/g/umi-gm/node_modules/mysql/lib/Pool.js:199:23)
+    at /mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:12:10)
+    at Pool.ret [as query] (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:56:34)
+    at RDSClient.proto._query (/mnt/g/umi-gm/node_modules/ali-rds/lib/client.js:34:20)
+    at RDSClient.proto.query (/mnt/g/umi-gm/node_modules/ali-rds/lib/operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (/mnt/g/umi-gm/node_modules/co/index.js:65:19)
+    at /mnt/g/umi-gm/node_modules/co/index.js:54:5
+    sql: INSERT INTO `actlog`(`subject`, `object`, `action`) VALUES('super', NULL, '添加管理员')
+code: "ER_BAD_NULL_ERROR"
+errno: 1048
+sqlMessage: "Column 'object' cannot be null"
+sqlState: "23000"
+index: 0
+sql: "INSERT INTO `actlog`(`subject`, `object`, `action`) VALUES('super', NULL, '添加管理员')"
+name: "ER_BAD_NULL_ERRORError"
+pid: 28224
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:13:00,597 ERROR 28299 [-/::1/-/143ms POST /api/user] nodejs.ER_BAD_NULL_ERRORError: ER_BAD_NULL_ERROR: Column 'part_id' cannot be null
+    at Query.Sequence._packetToError (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:91:28)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:525:10)
+    at Socket.emit (events.js:189:13)
+    at addChunk (_stream_readable.js:284:12)
+    --------------------
+    at Pool.query (/mnt/g/umi-gm/node_modules/mysql/lib/Pool.js:199:23)
+    at /mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:12:10)
+    at Pool.ret [as query] (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:56:34)
+    at RDSClient.proto._query (/mnt/g/umi-gm/node_modules/ali-rds/lib/client.js:34:20)
+    at RDSClient.proto.query (/mnt/g/umi-gm/node_modules/ali-rds/lib/operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (/mnt/g/umi-gm/node_modules/co/index.js:65:19)
+    at /mnt/g/umi-gm/node_modules/co/index.js:54:5
+    sql: INSERT INTO `actlog`(`subject`, `object`, `action`, `part_id`, `data`) VALUES('super', '', '添加管理员', NULL, '{\"username\":\"jiang2\",\"password\":\"pass\"}')
+code: "ER_BAD_NULL_ERROR"
+errno: 1048
+sqlMessage: "Column 'part_id' cannot be null"
+sqlState: "23000"
+index: 0
+sql: "INSERT INTO `actlog`(`subject`, `object`, `action`, `part_id`, `data`) VALUES('super', '', '添加管理员', NULL, '{\\\"username\\\":\\\"jiang2\\\",\\\"password\\\":\\\"pass\\\"}')"
+name: "ER_BAD_NULL_ERRORError"
+pid: 28299
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:15:31,888 ERROR 28353 [-/::1/-/1018ms GET /api/srv/list] nodejs.ConnectionTimeoutError: Connect timeout for 1000ms, POST http://192.168.1.205:20843/ -2 (connected: false, keepalive socket: false, agent status: {"createSocketCount":1,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":0,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+headers: {}
+    at Timeout._onTimeout (/mnt/g/umi-gm/node_modules/urllib/lib/urllib.js:855:15)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ConnectionTimeoutError"
+requestId: 1
+data: undefined
+path: "/"
+status: -2
+headers: {}
+res: {"status":-2,"statusCode":-2,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":1009,"keepAliveSocket":false,"requestUrls":["http://192.168.1.205:20843/"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 28353
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:29:57,319 ERROR 28554 [-/::1/-/44ms POST /api/broadcast/tpl/add] nodejs.ER_BAD_NULL_ERRORError: ER_BAD_NULL_ERROR: Column 'part_id' cannot be null
+    at Query.Sequence._packetToError (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:91:28)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:525:10)
+    at Socket.emit (events.js:189:13)
+    at addChunk (_stream_readable.js:284:12)
+    --------------------
+    at Pool.query (/mnt/g/umi-gm/node_modules/mysql/lib/Pool.js:199:23)
+    at /mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:12:10)
+    at Pool.ret [as query] (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:56:34)
+    at RDSClient.proto._query (/mnt/g/umi-gm/node_modules/ali-rds/lib/client.js:34:20)
+    at RDSClient.proto.query (/mnt/g/umi-gm/node_modules/ali-rds/lib/operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (/mnt/g/umi-gm/node_modules/co/index.js:65:19)
+    at /mnt/g/umi-gm/node_modules/co/index.js:54:5
+    sql: INSERT INTO `actlog`(`subject`, `object`, `action`, `part_id`, `data`) VALUES('super', '', '添加公告模板', NULL, '{\"content\":\"asdasdad\"}')
+code: "ER_BAD_NULL_ERROR"
+errno: 1048
+sqlMessage: "Column 'part_id' cannot be null"
+sqlState: "23000"
+index: 0
+sql: "INSERT INTO `actlog`(`subject`, `object`, `action`, `part_id`, `data`) VALUES('super', '', '添加公告模板', NULL, '{\\\"content\\\":\\\"asdasdad\\\"}')"
+name: "ER_BAD_NULL_ERRORError"
+pid: 28554
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:30:50,740 ERROR 28596 [-/::1/-/37ms DELETE /api/broadcast/tpl/19] nodejs.ER_TRUNCATED_WRONG_VALUE_FOR_FIELDError: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: Incorrect integer value: '' for column 'part_id' at row 1
+    at Query.Sequence._packetToError (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:91:28)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:525:10)
+    at Socket.emit (events.js:189:13)
+    at addChunk (_stream_readable.js:284:12)
+    --------------------
+    at Pool.query (/mnt/g/umi-gm/node_modules/mysql/lib/Pool.js:199:23)
+    at /mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:12:10)
+    at Pool.ret [as query] (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:56:34)
+    at RDSClient.proto._query (/mnt/g/umi-gm/node_modules/ali-rds/lib/client.js:34:20)
+    at RDSClient.proto.query (/mnt/g/umi-gm/node_modules/ali-rds/lib/operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (/mnt/g/umi-gm/node_modules/co/index.js:65:19)
+    at /mnt/g/umi-gm/node_modules/co/index.js:54:5
+    sql: INSERT INTO `actlog`(`subject`, `object`, `action`, `part_id`, `data`) VALUES('super', '', '删除公告模板', '', '{}')
+code: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD"
+errno: 1366
+sqlMessage: "Incorrect integer value: '' for column 'part_id' at row 1"
+sqlState: "HY000"
+index: 0
+sql: "INSERT INTO `actlog`(`subject`, `object`, `action`, `part_id`, `data`) VALUES('super', '', '删除公告模板', '', '{}')"
+name: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELDError"
+pid: 28596
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 15:32:15,292 ERROR 28596 [-/::1/-/34ms POST /api/broadcast/tpl/add] nodejs.ER_TRUNCATED_WRONG_VALUE_FOR_FIELDError: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: Incorrect integer value: '' for column 'part_id' at row 1
+    at Query.Sequence._packetToError (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:91:28)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:525:10)
+    at Socket.emit (events.js:189:13)
+    at addChunk (_stream_readable.js:284:12)
+    --------------------
+    at Pool.query (/mnt/g/umi-gm/node_modules/mysql/lib/Pool.js:199:23)
+    at /mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:12:10)
+    at Pool.ret [as query] (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:56:34)
+    at RDSClient.proto._query (/mnt/g/umi-gm/node_modules/ali-rds/lib/client.js:34:20)
+    at RDSClient.proto.query (/mnt/g/umi-gm/node_modules/ali-rds/lib/operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (/mnt/g/umi-gm/node_modules/co/index.js:65:19)
+    at /mnt/g/umi-gm/node_modules/co/index.js:54:5
+    sql: INSERT INTO `actlog`(`subject`, `object`, `action`, `part_id`, `data`) VALUES('super', '', '添加公告模板', '', '{\"content\":\"asdasd\"}')
+code: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD"
+errno: 1366
+sqlMessage: "Incorrect integer value: '' for column 'part_id' at row 1"
+sqlState: "HY000"
+index: 0
+sql: "INSERT INTO `actlog`(`subject`, `object`, `action`, `part_id`, `data`) VALUES('super', '', '添加公告模板', '', '{\\\"content\\\":\\\"asdasd\\\"}')"
+name: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELDError"
+pid: 28596
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 16:14:59,542 ERROR 30045 [-/::1/-/14ms GET /api/user/actlog/list?page=1&subject=a] nodejs.ER_BAD_FIELD_ERRORError: ER_BAD_FIELD_ERROR: Unknown column 'subject' in 'where clause'
+    at Query.Sequence._packetToError (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/mnt/g/umi-gm/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:91:28)
+    at Socket.<anonymous> (/mnt/g/umi-gm/node_modules/mysql/lib/Connection.js:525:10)
+    at Socket.emit (events.js:189:13)
+    at addChunk (_stream_readable.js:284:12)
+    --------------------
+    at Pool.query (/mnt/g/umi-gm/node_modules/mysql/lib/Pool.js:199:23)
+    at /mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:12:10)
+    at Pool.ret [as query] (/mnt/g/umi-gm/node_modules/ali-rds/node_modules/pify/index.js:56:34)
+    at RDSClient.proto._query (/mnt/g/umi-gm/node_modules/ali-rds/lib/client.js:34:20)
+    at RDSClient.proto.query (/mnt/g/umi-gm/node_modules/ali-rds/lib/operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (/mnt/g/umi-gm/node_modules/co/index.js:65:19)
+    at /mnt/g/umi-gm/node_modules/co/index.js:54:5
+    sql: SELECT COUNT(*) as count FROM `user` WHERE `subject` = 'a'
+code: "ER_BAD_FIELD_ERROR"
+errno: 1054
+sqlMessage: "Unknown column 'subject' in 'where clause'"
+sqlState: "42S22"
+index: 0
+sql: "SELECT COUNT(*) as count FROM `user` WHERE `subject` = 'a'"
+name: "ER_BAD_FIELD_ERRORError"
+pid: 30045
+hostname: DESKTOP-NCOD5CJ
+
+2019-05-05 16:36:02,507 ERROR 30479 [egg-view-assets] Run "umi dev" failed after 60s
+2019-05-05 16:42:30,435 ERROR 30805 [egg-view-assets] Run "umi dev" failed after 60s
+2019-05-05 16:52:39,181 ERROR 31315 [egg-view-assets] Run "umi dev" failed after 60s

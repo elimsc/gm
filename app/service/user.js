@@ -3,9 +3,12 @@
 const Service = require('egg').Service;
 const bcrypt = require('bcrypt');
 
+/**
+ * GM管理
+ */
 class UserService extends Service {
 
-  // 用户列表
+  // GM列表
   async list({ pageSize, page, username }) {
     const condition = {};
     if (username) {
@@ -42,6 +45,7 @@ class UserService extends Service {
       const result = await this.app.mysql.insert('user', { username, password: hashed_pass });
       return result.affectedRows === 1;
     } catch (e) {
+      this.logger.error(e);
       return false;
     }
   }
@@ -52,6 +56,7 @@ class UserService extends Service {
       const result = await this.app.mysql.delete('user', { username });
       return result.affectedRows === 1;
     } catch (e) {
+      this.logger.error(e);
       return false;
     }
   }
@@ -70,6 +75,7 @@ class UserService extends Service {
       result = await this.app.mysql.update('user', value);
       return result.affectedRows === 1;
     } catch (e) {
+      this.logger.error(e);
       return false;
     }
   }

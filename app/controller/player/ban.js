@@ -17,7 +17,7 @@ class BanController extends BaseController {
    * 封号
    */
   async banAccount() {
-    await this.banService.banAccount();
+    await this.banService.banAccount(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -26,7 +26,7 @@ class BanController extends BaseController {
    * 禁言记录
    */
   async banLog() {
-    await this.banService.banLog();
+    await this.banService.banLog(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -35,7 +35,7 @@ class BanController extends BaseController {
    * 禁言
    */
   async banTalk() {
-    await this.banService.banAccount();
+    await this.banService.banAccount(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 

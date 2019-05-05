@@ -6,22 +6,25 @@ import Switch from './components/Switch';
 import { list, fetchInfo } from '../../service/playerinfo';
 
 
-@connect(({global}) => ({global}))
+@connect(({ global }) => ({ global }))
 class PlayerMan extends React.PureComponent {
 
   constructor(props) {
     super(props);
     this.state = {
       menu: 'basic-info', // 当前选中menu
-      filter: {
-        type: "",
-        name: "",
-      },
       playerList: [],
       playerListLoading: false,
       selectedPlayer: null, // 当前选中玩家
       data: [],
       dataLoading: false,
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    // 清空搜索结果, 清空选中玩家
+    if (prevProps.global.part_id !== this.props.global.part_id) {
+      this.setState({ playerList: [], data: [], selectedPlayer: null })
     }
   }
 
@@ -34,7 +37,7 @@ class PlayerMan extends React.PureComponent {
           this.setState({ playerList: [] });
         } else {
           this.setState({ playerListLoading: true });
-          list({...values, ...this.props.global}).then((data) => {
+          list({ ...values, ...this.props.global }).then((data) => {
             this.setState({ playerList: data.payload });
             this.setState({ playerListLoading: false });
           })
@@ -55,7 +58,7 @@ class PlayerMan extends React.PureComponent {
     this.setState({ ...v });
     if (!player || !menu.endsWith('info')) return; // 没有当前选中用户时，不请求服务端
     this.setState({ dataLoading: true });
-    fetchInfo(menu, {...player, ...this.props.global}).then(data => {
+    fetchInfo(menu, { ...player, ...this.props.global }).then(data => {
       this.setState({ data: data.payload, dataLoading: false });
     });
   }
@@ -110,7 +113,7 @@ class PlayerMan extends React.PureComponent {
         <Card>
           <Form layout="inline" onSubmit={(e) => this.handleSearch(e)}>
             <Row>
-              <Form.Item style={{marginRight: 40}} label="选中输入类型" >
+              <Form.Item style={{ marginRight: 40 }} label="选中输入类型" >
                 {getFieldDecorator('type', {
                   initialValue: '0',
                 })(
@@ -121,7 +124,7 @@ class PlayerMan extends React.PureComponent {
                   </Select>
                 )}
               </Form.Item>
-              <Form.Item style={{marginRight: 40}} label="角色名或GUID">
+              <Form.Item style={{ marginRight: 40 }} label="角色名或GUID">
                 {getFieldDecorator('name', {
                   initialValue: '',
                 })(
@@ -129,7 +132,7 @@ class PlayerMan extends React.PureComponent {
                 )}
               </Form.Item>
 
-              <Button style={{marginTop: 5}} htmlType="submit" type="primary">查询</Button>
+              <Button style={{ marginTop: 5 }} htmlType="submit" type="primary">查询</Button>
             </Row>
           </Form>
           <Table
@@ -183,12 +186,12 @@ class PlayerMan extends React.PureComponent {
             </Col>
             <Col span={20}>
               <Spin tip="加载中..." spinning={dataLoading}>
-                <Switch 
-                  menu={menu} 
-                  data={data} 
+                <Switch
+                  menu={menu}
+                  data={data}
                   guid={selectedPlayer && selectedPlayer.guid ? selectedPlayer.guid : true}
-                  part_id={this.props.global.part_id} 
-                  />
+                  part_id={this.props.global.part_id}
+                />
               </Spin>
             </Col>
           </Row>

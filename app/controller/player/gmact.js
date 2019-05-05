@@ -17,7 +17,7 @@ class GmactController extends BaseController {
    * 发放货币
    */
   async money() {
-    await this.gmactService.money({});
+    await this.gmactService.money(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -26,7 +26,7 @@ class GmactController extends BaseController {
    * 发放道具
    */
   async prop() {
-    await this.gmactService.money({});
+    await this.gmactService.money(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -35,7 +35,7 @@ class GmactController extends BaseController {
    * 添加/扣除经验
    */
   async exp() {
-    await this.gmactService.exp();
+    await this.gmactService.exp(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -44,7 +44,7 @@ class GmactController extends BaseController {
    * 添加删除称号
    */
   async titlem() {
-    await this.gmactService.titlem();
+    await this.gmactService.titlem(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -53,7 +53,7 @@ class GmactController extends BaseController {
    * 修改修炼等级
    */
   async pracLevel() {
-    await this.gmactService.pracLevel();
+    await this.gmactService.pracLevel(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -62,7 +62,7 @@ class GmactController extends BaseController {
    * 宠物符等级
    */
   async petsymbolLevel() {
-    await this.gmactService.petsymbolLevel();
+    await this.gmactService.petsymbolLevel(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -71,7 +71,7 @@ class GmactController extends BaseController {
    * 踢玩家下线
    */
   async forcedown() {
-    await this.gmactService.forcedown();
+    await this.gmactService.forcedown(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -80,7 +80,7 @@ class GmactController extends BaseController {
    * 安全码修改
    */
   async secureCode() {
-    await this.gmactService.secureCode();
+    await this.gmactService.secureCode(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -89,7 +89,7 @@ class GmactController extends BaseController {
    * 密码修改
    */
   async changePass() {
-    await this.gmactService.changePass();
+    await this.gmactService.changePass(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -98,7 +98,7 @@ class GmactController extends BaseController {
    * 解除绑定手机
    */
   async untiePhone() {
-    await this.gmactService.untiePhone();
+    await this.gmactService.untiePhone(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 

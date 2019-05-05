@@ -1,8 +1,10 @@
 import React from 'react';
 import { Card, Form, Input, Button, message } from 'antd';
+import { connect } from 'dva';
 
 import { create } from '../../service/user';
 
+@connect(({ global }) => ({global}))
 class Add extends React.Component {
 
   handleSubmit = (e) => {
@@ -10,7 +12,7 @@ class Add extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         this.props.form.resetFields();
-        create(values).then(data => {
+        create({ ...values, part_id: this.props.global.part_id }).then(data => {
           if (data.code === 0) {
             message.success('添加管理员成功');
           } else {
@@ -58,10 +60,10 @@ class Add extends React.Component {
 
     return (
       <Card>
-        <Form {...formItemLayout} style={{marginTop: 50}} onSubmit={this.handleSubmit}>
+        <Form {...formItemLayout} style={{ marginTop: 50 }} onSubmit={this.handleSubmit}>
           <Form.Item
-              label="用户名"
-            >
+            label="用户名"
+          >
             {getFieldDecorator('username', {
               rules: [{
                 required: true, message: '用户名不能为空',

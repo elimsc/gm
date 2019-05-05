@@ -15,7 +15,6 @@ class SrvController extends BaseController {
 
   async list() {
     const result = await this.srvService.list();
-    console.log(result);
     this.ctx.body = this.success(result);
   }
 }

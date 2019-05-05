@@ -22,6 +22,7 @@
     "path": "/api/srv/list",
     "regexp": "/^\\/api\\/srv\\/list(?:\\/(?=$))?$/",
     "stack": [
+      "auth",
       "wrappedController"
     ]
   },
@@ -74,6 +75,7 @@
     "stack": [
       "auth",
       "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -103,6 +105,50 @@
     "stack": [
       "auth",
       "role",
+      "actlog",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/api/user/actlog/list",
+    "regexp": "/^\\/api\\/user\\/actlog\\/list(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "role",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/api/user/actlog/current",
+    "regexp": "/^\\/api\\/user\\/actlog\\/current(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/user/change-pass",
+    "regexp": "/^\\/api\\/user\\/change-pass(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -132,6 +178,7 @@
     "stack": [
       "auth",
       "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -157,6 +204,7 @@
     "stack": [
       "auth",
       "role",
+      "actlog",
       "wrappedController"
     ]
   },

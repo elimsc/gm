@@ -17,7 +17,7 @@ class ClearController extends BaseController {
    * 清除安全码
    */
   async clearSecureCode() {
-    await this.clearService.clearSecureCode();
+    await this.clearService.clearSecureCode(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -26,7 +26,7 @@ class ClearController extends BaseController {
    * 清除非正常帮会数据
    */
   async clearUnGang() {
-    await this.clearService.clearUnGang();
+    await this.clearService.clearUnGang(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 
@@ -35,7 +35,7 @@ class ClearController extends BaseController {
    * 清除非正常任务
    */
   async clearUnTask() {
-    await this.clearService.clearUnTask();
+    await this.clearService.clearUnTask(this.ctx.request.body);
     this.ctx.body = this.success();
   }
 }

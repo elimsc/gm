@@ -1,11 +1,97 @@
 import React from 'react';
+import { Table } from 'antd';
+import moment from 'moment';
 
-class Actlog extends React.Component {
+import { curActlogList } from '../../service/user';
+
+
+/**
+ * 管理员自身操作日志
+ */
+class ActLog extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      pagination: {},
+      loading: false,
+      // filter: {},
+    }
+  }
+
+  componentDidMount() {
+    this.fetch();
+  }
+
+  handleTableChange = (pagination) => {
+    const pager = { ...this.state.pagination };
+    pager.current = pagination.current;
+    this.setState({
+      pagination: pager,
+    });
+    this.fetch({
+      pageSize: pagination.pageSize,
+      page: pagination.current,
+    });
+  }
+
+  fetch(params = {}) {
+    this.setState({ loading: true });
+    curActlogList({ ...params }).then(data => {
+      if (data.code === 0) {
+        const pagination = { ...this.state.pagination };
+        pagination.total = data.payload.count;
+        this.setState({
+          loading: false,
+          data: data.payload.logs,
+          pagination,
+        });
+      }
+    })
+
+  }
+
+
+
   render() {
+
+    const columns = [{
+      title: '操作者',
+      dataIndex: 'subject',
+    }, {
+      title: '动作描述',
+      dataIndex: 'action',
+    }, {
+      title: '操作对象（玩家）',
+      dataIndex: 'object',
+    }, {
+      title: '区服',
+      dataIndex: 'part_id',
+    }, {
+      title: '数据',
+      dataIndex: 'data',
+    }, {
+      title: '操作时间',
+      dataIndex: 'created_at',
+      render: (text, record) => {
+        return moment(text).format("YYYY-MM-DD HH:mm:ss");
+      }
+    }];
+
+
     return (
-      <h1>这里是操作记录</h1>
+      <Table
+        style={{ marginTop: 10 }}
+        columns={columns}
+        rowKey={record => record.id}
+        dataSource={this.state.data}
+        pagination={this.state.pagination}
+        loading={this.state.loading}
+        onChange={this.handleTableChange}
+      />
     );
   }
 }
 
-export default Actlog;
+export default ActLog;
