@@ -52,3 +52,16 @@ CREATE TABLE `user` (
 INSERT INTO `user` VALUES ('1', 'super', '$2b$10$PRNpPoeUJYWhUTTA0z0Xku58avBfU4LSYZEAmp/zI.2bZUgrdZN9.', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVyIiwiaWF0IjoxNTU2MTYzNDQ3LCJleHAiOjE1NTY3NjgyNDd9.Pd6TRbNV7LT5NjUJuG7gcfo8QKsysR0D0XUTR-fUu28', '3');
 INSERT INTO `user` VALUES ('2', 'operation', '$2b$10$3C6RoXHLdhFy6ORa640M5edNHigTK0cDAKDX/LSiYVkDUXtIYieWS', null, null);
 INSERT INTO `user` VALUES ('3', 'simple', '$2b$10$E0.gnFXWOS0A6Ut3sua.6evj.ug4RQQtNQLtJpDcVjNbpd6ZsAwhK', null, null);
+
+
+DROP TABLE IF EXISTS `actlog`;
+CREATE TABLE `actlog` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(100) NOT NULL DEFAULT '' COMMENT '操作人',
+  `object` varchar(100) DEFAULT '' COMMENT '操作对象',
+  `action` varchar(255) NOT NULL DEFAULT '' COMMENT '动作名称',
+  `part_id` int(11) DEFAULT NULL COMMENT '区服id',
+  `data` text NOT NULL COMMENT '操作相关数据',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
