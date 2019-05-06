@@ -83,9 +83,10 @@ class BaseLayout extends React.Component {
 
     const { srvList } = this.props.global;
 
+    if (this.state.loading) return null;
 
     return (
-      <Spin tip="加载中..." spinning={this.state.loading} delay>
+      <Spin tip="加载中..." spinning={this.state.loading} delay={100}>
         <Layout style={{
           height: '100vh',
           minHeight: 800,

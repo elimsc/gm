@@ -33,6 +33,7 @@ module.exports = app => {
   router.get('/api/broadcast/tpl/list', auth, role_operation, controller.broadcast.listTpl); // 显示所有的公告模板
   router.post('/api/broadcast/tpl/add', auth, role_operation, actlog({ action: '添加公告模板' }), controller.broadcast.addTpl); // 添加公告模板
   router.delete('/api/broadcast/tpl/:id', auth, role_operation, actlog({ action: '删除公告模板' }), controller.broadcast.deleteTpl); // 删除公告模板
+  router.post('/api/broadcast/add', auth, role_operation, controller.broadcast.addBroadcast); // 服务器广播
 
   // 玩家操作--玩家基本信息
   router.post('/api/player/list', auth, controller.player.playerinfo.list); // 玩家列表
@@ -74,7 +75,8 @@ module.exports = app => {
   router.post('/api/batchact', auth, controller.batchact.act);
 
   // 系统操作
-  router.post('/api/sysact/activity', auth, controller.sysact.activity);
+  router.post('/api/sysact/activity/update', auth, controller.sysact.updateActivity);
+  router.post('/api/sysact/activity/list', auth, controller.sysact.activityList);
   router.post('/api/sysact/gmins', auth, controller.sysact.gmins);
   router.post('/api/sysact/srvforcedown', auth, controller.sysact.srvForceDown);
 

@@ -45,6 +45,20 @@ class BroadcastController extends BaseController {
     const tpls = await anntplService.list();
     this.ctx.body = this.success(tpls);
   }
+
+  /**
+   * POST broadcast/add
+   * 服务器广播
+   */
+  async addBroadcast() {
+    const service = this.ctx.service.broadcast;
+    const r = await service.broadcast();
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
+  }
 }
 
 module.exports = BroadcastController;

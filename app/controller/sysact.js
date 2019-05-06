@@ -8,19 +8,45 @@ const BaseController = require('./base');
 
 class SysActControler extends BaseController {
 
-  // 服务与活动管理
-  async activity() {
-    this.ctx.body = this.success();
+  constructor(props) {
+    super(props);
+    this.sysactService = this.ctx.service.sysact;
+  }
+
+  // 服务与活动列表
+  async activityList() {
+    const r = await this.sysactService.fetchActivity();
+    this.ctx.body = this.success(r);
+  }
+
+  // 更新服务与活动信息
+  async updateActivity() {
+    const r = await this.sysactService.updateActivity();
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
   }
 
   // GM指令
   async gmins() {
-    this.ctx.body = this.success();
+    const r = await this.sysactService.gmIns();
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
   }
 
   // 服务器强制下线
   async srvForceDown() {
-    this.ctx.body = this.success();
+    const r = await this.sysactService.forcedown();
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
   }
 }
 

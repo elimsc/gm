@@ -214,6 +214,20 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/api/broadcast/add",
+    "regexp": "/^\\/api\\/broadcast\\/add(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "role",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/api/player/list",
     "regexp": "/^\\/api\\/player\\/list(?:\\/(?=$))?$/",
     "stack": [
@@ -591,8 +605,21 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/sysact/activity",
-    "regexp": "/^\\/api\\/sysact\\/activity(?:\\/(?=$))?$/",
+    "path": "/api/sysact/activity/update",
+    "regexp": "/^\\/api\\/sysact\\/activity\\/update(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/sysact/activity/list",
+    "regexp": "/^\\/api\\/sysact\\/activity\\/list(?:\\/(?=$))?$/",
     "stack": [
       "auth",
       "wrappedController"

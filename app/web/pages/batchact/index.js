@@ -13,14 +13,6 @@ class BatchAct extends React.Component {
     });
   }
 
-  compareToFirstPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && value !== form.getFieldValue('password')) {
-      callback('两次输入的密码不一致');
-    } else {
-      callback();
-    }
-  }
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -50,10 +42,10 @@ class BatchAct extends React.Component {
 
     return (
       <Card>
-        <Form {...formItemLayout} style={{marginTop: 50}} onSubmit={this.handleSubmit}>
+        <Form {...formItemLayout} style={{ marginTop: 50 }} onSubmit={this.handleSubmit}>
           <Form.Item
-              label="操作类型"
-            >
+            label="操作类型"
+          >
             {getFieldDecorator('type', {
               rules: [{
                 required: true, message: '操作类型不能为空',
@@ -71,19 +63,20 @@ class BatchAct extends React.Component {
             label="批量操作文件(txt)"
           >
             {getFieldDecorator('file', {
+              getValueFromEvent: this.normFile,
               rules: [{
                 required: true, message: '文件不能为空',
               }],
             })(
-              <Upload>
-                <Button><Icon type="upload" /> 点击上传</Button>
+              <Upload beforeUpload={() => false}>
+                <Button><Icon type="upload" /> 选中文件</Button>
               </Upload>
             )}
           </Form.Item>
           <Form.Item
             label="原因"
           >
-            {getFieldDecorator('confirm', {
+            {getFieldDecorator('reason', {
               rules: [],
             })(
               <Input.TextArea placeholder="说明原因" rows={6} />

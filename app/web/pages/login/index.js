@@ -3,7 +3,8 @@ import { Row, Col, Form, Input, Button, Spin, message } from 'antd';
 import router from 'umi/router';
 
 import styles from './index.css';
-import {login} from '../../service/login';
+import { login } from '../../service/login';
+import { Card } from 'antd-mobile';
 
 class Login extends React.Component {
 
@@ -18,7 +19,7 @@ class Login extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        this.props.form.setFieldsValue({'password': ''});
+        this.props.form.setFieldsValue({ 'password': '' });
         this.setState({ loading: true });
         login(values).then(data => {
           if (data.code === 0) {
@@ -29,7 +30,7 @@ class Login extends React.Component {
               router.push('/');
             }, 10);
           } else {
-            this.setState({loading: false});
+            this.setState({ loading: false });
             message.error('账户名或密码错误，请重试');
           }
         })
@@ -67,11 +68,9 @@ class Login extends React.Component {
 
     return (
       <Spin tip="登陆中..." delay spinning={this.state.loading}>
-        <Row>
-          <Col span={6} offset={9} style={{marginTop: 300}} className={styles.formCard}>
-            <Form.Item {...tailFormItemLayout} >
-              <h2 style={{textAlign: 'center'}}>管理员登陆</h2>
-            </Form.Item>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '80vh' }}>
+          <Card style={{ width: 600, height: 330, boxShadow: '3px 3px 30px #888888' }}>
+            <h2 style={{ textAlign: 'center', marginTop: 30, marginBottom: 23 }}>管理员登陆</h2>
             <Form {...formItemLayout} onSubmit={this.handleSubmit}>
               <Form.Item label="用户名">
                 {getFieldDecorator('username', {
@@ -95,8 +94,8 @@ class Login extends React.Component {
                 <Button type="primary" htmlType="submit" block>登陆</Button>
               </Form.Item>
             </Form>
-          </Col>
-        </Row>
+          </Card>
+        </div>
       </Spin>
     );
   }

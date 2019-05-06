@@ -1,7 +1,9 @@
 import React from 'react';
 
-import {Transfer, Card, Button, message, Spin} from 'antd';
+import { Transfer, Card, Button, message, Spin } from 'antd';
+import {connect} from 'dva';
 
+@connect(({ global }) => ({ global }))
 class Activity extends React.Component {
   state = {
     mockData: [],
@@ -11,7 +13,7 @@ class Activity extends React.Component {
 
   componentDidMount() {
     this.getMock();
-    this.setState({loading: false});
+    this.setState({ loading: false });
   }
 
   getMock = () => {
@@ -43,19 +45,27 @@ class Activity extends React.Component {
   };
 
   handleSubmit = e => {
+    console.log(this.state.targetKeys)
     message.info('功能未实现');
   }
 
   render() {
+    const { part_id, srvList } = this.props.global;
+
+    const cur_srv = srvList.filter(v => v.part_id === part_id)[0];
+    let part_name = '无';
+    if (cur_srv) {
+      part_name = cur_srv.part_name;
+    }
     return (
       <Spin tip="加载中..." spinning={this.state.loading}>
-        <Card>
-          <Button style={{marginBottom: 20, width: 150}} size="large" type="primary" onClick={this.handleSubmit}>提交修改</Button>
+        <Card title={`当前选中区服: ${part_name}`} style={{ minHeight: 500 }}>
+          <Button style={{ marginBottom: 20, width: 150 }} size="large" type="primary" onClick={this.handleSubmit}>提交修改</Button>
 
           <Transfer
             dataSource={this.state.mockData}
             showSearch
-            listStyle={{width: 400, height: 700}}
+            listStyle={{ width: 400, height: 700 }}
             filterOption={this.filterOption}
             targetKeys={this.state.targetKeys}
             onChange={this.handleChange}

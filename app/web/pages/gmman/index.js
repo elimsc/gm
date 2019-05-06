@@ -10,7 +10,6 @@ const role_map = {
 }
 
 
-
 class GmMan extends React.Component {
 
   constructor(props) {

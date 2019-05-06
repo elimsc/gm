@@ -2,6 +2,10 @@ import React from 'react';
 
 import { Form, Input, Button, Card, message } from 'antd';
 
+import { gmIns } from '../../service/sysact';
+import { connect } from 'dva';
+
+@connect(({ global }) => ({ global }))
 class GmIns extends React.Component {
 
   handleSubmit = e => {
@@ -9,13 +13,26 @@ class GmIns extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        message.info('功能未实现');
+        gmIns(values).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('出错了');
+          }
+        })
       }
     });
   }
 
   render() {
     const { getFieldDecorator } = this.props.form;
+    const { part_id, srvList } = this.props.global;
+
+    const cur_srv = srvList.filter(v => v.part_id === part_id)[0];
+    let part_name = '无';
+    if (cur_srv) {
+      part_name = cur_srv.part_name;
+    }
 
     const formItemLayout = {
       labelCol: {
@@ -36,7 +53,7 @@ class GmIns extends React.Component {
     }
 
     return (
-      <Card>
+      <Card title={`当前选中区服: ${part_name}`}>
         <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{ marginTop: 40 }}>
           <Form.Item label="GM指令">
             {getFieldDecorator('ins', {
