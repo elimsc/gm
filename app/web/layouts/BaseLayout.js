@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Layout, Menu, Icon, Select, Dropdown, Spin, Button
+  Layout, Menu, Icon, Select, Dropdown, Spin, Button, Avatar
 } from 'antd';
 import router from 'umi/router';
 import { connect } from 'dva';
@@ -43,6 +43,7 @@ class BaseLayout extends React.Component {
         payload: {},
       });
       this.setState({ loading: false, username: data.payload.username, role: parseInt(data.payload.role) });
+      await this.props.dispatch({ type: 'global/save', payload: { user_role: parseInt(data.payload.role) } });
     }
   }
 
@@ -76,8 +77,15 @@ class BaseLayout extends React.Component {
 
     const userDropDown = (
       <Menu>
-        <Menu.Item onClick={() => this.logout()} key="logout">注销</Menu.Item>
-        <Menu.Item onClick={() => this.go_route('/user/actlog')} key="actlog">个人中心</Menu.Item>
+        <Menu.Item onClick={() => this.go_route('/user/actlog')} key="actlog">
+          <Icon type="user" />
+          <span>个人中心</span>
+        </Menu.Item>
+        <Menu.Divider />
+        <Menu.Item onClick={() => this.logout()} key="logout">
+          <Icon type="logout" />
+          <span>退出登陆</span>
+        </Menu.Item>
       </Menu>
     );
 
@@ -97,27 +105,32 @@ class BaseLayout extends React.Component {
             collapsed={this.state.collapsed}
             width={240}
           >
-            <div className={styles.logo}>御天剑道GM平台</div>
+            <div className={styles.logo}>
+              <span>御天剑道GM平台</span>
+            </div>
             <Menu
               defaultOpenKeys={[this.props.children.props.location.pathname.split('/')[1]]}
               theme="dark"
               selectedKeys={[this.props.children.props.location.pathname]}
               mode="inline">
               <Menu.Item onClick={() => this.go_route('/player')} key="/player">
+                <Icon type="team" />
                 <span>玩家操作</span>
               </Menu.Item>
               {this.state.role >= 2 ?
                 <Menu.Item key="/batchact" onClick={() => this.go_route('/batchact')}>
+                  <Icon type="form" />
                   <span>批量操作</span>
                 </Menu.Item>
                 : null}
               {this.state.role >= 2 ?
                 <Menu.Item key="/broadcast" onClick={() => this.go_route('/broadcast')}>
+                  <Icon type="sound" />
                   <span>服务器广播</span>
                 </Menu.Item>
                 : null}
               {this.state.role >= 3 ?
-                <SubMenu key="sysact" title="系统操作">
+                <SubMenu key="sysact" title={<span><Icon type="hdd" /><span>系统操作</span></span>}>
                   <Menu.Item key="/sysact/activity" onClick={() => this.go_route('/sysact/activity')}>
                     <span>服务与活动管理</span>
                   </Menu.Item>
@@ -130,7 +143,7 @@ class BaseLayout extends React.Component {
                 </SubMenu>
                 : null}
               {this.state.role >= 3 ?
-                <SubMenu key="gmman" title={<span>GM管理</span>}>
+                <SubMenu key="gmman" title={<span><Icon type="solution" /><span>GM管理</span></span>}>
                   <Menu.Item key="/gmman" onClick={() => this.go_route('/gmman')}>
                     <span>GM列表</span>
                   </Menu.Item>
@@ -157,7 +170,7 @@ class BaseLayout extends React.Component {
                 />
               </div>
               <div className={styles.headerItem}>
-                <Select onChange={this.handleSrvSelect} className={styles.select} placeholder="选择区服" style={{ width: 120 }}>
+                <Select onChange={this.handleSrvSelect} className={styles.select} placeholder="选择区服" style={{ width: 150 }}>
                   <Option value={-1}>默认服</Option>
                   {srvList.map(v => (
                     <Option key={v.part_id} value={v.part_id}>{v.part_name}</Option>
@@ -165,9 +178,14 @@ class BaseLayout extends React.Component {
                 </Select>
 
               </div>
-              <div className={styles.headerItem} style={{ float: 'right', marginRight: 50 }}>
-                <Dropdown overlay={userDropDown} trigger={['click']}>
-                  <Button style={{ marginRight: 5 }}>{this.state.username}</Button>
+              <div className={styles.headerItem} style={{ float: 'right', marginRight: 60 }}>
+                <Dropdown overlay={userDropDown} placement="bottomRight">
+                  <Button type="dashed" style={{ fontSize: 16 }}>
+                    {/* <Avatar style={{ backgroundColor: '#f56a00', verticalAlign: 'middle', marginRight: 2 }} shape="square" size="small">
+                      {this.state.username[0].toUpperCase()}
+                    </Avatar> */}
+                    {this.state.username}
+                  </Button>
                 </Dropdown>
               </div>
             </Header>

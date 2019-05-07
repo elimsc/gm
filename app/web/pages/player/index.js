@@ -160,28 +160,35 @@ class PlayerMan extends React.PureComponent {
                   <Menu.Item onClick={() => this.select('email-info')} key="email-info">邮件</Menu.Item>
                   <Menu.Item onClick={() => this.select('marriage-info')} key="marriage-info">婚姻</Menu.Item>
                 </Menu.SubMenu>
-                <Menu.SubMenu key="gmact" title="GM操作">
-                  <Menu.Item onClick={() => this.select('money')} key="money">发放货币</Menu.Item>
-                  <Menu.Item onClick={() => this.select('prop')} key="prop">发放道具</Menu.Item>
-                  <Menu.Item onClick={() => this.select('exp')} key="exp">添加/扣除经验</Menu.Item>
-                  <Menu.Item onClick={() => this.select('title')} key="title">添加/删除称号</Menu.Item>
-                  <Menu.Item onClick={() => this.select('prac-level')} key="prac-level">修改修炼等级</Menu.Item>
-                  <Menu.Item onClick={() => this.select('petsymbol-level')} key="petsymbol-level">修改宠物符等级</Menu.Item>
-                  <Menu.Item onClick={() => this.select('forcedown')} key="forcedown">踢玩家下线</Menu.Item>
-                  <Menu.Item onClick={() => this.select('secure-code')} key="secure-code">安全码修改</Menu.Item>
-                  <Menu.Item onClick={() => this.select('change-pass')} key="change-pass">修改密码</Menu.Item>
-                  <Menu.Item onClick={() => this.select('untie-phone')} key="untie-phone">解除绑定手机</Menu.Item>
-                </Menu.SubMenu>
-                <Menu.SubMenu key="clear" title="清除数据">
-                  <Menu.Item onClick={() => this.select('clear-secure-code')} key="clear-secure-code">清除安全码</Menu.Item>
-                  <Menu.Item onClick={() => this.select('unusual-gang')} key="unusual-gang">清除非正常帮会数据</Menu.Item>
-                  <Menu.Item onClick={() => this.select('unusual-task')} key="unusual-task">清除非正常任务</Menu.Item>
-                </Menu.SubMenu>
-                <Menu.SubMenu key="ban" title="封号/禁言">
-                  <Menu.Item onClick={() => this.select('ban-account')} key="ban-account">封号</Menu.Item>
-                  <Menu.Item onClick={() => this.select('ban-talk')} key="ban-talk">禁言</Menu.Item>
-                  <Menu.Item onClick={() => this.select('ban-log')} key="ban-log">禁言记录</Menu.Item>
-                </Menu.SubMenu>
+                {this.props.global.user_role > 1 ?
+                  <Menu.SubMenu key="gmact" title="GM操作">
+                    <Menu.Item onClick={() => this.select('money')} key="money">发放货币</Menu.Item>
+                    <Menu.Item onClick={() => this.select('prop')} key="prop">发放道具</Menu.Item>
+                    <Menu.Item onClick={() => this.select('exp')} key="exp">添加/扣除经验</Menu.Item>
+                    <Menu.Item onClick={() => this.select('title')} key="title">添加/删除称号</Menu.Item>
+                    <Menu.Item onClick={() => this.select('prac-level')} key="prac-level">修改修炼等级</Menu.Item>
+                    <Menu.Item onClick={() => this.select('petsymbol-level')} key="petsymbol-level">修改宠物符等级</Menu.Item>
+                    <Menu.Item onClick={() => this.select('forcedown')} key="forcedown">踢玩家下线</Menu.Item>
+                    <Menu.Item onClick={() => this.select('secure-code')} key="secure-code">安全码修改</Menu.Item>
+                    <Menu.Item onClick={() => this.select('change-pass')} key="change-pass">修改密码</Menu.Item>
+                    <Menu.Item onClick={() => this.select('untie-phone')} key="untie-phone">解除绑定手机</Menu.Item>
+                  </Menu.SubMenu> : null
+                }
+                {this.props.global.user_role > 1 ?
+                  <Menu.SubMenu key="clear" title="清除数据">
+                    <Menu.Item onClick={() => this.select('clear-secure-code')} key="clear-secure-code">清除安全码</Menu.Item>
+                    <Menu.Item onClick={() => this.select('unusual-gang')} key="unusual-gang">清除非正常帮会数据</Menu.Item>
+                    <Menu.Item onClick={() => this.select('unusual-task')} key="unusual-task">清除非正常任务</Menu.Item>
+                  </Menu.SubMenu> : null
+                }
+                {this.props.global.user_role > 1 ?
+                  <Menu.SubMenu key="ban" title="封号/禁言">
+                    <Menu.Item onClick={() => this.select('ban-account')} key="ban-account">封号</Menu.Item>
+                    <Menu.Item onClick={() => this.select('ban-talk')} key="ban-talk">禁言</Menu.Item>
+                    <Menu.Item onClick={() => this.select('ban-log')} key="ban-log">禁言记录</Menu.Item>
+                  </Menu.SubMenu> : null
+                }
+
               </Menu>
             </Col>
             <Col span={20}>

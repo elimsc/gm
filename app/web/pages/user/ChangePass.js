@@ -62,14 +62,14 @@ class ChangePass extends React.Component {
       <div>
         <Form {...formItemLayout} style={{ marginTop: 50 }} onSubmit={this.handleSubmit}>
           <Form.Item
-            label="密码"
+            label="新密码"
           >
             {getFieldDecorator('password', {
               rules: [{
                 required: true, message: '密码不能为空',
               }],
             })(
-              <Input type="password" placeholder="密码" />
+              <Input type="password" placeholder="新密码" />
             )}
           </Form.Item>
           <Form.Item
