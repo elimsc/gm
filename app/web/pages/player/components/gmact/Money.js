@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, message } from 'antd';
+import { Form, Input, Button, message, Modal } from 'antd';
 import { money } from '../../../../service/gmact';
 
 /**
@@ -16,23 +16,34 @@ class Money extends React.PureComponent {
 
 
   handleSubmit = (e) => {
-    const {guid, part_id} = this.props;
+    const { guid, part_id } = this.props;
     e.preventDefault();
-    this.setState({ loading: true });
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log(values);
-        money({...values, guid, part_id}).then(data => {
-          if (data.code === 0) {
-            message.success('操作成功');
-          } else {
-            message.error('出错啦');
+        Modal.confirm({
+          title: '确认操作',
+          content: (<div>
+            <p>{`点券: ${values['dianquan']}`}</p>
+            <p>{`银两: ${values['yinliang']}`}</p>
+            <p>{`仙缘: ${values['xianyuan']}`}</p>
+            <p>{`绑定仙缘: ${values['bxianyuan']}`}</p>
+          </div>),
+          onOk: () => {
+            this.setState({ loading: true });
+            money({ ...values, guid, part_id }).then(data => {
+              if (data.code === 0) {
+                message.success('操作成功');
+              } else {
+                message.error('出错啦');
+              }
+              this.props.form.resetFields();
+              this.setState({ loading: false });
+            });
           }
         })
       }
     });
-    this.props.form.resetFields();
-    this.setState({ loading: false });
   }
 
   render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, message, Divider, Select } from 'antd';
+import { Form, Input, Button, message, Divider, Select, Modal } from 'antd';
 
 import { exp } from '../../../../service/gmact';
 
@@ -16,41 +16,53 @@ class Exp extends React.PureComponent {
   }
 
   handleSubmit1 = (e) => {
-    const {guid, part_id} = this.props;
+    const { guid, part_id } = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll(['jinyan'], (err, values) => {
       if (!err) {
         console.log(values);
-        this.setState({ loading1: true });
-        exp({ type: 1, data: values, guid, part_id }).then(data => {
-          if (data.code === 0) {
-            message.success('操作成功');
-          } else {
-            message.error('操作失败');
+        Modal.confirm({
+          title: '确认操作',
+          content: `添加经验: ${values['jinyan']}`,
+          onOk: () => {
+            this.setState({ loading1: true });
+            exp({ type: 1, data: values, guid, part_id }).then(data => {
+              if (data.code === 0) {
+                message.success('操作成功');
+              } else {
+                message.error('操作失败');
+              }
+              this.setState({ loading1: false });
+              this.props.form.resetFields(['jinyan']);
+            });
           }
-          this.setState({ loading1: false });
-          this.props.form.resetFields(['jinyan']);
-        });
+        })
 
       }
     });
   }
 
   handleSubmit2 = (e) => {
-    const {guid, part_id} = this.props;
+    const { guid, part_id } = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll(['player_level'], (err, values) => {
       if (!err) {
         console.log(values);
-        this.setState({ loading2: true });
-        exp({ type: 2, data: values, guid, part_id }).then(data => {
-          if (data.code === 0) {
-            message.success('操作成功');
-          } else {
-            message.error('操作失败');
+        Modal.confirm({
+          title: '确认操作',
+          content: `设置玩家等级为: ${values['player_level']}`,
+          onOk: () => {
+            this.setState({ loading2: true });
+            exp({ type: 2, data: values, guid, part_id }).then(data => {
+              if (data.code === 0) {
+                message.success('操作成功');
+              } else {
+                message.error('操作失败');
+              }
+              this.setState({ loading2: false });
+              this.props.form.resetFields(['player_level']);
+            });
           }
-          this.setState({ loading2: false });
-          this.props.form.resetFields(['player_level']);
         });
 
       }
@@ -58,21 +70,27 @@ class Exp extends React.PureComponent {
   }
 
   handleSubmit3 = (e) => {
-    const {guid, part_id} = this.props;
+    const { guid, part_id } = this.props;
     e.preventDefault();
     console.log(this.props.form);
     this.props.form.validateFieldsAndScroll(['pet_name', 'pet_level'], (err, values) => {
       if (!err) {
         console.log(values);
-        this.setState({ loading3: true });
-        exp({ type: 3, data: values, guid, part_id }).then(data => {
-          if (data.code === 0) {
-            message.success('操作成功');
-          } else {
-            message.error('操作失败');
+        Modal.confirm({
+          title: '确认操作',
+          content: `设置宠物 [${values['pet_name']}] 等级为: ${values['pet_level']}`,
+          onOk: () => {
+            this.setState({ loading3: true });
+            exp({ type: 3, data: values, guid, part_id }).then(data => {
+              if (data.code === 0) {
+                message.success('操作成功');
+              } else {
+                message.error('操作失败');
+              }
+              this.setState({ loading3: false });
+              this.props.form.resetFields(['pet_name', 'pet_level']);
+            });
           }
-          this.setState({ loading3: false });
-          this.props.form.resetFields(['pet_name', 'pet_level']);
         });
 
       }

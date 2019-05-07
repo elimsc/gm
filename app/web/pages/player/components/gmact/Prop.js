@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, message, Icon } from 'antd';
+import { Form, Input, Button, message, Icon, Modal } from 'antd';
 import { prop } from '../../../../service/gmact';
 
 
@@ -38,23 +38,38 @@ class Prop extends React.Component {
   }
 
   handleSubmit = (e) => {
-    const {guid, part_id} = this.props;
+    const { guid, part_id } = this.props;
     e.preventDefault();
-    this.setState({ loading: true });
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log(values);
-        prop({...values, guid, part_id}).then(data => {
-          if (data.code === 0) {
-            message.success('操作成功');
-          } else {
-            message.error('出错啦');
+        let textArr = values.keys.map(i => `道具名: ${values.names[i]}, 数量: ${values.counts[i]}`);
+        Modal.confirm({
+          title: '确认操作',
+          content: (
+            <div>
+              {
+                textArr.map((item, i) => (
+                  <p key={`${i}`}>{item}</p>
+                ))
+              }
+            </div>
+          ),
+          onOk: () => {
+            this.setState({ loading: true });
+            prop({ ...values, guid, part_id }).then(data => {
+              if (data.code === 0) {
+                message.success('操作成功');
+              } else {
+                message.error('出错啦');
+              }
+              this.props.form.resetFields();
+              this.setState({ loading: false });
+            });
           }
-        })
+        });
       }
     });
-    this.props.form.resetFields();
-    this.setState({ loading: false });
   }
 
   render() {

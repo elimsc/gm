@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, message } from 'antd';
+import { Form, Input, Button, message, Modal } from 'antd';
 
 import { pracLevel } from '../../../../service/gmact';
 
@@ -13,20 +13,26 @@ class PracLevel extends React.Component {
   }
 
   handleSubmit = (e) => {
-    const {guid, part_id} = this.props;
+    const { guid, part_id } = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log(values);
-        this.setState({ loading: true });
-        pracLevel({ value: values['prac_level'], guid, part_id }).then(data => {
-          if (data.code === 0) {
-            message.success('操作成功');
-          } else {
-            message.error('操作失败');
+        Modal.confirm({
+          title: '确认操作',
+          content: `设置修炼等级为: ${values['prac_level']}`,
+          onOk: () => {
+            this.setState({ loading: true });
+            pracLevel({ value: values['prac_level'], guid, part_id }).then(data => {
+              if (data.code === 0) {
+                message.success('操作成功');
+              } else {
+                message.error('操作失败');
+              }
+              this.setState({ loading: false });
+              this.props.form.resetFields(['prac_level']);
+            });
           }
-          this.setState({ loading: false });
-          this.props.form.resetFields(['prac_level']);
         });
       }
     });

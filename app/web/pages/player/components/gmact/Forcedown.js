@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, message } from 'antd';
+import { Button, message, Modal } from 'antd';
 
 import { forcedown } from '../../../../service/gmact';
 
@@ -13,16 +13,22 @@ class Forcedown extends React.Component {
   }
 
   handleClick = () => {
-    const {guid, part_id} = this.props;
-    this.setState({ loading: true });
-    forcedown({guid, part_id}).then(data => {
-      if (data.code === 0) {
-        message.success('操作成功');
-      } else {
-        message.error('操作失败');
+    const { guid, part_id } = this.props;
+    Modal.confirm({
+      title: '确认操作',
+      content: '确认强制该玩家下线？',
+      onOk: () => {
+        this.setState({ loading: true });
+        forcedown({ guid, part_id }).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('操作失败');
+          }
+          this.setState({ loading: false });
+        });
       }
-      this.setState({ loading: false });
-    })
+    });
   }
 
   render() {

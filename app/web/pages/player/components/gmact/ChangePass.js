@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Form, Input, Button, message } from 'antd';
+import { Card, Form, Input, Button, message, Modal } from 'antd';
 
 import { changePass } from '../../../../service/gmact';
 
@@ -13,20 +13,26 @@ class ChangePass extends React.Component {
   }
 
   handleSubmit = (e) => {
-    const {guid, part_id} = this.props;
+    const { guid, part_id } = this.props;
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log(values);
-        this.setState({ loading: true });
-        changePass({ value: values['password'], guid, part_id }).then(data => {
-          if (data.code === 0) {
-            message.success('操作成功');
-          } else {
-            message.error('操作失败');
+        Modal.confirm({
+          title: '确认操作',
+          content: '确认设置新的密码？',
+          onOk: () => {
+            this.setState({ loading: true });
+            changePass({ value: values['password'], guid, part_id }).then(data => {
+              if (data.code === 0) {
+                message.success('操作成功');
+              } else {
+                message.error('操作失败');
+              }
+              this.setState({ loading: false });
+              this.props.form.resetFields();
+            });
           }
-          this.setState({ loading: false });
-          this.props.form.resetFields();
         });
       }
     });

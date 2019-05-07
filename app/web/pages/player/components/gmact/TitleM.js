@@ -1,7 +1,8 @@
 import React from 'react';
-import { Form, Input, Button, message, Divider, Select } from 'antd';
+import { Form, Input, Button, message, Divider, Select, Modal } from 'antd';
 
 import { titlem } from '../../../../service/gmact';
+
 
 
 class TitleM extends React.Component {
@@ -15,40 +16,52 @@ class TitleM extends React.Component {
   }
 
   handleSubmit1 = (e) => {
-    const {guid, part_id} = this.props; 
+    const { guid, part_id } = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll(['add_title'], (err, values) => {
       if (!err) {
         console.log(values);
-        this.setState({ loading1: true });
-        titlem({ type: 1, data: values, guid, part_id }).then(data => {
-          if (data.code === 0) {
-            message.success('操作成功');
-          } else {
-            message.error('操作失败');
+        Modal.confirm({
+          title: '确认操作',
+          content: `添加称号: ${values['add_title']}`,
+          onOk: () => {
+            this.setState({ loading1: true });
+            titlem({ type: 1, data: values, guid, part_id }).then(data => {
+              if (data.code === 0) {
+                message.success('操作成功');
+              } else {
+                message.error('操作失败');
+              }
+              this.setState({ loading1: false });
+              this.props.form.resetFields(['add_title']);
+            });
           }
-          this.setState({ loading1: false });
-          this.props.form.resetFields(['add_title']);
         });
       }
     });
   }
 
   handleSubmit2 = (e) => {
-    const {guid, part_id} = this.props;
+    const { guid, part_id } = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll(['del_title'], (err, values) => {
       if (!err) {
         console.log(values);
-        this.setState({ loading2: true });
-        titlem({ type: 2, data: values, guid, part_id }).then(data => {
-          if (data.code === 0) {
-            message.success('操作成功');
-          } else {
-            message.error('操作失败');
+        Modal.confirm({
+          title: '确认操作',
+          content: `删除称号: ${values['del_title']}`,
+          onOk: () => {
+            this.setState({ loading2: true });
+            titlem({ type: 2, data: values, guid, part_id }).then(data => {
+              if (data.code === 0) {
+                message.success('操作成功');
+              } else {
+                message.error('操作失败');
+              }
+              this.setState({ loading2: false });
+              this.props.form.resetFields(['del_title']);
+            });
           }
-          this.setState({ loading2: false });
-          this.props.form.resetFields(['del_title']);
         });
 
       }
