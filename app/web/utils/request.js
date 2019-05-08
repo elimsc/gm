@@ -24,6 +24,7 @@ export async function get(url) {
 
 export async function post(url, data = {}) {
   const token = localStorage.getItem(window.location.href.split("/")[2]);
+  const req_url = localStorage.getItem('req_url');
   const headers = {
     'Authorization': `Bearer ${token}`,
     'content-type': 'application/json',
@@ -31,7 +32,7 @@ export async function post(url, data = {}) {
   return fetch(url, {
     headers,
     method: 'POST',
-    body: JSON.stringify(data),
+    body: JSON.stringify({ ...data, req_url }),
   }).then(res => {
     return res.json();
   }).then(data => {

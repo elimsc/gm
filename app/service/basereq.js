@@ -7,8 +7,9 @@ const URL = 'http://192.168.1.205:20843/';
 class BaseReqService extends Service {
   async request(head = {}, body = {}, token_param_list = []) {
     const genBody = this.ctx.helper.genBody;
+    const req_url = this.ctx.request.body.req_url; // 服务区ip
     try {
-      return await this.ctx.curl(URL, {
+      return await this.ctx.curl(req_url ? req_url : URL, {
         timeout: 1000,
         method: 'POST',
         contentType: 'json', // 请求体为json

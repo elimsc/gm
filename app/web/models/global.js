@@ -3,9 +3,10 @@ import { list } from '../service/srv';
 export default {
   namespace: 'global',
   state: {
-    srvList: [],
-    part_id: -1,
+    srvList: [], // 区服列表
+    part_id: -1, // 选中区服
     user_role: 1,
+    req_url: '', // 服务器ip
   },
   effects: {
     *fetchSrvList({ payload }, { put, call }) {

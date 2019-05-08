@@ -47,6 +47,11 @@ class BaseLayout extends React.Component {
     }
   }
 
+
+  componentWillUnmount() {
+    localStorage.removeItem('req_url');
+  }
+
   // 登出
   logout() {
     logout().then(data => {
@@ -66,11 +71,19 @@ class BaseLayout extends React.Component {
     });
   }
 
+  handleEnvSelect = (req_url) => {
+    this.props.dispatch({
+      type: 'global/save',
+      payload: { req_url }
+    });
+    localStorage.setItem('req_url', req_url);
+  }
+
   handleSrvSelect = (part_id) => {
     this.props.dispatch({
       type: 'global/save',
       payload: { part_id }
-    })
+    });
   }
 
   render() {
@@ -170,12 +183,17 @@ class BaseLayout extends React.Component {
                 />
               </div>
               <div className={styles.headerItem}>
-                <Select onChange={this.handleSrvSelect} className={styles.select} placeholder="选择区服" style={{ width: 150 }}>
+                <Select onChange={this.handleEnvSelect} className={styles.select} placeholder="选择环境">
+                  <Option value="http://192.168.1.205:20843/">默认测试环境</Option>
+                </Select>
+
+                <Select onChange={this.handleSrvSelect} className={styles.select} placeholder="选择区服">
                   <Option value={-1}>默认服</Option>
                   {srvList.map(v => (
                     <Option key={v.part_id} value={v.part_id}>{v.part_name}</Option>
                   ))}
                 </Select>
+
 
               </div>
               <div className={styles.headerItem} style={{ float: 'right', marginRight: 60 }}>
