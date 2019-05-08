@@ -58,7 +58,12 @@ const genBody = (head = {}, body = {}, token_param_list = []) => {
  * @param {object} fns 数据输出函数
  */
 const tableInfoConv = (src, tpl, fns = {}) => {
-  return Object.keys(src).map(k => {
+  // src与tpl key的交集, 并使key按tpl的顺序排列
+  const srcKeys = Object.keys(src);
+  const tplKeys = Object.keys(tpl);
+  const keys = tplKeys.filter(v => srcKeys.includes(v));
+
+  return keys.map(k => {
     if (fns[k]) {
       return { key: k, title: tpl[k], value: fns[k](src[k]) };
     }
@@ -67,6 +72,7 @@ const tableInfoConv = (src, tpl, fns = {}) => {
 };
 
 const tableInfoListConv = (src, tpl, fns) => {
+  if (!Array.isArray(src)) return [];
   return src.map(data => {
     return tableInfoConv(data, tpl, fns);
   });

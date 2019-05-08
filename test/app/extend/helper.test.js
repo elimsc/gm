@@ -22,17 +22,18 @@ describe('extend.helper.tableInfoListConv()', () => {
       { name: 'name1', cnt: 1 },
       { name: 'name2', cnt: 2 },
     ];
-    const tpl = { name: '名称', cnt: '数量' };
+    const tpl = { cnt: '数量', name: '名称' };
     const ctx = app.mockContext();
 
     assert.deepStrictEqual(ctx.helper.tableInfoListConv(src, tpl, { name: v => v + 'test' }), [
       [
-        { key: 'name', title: '名称', value: 'name1test' },
         { key: 'cnt', title: '数量', value: 1 },
+        { key: 'name', title: '名称', value: 'name1test' },
+
       ],
       [
-        { key: 'name', title: '名称', value: 'name2test' },
         { key: 'cnt', title: '数量', value: 2 },
+        { key: 'name', title: '名称', value: 'name2test' },
       ],
     ]);
   });

@@ -4,6 +4,10 @@ const BaseReqService = require('./basereq');
 const moment = require('moment');
 
 class PlayerinfoService extends BaseReqService {
+  // 时间输出函数
+  pretttyTime(t) {
+    return moment(t).format('YYYY-MM-DD HH:mm:ss');
+  }
   // 角色列表查询
   async list({ name, type, part_id }) {
     const result = await this.request({ cmd: 1001 }, { name, type, part_id }, [ 'name', 'type' ]);
@@ -46,13 +50,10 @@ class PlayerinfoService extends BaseReqService {
         scene_id: '角色所在场景',
       };
 
-      const pretttyTime = t => {
-        return moment(t).format('YYYY-MM-DD HH:mm:ss');
-      };
       const fns = {
-        last_login_time: pretttyTime,
-        last_logout_time: pretttyTime,
-        create_time: pretttyTime,
+        last_login_time: this.pretttyTime,
+        last_logout_time: this.pretttyTime,
+        create_time: this.pretttyTime,
       };
 
       return this.ctx.helper.tableInfoConv(src, tpl, fns);
@@ -62,311 +63,194 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色背包信息查询
   async bagInfo({ guid, part_id }) {
-    const result = [
-      [
-        { title: '道具名称', value: '道具1' },
-        { title: '数量', value: 2 },
-        { title: '绑定状态', value: '绑定' },
-        { title: '使用时限', value: 0 },
-        { title: '创建时间', value: '2018.1.2' },
-      ],
-      [
-        { title: '道具名称', value: '道具2' },
-        { title: '数量', value: 2 },
-        { title: '绑定状态', value: '绑定' },
-        { title: '使用时限', value: 0 },
-        { title: '创建时间', value: '2018.1.2' },
-      ],
-      [
-        { title: '道具名称', value: '道具3' },
-        { title: '数量', value: 2 },
-        { title: '绑定状态', value: '绑定' },
-        { title: '使用时限', value: 0 },
-        { title: '创建时间', value: '2018.1.2' },
-      ],
-      [
-        { title: '道具名称', value: '道具4' },
-        { title: '数量', value: 2 },
-        { title: '绑定状态', value: '绑定' },
-        { title: '使用时限', value: 0 },
-        { title: '创建时间', value: '2018.1.2' },
-      ],
-      [
-        { title: '道具名称', value: '道具5' },
-        { title: '数量', value: 2 },
-        { title: '绑定状态', value: '绑定' },
-        { title: '使用时限', value: 0 },
-        { title: '创建时间', value: '2018.1.2' },
-      ],
-      [
-        { title: '道具名称', value: '道具6' },
-        { title: '数量', value: 2 },
-        { title: '绑定状态', value: '绑定' },
-        { title: '使用时限', value: 0 },
-        { title: '创建时间', value: '2018.1.2' },
-      ],
-      [
-        { title: '道具名称', value: '道具6' },
-        { title: '数量', value: 2 },
-        { title: '绑定状态', value: '绑定' },
-        { title: '使用时限', value: 0 },
-        { title: '创建时间', value: '2018.1.2' },
-      ],
-    ];
-    return result;
+    const result = await this.request({ cmd: 1005 }, { guid, part_id }, [ 'guid' ]);
+    if (!result) return [];
+    if (result.data && result.data.body && result.data.body.itemlist) {
+      // 处理返回结果
+      const src = result.data.body.itemlist;
+
+      const tpl = {
+        // id: 'ID',
+        name: '名字',
+        cnt: '数量',
+        bind_type: '绑定类型', // 0永久不绑定/1限时绑定/2使用绑定/3永久绑定
+        bind_state: '绑定状态', // 非0表示绑定
+        timeout: '过期时间',
+        bind_timeout: '绑定过期时间',
+      };
+      const bind_type_map = bind_type => {
+        switch (bind_type) {
+          case 0: return '永久不绑定';
+          case 1: return '限时绑定';
+          case 2: return '使用绑定';
+          case 3: return '永久绑定';
+          default: break;
+        }
+      };
+      const bind_state_map = bind_state => {
+        switch (bind_state) {
+          case 0: return '未绑定';
+          default: return '绑定';
+        }
+      };
+      const fns = {
+        timeout: this.pretttyTime,
+        bind_timeout: this.pretttyTime,
+        bind_type: bind_type_map,
+        bind_state: bind_state_map,
+      };
+      return this.ctx.helper.tableInfoListConv(src, tpl, fns);
+    }
+    return [];
   }
 
   // 角色仓库信息查询
-  async wareHouseInfo({ guid }) {
-    const result = [
-      [
-        { title: '道具名称', value: '仓库道具1' },
-        { title: '数量', value: 2 },
-        { title: '绑定状态', value: '绑定' },
-        { title: '使用时限', value: 0 },
-        { title: '创建时间', value: '2018.1.2' },
-      ],
-      [
-        { title: '道具名称', value: '仓库道具2' },
-        { title: '数量', value: 2 },
-        { title: '绑定状态', value: '绑定' },
-        { title: '使用时限', value: 0 },
-        { title: '创建时间', value: '2018.1.2' },
-      ],
-      [
-        { title: '道具名称', value: '仓库道具3' },
-        { title: '数量', value: 2 },
-        { title: '绑定状态', value: '绑定' },
-        { title: '使用时限', value: 0 },
-        { title: '创建时间', value: '2018.1.2' },
-      ],
-      [
-        { title: '道具名称', value: '仓库道具4' },
-        { title: '数量', value: 2 },
-        { title: '绑定状态', value: '绑定' },
-        { title: '使用时限', value: 0 },
-        { title: '创建时间', value: '2018.1.2' },
-      ],
-      [
-        { title: '道具名称', value: '仓库道具5' },
-        { title: '数量', value: 2 },
-        { title: '绑定状态', value: '绑定' },
-        { title: '使用时限', value: 0 },
-        { title: '创建时间', value: '2018.1.2' },
-      ],
-    ];
+  async wareHouseInfo({ guid, part_id }) {
+    const result = await this.request({ cmd: 1007 }, { guid, part_id }, [ 'guid' ]);
+    if (!result) return [];
+    if (result.data && result.data.body && result.data.body.itemlist) {
+      // 处理返回结果
+      const src = result.data.body.itemlist;
 
-    return result;
+      const tpl = {
+        // id: 'ID',
+        name: '名字',
+        cnt: '数量',
+        bind_type: '绑定类型', // 0永久不绑定/1限时绑定/2使用绑定/3永久绑定
+        bind_state: '绑定状态', // 非0表示绑定
+        timeout: '过期时间',
+        bind_timeout: '绑定过期时间',
+      };
+
+      const bind_type_map = bind_type => {
+        switch (bind_type) {
+          case 0: return '永久不绑定';
+          case 1: return '限时绑定';
+          case 2: return '使用绑定';
+          case 3: return '永久绑定';
+          default: break;
+        }
+      };
+      const bind_state_map = bind_state => {
+        switch (bind_state) {
+          case 0: return '未绑定';
+          default: return '绑定';
+        }
+      };
+      const fns = {
+        timeout: this.pretttyTime,
+        bind_timeout: this.pretttyTime,
+        bind_type: bind_type_map,
+        bind_state: bind_state_map,
+      };
+      return this.ctx.helper.tableInfoListConv(src, tpl, fns);
+    }
+    return [];
   }
 
   // 角色装备信息查询
   async equipInfo({ guid, part_id }) {
-    const result = [
-      [
-        { title: '装备名称', value: '装备1' },
-        { title: '强化等级', value: 2 },
-        { title: '精炼等级', value: 4 },
-        { title: '宝石等级', value: 3 },
-        { title: '器灵等级', value: 5 },
-        { title: '铭文等级', value: 10 },
-      ],
-      [
-        { title: '装备名称', value: '装备2' },
-        { title: '强化等级', value: 2 },
-        { title: '精炼等级', value: 4 },
-        { title: '宝石等级', value: 3 },
-        { title: '器灵等级', value: 5 },
-        { title: '铭文等级', value: 10 },
-      ], [
-        { title: '装备名称', value: '装备3' },
-        { title: '强化等级', value: 2 },
-        { title: '精炼等级', value: 4 },
-        { title: '宝石等级', value: 3 },
-        { title: '器灵等级', value: 5 },
-        { title: '铭文等级', value: 10 },
-      ], [
-        { title: '装备名称', value: '装备4' },
-        { title: '强化等级', value: 2 },
-        { title: '精炼等级', value: 4 },
-        { title: '宝石等级', value: 3 },
-        { title: '器灵等级', value: 5 },
-        { title: '铭文等级', value: 10 },
-      ], [
-        { title: '装备名称', value: '装备5' },
-        { title: '强化等级', value: 2 },
-        { title: '精炼等级', value: 4 },
-        { title: '宝石等级', value: 3 },
-        { title: '器灵等级', value: 5 },
-        { title: '铭文等级', value: 10 },
-      ],
-      [
-        { title: '装备名称', value: '装备6' },
-        { title: '强化等级', value: 2 },
-        { title: '精炼等级', value: 4 },
-        { title: '宝石等级', value: 3 },
-        { title: '器灵等级', value: 5 },
-        { title: '铭文等级', value: 10 },
-      ],
-    ];
+    const result = await this.request({ cmd: 1009 }, { guid, part_id }, [ 'guid' ]);
+    if (!result) return [];
+    if (result.data && result.data.body && result.data.body.equiplist) {
+      const src = result.data.body.equiplist;
+      console.log(src);
+      const tpl = {
+        // id: 'ID',
+        name: '名字',
+        level: '等级',
+        strength_level: '强化等级',
+        refine_level: '精炼等级',
+        gem_list: '宝石列表',
+        gem_id: '宝石ID',
+        gem_name: '宝石名字',
+        gem_level: '宝石等级',
+        spirit_list: '器灵列表',
+        spirit_id: '器灵ID',
+        spirit_name: '器灵名字',
+        spirit_level: '器灵等级',
+        spirit_evolution_level: '器灵进化等级',
+      };
 
-    return result;
+      const fns = {
+        gem_list: src => this.ctx.helper.tableInfoListConv(src, tpl),
+        spirit_list: src => this.ctx.helper.tableInfoListConv(src, tpl),
+      };
+      return this.ctx.helper.tableInfoListConv(src, tpl, fns);
+    }
+    return [];
+
   }
 
   // 角色技能信息查询
   async skillInfo({ guid, part_id }) {
-    const result = [
-      [
-        { title: '技能名称', value: '技能1' },
-        { title: '技能等级', value: 2 },
-      ],
-      [
-        { title: '技能名称', value: '技能2' },
-        { title: '技能等级', value: 2 },
-      ],
-      [
-        { title: '技能名称', value: '技能3' },
-        { title: '技能等级', value: 2 },
-      ],
-      [
-        { title: '技能名称', value: '技能4' },
-        { title: '技能等级', value: 2 },
-      ],
-      [
-        { title: '技能名称', value: '技能5' },
-        { title: '技能等级', value: 2 },
-      ],
-      [
-        { title: '技能名称', value: '技能6' },
-        { title: '技能等级', value: 2 },
-      ],
-      [
-        { title: '技能名称', value: '技能7' },
-        { title: '技能等级', value: 2 },
-      ],
+    const result = await this.request({ cmd: 1011 }, { guid, part_id }, [ 'guid' ]);
+    if (!result) return [];
+    if (result.data && result.data.body && result.data.body.skilllist) {
+      // 处理返回结果
+      const src = result.data.body.skilllist;
 
-    ];
-    return result;
+      const tpl = {
+        // id: 'ID',
+        name: '名字',
+        level: '等级',
+      };
+
+      return this.ctx.helper.tableInfoListConv(src, tpl);
+    }
+    return [];
   }
 
   // 角色称号信息查询
   async titleInfo({ guid, part_id }) {
-    const result = [
-      [
-        { title: '称号名称', value: '称号11111111111' },
-        { title: '称号时限', value: 0 },
-        { title: '称号创建时间', value: '2014.1.1' },
-      ],
-      [
-        { title: '称号名称', value: '称号1111123111111' },
-        { title: '称号时限', value: 0 },
-        { title: '称号创建时间', value: '2014.1.1' },
-      ],
-      [
-        { title: '称号名称', value: '称号111241111111' },
-        { title: '称号时限', value: 0 },
-        { title: '称号创建时间', value: '2014.1.1' },
-      ],
-      [
-        { title: '称号名称', value: '称号111154235111111' },
-        { title: '称号时限', value: 0 },
-        { title: '称号创建时间', value: '2014.1.1' },
-      ],
-      [
-        { title: '称号名称', value: '称号111111123511' },
-        { title: '称号时限', value: 0 },
-        { title: '称号创建时间', value: '2014.1.1' },
-      ],
-      [
-        { title: '称号名称', value: '称号11154611111' },
-        { title: '称号时限', value: 0 },
-        { title: '称号创建时间', value: '2014.1.1' },
-      ],
+    const result = await this.request({ cmd: 1013 }, { guid, part_id }, [ 'guid' ]);
+    if (!result) return [];
+    if (result.data && result.data.body && result.data.body.titlelist) {
+      // 处理返回结果
+      const src = result.data.body.titlelist;
 
-    ];
-    return result;
+      const tpl = {
+        // id: 'ID',
+        name: '名字',
+        create_time: '创建时间',
+        timeout: '时限',
+      };
+
+      return this.ctx.helper.tableInfoListConv(src, tpl);
+    }
+    return [];
   }
 
   // 角色宠物信息
-  async petInfo() {
-    const data = [
-      [
-        { title: '宠物名称', value: '宠物1' },
-        { title: '等级', value: 10 },
-        { title: 'GUID', value: 1231312312312312 },
-        { title: '亲密度', value: 10 },
-        { title: '悟性', value: 100 },
-        { title: '经验', value: 1231233534534 },
-        { title: '当前HP', value: 10000 },
-        { title: '攻击', value: 40 },
-        { title: '封印', value: 10 },
-        { title: 'MP', value: 10 },
-        { title: '敏捷', value: 90 },
-        { title: '速度', value: 12313 },
-        { title: '等级', value: 10 },
-        { title: 'GUID', value: 1231312312312312 },
-        { title: '亲密度', value: 10 },
-        { title: '悟性', value: 100 },
-        { title: '经验', value: 1231233534534 },
-        { title: '当前HP', value: 10000 },
-        { title: '攻击', value: 40 },
-        { title: '封印', value: 10 },
-        { title: 'MP', value: 10 },
-        { title: '敏捷', value: 90 },
-        { title: '速度', value: 12313 },
-      ],
-      [
-        { title: '宠物名称', value: '宠物2' },
-        { title: '等级', value: 10 },
-        { title: 'GUID', value: 1231312312312312 },
-        { title: '亲密度', value: 10 },
-        { title: '悟性', value: 100 },
-        { title: '经验', value: 1231233534534 },
-        { title: '当前HP', value: 10000 },
-        { title: '攻击', value: 40 },
-        { title: '封印', value: 10 },
-        { title: 'MP', value: 10 },
-        { title: '敏捷', value: 90 },
-        { title: '速度', value: 12313 },
-        { title: '等级', value: 10 },
-        { title: 'GUID', value: 1231312312312312 },
-        { title: '亲密度', value: 10 },
-        { title: '悟性', value: 100 },
-        { title: '经验', value: 1231233534534 },
-        { title: '当前HP', value: 10000 },
-        { title: '攻击', value: 40 },
-        { title: '封印', value: 10 },
-        { title: 'MP', value: 10 },
-        { title: '敏捷', value: 90 },
-        { title: '速度', value: 12313 },
-      ],
-      [
-        { title: '宠物名称', value: '宠物3' },
-        { title: '等级', value: 10 },
-        { title: 'GUID', value: 1231312312312312 },
-        { title: '亲密度', value: 10 },
-        { title: '悟性', value: 100 },
-        { title: '经验', value: 1231233534534 },
-        { title: '当前HP', value: 10000 },
-        { title: '攻击', value: 40 },
-        { title: '封印', value: 10 },
-        { title: 'MP', value: 10 },
-        { title: '敏捷', value: 90 },
-        { title: '速度', value: 12313 },
-        { title: '等级', value: 10 },
-        { title: 'GUID', value: 1231312312312312 },
-        { title: '亲密度', value: 10 },
-        { title: '悟性', value: 100 },
-        { title: '经验', value: 1231233534534 },
-        { title: '当前HP', value: 10000 },
-        { title: '攻击', value: 40 },
-        { title: '封印', value: 10 },
-        { title: 'MP', value: 10 },
-        { title: '敏捷', value: 90 },
-        { title: '速度', value: 12313 },
-      ],
+  async petInfo({ guid, part_id }) {
+    const result = await this.request({ cmd: 1015 }, { guid, part_id }, [ 'guid' ]);
+    if (!result) return [];
+    if (result.data && result.data.body && result.data.body.petlist) {
+      // 处理返回结果
+      const src = result.data.body.petlist;
 
-    ];
-    return data;
+      const tpl = {
+        guid: 'GUID',
+        data_id: '配表id',
+        name: '名字',
+        intercommunion: '亲密度',
+        bind_state: '绑定状态',
+        level: '等级',
+        exp: '经验',
+        hp: '生命',
+        mp: '魔法',
+        wuxing: '悟性',
+        zizhi_hp: '气血资质',
+        zizhi_atk: '攻击资质',
+        zizhi_pdef: '物防资质',
+        zizhi_mdef: '法防资质',
+        zizhi_speed: '速度资质',
+        zizhi_agi: '敏捷资质',
+      };
+
+      return this.ctx.helper.tableInfoListConv(src, tpl);
+    }
+    return [];
   }
 
   // 角色任务信息

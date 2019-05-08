@@ -1,11 +1,11 @@
 import React from 'react';
 
-import TableInfoList from '@/components/TableInfoList';
+import TableInfoListWithSub from '@/components/TableInfoListWithSub';
 
 class EquipInfo extends React.Component {
   render() {
     return (
-      <TableInfoList data={this.props.data} />
+      <TableInfoListWithSub data={this.props.data} defaultPageSize={3} />
     );
   }
 }
