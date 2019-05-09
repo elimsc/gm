@@ -143,7 +143,7 @@ class PlayerMan extends React.PureComponent {
             columns={columns}
             dataSource={playerList} />
         </Card>
-        <Card style={{ marginTop: 30, minHeight: 1000 }} title={selectedPlayer && selectedPlayer.name ? "当前选中玩家：" + selectedPlayer.name : '无选中玩家'}>
+        <Card style={{ marginTop: 30, minHeight: 1000, marginBottom: 40 }} title={selectedPlayer && selectedPlayer.name ? "当前选中玩家：" + selectedPlayer.name : '无选中玩家'}>
           <Row>
             <Col span={4}>
               <Menu mode="inline" selectedKeys={[this.state.menu]} defaultOpenKeys={['playerinfo']}>

@@ -162,11 +162,11 @@ class PlayerinfoService extends BaseReqService {
         strength_level: '强化等级',
         refine_level: '精炼等级',
         gem_list: '宝石列表',
-        gem_id: '宝石ID',
+        // gem_id: '宝石ID',
         gem_name: '宝石名字',
         gem_level: '宝石等级',
         spirit_list: '器灵列表',
-        spirit_id: '器灵ID',
+        // spirit_id: '器灵ID',
         spirit_name: '器灵名字',
         spirit_level: '器灵等级',
         spirit_evolution_level: '器灵进化等级',
@@ -231,7 +231,7 @@ class PlayerinfoService extends BaseReqService {
 
       const tpl = {
         guid: 'GUID',
-        data_id: '配表id',
+        // data_id: '配表id',
         name: '名字',
         intercommunion: '亲密度',
         bind_state: '绑定状态',

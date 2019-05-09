@@ -1,4 +1,4 @@
-import { List, Collapse } from "antd";
+import { List, Tabs, Empty } from "antd";
 import TableInfo from "./TablelInfo";
 
 const TableInfoListWithSub = props => {
@@ -13,22 +13,29 @@ const TableInfoListWithSub = props => {
       }}
       dataSource={data}
       renderItem={(item, index) => {
+        item = Array.isArray(item) ? item : [];
         return (
-          <List.Item key={index}>
+          <List.Item key={index} style={{ marginBottom: 30 }}>
             <TableInfo data={item.filter(v => !Array.isArray(v.value))} />
-            <Collapse>
+            <Tabs tabPosition="top" type="card">
               {
                 item.filter(v => Array.isArray(v.value)).map(v => {
                   return (
-                    <Collapse.Panel accordion key={`subitem-${index}-${v.title}`} header={v.title}>
-                      {v.value.map((item, i) => (
-                        <TableInfo key={`subitem-${index}-${v.title}-${i}`} data={item} />
-                      ))}
-                    </Collapse.Panel>
+                    <Tabs.TabPane
+                      key={`subitem-${index}-${v.title}`}
+                      tab={<span>{v.title}</span>}>
+                      {
+                        v.value.length > 0
+                          ? v.value.map((item, i) => (
+                            <TableInfo key={`subitem-${index}-${v.title}-${i}`} data={item} />
+                          ))
+                          : <Empty />
+                      }
+                    </Tabs.TabPane>
                   );
                 })
               }
-            </Collapse>
+            </Tabs>
           </List.Item>
         );
       }}
