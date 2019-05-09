@@ -1,8 +1,11 @@
 import { post, get } from "../utils/request";
+import md5 from 'blueimp-md5';
+
+const MD5_KEY = "my_md5";
 
 // 新增管理员用户
 export async function create({ username, password, part_id }) {
-  return post('/api/user', { username, password, part_id });
+  return post('/api/user', { username, password: md5(password, MD5_KEY), part_id });
 }
 
 // 管理员用户列表
@@ -29,7 +32,7 @@ export async function changeRole({ id, role }) {
 
 // 修改当前登陆管理员密码
 export async function changePass({ password }) {
-  return post('/api/user/change-pass', { password });
+  return post('/api/user/change-pass', { password: md5(password, MD5_KEY) });
 }
 
 // 操作记录列表

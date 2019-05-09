@@ -49,9 +49,9 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'super', '$2b$10$PRNpPoeUJYWhUTTA0z0Xku58avBfU4LSYZEAmp/zI.2bZUgrdZN9.', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVyIiwiaWF0IjoxNTU2MTYzNDQ3LCJleHAiOjE1NTY3NjgyNDd9.Pd6TRbNV7LT5NjUJuG7gcfo8QKsysR0D0XUTR-fUu28', '3');
-INSERT INTO `user` VALUES ('2', 'operation', '$2b$10$3C6RoXHLdhFy6ORa640M5edNHigTK0cDAKDX/LSiYVkDUXtIYieWS', null, null);
-INSERT INTO `user` VALUES ('3', 'simple', '$2b$10$E0.gnFXWOS0A6Ut3sua.6evj.ug4RQQtNQLtJpDcVjNbpd6ZsAwhK', null, null);
+INSERT INTO `user` VALUES ('1', 'super', '$2b$10$hVHPOZ8O4ybPgoTghr2mwOf74vJTeyEIMlm6YDARuEXmvUqBE0mU2', null, '3');
+INSERT INTO `user` VALUES ('2', 'operation', '$2b$10$hVHPOZ8O4ybPgoTghr2mwOf74vJTeyEIMlm6YDARuEXmvUqBE0mU2', null, '2');
+INSERT INTO `user` VALUES ('3', 'simple', '$2b$10$hVHPOZ8O4ybPgoTghr2mwOf74vJTeyEIMlm6YDARuEXmvUqBE0mU2', null, null);
 
 
 DROP TABLE IF EXISTS `actlog`;
