@@ -1,5 +1,5 @@
 import React from 'react';
-import TableInfo from '@/components/TablelInfo';
+import TableInfo from '@/components/TableInfo';
 
 
 // 玩家基本信息

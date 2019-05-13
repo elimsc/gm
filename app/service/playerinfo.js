@@ -8,6 +8,8 @@ class PlayerinfoService extends BaseReqService {
   pretttyTime(t) {
     return moment(t).format('YYYY-MM-DD HH:mm:ss');
   }
+
+
   // 角色列表查询
   async list({ name, type, part_id }) {
     const result = await this.request({ cmd: 1001 }, { name, type, part_id }, [ 'name', 'type' ]);
@@ -253,62 +255,112 @@ class PlayerinfoService extends BaseReqService {
   }
 
   // 角色任务信息
-  async taskInfo() {
-    const data = [
-      [
-        { title: '任务id', value: '1233243450984305' },
-        { title: '状态 ', value: '已接取' },
-      ],
-      [
-        { title: '任务id', value: '1233243450984306' },
-        { title: '状态 ', value: '未接取' },
-      ],
-      [
-        { title: '任务id', value: '1233243450984305' },
-        { title: '状态 ', value: '已接取' },
-      ],
-      [
-        { title: '任务id', value: '1233243450984306' },
-        { title: '状态 ', value: '未接取' },
-      ],
-      [
-        { title: '任务id', value: '1233243450984305' },
-        { title: '状态 ', value: '已接取' },
-      ],
-      [
-        { title: '任务id', value: '1233243450984306' },
-        { title: '状态 ', value: '未接取' },
-      ],
-      [
-        { title: '任务id', value: '1233243450984305' },
-        { title: '状态 ', value: '已接取' },
-      ],
-      [
-        { title: '任务id', value: '1233243450984306' },
-        { title: '状态 ', value: '未接取' },
-      ],
-      [
-        { title: '任务id', value: '1233243450984305' },
-        { title: '状态 ', value: '已接取' },
-      ],
-      [
-        { title: '任务id', value: '1233243450984306' },
-        { title: '状态 ', value: '未接取' },
-      ],
+  async taskInfo({ guid, part_id }) {
+    const result = await this.request({ cmd: 1017 }, { guid, part_id }, [ 'guid' ]);
+    if (!result) return [];
+    if (result.data && result.data.body && result.data.body.normal_mission_accepted_list) {
+      // 处理返回结果
+      const src = result.data.body.normal_mission_accepted_list;
+      const tpl = {
+        id: '配表id',
+        state: '状态', // 0无/1进行/2完成/3失败/4提交
+        object: '目标值',
+      };
 
-    ];
-    return data;
+      const stateMap = state => {
+        switch (state) {
+          case 0: return '无';
+          case 1: return '进行';
+          case 2: return '完成';
+          case 3: return '失败';
+          case 4: return '提交';
+          default: return '无';
+        }
+      };
+      const fns = {
+        state: stateMap,
+      };
+
+      return this.ctx.helper.tableInfoListConv(src, tpl, fns);
+    }
+    return [];
   }
 
   async homeInfo({ guid, part_id }) {
+    const result = await this.request({ cmd: 1019 }, { guid, part_id }, [ 'guid' ]);
+    if (!result) return [];
+    if (result.data && result.data.body) {
+      // 处理返回结果
+      const src = result.data.body;
+      const tpl = {
+        building_list: '建筑列表',
+        worker_list: '工人列表',
+      };
+      const tpl1 = {
+        id: '配表id',
+        name: '建筑名称',
+        level: '建筑等级',
+      };
+      const tpl2 = {
+        name: '工人名字',
+        career: '职业', // 0工匠/1宝石匠/2木匠/3郎中/4方士
+        age: '年龄',
+        ability: '能力值',
+      };
+      const careerMap = career => {
+        switch (career) {
+          case 0: return '工匠';
+          case 1: return '宝石匠';
+          case 2: return '木匠';
+          case 3: return '郎中';
+          case 4: return '方士';
+          default: return '';
+        }
+      };
+      const fns = {
+        building_list: src => this.ctx.helper.tableInfoListConv(src, tpl1),
+        worker_list: src => this.ctx.helper.tableInfoListConv(src, tpl2, { career: careerMap }),
+      };
+      return this.ctx.helper.tableInfoConv(src, tpl, fns);
+    }
     return [];
   }
 
   async emailInfo({ guid, part_id }) {
+    const result = await this.request({ cmd: 1021 }, { guid, part_id }, [ 'guid' ]);
+
+    if (!result) return [];
+    if (result.data && result.data.body && result.data.body.system_mail_list) {
+      // 处理返回结果
+      const src = result.data.body.system_mail_list;
+      const tpl = {
+        mail_id: '邮件GUID',
+        sender_id: '发件人ID',
+        sub_type: '子类型',
+      };
+
+      return this.ctx.helper.tableInfoListConv(src, tpl);
+    }
     return [];
   }
 
   async marriageInfo({ guid, part_id }) {
+    const result = await this.request({ cmd: 1023 }, { guid, part_id }, [ 'guid' ]);
+    if (!result) return [];
+    if (result.data && result.data.body) {
+      // 处理返回结果
+      const src = result.data.body;
+      const tpl = {
+        partner_guid: '配偶GUID',
+        partner_start_time: '结婚时间',
+      };
+
+      const fns = {
+        partner_start_time: this.pretttyTime,
+      };
+
+      return this.ctx.helper.tableInfoConv(src, tpl, fns);
+    }
     return [];
   }
 }

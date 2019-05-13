@@ -1,5 +1,5 @@
 import { List, Tabs, Empty } from "antd";
-import TableInfo from "./TablelInfo";
+import TableInfo from "./TableInfo";
 
 const TableInfoListWithSub = props => {
   const defaultPageSize = props.defaultPageSize ? props.defaultPageSize : 5;

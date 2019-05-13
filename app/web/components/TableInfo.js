@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Row, Col, Input } from 'antd';
+import { Form, Row, Col, Input, Empty } from 'antd';
 
 /**
  * 负责数据的表格形式显示
@@ -24,7 +24,7 @@ const TableInfo = (props) => {
       sm: { span: 16 },
     },
   };
-  if (!(data instanceof Array)) {
+  if (!Array.isArray(data) || data.length === 0) {
     return null;
   }
   return (

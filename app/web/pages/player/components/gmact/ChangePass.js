@@ -4,7 +4,7 @@ import { Card, Form, Input, Button, message, Modal } from 'antd';
 import { changePass } from '../../../../service/gmact';
 
 
-class ChangePass extends React.Component {
+class ChangePass extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {

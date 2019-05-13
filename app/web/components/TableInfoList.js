@@ -1,5 +1,5 @@
 import { List } from "antd";
-import TableInfo from "./TablelInfo";
+import TableInfo from "./TableInfo";
 
 const TableInfoList = props => {
   const defaultPageSize = props.defaultPageSize ? props.defaultPageSize : 5;
@@ -14,7 +14,7 @@ const TableInfoList = props => {
       dataSource={data}
       renderItem={(item, index) => (
         <List.Item key={index}>
-          <TableInfo data={item}/>
+          <TableInfo data={item} />
         </List.Item>
       )}
     />
