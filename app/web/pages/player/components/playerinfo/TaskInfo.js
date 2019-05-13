@@ -4,7 +4,7 @@ import TableInfoList from '../../../../components/TableInfoList';
 
 
 
-class TaskInfo extends React.Component {
+class TaskInfo extends React.PureComponent {
   render() {
     return (
       <TableInfoList data={this.props.data} />

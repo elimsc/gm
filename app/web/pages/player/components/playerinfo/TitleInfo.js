@@ -3,7 +3,7 @@ import TableInfoList from '@/components/TableInfoList';
 
 
 
-class TitleInfo extends React.Component {
+class TitleInfo extends React.PureComponent {
   render() {
     return (
       <TableInfoList data={this.props.data} />

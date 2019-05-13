@@ -154,7 +154,6 @@ class PlayerinfoService extends BaseReqService {
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.equiplist) {
       const src = result.data.body.equiplist;
-      console.log(src);
       const tpl = {
         // id: 'ID',
         name: '名字',

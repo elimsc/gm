@@ -1,10 +1,9 @@
 import React from 'react';
-import { Row, Col, Form, Input, Button, Spin, message } from 'antd';
+import { Form, Input, Button, Spin, message, Card } from 'antd';
 import router from 'umi/router';
 
 import styles from './index.css';
 import { login } from '../../service/login';
-import { Card } from 'antd-mobile';
 
 class Login extends React.Component {
 
@@ -23,12 +22,9 @@ class Login extends React.Component {
         this.setState({ loading: true });
         login(values).then(data => {
           if (data.code === 0) {
-            // 存储token 并跳转
-            localStorage.setItem(window.location.href.split("/")[2], data.payload.token);
-            setTimeout(() => {
-              this.setState({ loading: false });
-              router.push('/');
-            }, 10);
+            this.setState({ loading: false });
+            // 跳转首页
+            router.replace('/');
           } else {
             this.setState({ loading: false });
             message.error('账户名或密码错误，请重试');

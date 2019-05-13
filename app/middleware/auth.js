@@ -7,23 +7,29 @@ module.exports = options => {
   return async function auth(ctx, next) {
     const key = options.key;
     const authrization = ctx.get('Authorization');
+    const userService = ctx.service.user;
+
 
     if (authrization) {
       try {
-        const token = authrization.split('Bearer ')[1];
+        let token = authrization.split('Bearer ')[1];
         const payload = await jwt.verify(token, key);
         const { username } = payload;
         // 判断该用户是否是合法的用户
-        const userService = ctx.service.user;
         const user = await userService.findByUsername(username);
-
-        let role = 1;
-        if (user.role) {
-          role = user.role;
-        }
-
+        // 判断token是否正确
         if (user && user.token === token) {
-          ctx.user = { username, id: user.id, role };
+          // 设置默认的role值
+          let role = 1;
+          if (user.role) {
+            role = user.role;
+          }
+          // 重新生成token
+          const r = await userService.login({ username: user.username, password: user.password }, false);
+          if (r) {
+            token = r.token;
+          }
+          ctx.user = { username, id: user.id, role, token };
           await next();
         } else {
           ctx.body = {

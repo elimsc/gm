@@ -2,6 +2,7 @@
 
 const Service = require('egg').Service;
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 /**
  * GM管理
@@ -39,6 +40,7 @@ class UserService extends Service {
     return user;
   }
 
+  // 添加GM
   async create({ username, password }) {
     const hashed_pass = bcrypt.hashSync(password, 10);
     try {
@@ -76,6 +78,28 @@ class UserService extends Service {
       return result.affectedRows === 1;
     } catch (e) {
       this.logger.error(e);
+      return false;
+    }
+  }
+
+  // GM登陆
+  async login({ username, password }, pass_compare = true) {
+    // 查数据库，判断密码是否正确
+    const user = await this.findByUsername(username);
+    if (user && user.password && (!pass_compare || bcrypt.compareSync(password, user.password))) {
+      try {
+        // 生成token
+        const token = jwt.sign({ username }, this.app.config.auth.key, { expiresIn: '7d' });
+        const token_write_su = this.update({ id: user.id, token }); // 更新token
+        if (token_write_su) {
+          return { token };
+        }
+        return false; // token写入失败
+
+      } catch (e) {
+        return false;
+      }
+    } else {
       return false;
     }
   }

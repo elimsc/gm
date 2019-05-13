@@ -1,8 +1,6 @@
 'use strict';
 
 const BaseController = require('./base');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 
 class LoginController extends BaseController {
   /**
@@ -10,27 +8,14 @@ class LoginController extends BaseController {
    * 处理用户登陆逻辑
    */
   async login() {
-    const { ctx, app } = this;
+    const { ctx } = this;
     const userService = ctx.service.user;
     const { username, password } = ctx.request.body;
-    // 查数据库，判断密码是否正确
-    const user = await userService.findByUsername(username);
-    if (user && user.password && bcrypt.compareSync(password, user.password)) {
-      try {
-        // 生成token
-        const token = jwt.sign({ username }, app.config.auth.key, { expiresIn: '7d' });
-        const token_write_su = userService.update({ id: user.id, token }); // 更新token
-        if (token_write_su) {
-          ctx.body = this.success({ token });
-        } else { // token写入失败
-          ctx.body = this.error();
-        }
-      } catch (e) {
-        ctx.body = this.error();
-      }
-
+    const r = await userService.login({ username, password }); // 登陆
+    if (r) {
+      ctx.body = this.success({}, r.token);
     } else {
-      ctx.body = this.failed();
+      ctx.body = this.error();
     }
   }
 
@@ -40,11 +25,8 @@ class LoginController extends BaseController {
    */
   async check() {
     const { ctx } = this;
-    const userService = ctx.service.user;
-    const username = ctx.user.username;
-    const user = userService.findByUsername(username);
-    if (user) {
-      ctx.body = this.success({ username, id: user.id, role: ctx.user.role });
+    if (ctx.user) {
+      ctx.body = this.success({ username: ctx.user.username, role: ctx.user.role });
     } else {
       ctx.body = this.not_login();
     }

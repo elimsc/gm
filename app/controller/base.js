@@ -9,8 +9,8 @@ class BaseController extends Controller {
   }
 
   // 成功
-  success(payload = {}, message = '操作成功') {
-    return { code: 0, message, payload };
+  success(payload = {}, token = '', message = '操作成功') {
+    return { code: 0, message, payload, token: token ? token : this.ctx.user.token };
   }
 
   // 一般失败, 通常由于客户端数据的错误导致

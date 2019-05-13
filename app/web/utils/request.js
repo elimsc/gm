@@ -18,6 +18,8 @@ export async function get(url) {
     } else if (data.code === -11) {
       router.replace('/404');
     }
+
+    localStorage.setItem(window.location.href.split("/")[2], data.token);
     return data;
   });
 }
@@ -41,6 +43,9 @@ export async function post(url, data = {}) {
     } else if (data.code === -11) {
       router.replace('/404');
     }
+    console.log(data)
+
+    localStorage.setItem(window.location.href.split("/")[2], data.token);
     return data;
   });
 }
@@ -62,6 +67,7 @@ export async function del(url) {
     } else if (data.code === -11) {
       router.replace('/404');
     }
+    localStorage.setItem(window.location.href.split("/")[2], data.token);
     return data;
   });
 }
