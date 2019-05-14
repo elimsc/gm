@@ -1,14 +1,8 @@
 'use strict';
 
 const BaseReqService = require('./basereq');
-const moment = require('moment');
 
 class PlayerinfoService extends BaseReqService {
-  // 时间输出函数
-  pretttyTime(t) {
-    return moment(t).format('YYYY-MM-DD HH:mm:ss');
-  }
-
 
   // 角色列表查询
   async list({ name, type, part_id }) {
@@ -17,6 +11,7 @@ class PlayerinfoService extends BaseReqService {
       return [{
         gender: 1,
         guid: '1828468287530731054',
+        uid: '123123123123',
         level: 70,
         menpai: 2,
         name: '俞天荷',

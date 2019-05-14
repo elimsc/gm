@@ -45,13 +45,20 @@ export async function exp({ jingyan, part_id, guid, reason }) {
 /**
  * type: 1--添加 2--删除
  */
-export async function titlem({ type, data, part_id, guid }) {
-  return post(`/api/player/gmact/titlem`, {
-    type,
-    data,
-    part_id,
-    guid,
-  });
+export async function titlem({ type, title, part_id, guid }) {
+  if (type === 1) {
+    return post(`/api/player/gmact/add-title`, {
+      title,
+      part_id,
+      guid,
+    });
+  } else {
+    return post(`/api/player/gmact/del-title`, {
+      title,
+      part_id,
+      guid,
+    });
+  }
 }
 
 export async function pracLevel({ value, part_id, guid }) {

@@ -1,6 +1,8 @@
 'use strict';
 
 const Service = require('egg').Service;
+const moment = require('moment');
+
 
 const URL = 'http://192.168.1.205:20843/';
 
@@ -21,6 +23,17 @@ class BaseReqService extends Service {
       this.logger.error(e);
       return false;
     }
+  }
+
+  // 判断操作是否成功
+  is_success(result) {
+    if (result && result.data && result.data.head && (result.data.head.ret === 0 || result.data.head.ret === 1)) return true;
+    return false;
+  }
+
+  // 时间输出函数
+  pretttyTime(t) {
+    return moment(t).format('YYYY-MM-DD HH:mm:ss');
   }
 }
 

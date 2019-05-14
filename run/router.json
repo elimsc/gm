@@ -396,8 +396,34 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/ban/log",
-    "regexp": "/^\\/api\\/player\\/ban\\/log(?:\\/(?=$))?$/",
+    "path": "/api/player/ban/account-r",
+    "regexp": "/^\\/api\\/player\\/ban\\/account-r(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/playerinfo/ban-account-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/ban-account-info(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/playerinfo/ban-talk-info",
+    "regexp": "/^\\/api\\/player\\/playerinfo\\/ban-talk-info(?:\\/(?=$))?$/",
     "stack": [
       "auth",
       "wrappedController"
@@ -411,6 +437,19 @@
     "paramNames": [],
     "path": "/api/player/ban/talk",
     "regexp": "/^\\/api\\/player\\/ban\\/talk(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/ban/talk-r",
+    "regexp": "/^\\/api\\/player\\/ban\\/talk-r(?:\\/(?=$))?$/",
     "stack": [
       "auth",
       "wrappedController"
@@ -461,8 +500,21 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/gmact/titlem",
-    "regexp": "/^\\/api\\/player\\/gmact\\/titlem(?:\\/(?=$))?$/",
+    "path": "/api/player/gmact/add-title",
+    "regexp": "/^\\/api\\/player\\/gmact\\/add-title(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/del-title",
+    "regexp": "/^\\/api\\/player\\/gmact\\/del-title(?:\\/(?=$))?$/",
     "stack": [
       "auth",
       "wrappedController"

@@ -19,7 +19,7 @@ class GmactService extends BaseReqService {
   async award({ guid, reason, award_list, part_id }) {
     console.log({ guid, reason, award_list, part_id });
     const r = await this.request({ cmd: 2003 }, { guid, reason, award_list, part_id }, [ 'guid', 'reason' ]);
-    if (!r) return false;
+    if (!this.is_success(r)) return false;
     return true;
   }
 
@@ -34,7 +34,9 @@ class GmactService extends BaseReqService {
   }
 
   // 添加删除称号
-  async titlem() {
+  async titlem({ guid, part_id, title_id, is_del }) {
+    const r = await this.request({ cmd: 2009 }, { guid, part_id, title_id, is_del }, [ 'guid', 'title_id', 'is_del' ]);
+    if (!this.is_success(r)) return false;
     return true;
   }
 

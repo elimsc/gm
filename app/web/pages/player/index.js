@@ -190,8 +190,9 @@ class PlayerMan extends React.PureComponent {
                 {this.props.global.user_role > 1 ?
                   <Menu.SubMenu key="ban" title="封号/禁言">
                     <Menu.Item onClick={() => this.select('ban-account')} key="ban-account">封号</Menu.Item>
+                    <Menu.Item onClick={() => this.select('ban-account-info')} key="ban-account-info">封号记录</Menu.Item>
                     <Menu.Item onClick={() => this.select('ban-talk')} key="ban-talk">禁言</Menu.Item>
-                    <Menu.Item onClick={() => this.select('ban-log')} key="ban-log">禁言记录</Menu.Item>
+                    <Menu.Item onClick={() => this.select('ban-talk-info')} key="ban-talk-info">禁言记录</Menu.Item>
                   </Menu.SubMenu> : null
                 }
 
@@ -204,6 +205,7 @@ class PlayerMan extends React.PureComponent {
                   data={data}
                   guid={selectedPlayer && selectedPlayer.guid ? selectedPlayer.guid : true}
                   part_id={this.props.global.part_id}
+                  uid={selectedPlayer && selectedPlayer.uid ? selectedPlayer.uid : ''}
                 />
               </Spin>
             </Col>

@@ -71,7 +71,7 @@ const tableInfoConv = (src, tpl, fns = {}) => {
   });
 };
 
-const tableInfoListConv = (src, tpl, fns) => {
+const tableInfoListConv = (src, tpl, fns = {}) => {
   if (!Array.isArray(src)) return [];
   return src.map(data => {
     return tableInfoConv(data, tpl, fns);

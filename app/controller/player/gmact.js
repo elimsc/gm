@@ -62,12 +62,31 @@ class GmactController extends BaseController {
   }
 
   /**
-   * POST /player/gmact/titlem
-   * 添加删除称号
+   * POST /player/gmact/add-title
+   * 添加称号
    */
-  async titlem() {
-    await this.gmactService.titlem(this.ctx.request.body);
-    this.ctx.body = this.success();
+  async addTitle() {
+    const { guid, part_id, title } = this.ctx.request.body;
+    const r = await this.gmactService.titlem({ type: 2, guid, part_id, title_id: title });
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
+  }
+
+  /**
+   * POST /player/gmact/del-title
+   * 删除称号
+   */
+  async delTitle() {
+    const { guid, part_id, title } = this.ctx.request.body;
+    const r = await this.gmactService.titlem({ type: 1, guid, part_id, title_id: title });
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
   }
 
   /**

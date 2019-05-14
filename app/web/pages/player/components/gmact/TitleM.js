@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, message, Divider, Select, Modal } from 'antd';
+import { Form, Input, Button, message, Divider, Modal } from 'antd';
 
 import { titlem } from '../../../../service/gmact';
 
@@ -26,7 +26,7 @@ class TitleM extends React.Component {
           content: `添加称号: ${values['add_title']}`,
           onOk: () => {
             this.setState({ loading1: true });
-            titlem({ type: 1, data: values, guid, part_id }).then(data => {
+            titlem({ type: 1, title: values['add_title'], guid, part_id }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -52,7 +52,7 @@ class TitleM extends React.Component {
           content: `删除称号: ${values['del_title']}`,
           onOk: () => {
             this.setState({ loading2: true });
-            titlem({ type: 2, data: values, guid, part_id }).then(data => {
+            titlem({ type: 2, title: values['del_title'], guid, part_id }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -119,10 +119,7 @@ class TitleM extends React.Component {
                 required: true, message: '不能为空'
               }],
             })(
-              <Select placeholder="选择称号">
-                <Select.Option value="1">称号1</Select.Option>
-                <Select.Option value="2">称号2</Select.Option>
-              </Select>
+              <Input />
             )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout} >

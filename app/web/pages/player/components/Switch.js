@@ -25,16 +25,17 @@ import ClearSecureCode from './clear/ClearSecureCode';
 import UnusualGang from './clear/UnusualGang';
 import UnusualTask from './clear/UnusualTask';
 import BanTalk from './ban/BanTalk';
-import BanLog from './ban/BanLog';
 import BanAccount from './ban/BanAccount';
 import Award from './gmact/Award';
+import BanAccountLog from './ban/BanAccountLog';
+import BanTalkLog from './ban/BanTalkLog';
 
 
 class Switch extends React.PureComponent {
 
 
   render() {
-    const { data, menu, guid, part_id } = this.props;
+    const { data, menu, guid, part_id, uid } = this.props;
     switch (menu) {
       case 'basic-info':
         return <BasicInfo data={data} />;
@@ -90,11 +91,13 @@ class Switch extends React.PureComponent {
         return guid ? <UnusualTask guid={guid} part_id={part_id} /> : null;
 
       case 'ban-talk':
-        return guid ? <BanTalk guid={guid} part_id={part_id} /> : null;
-      case 'ban-log':
-        return guid ? <BanLog guid={guid} part_id={part_id} /> : null;
+        return guid ? <BanTalk guid={guid} part_id={part_id} uid={uid} /> : null;
       case 'ban-account':
-        return guid ? <BanAccount guid={guid} part_id={part_id} /> : null;
+        return guid ? <BanAccount guid={guid} part_id={part_id} uid={uid} /> : null;
+      case 'ban-account-info':
+        return guid ? <BanAccountLog data={data} /> : null;
+      case 'ban-talk-info':
+        return guid ? <BanTalkLog data={data} /> : null;
 
       default:
         break;

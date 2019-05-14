@@ -51,14 +51,18 @@ module.exports = app => {
 
   // 玩家操作--封号禁言
   router.post('/api/player/ban/account', auth, controller.player.ban.banAccount); // 封号
-  router.post('/api/player/ban/log', auth, controller.player.ban.banLog); // 禁言记录
+  router.post('/api/player/ban/account-r', auth, controller.player.ban.removeAccountBan); // 解除封号
+  router.post('/api/player/playerinfo/ban-account-info', auth, controller.player.ban.banAccountLog); // 禁言记录
+  router.post('/api/player/playerinfo/ban-talk-info', auth, controller.player.ban.banTalkLog); // 禁言记录
   router.post('/api/player/ban/talk', auth, controller.player.ban.banTalk); // 禁言
+  router.post('/api/player/ban/talk-r', auth, controller.player.ban.removeTalkBan); // 解除禁言
 
   // 玩家操作--GM操作
   router.post('/api/player/gmact/money', auth, controller.player.gmact.money); // 发放货币
   router.post('/api/player/gmact/prop', auth, controller.player.gmact.prop); // 发放道具
   router.post('/api/player/gmact/exp', auth, controller.player.gmact.exp); // 添加/扣除禁言
-  router.post('/api/player/gmact/titlem', auth, controller.player.gmact.titlem); // 添加/删除称号
+  router.post('/api/player/gmact/add-title', auth, controller.player.gmact.addTitle); // 添加称号
+  router.post('/api/player/gmact/del-title', auth, controller.player.gmact.delTitle); // 添加称号
   router.post('/api/player/gmact/prac-level', auth, controller.player.gmact.pracLevel); // 修改修炼等级
   router.post('/api/player/gmact/petsymbol-level', auth, controller.player.gmact.petsymbolLevel); // 修改宠物符等级
   router.post('/api/player/gmact/forcedown', auth, controller.player.gmact.forcedown); // 踢玩家下线
