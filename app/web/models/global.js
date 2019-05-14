@@ -10,7 +10,7 @@ export default {
   },
   effects: {
     *fetchSrvList({ payload }, { put, call }) {
-      const data = yield call(list);
+      const data = yield call(list, { ...payload });
       const srvList = data.payload;
       yield put({
         type: 'save',

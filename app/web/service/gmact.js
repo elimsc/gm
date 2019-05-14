@@ -1,13 +1,17 @@
 import { post } from "../utils/request";
 
-export async function money({ dianquan, yinliang, xianyuan, bxianyuan, part_id, guid }) {
+/**
+ * 发放货币
+ * names 货币类型的数组
+ * counts 对应的值
+ */
+export async function money({ names, counts, part_id, guid, reason }) {
   return post(`/api/player/gmact/money`, {
-    dianquan,
-    yinliang,
-    xianyuan,
-    bxianyuan,
+    names,
+    counts,
     part_id,
     guid,
+    reason,
   });
 }
 
@@ -15,24 +19,26 @@ export async function money({ dianquan, yinliang, xianyuan, bxianyuan, part_id, 
  * names: 道具名的数组
  * counts: 道具数量的数组
  */
-export async function prop({ names, counts, part_id, guid }) {
+export async function prop({ names, counts, part_id, guid, params, reason }) {
   return post(`/api/player/gmact/prop`, {
     names,
     counts,
     part_id,
     guid,
+    params,
+    reason,
   });
 }
 
 /**
- * type: 1-玩家经验 2-玩家等级 3-宠物经验
+ * 玩家经验
  */
-export async function exp({ type, data, part_id, guid }) {
+export async function exp({ jingyan, part_id, guid, reason }) {
   return post(`/api/player/gmact/exp`, {
-    type,
-    data,
+    jingyan,
     part_id,
     guid,
+    reason
   });
 }
 
@@ -41,7 +47,7 @@ export async function exp({ type, data, part_id, guid }) {
  */
 export async function titlem({ type, data, part_id, guid }) {
   return post(`/api/player/gmact/titlem`, {
-    type, 
+    type,
     data,
     part_id,
     guid,
@@ -49,42 +55,42 @@ export async function titlem({ type, data, part_id, guid }) {
 }
 
 export async function pracLevel({ value, part_id, guid }) {
-  return post(`/api/player/gmact/prac-level`, { 
+  return post(`/api/player/gmact/prac-level`, {
     value,
     part_id,
-    guid, 
+    guid,
   });
 }
 
 export async function petsymbolLevel({ value, part_id, guid }) {
-  return post(`/api/player/gmact/petsymbol-level`, { 
+  return post(`/api/player/gmact/petsymbol-level`, {
     value,
     part_id,
-    guid, 
+    guid,
   });
 }
 
-export async function forcedown({part_id, guid}) {
-  return post(`/api/player/gmact/forcedown`, {part_id, guid});
+export async function forcedown({ part_id, guid }) {
+  return post(`/api/player/gmact/forcedown`, { part_id, guid });
 }
 
 export async function changeSecureCode({ value, part_id, guid }) {
-  return post(`/api/player/gmact/secure-code`, { 
+  return post(`/api/player/gmact/secure-code`, {
     value,
     part_id,
     guid,
-   });
+  });
 }
 
 export async function changePass({ value, part_id, guid }) {
-  return post(`/api/player/gmact/change-pass`, { 
+  return post(`/api/player/gmact/change-pass`, {
     value,
     part_id,
     guid,
-   });
+  });
 }
 
-export async function untiePhone({part_id, guid}) {
+export async function untiePhone({ part_id, guid }) {
   return post(`/api/player/gmact/untie-phone`, {
     part_id,
     guid,

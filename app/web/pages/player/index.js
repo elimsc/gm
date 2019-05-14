@@ -96,6 +96,11 @@ class PlayerMan extends React.PureComponent {
         key: 'guid',
       },
       {
+        title: 'UID',
+        dataIndex: 'uid',
+        key: 'uid',
+      },
+      {
         title: '操作',
         key: 'action',
         render: (data) => (
@@ -162,9 +167,10 @@ class PlayerMan extends React.PureComponent {
                 </Menu.SubMenu>
                 {this.props.global.user_role > 1 ?
                   <Menu.SubMenu key="gmact" title="GM操作">
-                    <Menu.Item onClick={() => this.select('money')} key="money">发放货币</Menu.Item>
-                    <Menu.Item onClick={() => this.select('prop')} key="prop">发放道具</Menu.Item>
-                    <Menu.Item onClick={() => this.select('exp')} key="exp">添加/扣除经验</Menu.Item>
+                    <Menu.Item onClick={() => this.select('award')} key="award">物品发放</Menu.Item>
+                    {/* <Menu.Item onClick={() => this.select('money')} key="money">发放货币</Menu.Item> */}
+                    {/* <Menu.Item onClick={() => this.select('prop')} key="prop">发放道具</Menu.Item> */}
+                    <Menu.Item onClick={() => this.select('level')} key="level">设置等级</Menu.Item>
                     <Menu.Item onClick={() => this.select('title')} key="title">添加/删除称号</Menu.Item>
                     <Menu.Item onClick={() => this.select('prac-level')} key="prac-level">修改修炼等级</Menu.Item>
                     <Menu.Item onClick={() => this.select('petsymbol-level')} key="petsymbol-level">修改宠物符等级</Menu.Item>

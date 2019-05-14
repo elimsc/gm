@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, message, Icon, Modal } from 'antd';
-import { prop } from '../../../../service/gmact';
+import { prop } from '../../../../../service/gmact';
 
 
 
@@ -10,10 +10,10 @@ import { prop } from '../../../../service/gmact';
 class Prop extends React.Component {
   constructor(props) {
     super(props);
-    this.id = 0;
     this.state = {
       loading: false,
     }
+    this.id = 0;
   }
 
   remove = (k) => {
@@ -42,8 +42,11 @@ class Prop extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log(values);
-        let textArr = values.keys.map(i => `道具名: ${values.names[i]}, 数量: ${values.counts[i]}`);
+        const names = values.keys.map(i => values['names'][i]);
+        const counts = values.keys.map(i => values['counts'][i]);
+        const params = values.keys.map(i => values['params'][i]);
+        console.log({ names, counts, params });
+        let textArr = values.keys.map(i => `道具ID: ${values.names[i]}, 数量: ${values.counts[i]}`);
         Modal.confirm({
           title: '确认操作',
           content: (
@@ -57,7 +60,7 @@ class Prop extends React.Component {
           ),
           onOk: () => {
             this.setState({ loading: true });
-            prop({ ...values, guid, part_id }).then(data => {
+            prop({ ...values, names, counts, params, guid, part_id }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -103,17 +106,17 @@ class Prop extends React.Component {
     const formItems = keys.map((k, index) => (
       <div key={k}>
         <Form.Item
-          label="道具名"
+          label="道具ID"
           {...formItemLayout}
         >
           {getFieldDecorator(`names[${k}]`, {
             validateTrigger: ['onChange', 'onBlur'],
             rules: [{
               required: true,
-              message: "道具名不能为空",
+              message: "道具ID不能为空",
             }],
           })(
-            <Input placeholder="道具名" style={{ width: '90%', marginRight: 8 }} />
+            <Input type="number" placeholder="道具ID" style={{ width: '90%', marginRight: 8 }} />
           )}
           {keys.length > 1 ? (
             <Icon
@@ -137,6 +140,16 @@ class Prop extends React.Component {
             <Input placeholder="数量" type="number" style={{ width: '90%', marginRight: 8 }} />
           )}
         </Form.Item>
+        <Form.Item
+          label="扩展ID"
+          {...formItemLayout}
+        >
+          {getFieldDecorator(`params[${k}]`, {
+            validateTrigger: ['onChange', 'onBlur'],
+          })(
+            <Input placeholder="扩展ID(可以为空)" type="number" style={{ width: '90%', marginRight: 8 }} />
+          )}
+        </Form.Item>
       </div>
     ));
 
@@ -148,6 +161,17 @@ class Prop extends React.Component {
           <Button type="dashed" onClick={() => this.add()} style={{ width: '60%' }}>
             <Icon type="plus" /> 添加道具项
           </Button>
+        </Form.Item>
+        <Form.Item label="操作原因" {...formItemLayout}>
+          {getFieldDecorator(`reason`, {
+            validateTrigger: ['onChange', 'onBlur'],
+            rules: [{
+              required: true,
+              message: "操作原因不能为空",
+            }],
+          })(
+            <Input.TextArea rows={5} placeholder="操作原因" style={{ width: '90%', marginRight: 8 }} />
+          )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">发放</Button>

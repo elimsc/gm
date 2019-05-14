@@ -12,7 +12,7 @@ import HomeInfo from './playerinfo/HomeInfo';
 import EmailInfo from './playerinfo/EmailInfo';
 import MarriageInfo from './playerinfo/MarriageInfo';
 import Money from './gmact/Money';
-import Exp from './gmact/Exp';
+import Level from './gmact/Level';
 import ChangePass from './gmact/ChangePass';
 import Forcedown from './gmact/Forcedown';
 import PetsymbolLevel from './gmact/PetsymbolLevel';
@@ -27,6 +27,7 @@ import UnusualTask from './clear/UnusualTask';
 import BanTalk from './ban/BanTalk';
 import BanLog from './ban/BanLog';
 import BanAccount from './ban/BanAccount';
+import Award from './gmact/Award';
 
 
 class Switch extends React.PureComponent {
@@ -58,10 +59,12 @@ class Switch extends React.PureComponent {
       case 'marriage-info':
         return <MarriageInfo data={data} />;
 
+      case 'award':
+        return guid ? <Award guid={guid} part_id={part_id} /> : null;
       case 'money':
         return guid ? <Money guid={guid} part_id={part_id} /> : null;
-      case 'exp':
-        return guid ? <Exp guid={guid} part_id={part_id} /> : null;
+      case 'level':
+        return guid ? <Level guid={guid} part_id={part_id} /> : null;
       case 'change-pass':
         return guid ? <ChangePass guid={guid} part_id={part_id} /> : null;
       case 'forcedown':

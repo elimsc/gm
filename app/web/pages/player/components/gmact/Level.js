@@ -4,42 +4,14 @@ import { Form, Input, Button, message, Divider, Select, Modal } from 'antd';
 import { exp } from '../../../../service/gmact';
 
 
-class Exp extends React.PureComponent {
+class Level extends React.PureComponent {
 
   constructor(props) {
     super(props);
     this.state = {
-      loading1: false,
       loading2: false,
       loading3: false
     }
-  }
-
-  handleSubmit1 = (e) => {
-    const { guid, part_id } = this.props;
-    e.preventDefault();
-    this.props.form.validateFieldsAndScroll(['jinyan'], (err, values) => {
-      if (!err) {
-        console.log(values);
-        Modal.confirm({
-          title: '确认操作',
-          content: `添加经验: ${values['jinyan']}`,
-          onOk: () => {
-            this.setState({ loading1: true });
-            exp({ type: 1, data: values, guid, part_id }).then(data => {
-              if (data.code === 0) {
-                message.success('操作成功');
-              } else {
-                message.error('操作失败');
-              }
-              this.setState({ loading1: false });
-              this.props.form.resetFields(['jinyan']);
-            });
-          }
-        })
-
-      }
-    });
   }
 
   handleSubmit2 = (e) => {
@@ -125,21 +97,7 @@ class Exp extends React.PureComponent {
 
     return (
       <div>
-        <Form {...formItemLayout} onSubmit={this.handleSubmit1} style={{ marginTop: 30 }}>
-          <Form.Item label="玩家添加经验">
-            {getFieldDecorator('jinyan', {
-              rules: [{
-                required: true, message: '不能为空'
-              }],
-            })(
-              <Input type="number" />
-            )}
-          </Form.Item>
-          <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit" loading={this.state.loading1}>提交</Button>
-          </Form.Item>
-        </Form>
-        <Divider />
+
         <Form {...formItemLayout} onSubmit={this.handleSubmit2} style={{ marginTop: 30 }}>
           <Form.Item label="设置玩家等级">
             {getFieldDecorator('player_level', {
@@ -186,4 +144,4 @@ class Exp extends React.PureComponent {
   }
 }
 
-export default Form.create()(Exp);
+export default Form.create()(Level);

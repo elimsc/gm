@@ -17,8 +17,16 @@ class GmactController extends BaseController {
    * 发放货币
    */
   async money() {
-    await this.gmactService.money(this.ctx.request.body);
-    this.ctx.body = this.success();
+    const { guid, part_id, counts, names, reason } = this.ctx.request.body;
+    const award_list = names.map((name, i) => {
+      return { type: 1, id: name, cnt: parseInt(counts[i]), param: -1 };
+    });
+    const r = await this.gmactService.award({ guid, part_id, reason, award_list });
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
   }
 
   /**
@@ -26,17 +34,31 @@ class GmactController extends BaseController {
    * 发放道具
    */
   async prop() {
-    await this.gmactService.money(this.ctx.request.body);
-    this.ctx.body = this.success();
+    const { guid, part_id, counts, names, reason, params } = this.ctx.request.body;
+    const award_list = names.map((name, i) => {
+      return { type: 2, id: parseInt(name), cnt: parseInt(counts[i]), param: params[i] ? parseInt(params[i]) : -1 };
+    });
+    const r = await this.gmactService.award({ guid, part_id, reason, award_list });
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
   }
 
   /**
    * POST /player/gmact/exp
-   * 添加/扣除经验
+   * 物品发放 -- 玩家经验
    */
   async exp() {
-    await this.gmactService.exp(this.ctx.request.body);
-    this.ctx.body = this.success();
+    const { guid, reason, jingyan, part_id } = this.ctx.request.body;
+    const award_list = [{ type: 0, id: -1, cnt: parseInt(jingyan), param: -1 }];
+    const r = await this.gmactService.award({ guid, reason, part_id, award_list });
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
   }
 
   /**

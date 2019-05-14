@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Row, Col, Input, Empty } from 'antd';
+import { Form, Row, Col, Input } from 'antd';
 
 /**
  * 负责数据的表格形式显示

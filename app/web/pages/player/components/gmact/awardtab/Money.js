@@ -1,19 +1,31 @@
 import React from 'react';
-import { Form, Input, Button, message, Icon, Modal } from 'antd';
-import { prop } from '../../../../service/gmact';
+import { Form, Input, Button, message, Icon, Modal, Select } from 'antd';
+import { money } from '../../../../../service/gmact';
 
 
 
 /**
- * 发放道具
+ * 发放货币
  */
-class Prop extends React.Component {
+class Money extends React.Component {
   constructor(props) {
     super(props);
     this.id = 0;
     this.state = {
       loading: false,
-    }
+    };
+    this.moneyTypes = [
+      { id: 0, name: '银两' },
+      { id: 1, name: '仙缘' },
+      { id: 2, name: '点券' },
+      { id: 3, name: '帮贡' },
+      { id: 4, name: '门派威望' },
+      { id: 5, name: '侠义值' },
+      { id: 6, name: '绑定仙缘' },
+      { id: 7, name: '恩爱值' },
+      { id: 8, name: '队长值' },
+
+    ];
   }
 
   remove = (k) => {
@@ -42,8 +54,11 @@ class Prop extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log(values);
-        let textArr = values.keys.map(i => `道具名: ${values.names[i]}, 数量: ${values.counts[i]}`);
+        const names = values.keys.map(i => values['names'][i]);
+        const counts = values.keys.map(i => values['counts'][i]);
+        console.log({ names, counts });
+
+        let textArr = values.keys.map(i => `货币类型: ${this.moneyTypes.filter(item => item.id === values.names[i])[0].name}, 数量: ${values.counts[i]}`);
         Modal.confirm({
           title: '确认操作',
           content: (
@@ -57,7 +72,7 @@ class Prop extends React.Component {
           ),
           onOk: () => {
             this.setState({ loading: true });
-            prop({ ...values, guid, part_id }).then(data => {
+            money({ reason: values['reason'], names, counts, guid, part_id }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -74,7 +89,6 @@ class Prop extends React.Component {
 
   render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
-
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -103,17 +117,21 @@ class Prop extends React.Component {
     const formItems = keys.map((k, index) => (
       <div key={k}>
         <Form.Item
-          label="道具名"
+          label="货币类型"
           {...formItemLayout}
         >
           {getFieldDecorator(`names[${k}]`, {
             validateTrigger: ['onChange', 'onBlur'],
             rules: [{
               required: true,
-              message: "道具名不能为空",
+              message: "不能为空",
             }],
           })(
-            <Input placeholder="道具名" style={{ width: '90%', marginRight: 8 }} />
+            <Select placeholder="货币类型" style={{ width: '90%', marginRight: 8 }}>
+              {this.moneyTypes.map(item => (
+                <Select.Option value={item.id} key={`${item.id}`}>{item.name}</Select.Option>
+              ))}
+            </Select>
           )}
           {keys.length > 1 ? (
             <Icon
@@ -124,14 +142,14 @@ class Prop extends React.Component {
           ) : null}
         </Form.Item>
         <Form.Item
-          label="道具数量"
+          label="数量"
           {...formItemLayout}
         >
           {getFieldDecorator(`counts[${k}]`, {
             validateTrigger: ['onChange', 'onBlur'],
             rules: [{
               required: true,
-              message: "道具数量不能为空",
+              message: "不能为空",
             }],
           })(
             <Input placeholder="数量" type="number" style={{ width: '90%', marginRight: 8 }} />
@@ -146,15 +164,25 @@ class Prop extends React.Component {
         {formItems}
         <Form.Item {...tailFormItemLayout}>
           <Button type="dashed" onClick={() => this.add()} style={{ width: '60%' }}>
-            <Icon type="plus" /> 添加道具项
+            <Icon type="plus" /> 添加货币项
           </Button>
+        </Form.Item>
+        <Form.Item label="操作原因" {...formItemLayout}>
+          {getFieldDecorator(`reason`, {
+            rules: [{
+              required: true,
+              message: "不能为空",
+            }],
+          })(
+            <Input.TextArea rows={5} placeholder="操作原因" style={{ width: '90%', marginRight: 8 }} />
+          )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">发放</Button>
         </Form.Item>
-      </Form>
+      </Form >
     );
   }
 }
 
-export default Form.create()(Prop);
+export default Form.create()(Money);

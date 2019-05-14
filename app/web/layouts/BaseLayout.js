@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Layout, Menu, Icon, Select, Dropdown, Spin, Button, Avatar
+  Layout, Menu, Icon, Select, Dropdown, Spin, Button
 } from 'antd';
 import router from 'umi/router';
 import { connect } from 'dva';
@@ -38,18 +38,18 @@ class BaseLayout extends React.Component {
     if (data.code === -10) { // 未登陆
       router.replace('/login');
     } else {
-      await this.props.dispatch({ // 获取服务器列表
-        type: 'global/fetchSrvList',
-        payload: {},
-      });
+      this.fetchSrvList();
       this.setState({ loading: false, username: data.payload.username, role: parseInt(data.payload.role) });
       await this.props.dispatch({ type: 'global/save', payload: { user_role: parseInt(data.payload.role) } });
     }
   }
 
-
-  componentWillUnmount() {
-    localStorage.removeItem('req_url');
+  // 获取服务器列表
+  fetchSrvList = () => {
+    this.props.dispatch({ // 获取服务器列表
+      type: 'global/fetchSrvList',
+      payload: {},
+    });
   }
 
   // 登出
@@ -71,12 +71,16 @@ class BaseLayout extends React.Component {
     });
   }
 
-  handleEnvSelect = (req_url) => {
+  async handleEnvSelect(req_url) {
+    this.setState({ loading: true });
+    // 获取服务器列表
+    localStorage.setItem('req_url', req_url);
+    this.fetchSrvList();
     this.props.dispatch({
       type: 'global/save',
       payload: { req_url }
     });
-    localStorage.setItem('req_url', req_url);
+    this.setState({ loading: false });
   }
 
   handleSrvSelect = (part_id) => {
@@ -183,7 +187,8 @@ class BaseLayout extends React.Component {
                 />
               </div>
               <div className={styles.headerItem}>
-                <Select onChange={this.handleEnvSelect} className={styles.select} placeholder="选择环境">
+                <Select defaultValue={localStorage.getItem('req_url') ? localStorage.getItem('req_url') : ''} onChange={(req_url) => this.handleEnvSelect(req_url)} className={styles.select} placeholder="选择环境">
+                  <Option value="">空</Option>
                   <Option value="http://192.168.1.205:20843/">默认测试环境</Option>
                 </Select>
 

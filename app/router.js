@@ -14,7 +14,7 @@ module.exports = app => {
   router.get('/api/demo', controller.home.demo);
 
   // 服务器列表
-  router.get('/api/srv/list', auth, controller.srv.list);
+  router.post('/api/srv/list', auth, controller.srv.list);
 
   // 登陆相关
   router.post('/api/login', controller.login.login);
