@@ -656,6 +656,19 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/api/batchact/award",
+    "regexp": "/^\\/api\\/batchact\\/award(?:\\/(?=$))?$/",
+    "stack": [
+      "auth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/api/sysact/activity/update",
     "regexp": "/^\\/api\\/sysact\\/activity\\/update(?:\\/(?=$))?$/",
     "stack": [

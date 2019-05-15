@@ -8,9 +8,80 @@ const BaseController = require('./base');
 
 class BatchActController extends BaseController {
 
+  constructor(props) {
+    super(props);
+    this.gmactService = this.ctx.service.gmact;
+  }
+
   // 批量操作
   async act() {
     this.ctx.body = this.success();
+  }
+
+  /**
+   * POST batchact/award
+   * 批量发放道具
+   */
+  async award() {
+    const { reason, awards, part_id } = this.ctx.request.body;
+    const award_lists = [];
+    for (const award of awards) {
+      const title = award[0].map(item => item.trim());
+      const award_content = award.filter((item, i) => i !== 0);
+      for (const item of award_content) {
+        award_lists.push({
+          [title[0]]: item[0],
+          [title[1]]: item[1],
+          [title[2]]: item[2],
+          [title[3]]: item[3],
+          [title[4]]: item[4],
+        });
+      }
+    }
+
+    const awards_with_guid = {};
+    for (const item of award_lists) {
+      if (item.guid in awards_with_guid) {
+        awards_with_guid[item.guid].push({
+          type: item.type,
+          id: item.id,
+          cnt: item.cnt,
+          param: item.param,
+        });
+      } else {
+        awards_with_guid[item.guid] = [{
+          type: item.type,
+          id: item.id,
+          cnt: item.cnt,
+          param: item.param,
+        }];
+      }
+    }
+
+    // 构建请求值的列表
+    const all_awards = Object.keys(awards_with_guid).map(guid => {
+      return {
+        guid,
+        reason,
+        award_list: awards_with_guid[guid],
+        part_id,
+      };
+    });
+
+    // 依次请求后端
+    const err_guid = []; // 操作失败的guid
+    for (const item of all_awards) {
+      const r = await this.gmactService.award(item);
+      if (!r) {
+        err_guid.push(item.guid);
+      }
+    }
+
+    if (err_guid.length === 0) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.success({}, '', err_guid);
+    }
   }
 
 

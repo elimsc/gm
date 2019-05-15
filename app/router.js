@@ -77,6 +77,7 @@ module.exports = app => {
 
   // 批量操作
   router.post('/api/batchact', auth, controller.batchact.act);
+  router.post('/api/batchact/award', auth, controller.batchact.award); // 批量发放道具
 
   // 系统操作
   router.post('/api/sysact/activity/update', auth, controller.sysact.updateActivity);
