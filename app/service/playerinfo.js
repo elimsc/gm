@@ -7,6 +7,7 @@ class PlayerinfoService extends BaseReqService {
   // 角色列表查询
   async list({ name, type, part_id }) {
     const result = await this.request({ cmd: 1001 }, { name, type, part_id }, [ 'name', 'type' ]);
+    console.log(result);
     if (!result) { // 异常发生
       return [{
         gender: 1,
@@ -67,7 +68,7 @@ class PlayerinfoService extends BaseReqService {
       const src = result.data.body.itemlist;
 
       const tpl = {
-        // id: 'ID',
+        id: 'ID',
         name: '名字',
         cnt: '数量',
         bind_type: '绑定类型', // 0永久不绑定/1限时绑定/2使用绑定/3永久绑定
@@ -110,7 +111,7 @@ class PlayerinfoService extends BaseReqService {
       const src = result.data.body.itemlist;
 
       const tpl = {
-        // id: 'ID',
+        id: 'ID',
         name: '名字',
         cnt: '数量',
         bind_type: '绑定类型', // 0永久不绑定/1限时绑定/2使用绑定/3永久绑定
@@ -152,7 +153,7 @@ class PlayerinfoService extends BaseReqService {
     if (result.data && result.data.body && result.data.body.equiplist) {
       const src = result.data.body.equiplist;
       const tpl = {
-        // id: 'ID',
+        id: 'ID',
         name: '名字',
         level: '等级',
         strength_level: '强化等级',
@@ -187,7 +188,7 @@ class PlayerinfoService extends BaseReqService {
       const src = result.data.body.skilllist;
 
       const tpl = {
-        // id: 'ID',
+        id: 'ID',
         name: '名字',
         level: '等级',
       };
@@ -206,7 +207,7 @@ class PlayerinfoService extends BaseReqService {
       const src = result.data.body.titlelist;
 
       const tpl = {
-        // id: 'ID',
+        id: 'ID',
         name: '名字',
         create_time: '创建时间',
         timeout: '时限',
@@ -227,7 +228,7 @@ class PlayerinfoService extends BaseReqService {
 
       const tpl = {
         guid: 'GUID',
-        // data_id: '配表id',
+        data_id: '配表id',
         name: '名字',
         intercommunion: '亲密度',
         bind_state: '绑定状态',
@@ -323,7 +324,6 @@ class PlayerinfoService extends BaseReqService {
 
   async emailInfo({ guid, part_id }) {
     const result = await this.request({ cmd: 1021 }, { guid, part_id }, [ 'guid' ]);
-
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.system_mail_list) {
       // 处理返回结果
@@ -332,9 +332,21 @@ class PlayerinfoService extends BaseReqService {
         mail_id: '邮件GUID',
         sender_id: '发件人ID',
         sub_type: '子类型',
+        content: '内容',
+        status: '状态',
       };
 
-      return this.ctx.helper.tableInfoListConv(src, tpl);
+      const statusMap = status => {
+        switch (status) {
+          case -1: return '未确认';
+          case 0: return '未读';
+          case 1: return '已读';
+          case 2: return '附件已提取';
+          default: return '';
+        }
+      };
+
+      return this.ctx.helper.tableInfoListConv(src, tpl, { staus: statusMap });
     }
     return [];
   }

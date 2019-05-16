@@ -20,7 +20,6 @@ import PracLevel from './gmact/PracLevel';
 import Prop from './gmact/Prop';
 import SecureCode from './gmact/SecureCode';
 import UntiePhone from './gmact/UntiePhone';
-import TitleM from './gmact/TitleM';
 import ClearSecureCode from './clear/ClearSecureCode';
 import UnusualGang from './clear/UnusualGang';
 import UnusualTask from './clear/UnusualTask';
@@ -29,6 +28,8 @@ import BanAccount from './ban/BanAccount';
 import Award from './gmact/Award';
 import BanAccountLog from './ban/BanAccountLog';
 import BanTalkLog from './ban/BanTalkLog';
+import Pet from './gmact/Pet'
+import Player from './gmact/Player';
 
 
 class Switch extends React.PureComponent {
@@ -62,6 +63,10 @@ class Switch extends React.PureComponent {
 
       case 'award':
         return guid ? <Award guid={guid} part_id={part_id} /> : null;
+      case 'pet':
+        return guid ? <Pet guid={guid} part_id={part_id} /> : null;
+      case 'player':
+        return guid ? <Player guid={guid} part_id={part_id} /> : null;
       case 'money':
         return guid ? <Money guid={guid} part_id={part_id} /> : null;
       case 'level':
@@ -78,8 +83,6 @@ class Switch extends React.PureComponent {
         return guid ? <Prop guid={guid} part_id={part_id} /> : null;
       case 'secure-code':
         return guid ? <SecureCode guid={guid} part_id={part_id} /> : null;
-      case 'title':
-        return guid ? <TitleM guid={guid} part_id={part_id} /> : null;
       case 'untie-phone':
         return guid ? <UntiePhone guid={guid} part_id={part_id} /> : null;
 

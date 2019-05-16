@@ -13,9 +13,9 @@ class Award extends React.PureComponent {
       { type: 0, name: '经验' },
       { type: 1, name: '货币' },
       { type: 2, name: '道具' },
-      { type: 3, name: '宠物经验' },
-      { type: 4, name: '帮会资金' },
-      { type: 5, name: '帮会资历' },
+      // { type: 3, name: '宠物经验' },
+      // { type: 4, name: '帮会资金' },
+      // { type: 5, name: '帮会资历' },
     ];
     const selectType = (type) => {
       switch (type.type) {

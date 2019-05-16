@@ -46,14 +46,22 @@ export async function exp({ jingyan, part_id, guid, reason }) {
  * 设置玩家等级
  */
 export async function setPlayerLevel({ part_id, level, guid }) {
-  return post(`/api/player/gmact/set-player-level`, { part_id, level, guid });
+  return post(`/api/player/gmact/player-level`, { part_id, level, guid });
 }
 
-/**
- * 设置宠物等级
- */
+// 设置宠物等级
 export async function setPetLevel({ part_id, level, guid, pet_guid }) {
-  return post(`/api/player/gmact/set-pet-level`, { part_id, level, guid, pet_guid });
+  return post(`/api/player/gmact/pet-level`, { part_id, level, guid, pet_guid });
+}
+
+// 设置宠物修炼等级
+export async function setPetPraclevel({ part_id, level, guid, pet_guid, type }) {
+  return post(`/api/player/gmact/pet-praclevel`, { part_id, level, guid, pet_guid, type });
+}
+
+// 设置宠物炼符等级
+export async function setPetLflevel({ part_id, level, guid, pet_guid, type }) {
+  return post(`/api/player/gmact/pet-lflevel`, { part_id, level, guid, pet_guid, type });
 }
 
 /**
@@ -62,13 +70,13 @@ export async function setPetLevel({ part_id, level, guid, pet_guid }) {
 export async function titlem({ type, title, part_id, guid }) {
   if (type === 1) {
     return post(`/api/player/gmact/add-title`, {
-      title,
+      title_id: title,
       part_id,
       guid,
     });
   } else {
     return post(`/api/player/gmact/del-title`, {
-      title,
+      title_id: title,
       part_id,
       guid,
     });

@@ -6,7 +6,7 @@ import { create, listTpl, delTpl } from '../../service/anntpl';
 import { addBroadcast } from '../../service/broadcast';
 
 @connect(({ global }) => ({ global }))
-class Broadcast extends React.Component {
+class Broadcast extends React.PureComponent {
 
   constructor(props) {
     super(props);
@@ -24,16 +24,22 @@ class Broadcast extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.form.validateFields(['content', 'duration', 'frequency', 'srv'], (err, values) => {
+    this.props.form.validateFields(['content', 'duration', 'frequency', 'part_id'], (err, values) => {
       if (!err) {
         console.log(values);
-        addBroadcast(values).then(data => {
-          if (data.code === 0) {
-            message.success('操作成功');
-          } else {
-            message.error('操作失败');
+        Modal.confirm({
+          title: '确认操作',
+          content: '确认发布广播？',
+          onOk: () => {
+            addBroadcast(values).then(data => {
+              if (data.code === 0) {
+                message.success('操作成功');
+              } else {
+                message.error('操作失败');
+              }
+              this.props.form.resetFields(['content', 'duration', 'frequency', 'part_id']);
+            })
           }
-          this.props.form.resetFields(['content', 'duration', 'frequency', 'srv']);
         })
       }
     });
@@ -178,12 +184,13 @@ class Broadcast extends React.Component {
             <Form.Item
               label="服务器"
             >
-              {getFieldDecorator('srv', {
+              {getFieldDecorator('part_id', {
                 rules: [{
                   required: true, message: '至少需要选择一个服务器',
                 }],
               })(
-                <Select mode="multiple" placeholder="请选择服务器">
+                <Select placeholder="请选择服务器">
+                  <Select.Option value={-1}>全服</Select.Option>
                   {srvList.map(srv => (
                     <Select.Option key={`${srv.part_id}`} value={srv.part_id}>{srv.part_name}</Select.Option>
                   ))}

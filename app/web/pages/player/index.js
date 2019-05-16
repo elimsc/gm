@@ -79,11 +79,29 @@ class PlayerMan extends React.PureComponent {
         title: '性别',
         dataIndex: 'gender',
         key: 'gender',
+        render: (text, record) => {
+          switch (parseInt(text)) {
+            case 0: return '女';
+            case 1: return '男';
+            default: return '';
+          }
+        }
       },
       {
         title: '门派',
         dataIndex: 'menpai',
         key: 'menpai',
+        render: (text, record) => {
+          switch (parseInt(text)) {
+            case 0: return '正剑门';
+            case 1: return '百花';
+            case 2: return '昆仑';
+            case 3: return '天魔';
+            case 4: return '万妖';
+            case 5: return '森罗';
+            default: return '';
+          }
+        }
       },
       {
         title: '等级',
@@ -99,6 +117,11 @@ class PlayerMan extends React.PureComponent {
         title: 'UID',
         dataIndex: 'uid',
         key: 'uid',
+      },
+      {
+        title: '所在服务器',
+        dataIndex: 'part_name',
+        key: 'part_name',
       },
       {
         title: '操作',
@@ -148,7 +171,10 @@ class PlayerMan extends React.PureComponent {
             columns={columns}
             dataSource={playerList} />
         </Card>
-        <Card style={{ marginTop: 30, minHeight: 1000, marginBottom: 40 }} title={selectedPlayer && selectedPlayer.name ? "当前选中玩家：" + selectedPlayer.name : '无选中玩家'}>
+        <Card style={{ marginTop: 30, minHeight: 1000, marginBottom: 40 }} title={<p>
+          当前选中玩家：
+          {selectedPlayer && selectedPlayer.name ? <span style={{ fontWeight: 'bold' }}>{`${selectedPlayer.name} (GUID=${selectedPlayer.guid})`}</span> : '无选中玩家'}
+        </p>}>
           <Row>
             <Col span={4}>
               <Menu mode="inline" selectedKeys={[this.state.menu]} defaultOpenKeys={['playerinfo']}>
@@ -167,13 +193,15 @@ class PlayerMan extends React.PureComponent {
                 </Menu.SubMenu>
                 {this.props.global.user_role > 1 ?
                   <Menu.SubMenu key="gmact" title="GM操作">
-                    <Menu.Item onClick={() => this.select('award')} key="award">物品发放</Menu.Item>
+                    <Menu.Item onClick={() => this.select('award')} key="award">物品发放（邮件）</Menu.Item>
                     {/* <Menu.Item onClick={() => this.select('money')} key="money">发放货币</Menu.Item> */}
                     {/* <Menu.Item onClick={() => this.select('prop')} key="prop">发放道具</Menu.Item> */}
-                    <Menu.Item onClick={() => this.select('level')} key="level">设置等级</Menu.Item>
-                    <Menu.Item onClick={() => this.select('title')} key="title">添加/删除称号</Menu.Item>
-                    <Menu.Item onClick={() => this.select('prac-level')} key="prac-level">修改修炼等级</Menu.Item>
-                    <Menu.Item onClick={() => this.select('petsymbol-level')} key="petsymbol-level">修改宠物符等级</Menu.Item>
+                    <Menu.Item onClick={() => this.select('pet')} key="pet">修改宠物数据</Menu.Item>
+                    <Menu.Item onClick={() => this.select('player')} key="player">修改角色数据</Menu.Item>
+                    {/* <Menu.Item onClick={() => this.select('level')} key="level">设置等级</Menu.Item> */}
+                    {/* <Menu.Item onClick={() => this.select('title')} key="title">添加/删除称号</Menu.Item> */}
+                    {/* <Menu.Item onClick={() => this.select('prac-level')} key="prac-level">修改修炼等级</Menu.Item> */}
+                    {/* <Menu.Item onClick={() => this.select('petsymbol-level')} key="petsymbol-level">修改宠物符等级</Menu.Item> */}
                     <Menu.Item onClick={() => this.select('forcedown')} key="forcedown">踢玩家下线</Menu.Item>
                     <Menu.Item onClick={() => this.select('secure-code')} key="secure-code">安全码修改</Menu.Item>
                     <Menu.Item onClick={() => this.select('change-pass')} key="change-pass">修改密码</Menu.Item>
@@ -203,7 +231,7 @@ class PlayerMan extends React.PureComponent {
                 <Switch
                   menu={menu}
                   data={data}
-                  guid={selectedPlayer && selectedPlayer.guid ? selectedPlayer.guid : true}
+                  guid={selectedPlayer && selectedPlayer.guid ? selectedPlayer.guid : false}
                   part_id={this.props.global.part_id}
                   uid={selectedPlayer && selectedPlayer.uid ? selectedPlayer.uid : ''}
                 />

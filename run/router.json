@@ -499,8 +499,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/gmact/set-player-level",
-    "regexp": "/^\\/api\\/player\\/gmact\\/set-player-level(?:\\/(?=$))?$/",
+    "path": "/api/player/gmact/player-level",
+    "regexp": "/^\\/api\\/player\\/gmact\\/player-level(?:\\/(?=$))?$/",
     "stack": [
       "role",
       "actlog",
@@ -513,8 +513,36 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/gmact/set-pet-level",
-    "regexp": "/^\\/api\\/player\\/gmact\\/set-pet-level(?:\\/(?=$))?$/",
+    "path": "/api/player/gmact/pet-level",
+    "regexp": "/^\\/api\\/player\\/gmact\\/pet-level(?:\\/(?=$))?$/",
+    "stack": [
+      "role",
+      "actlog",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/pet-lflevel",
+    "regexp": "/^\\/api\\/player\\/gmact\\/pet-lflevel(?:\\/(?=$))?$/",
+    "stack": [
+      "role",
+      "actlog",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/pet-praclevel",
+    "regexp": "/^\\/api\\/player\\/gmact\\/pet-praclevel(?:\\/(?=$))?$/",
     "stack": [
       "role",
       "actlog",
@@ -546,32 +574,6 @@
     "stack": [
       "role",
       "actlog",
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
-    "path": "/api/player/gmact/prac-level",
-    "regexp": "/^\\/api\\/player\\/gmact\\/prac-level(?:\\/(?=$))?$/",
-    "stack": [
-      "role",
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
-    "path": "/api/player/gmact/petsymbol-level",
-    "regexp": "/^\\/api\\/player\\/gmact\\/petsymbol-level(?:\\/(?=$))?$/",
-    "stack": [
-      "role",
       "wrappedController"
     ]
   },

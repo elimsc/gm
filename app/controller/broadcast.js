@@ -52,8 +52,8 @@ class BroadcastController extends BaseController {
    */
   async addBroadcast() {
     const service = this.ctx.service.broadcast;
-    const { content, duration, frequency, srv } = this.ctx.request.body;
-    const r = await service.broadcast({ msg: content, interval: parseInt(frequency), time: parseInt(duration) });
+    const { content, duration, frequency, part_id } = this.ctx.request.body;
+    const r = await service.broadcast({ msg: content, interval: parseInt(frequency), time: parseInt(duration), part_id });
     if (r) {
       this.ctx.body = this.success();
     } else {

@@ -70,12 +70,12 @@ class GmactController extends BaseController {
   }
 
   /**
-   * POST player/gmact/set-player-level
-   * 设置玩家等级
+   * POST player/gmact/pet-level
+   * 设置宠物等级
    */
-  async setPlayerLevel() {
-    const { guid, level, part_id } = this.ctx.request.body;
-    const r = await this.gmactService.setPlayerLevel({ guid, new_level: level, part_id });
+  async setPetLevel() {
+    const { guid, level, part_id, pet_guid } = this.ctx.request.body;
+    const r = await this.gmactService.changePetData({ guid, new_value: parseInt(level), part_id, pet_guid, value_type: -1, type: 3 });
     if (r) {
       this.ctx.body = this.success();
     } else {
@@ -84,12 +84,40 @@ class GmactController extends BaseController {
   }
 
   /**
-   * POST player/gmact/set-pet-level
-   * 设置宠物等级
+   * POST player/gmact/pet-praclevel
+   * 设置宠物修炼等级
    */
-  async setPetLevel() {
-    const { guid, level, part_id, pet_id } = this.ctx.request.body;
-    const r = await this.gmactService.setPetLevel({ guid, new_level: level, part_id, pet_id });
+  async setPetPraclevel() {
+    const { guid, level, part_id, pet_guid, type } = this.ctx.request.body;
+    const r = await this.gmactService.changePetData({ guid, new_value: parseInt(level), part_id, pet_guid, value_type: type, type: 4 });
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
+  }
+
+  /**
+   * OIST player/gmact/pet-lflevel
+   * 设置宠物炼符等级
+   */
+  async setPetLflevel() {
+    const { guid, level, part_id, pet_guid, type } = this.ctx.request.body;
+    const r = await this.gmactService.changePetData({ guid, new_value: parseInt(level), part_id, pet_guid, value_type: type, type: 5 });
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
+  }
+
+  /**
+   * POST player/gmact/set-player-level
+   * 设置玩家等级
+   */
+  async setPlayerLevel() {
+    const { guid, level, part_id } = this.ctx.request.body;
+    const r = await this.gmactService.changePlayerData({ guid, new_value: parseInt(level), part_id, type: 1 });
     if (r) {
       this.ctx.body = this.success();
     } else {
@@ -102,8 +130,8 @@ class GmactController extends BaseController {
    * 添加称号
    */
   async addTitle() {
-    const { guid, part_id, title } = this.ctx.request.body;
-    const r = await this.gmactService.titlem({ type: 2, guid, part_id, title_id: title });
+    const { guid, part_id, title_id } = this.ctx.request.body;
+    const r = await this.gmactService.changePlayerData({ type: 2, guid, part_id, new_value: parseInt(title_id) });
     if (r) {
       this.ctx.body = this.success();
     } else {
@@ -116,8 +144,8 @@ class GmactController extends BaseController {
    * 删除称号
    */
   async delTitle() {
-    const { guid, part_id, title } = this.ctx.request.body;
-    const r = await this.gmactService.titlem({ type: 1, guid, part_id, title_id: title });
+    const { guid, part_id, title_id } = this.ctx.request.body;
+    const r = await this.gmactService.changePlayerData({ type: 2, guid, part_id, new_value: parseInt(`-${title_id}`) });
     if (r) {
       this.ctx.body = this.success();
     } else {

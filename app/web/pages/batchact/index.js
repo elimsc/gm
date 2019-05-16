@@ -1,9 +1,11 @@
 import React from 'react';
 import { Card, Form, Input, Button, message, Select, Upload, Icon, Modal, Alert } from 'antd';
 import XLSX from 'xlsx';
+import { connect } from 'dva'
 
 import { batchAward } from '../../service/batchact';
 
+@connect(({ global }) => ({ global }))
 class BatchAct extends React.Component {
 
   constructor(props) {
@@ -27,7 +29,7 @@ class BatchAct extends React.Component {
           onOk: () => {
             if (type === 1) {
               this.setState({ loading: true });
-              batchAward({ ...values, awards }).then(data => {
+              batchAward({ ...values, awards, part_id: this.props.global.part_id }).then(data => {
                 console.log(data);
                 if (Array.isArray(data.message)) { // 表面操作结果有错误
                   this.setState({ errs: data.message });
@@ -152,7 +154,7 @@ class BatchAct extends React.Component {
             label="原因"
           >
             {getFieldDecorator('reason', {
-              rules: [],
+              rules: [{ required: true, message: '原因不能为空' }],
             })(
               <Input.TextArea placeholder="说明原因" rows={6} />
             )}

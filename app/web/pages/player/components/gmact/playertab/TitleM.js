@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, message, Divider, Modal } from 'antd';
 
-import { titlem } from '../../../../service/gmact';
+import { titlem } from '../../../../../service/gmact';
 
 
 
@@ -103,7 +103,7 @@ class TitleM extends React.Component {
                 required: true, message: '不能为空'
               }],
             })(
-              <Input />
+              <Input type="number" />
             )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
@@ -119,7 +119,7 @@ class TitleM extends React.Component {
                 required: true, message: '不能为空'
               }],
             })(
-              <Input />
+              <Input type="number" />
             )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout} >

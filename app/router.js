@@ -61,12 +61,12 @@ module.exports = app => {
   router.post('/api/player/gmact/prop', role_operation, actlog({ action: '发放道具' }), controller.player.gmact.prop); // 发放道具
   router.post('/api/player/gmact/exp', role_operation, actlog({ action: '向玩家发放经验' }), controller.player.gmact.exp); // 玩家发放经验
   router.post('/api/player/gmact/pet-exp', role_operation, actlog({ action: '向宠物发放经验' }), controller.player.gmact.petExp); // 宠物发放经验
-  router.post('/api/player/gmact/set-player-level', role_operation, actlog({ action: '设置角色等级' }), controller.player.gmact.setPlayerLevel); // 设置玩家等级
-  router.post('/api/player/gmact/set-pet-level', role_operation, actlog({ action: '设置宠物等级' }), controller.player.gmact.petExp); // 设置宠物等级
+  router.post('/api/player/gmact/player-level', role_operation, actlog({ action: '设置角色等级' }), controller.player.gmact.setPlayerLevel); // 设置玩家等级
+  router.post('/api/player/gmact/pet-level', role_operation, actlog({ action: '设置宠物等级' }), controller.player.gmact.setPetLevel); // 设置宠物等级
+  router.post('/api/player/gmact/pet-lflevel', role_operation, actlog({ action: '设置宠物炼符等级' }), controller.player.gmact.setPetLflevel); // 设置宠物等级
+  router.post('/api/player/gmact/pet-praclevel', role_operation, actlog({ action: '设置宠物修炼等级' }), controller.player.gmact.setPetPraclevel); // 设置宠物等级
   router.post('/api/player/gmact/add-title', role_operation, actlog({ action: '添加称号' }), controller.player.gmact.addTitle); // 添加称号
   router.post('/api/player/gmact/del-title', role_operation, actlog({ action: '删除称号' }), controller.player.gmact.delTitle); // 添加称号
-  router.post('/api/player/gmact/prac-level', role_operation, controller.player.gmact.pracLevel); // 修改修炼等级
-  router.post('/api/player/gmact/petsymbol-level', role_operation, controller.player.gmact.petsymbolLevel); // 修改宠物符等级
   router.post('/api/player/gmact/forcedown', role_operation, controller.player.gmact.forcedown); // 踢玩家下线
   router.post('/api/player/gmact/secure-code', role_operation, controller.player.gmact.secureCode); // 安全修改
   router.post('/api/player/gmact/change-pass', role_operation, controller.player.gmact.changePass); // 修改密码

@@ -9,38 +9,32 @@ const BaseReqService = require('./basereq');
 class GmactService extends BaseReqService {
 
   // 给玩家发放东西（通过邮件）
-  //  "reason" : "",  //操作原因-会显示在邮件内容中，不超过100个汉字
-  //	award_list: [{
-  //		"type" : ,      //类型,0经验/1货币/2道具/3宠物经验/4帮会资金/5帮会资历
-  //		"id" : ,       	//type为道具时表示道具ID，货币时表示0银两/1仙缘/2点券/3帮贡/4门派威望/5侠义值/6绑定仙缘/7恩爱值/8队长值/，其他填-1
-  //		"cnt" : ,       //数量（正加负减）
-  //		"param" : ,     //扩展参数：默认-1表示无效，type为道具时填写道具扩展ID
-  //	}]
   async award({ guid, reason, award_list, part_id }) {
-    console.log({ guid, reason, award_list, part_id });
     const r = await this.request({ cmd: 2003 }, { guid, reason, award_list, part_id }, [ 'guid', 'reason' ]);
+    console.log(r);
     if (!this.is_success(r)) return false;
     return true;
   }
 
-  // 设置玩家等级
-  async setPlayerLevel({ guid, new_level, part_id }) {
-    const r = await this.request({ cmd: 2005 }, { guid, new_level, part_id }, [ 'guid', 'new_level' ]);
+  // type: 类型,3等级/4修炼等级/5炼符等级
+  // value_type:
+  //  type为等级时传-1
+  //  type为修炼等级是表示修炼属性类型，0生命/1法力/2攻击/3物防/4法防/5速度/6状态/7封印/8敏捷
+  //  type为炼符等级是表示资质属性类型，0生命/1物防/2攻击/3法防/4速度/5封印
+  async changePetData({ guid, pet_guid, type, value_type, new_value }) {
+    const r = await this.request({ cmd: 2007 }, { guid, pet_guid, type, value_type, new_value }, [ 'guid', 'pet_guid', 'type', 'value_type', 'new_value' ]);
     if (!this.is_success(r)) return false;
     return true;
   }
 
-  // 设置宠物等级
-  async setPetLevel({ guid, pet_guid, new_level, part_id }) {
-    const r = await this.request({ cmd: 2005 }, { guid, new_level, part_id, pet_guid }, [ 'guid', 'pet_guid', 'new_level' ]);
+  // 修改玩家数据
+  // type: 类型,1等级/2称号
+  async changePlayerData({ guid, part_id, type, new_value }) {
+    const r = await this.request({ cmd: 2005 }, { guid, part_id, type, new_value }, [ 'guid', 'type', 'new_value' ]);
     if (!this.is_success(r)) return false;
     return true;
   }
 
-  // 发放道具
-  async prop() {
-    return true;
-  }
 
   // 添加/扣除经验
   async exp() {
