@@ -62,6 +62,42 @@ class GmactController extends BaseController {
   }
 
   /**
+   * POST player/gmact/pet-exp
+   * 物品发放 -- 宠物经验
+   */
+  async petExp() {
+    this.ctx.body = this.success();
+  }
+
+  /**
+   * POST player/gmact/set-player-level
+   * 设置玩家等级
+   */
+  async setPlayerLevel() {
+    const { guid, level, part_id } = this.ctx.request.body;
+    const r = await this.gmactService.setPlayerLevel({ guid, new_level: level, part_id });
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
+  }
+
+  /**
+   * POST player/gmact/set-pet-level
+   * 设置宠物等级
+   */
+  async setPetLevel() {
+    const { guid, level, part_id, pet_id } = this.ctx.request.body;
+    const r = await this.gmactService.setPetLevel({ guid, new_level: level, part_id, pet_id });
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
+  }
+
+  /**
    * POST /player/gmact/add-title
    * 添加称号
    */

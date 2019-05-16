@@ -1,7 +1,8 @@
 import React from 'react';
 import { Form, Input, Button, message, Divider, Select, Modal } from 'antd';
 
-import { exp } from '../../../../service/gmact';
+import { setPlayerLevel, setPetLevel } from '../../../../service/gmact';
+import { fetchInfo } from '../../../../service/playerinfo'
 
 
 class Level extends React.PureComponent {
@@ -10,8 +11,31 @@ class Level extends React.PureComponent {
     super(props);
     this.state = {
       loading2: false,
-      loading3: false
+      loading3: false,
+      pets: [],
     }
+  }
+
+  componentDidMount() {
+    const { guid, part_id, uid } = this.props;
+    fetchInfo('pet-info', { guid, part_id, uid }).then(data => {
+      const pets = data.payload.map(pet => {
+        let pet_guid = '';
+        let pet_name = '';
+        pet.forEach(item => {
+          if (item.key === 'guid') {
+            pet_guid = item.value;
+          }
+          if (item.key === 'name') {
+            pet_name = item.value;
+          }
+        });
+        if (pet_guid && pet_name) {
+          return { guid: pet_guid, name: pet_name };
+        }
+      });
+      this.setState({ pets });
+    });
   }
 
   handleSubmit2 = (e) => {
@@ -25,7 +49,7 @@ class Level extends React.PureComponent {
           content: `设置玩家等级为: ${values['player_level']}`,
           onOk: () => {
             this.setState({ loading2: true });
-            exp({ type: 2, data: values, guid, part_id }).then(data => {
+            setPlayerLevel({ level: values['player_level'], guid, part_id }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -53,7 +77,7 @@ class Level extends React.PureComponent {
           content: `设置宠物 [${values['pet_name']}] 等级为: ${values['pet_level']}`,
           onOk: () => {
             this.setState({ loading3: true });
-            exp({ type: 3, data: values, guid, part_id }).then(data => {
+            setPetLevel({ level: values['pet_level'], pet_guid: values['pet_name'], guid, part_id }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -121,8 +145,9 @@ class Level extends React.PureComponent {
               }],
             })(
               <Select placeholder="选择宠物">
-                <Select.Option value="1">宠物1</Select.Option>
-                <Select.Option value="2">宠物2</Select.Option>
+                {this.state.pets.map(pet => (
+                  <Select.Option key={`${pet.guid}`} value={pet.guid}>{`${pet.name}(${pet.guid})`}</Select.Option>
+                ))}
               </Select>
             )}
           </Form.Item>

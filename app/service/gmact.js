@@ -23,6 +23,20 @@ class GmactService extends BaseReqService {
     return true;
   }
 
+  // 设置玩家等级
+  async setPlayerLevel({ guid, new_level, part_id }) {
+    const r = await this.request({ cmd: 2005 }, { guid, new_level, part_id }, [ 'guid', 'new_level' ]);
+    if (!this.is_success(r)) return false;
+    return true;
+  }
+
+  // 设置宠物等级
+  async setPetLevel({ guid, pet_guid, new_level, part_id }) {
+    const r = await this.request({ cmd: 2005 }, { guid, new_level, part_id, pet_guid }, [ 'guid', 'pet_guid', 'new_level' ]);
+    if (!this.is_success(r)) return false;
+    return true;
+  }
+
   // 发放道具
   async prop() {
     return true;
@@ -36,6 +50,7 @@ class GmactService extends BaseReqService {
   // 添加删除称号
   async titlem({ guid, part_id, title_id, is_del }) {
     const r = await this.request({ cmd: 2009 }, { guid, part_id, title_id, is_del }, [ 'guid', 'title_id', 'is_del' ]);
+    console.log(r);
     if (!this.is_success(r)) return false;
     return true;
   }

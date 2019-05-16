@@ -43,6 +43,20 @@ export async function exp({ jingyan, part_id, guid, reason }) {
 }
 
 /**
+ * 设置玩家等级
+ */
+export async function setPlayerLevel({ part_id, level, guid }) {
+  return post(`/api/player/gmact/set-player-level`, { part_id, level, guid });
+}
+
+/**
+ * 设置宠物等级
+ */
+export async function setPetLevel({ part_id, level, guid, pet_guid }) {
+  return post(`/api/player/gmact/set-pet-level`, { part_id, level, guid, pet_guid });
+}
+
+/**
  * type: 1--添加 2--删除
  */
 export async function titlem({ type, title, part_id, guid }) {

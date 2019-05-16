@@ -5,6 +5,12 @@ const jwt = require('jsonwebtoken');
 // 判断用户是否已登陆的中间件
 module.exports = options => {
   return async function auth(ctx, next) {
+    // 不需要判断是否登陆的路由：/api/login, 不以/api开头的路由
+    if (ctx.request.url === '/api/login' || !ctx.request.url.startsWith('/api')) {
+      await next();
+      return;
+    }
+
     const key = options.key;
     const authrization = ctx.get('Authorization');
     const userService = ctx.service.user;

@@ -2,15 +2,41 @@ import React from 'react';
 import { Form, Input, Button, message, Select, Modal } from 'antd';
 
 import { exp } from '../../../../../service/gmact';
+import { fetchInfo } from '../../../../../service/playerinfo';
 
-
+/**
+ * 发放宠物经验
+ */
 class PetExp extends React.PureComponent {
 
   constructor(props) {
     super(props);
     this.state = {
-      loading3: false
+      loading3: false,
+      pets: [],
     }
+  }
+
+  componentDidMount() {
+    const { guid, part_id, uid } = this.props;
+    fetchInfo('pet-info', { guid, part_id, uid }).then(data => {
+      const pets = data.payload.map(pet => {
+        let pet_guid = '';
+        let pet_name = '';
+        pet.forEach(item => {
+          if (item.key === 'guid') {
+            pet_guid = item.value;
+          }
+          if (item.key === 'name') {
+            pet_name = item.value;
+          }
+        });
+        if (pet_guid && pet_name) {
+          return { guid: pet_guid, name: pet_name };
+        }
+      });
+      this.setState({ pets });
+    });
   }
 
 
@@ -26,16 +52,7 @@ class PetExp extends React.PureComponent {
           title: '确认操作',
           content: `设置宠物 [${values['pet_name']}] 等级为: ${values['pet_level']}`,
           onOk: () => {
-            this.setState({ loading3: true });
-            exp({ type: 3, data: values, guid, part_id }).then(data => {
-              if (data.code === 0) {
-                message.success('操作成功');
-              } else {
-                message.error('操作失败');
-              }
-              this.setState({ loading3: false });
-              this.props.form.resetFields(['pet_name', 'pet_level']);
-            });
+            message.info('功能未实现');
           }
         });
 
@@ -79,8 +96,9 @@ class PetExp extends React.PureComponent {
               }],
             })(
               <Select placeholder="选择宠物" style={{ width: '90%', marginRight: 8 }}>
-                <Select.Option value="1">宠物1</Select.Option>
-                <Select.Option value="2">宠物2</Select.Option>
+                {this.state.pets.map(pet => (
+                  <Select.Option key={`${pet.guid}`} value={pet.guid}>{`${pet.name}(${pet.guid})`}</Select.Option>
+                ))}
               </Select>
             )}
           </Form.Item>

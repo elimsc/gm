@@ -21,7 +21,6 @@
     "path": "/api/srv/list",
     "regexp": "/^\\/api\\/srv\\/list(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -46,7 +45,6 @@
     "path": "/api/login/check",
     "regexp": "/^\\/api\\/login\\/check(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -59,7 +57,6 @@
     "path": "/api/logout",
     "regexp": "/^\\/api\\/logout(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -72,7 +69,6 @@
     "path": "/api/user",
     "regexp": "/^\\/api\\/user(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "role",
       "actlog",
       "wrappedController"
@@ -88,7 +84,6 @@
     "path": "/api/user/list",
     "regexp": "/^\\/api\\/user\\/list(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "role",
       "wrappedController"
     ]
@@ -102,7 +97,6 @@
     "path": "/api/user/update",
     "regexp": "/^\\/api\\/user\\/update(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "role",
       "actlog",
       "wrappedController"
@@ -118,7 +112,6 @@
     "path": "/api/user/actlog/list",
     "regexp": "/^\\/api\\/user\\/actlog\\/list(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "role",
       "wrappedController"
     ]
@@ -133,7 +126,7 @@
     "path": "/api/user/actlog/current",
     "regexp": "/^\\/api\\/user\\/actlog\\/current(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -146,7 +139,7 @@
     "path": "/api/user/change-pass",
     "regexp": "/^\\/api\\/user\\/change-pass(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "actlog",
       "wrappedController"
     ]
@@ -161,7 +154,6 @@
     "path": "/api/broadcast/tpl/list",
     "regexp": "/^\\/api\\/broadcast\\/tpl\\/list(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "role",
       "wrappedController"
     ]
@@ -175,7 +167,6 @@
     "path": "/api/broadcast/tpl/add",
     "regexp": "/^\\/api\\/broadcast\\/tpl\\/add(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "role",
       "actlog",
       "wrappedController"
@@ -201,7 +192,6 @@
     "path": "/api/broadcast/tpl/:id",
     "regexp": "/^\\/api\\/broadcast\\/tpl\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "role",
       "actlog",
       "wrappedController"
@@ -216,8 +206,8 @@
     "path": "/api/broadcast/add",
     "regexp": "/^\\/api\\/broadcast\\/add(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -230,7 +220,6 @@
     "path": "/api/player/list",
     "regexp": "/^\\/api\\/player\\/list(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -243,7 +232,6 @@
     "path": "/api/player/playerinfo/basic-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/basic-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -256,7 +244,6 @@
     "path": "/api/player/playerinfo/bag-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/bag-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -269,7 +256,6 @@
     "path": "/api/player/playerinfo/warehouse-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/warehouse-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -282,7 +268,6 @@
     "path": "/api/player/playerinfo/equip-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/equip-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -295,7 +280,6 @@
     "path": "/api/player/playerinfo/skill-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/skill-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -308,7 +292,6 @@
     "path": "/api/player/playerinfo/title-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/title-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -321,7 +304,6 @@
     "path": "/api/player/playerinfo/pet-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/pet-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -334,7 +316,6 @@
     "path": "/api/player/playerinfo/task-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/task-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -347,7 +328,6 @@
     "path": "/api/player/playerinfo/home-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/home-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -360,7 +340,6 @@
     "path": "/api/player/playerinfo/email-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/email-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -373,7 +352,6 @@
     "path": "/api/player/playerinfo/marriage-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/marriage-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
       "wrappedController"
     ]
   },
@@ -386,7 +364,8 @@
     "path": "/api/player/ban/account",
     "regexp": "/^\\/api\\/player\\/ban\\/account(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -399,7 +378,8 @@
     "path": "/api/player/ban/account-r",
     "regexp": "/^\\/api\\/player\\/ban\\/account-r(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -412,7 +392,7 @@
     "path": "/api/player/playerinfo/ban-account-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/ban-account-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -425,7 +405,7 @@
     "path": "/api/player/playerinfo/ban-talk-info",
     "regexp": "/^\\/api\\/player\\/playerinfo\\/ban-talk-info(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -438,7 +418,8 @@
     "path": "/api/player/ban/talk",
     "regexp": "/^\\/api\\/player\\/ban\\/talk(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -451,7 +432,8 @@
     "path": "/api/player/ban/talk-r",
     "regexp": "/^\\/api\\/player\\/ban\\/talk-r(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -464,7 +446,8 @@
     "path": "/api/player/gmact/money",
     "regexp": "/^\\/api\\/player\\/gmact\\/money(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -477,7 +460,8 @@
     "path": "/api/player/gmact/prop",
     "regexp": "/^\\/api\\/player\\/gmact\\/prop(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -490,7 +474,50 @@
     "path": "/api/player/gmact/exp",
     "regexp": "/^\\/api\\/player\\/gmact\\/exp(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
+      "actlog",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/pet-exp",
+    "regexp": "/^\\/api\\/player\\/gmact\\/pet-exp(?:\\/(?=$))?$/",
+    "stack": [
+      "role",
+      "actlog",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/set-player-level",
+    "regexp": "/^\\/api\\/player\\/gmact\\/set-player-level(?:\\/(?=$))?$/",
+    "stack": [
+      "role",
+      "actlog",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/player/gmact/set-pet-level",
+    "regexp": "/^\\/api\\/player\\/gmact\\/set-pet-level(?:\\/(?=$))?$/",
+    "stack": [
+      "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -503,7 +530,8 @@
     "path": "/api/player/gmact/add-title",
     "regexp": "/^\\/api\\/player\\/gmact\\/add-title(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -516,7 +544,8 @@
     "path": "/api/player/gmact/del-title",
     "regexp": "/^\\/api\\/player\\/gmact\\/del-title(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -529,7 +558,7 @@
     "path": "/api/player/gmact/prac-level",
     "regexp": "/^\\/api\\/player\\/gmact\\/prac-level(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -542,7 +571,7 @@
     "path": "/api/player/gmact/petsymbol-level",
     "regexp": "/^\\/api\\/player\\/gmact\\/petsymbol-level(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -555,7 +584,7 @@
     "path": "/api/player/gmact/forcedown",
     "regexp": "/^\\/api\\/player\\/gmact\\/forcedown(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -568,7 +597,7 @@
     "path": "/api/player/gmact/secure-code",
     "regexp": "/^\\/api\\/player\\/gmact\\/secure-code(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -581,7 +610,7 @@
     "path": "/api/player/gmact/change-pass",
     "regexp": "/^\\/api\\/player\\/gmact\\/change-pass(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -594,7 +623,7 @@
     "path": "/api/player/gmact/untie-phone",
     "regexp": "/^\\/api\\/player\\/gmact\\/untie-phone(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -607,7 +636,7 @@
     "path": "/api/player/clear/secure-code",
     "regexp": "/^\\/api\\/player\\/clear\\/secure-code(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -620,7 +649,7 @@
     "path": "/api/player/clear/un-gang",
     "regexp": "/^\\/api\\/player\\/clear\\/un-gang(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -633,7 +662,7 @@
     "path": "/api/player/clear/un-task",
     "regexp": "/^\\/api\\/player\\/clear\\/un-task(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -646,7 +675,7 @@
     "path": "/api/batchact",
     "regexp": "/^\\/api\\/batchact(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -659,7 +688,8 @@
     "path": "/api/batchact/award",
     "regexp": "/^\\/api\\/batchact\\/award(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -672,7 +702,7 @@
     "path": "/api/sysact/activity/update",
     "regexp": "/^\\/api\\/sysact\\/activity\\/update(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -685,7 +715,7 @@
     "path": "/api/sysact/activity/list",
     "regexp": "/^\\/api\\/sysact\\/activity\\/list(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -698,7 +728,7 @@
     "path": "/api/sysact/gmins",
     "regexp": "/^\\/api\\/sysact\\/gmins(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
@@ -711,7 +741,7 @@
     "path": "/api/sysact/srvforcedown",
     "regexp": "/^\\/api\\/sysact\\/srvforcedown(?:\\/(?=$))?$/",
     "stack": [
-      "auth",
+      "role",
       "wrappedController"
     ]
   },
