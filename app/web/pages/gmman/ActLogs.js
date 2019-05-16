@@ -87,6 +87,12 @@ class ActLogs extends React.Component {
     }, {
       title: '数据',
       dataIndex: 'data',
+      width: 600,
+      render: (text, record) => (
+        <div style={{ wordWrap: 'break-word', wordBreak: 'break-all' }}>
+          {text}
+        </div>
+      ),
     }, {
       title: '操作时间',
       dataIndex: 'created_at',

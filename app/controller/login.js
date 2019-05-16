@@ -40,7 +40,7 @@ class LoginController extends BaseController {
     const { ctx } = this;
     const userService = ctx.service.user;
     if (userService.update({ id: ctx.user.id, token: '' })) {
-      ctx.body = this.success();
+      ctx.body = this.success({}, 'not-login');
     } else {
       ctx.body = this.error();
     }

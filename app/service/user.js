@@ -97,6 +97,7 @@ class UserService extends Service {
         return false; // token写入失败
 
       } catch (e) {
+        this.logger.error(e);
         return false;
       }
     } else {

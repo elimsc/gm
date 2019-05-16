@@ -10,17 +10,20 @@ class BaseController extends Controller {
 
   // 成功
   success(payload = {}, token = '', message = '操作成功') {
-    return { code: 0, message, payload, token: token ? token : this.ctx.user.token };
+    const current_token = this.ctx.user && this.ctx.user.token ? this.ctx.user.token : '';
+    return { code: 0, message, payload, token: token ? token : current_token };
   }
 
   // 一般失败, 通常由于客户端数据的错误导致
   failed(message = '数据错误') {
-    return { code: 1, message, token: this.ctx.user.token };
+    const current_token = this.ctx.user && this.ctx.user.token ? this.ctx.user.token : '';
+    return { code: 1, message, token: current_token };
   }
 
   // 一般错误，一般在客户端数据正确而服务端错误时返回
   error(message = '服务端错误') {
-    return { code: 2, message, token: this.ctx.user.token };
+    const current_token = this.ctx.user && this.ctx.user.token ? this.ctx.user.token : '';
+    return { code: 2, message, token: current_token };
   }
 
   // 未登陆错误
