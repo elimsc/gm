@@ -35,11 +35,11 @@ describe('service.user.create() and service.user.delete()', () => {
     const count1 = await ctx.service.user.count({});
 
     // user exists, return false
-    const r = await ctx.service.user.create({ username: 'super', password: '111' }); 
+    const r = await ctx.service.user.create({ username: 'super', password: '111' });
     assert(r === false);
 
     // success insert
-    const r1 = await ctx.service.user.create({ username: 'test1', password: '111' }); 
+    const r1 = await ctx.service.user.create({ username: 'test1', password: '111' });
     assert(r1 === true);
     const count2 = await ctx.service.user.count({});
     assert(count2 === count1 + 1);
@@ -64,5 +64,4 @@ describe('service.user.update()', () => {
     await ctx.service.user.update({ id: 1, role: 3 });
 
   });
-}); 
-
+});

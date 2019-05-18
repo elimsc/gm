@@ -674,19 +674,6 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/batchact",
-    "regexp": "/^\\/api\\/batchact(?:\\/(?=$))?$/",
-    "stack": [
-      "role",
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
     "path": "/api/batchact/award",
     "regexp": "/^\\/api\\/batchact\\/award(?:\\/(?=$))?$/",
     "stack": [

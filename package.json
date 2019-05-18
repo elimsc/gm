@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "egg-scripts start --daemon --env prod",
+    "start": "egg-scripts start --daemon --env prod --worker=2",
     "stop": "egg-scripts stop",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",

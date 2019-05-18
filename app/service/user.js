@@ -47,7 +47,7 @@ class UserService extends Service {
       const result = await this.app.mysql.insert('user', { username, password: hashed_pass });
       return result.affectedRows === 1;
     } catch (e) {
-      this.logger.error(e);
+      // this.logger.error(e);
       return false;
     }
   }
@@ -58,13 +58,16 @@ class UserService extends Service {
       const result = await this.app.mysql.delete('user', { username });
       return result.affectedRows === 1;
     } catch (e) {
-      this.logger.error(e);
+      // this.logger.error(e);
       return false;
     }
   }
 
   // 更新用户信息
   async update(value) {
+    // 去掉不必要的内容: req_url
+    delete value.req_url;
+
     let password;
     if (value.password) {
       const hashed_pass = bcrypt.hashSync(value.password, 10);

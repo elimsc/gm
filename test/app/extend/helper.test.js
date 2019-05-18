@@ -1,6 +1,6 @@
 'use strict';
 
-const { app, mock, assert } = require('egg-mock/bootstrap');
+const { app, assert } = require('egg-mock/bootstrap');
 
 describe('extend.helper.tableInfoConv()', () => {
   it('should work', () => {
@@ -36,5 +36,17 @@ describe('extend.helper.tableInfoListConv()', () => {
         { key: 'name', title: '名称', value: 'name2test' },
       ],
     ]);
+  });
+});
+
+describe('extend.helper.genBody()', () => {
+  it('should work', () => {
+    const ctx = app.mockContext();
+
+    const head = { cmd: 1001 };
+    const body = { name: '512718', type: 2, part_id: -1 };
+    const token_param_list = [ 'name', 'type' ];
+
+    assert.equal(ctx.helper.genBody(head, body, token_param_list).head.token, '0ee5a8b670334f270247af87d781db2a');
   });
 });

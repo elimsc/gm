@@ -1,7 +1,6 @@
 import { post, get } from "../utils/request";
 import md5 from 'blueimp-md5';
-
-const MD5_KEY = "my_md5";
+import { MD5_KEY } from '../utils/common';
 
 // 新增管理员用户
 export async function create({ username, password, part_id }) {

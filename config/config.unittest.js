@@ -3,6 +3,10 @@
 module.exports = appInfo => {
   const config = exports = {};
 
+  config.logger = { consoleLevel: 'NONE' };
+
+  config.assets = {};
+
   config.mysql = {
     // 单数据库信息配置
     client: {

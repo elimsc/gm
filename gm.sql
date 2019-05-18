@@ -49,9 +49,9 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'super', '$2b$10$hVHPOZ8O4ybPgoTghr2mwOf74vJTeyEIMlm6YDARuEXmvUqBE0mU2', null, '3');
-INSERT INTO `user` VALUES ('2', 'operation', '$2b$10$hVHPOZ8O4ybPgoTghr2mwOf74vJTeyEIMlm6YDARuEXmvUqBE0mU2', null, '2');
-INSERT INTO `user` VALUES ('3', 'simple', '$2b$10$hVHPOZ8O4ybPgoTghr2mwOf74vJTeyEIMlm6YDARuEXmvUqBE0mU2', null, null);
+INSERT INTO `user` VALUES ('1', 'super', '$2b$10$zqti5Z3PYoGkF4MTGlEiLuLMQALHIhkLpVNsc324hy4stMil0of7O', null, '3');
+INSERT INTO `user` VALUES ('2', 'operation', '$2b$10$zqti5Z3PYoGkF4MTGlEiLuLMQALHIhkLpVNsc324hy4stMil0of7O', null, '2');
+INSERT INTO `user` VALUES ('3', 'simple', '$2b$10$zqti5Z3PYoGkF4MTGlEiLuLMQALHIhkLpVNsc324hy4stMil0of7O', null, null);
 
 
 DROP TABLE IF EXISTS `actlog`;
@@ -64,4 +64,4 @@ CREATE TABLE `actlog` (
   `data` text NOT NULL COMMENT '操作相关数据',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

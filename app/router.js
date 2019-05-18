@@ -78,7 +78,6 @@ module.exports = app => {
   router.post('/api/player/clear/un-task', role_operation, controller.player.clear.clearUnTask); // 清除非正常任务
 
   // 批量操作
-  router.post('/api/batchact', role_operation, controller.batchact.act);
   router.post('/api/batchact/award', role_operation, actlog({ action: '批量发放道具' }), controller.batchact.award); // 批量发放道具
 
   // 系统操作

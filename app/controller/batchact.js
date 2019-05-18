@@ -13,10 +13,6 @@ class BatchActController extends BaseController {
     this.gmactService = this.ctx.service.gmact;
   }
 
-  // 批量操作
-  async act() {
-    this.ctx.body = this.success();
-  }
 
   /**
    * POST batchact/award

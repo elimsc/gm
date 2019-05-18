@@ -8,8 +8,8 @@ class HomeController extends BaseController {
   }
 
   async demo() {
-    const playerService = this.ctx.service.player;
-    const result = await playerService.list({ name: '123', type: 0 });
+    const playerService = this.ctx.service.user;
+    const result = await playerService.list({page: 1, pageSize: 10});
     this.ctx.body = result;
   }
 }

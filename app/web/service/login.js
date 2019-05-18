@@ -1,7 +1,6 @@
 import { post } from "../utils/request";
 import md5 from 'blueimp-md5';
-
-const MD5_KEY = "my_md5";
+import { MD5_KEY } from '../utils/common';
 
 // 登陆
 export async function login({ username, password }) {

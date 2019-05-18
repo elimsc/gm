@@ -7,17 +7,7 @@ class PlayerinfoService extends BaseReqService {
   // 角色列表查询
   async list({ name, type, part_id }) {
     const result = await this.request({ cmd: 1001 }, { name, type, part_id }, [ 'name', 'type' ]);
-    console.log(result);
-    if (!result) { // 异常发生
-      return [{
-        gender: 1,
-        guid: '1828468287530731054',
-        uid: '123123123123',
-        level: 70,
-        menpai: 2,
-        name: '俞天荷',
-      }];
-    }
+    if (!result) return [];
     if (result.data && result.data.body && result.data.body.rolelist) {
       return result.data.body.rolelist;
     }
