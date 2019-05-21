@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, message } from 'antd';
+import { Button, message, Modal } from 'antd';
 
 import { clearSecureCode } from '../../../../service/clear';
 
@@ -14,15 +14,21 @@ class ClearSecureCode extends React.Component {
   }
 
   handleClick = () => {
-    const {part_id, guid} = this.props;
-    this.setState({ loading: true });
-    clearSecureCode({part_id, guid}).then(data => {
-      if (data.code === 0) {
-        message.success('操作成功');
-      } else {
-        message.error('操作失败');
+    const { part_id, guid } = this.props;
+    Modal.confirm({
+      title: '确认操作',
+      content: '确认进行该操作？',
+      onOk: () => {
+        this.setState({ loading: true });
+        clearSecureCode({ part_id, guid }).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('操作失败');
+          }
+          this.setState({ loading: false });
+        })
       }
-      this.setState({ loading: false });
     })
   }
 

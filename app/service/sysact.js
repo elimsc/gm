@@ -11,7 +11,13 @@ class SysactService extends BaseReqService {
     return true;
   }
 
-  async gmIns() {
+  // GM指令
+  // #${cmd}=#{content}
+  async gmIns({ cmd, guid, content, part_id }) {
+    // console.log({ cmd, guid, content });
+    const r = await this.request({ cmd: 3013 }, { cmd, guid, content, part_id }, [ 'cmd', 'guid', 'content' ]);
+    console.log(r);
+    if (!this.is_success(r)) return false;
     return true;
   }
 

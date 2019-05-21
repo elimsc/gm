@@ -30,8 +30,9 @@ class SysActControler extends BaseController {
   }
 
   // GM指令
+  // POST /sysact/gmins
   async gmins() {
-    const r = await this.sysactService.gmIns();
+    const r = await this.sysactService.gmIns(this.ctx.request.body);
     if (r) {
       this.ctx.body = this.success();
     } else {

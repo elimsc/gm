@@ -10,6 +10,7 @@ class ClearController extends BaseController {
   constructor(props) {
     super(props);
     this.clearService = this.ctx.service.clear;
+    this.sysactService = this.ctx.service.sysact;
   }
 
   /**
@@ -17,8 +18,13 @@ class ClearController extends BaseController {
    * 清除安全码
    */
   async clearSecureCode() {
-    await this.clearService.clearSecureCode(this.ctx.request.body);
-    this.ctx.body = this.success();
+    const { guid, part_id } = this.ctx.request.body;
+    const r = await this.sysactService.gmIns({ cmd: 'sys', content: 'cl_lock', guid, part_id });
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
   }
 
   /**
@@ -26,8 +32,12 @@ class ClearController extends BaseController {
    * 清除非正常帮会数据
    */
   async clearUnGang() {
-    await this.clearService.clearUnGang(this.ctx.request.body);
-    this.ctx.body = this.success();
+    const r = await this.clearService.clearUnGang(this.ctx.request.body);
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
   }
 
   /**
@@ -35,8 +45,14 @@ class ClearController extends BaseController {
    * 清除非正常任务
    */
   async clearUnTask() {
-    await this.clearService.clearUnTask(this.ctx.request.body);
-    this.ctx.body = this.success();
+    const { guid, part_id, task_id } = this.ctx.request.body;
+    const content = `d=${task_id}`;
+    const r = await this.sysactService.gmIns({ cmd: 'ms', content, guid, part_id });
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
   }
 }
 

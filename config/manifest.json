@@ -1,10 +1,10 @@
 {
-  "vendors.css": "vendors.318bf680.chunk.css",
-  "vendors.js": "vendors.4a07169e.async.js",
+  "vendors.css": "vendors.24de7ecf.chunk.css",
+  "vendors.js": "vendors.63089391.async.js",
   "layouts__index.css": "layouts__index.abef773a.chunk.css",
-  "layouts__index.js": "layouts__index.b0111446.async.js",
+  "layouts__index.js": "layouts__index.196e7907.async.js",
   "p__404.js": "p__404.56b2dfaa.async.js",
-  "p__batchact__index.js": "p__batchact__index.702ec28b.async.js",
+  "p__batchact__index.js": "p__batchact__index.3ff92c33.async.js",
   "p__broadcast__index.js": "p__broadcast__index.80fb0d58.async.js",
   "p__gmman__ActLogs.js": "p__gmman__ActLogs.1a9db03a.async.js",
   "p__gmman__Add.js": "p__gmman__Add.4c206cf5.async.js",
@@ -14,10 +14,11 @@
   "p__login__index.js": "p__login__index.79fc83f5.async.js",
   "p__player__components__gmact__awardtab__BangFunds.js": "p__player__components__gmact__awardtab__BangFunds.49ce879d.async.js",
   "p__player__components__gmact__awardtab__BangZl.js": "p__player__components__gmact__awardtab__BangZl.2f46cbbc.async.js",
-  "p__player__index.js": "p__player__index.82bc1642.async.js",
-  "p__sysact__Activity.js": "p__sysact__Activity.f6f023c7.async.js",
-  "p__sysact__GmIns.js": "p__sysact__GmIns.ed9a45b9.async.js",
-  "p__sysact__SrvForceDown.js": "p__sysact__SrvForceDown.390ff35c.async.js",
-  "p__user___layout.js": "p__user___layout.2b6b5ada.async.js",
-  "umi.js": "umi.1d333e0e.js"
+  "p__player__index.js": "p__player__index.6d91ff64.async.js",
+  "p__sysact__Activity.js": "p__sysact__Activity.7330cb0f.async.js",
+  "p__sysact__Activity1.js": "p__sysact__Activity1.d0e15db8.async.js",
+  "p__sysact__GmIns.js": "p__sysact__GmIns.25f5ca99.async.js",
+  "p__sysact__SrvForceDown.js": "p__sysact__SrvForceDown.6115d6ea.async.js",
+  "p__user___layout.js": "p__user___layout.023e4270.async.js",
+  "umi.js": "umi.9da2a978.js"
 }

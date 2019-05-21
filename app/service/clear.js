@@ -9,17 +9,17 @@ const BaseReqService = require('./basereq');
 class ClearService extends BaseReqService {
   // 清除安全码
   async clearSecureCode() {
-    return true;
+    return false;
   }
 
   // 清除非正常帮会数据
   async clearUnGang() {
-    return true;
+    return false;
   }
 
   // 清除非正常任务
   async clearUnTask() {
-    return true;
+    return false;
   }
 }
 

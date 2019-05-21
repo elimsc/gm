@@ -73,7 +73,7 @@ class BanController extends BaseController {
    * 封号记录
    */
   async banAccountLog() {
-    const r = await this.banService.banAccountLog(this.ctx.request.body);
+    const r = await this.banService.banAccountLog({ ...this.ctx.request.body, uid: `${this.ctx.request.body.uid}` });
     this.ctx.body = this.success(r);
   }
 

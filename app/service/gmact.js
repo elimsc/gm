@@ -15,6 +15,13 @@ class GmactService extends BaseReqService {
     return true;
   }
 
+  // 给玩家发放东西（直接修改）
+  async awardD({ guid, type, id, cnt, param, part_id }) {
+    const r = await this.request({ cmd: 2001 }, { guid, type, id, cnt, param, part_id }, [ 'guid', 'type', 'id', 'cnt', 'param' ]);
+    if (!this.is_success(r)) return false;
+    return true;
+  }
+
   // type: 类型,3等级/4修炼等级/5炼符等级
   // value_type:
   //  type为等级时传-1
@@ -36,46 +43,47 @@ class GmactService extends BaseReqService {
 
 
   // 添加/扣除经验
-  async exp() {
-    return true;
-  }
+  // async exp() {
+  //   return true;
+  // }
 
   // 添加删除称号
-  async titlem({ guid, part_id, title_id, is_del }) {
-    const r = await this.request({ cmd: 2009 }, { guid, part_id, title_id, is_del }, [ 'guid', 'title_id', 'is_del' ]);
-    console.log(r);
-    if (!this.is_success(r)) return false;
-    return true;
-  }
+  // async titlem({ guid, part_id, title_id, is_del }) {
+  //   const r = await this.request({ cmd: 2009 }, { guid, part_id, title_id, is_del }, [ 'guid', 'title_id', 'is_del' ]);
+  //   if (!this.is_success(r)) return false;
+  //   return true;
+  // }
 
   // 修改修炼等级
-  async pracLevel() {
-    return true;
-  }
+  // async pracLevel() {
+  //   return true;
+  // }
 
   // 宠物符等级
-  async petsymbolLevel() {
-    return true;
-  }
+  // async petsymbolLevel() {
+  //   return true;
+  // }
 
   // 踢玩家下线
-  async forcedown() {
+  async forcedown({ guid, part_id }) {
+    const r = await this.request({ cmd: 2009 }, { guid, part_id }, [ 'guid' ]);
+    if (!this.is_success(r)) return false;
     return true;
   }
 
   // 安全码修改
   async secureCode() {
-    return true;
+    return false;
   }
 
   // 密码修改
   async changePass() {
-    return true;
+    return false;
   }
 
   // 解除绑定手机
   async untiePhone() {
-    return true;
+    return false;
   }
 }
 

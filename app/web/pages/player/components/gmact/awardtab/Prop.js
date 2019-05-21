@@ -1,19 +1,41 @@
 import React from 'react';
-import { Form, Input, Button, message, Icon, Modal } from 'antd';
+import { Form, Input, Button, message, Icon, Modal, AutoComplete } from 'antd';
 import { prop } from '../../../../../service/gmact';
-
+import { propList } from '../../../../../service/sysdata';
 
 
 /**
  * 发放道具
  */
-class Prop extends React.Component {
+class Prop extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       loading: false,
+      props: [], // 所有的道具
+      propNames: [],
     }
     this.id = 0;
+  }
+
+  componentDidMount() {
+    propList('*').then(data => {
+      const props = data.payload;
+      this.setState({ props });
+    });
+  }
+
+  handleSearch = name => {
+    propList(name).then(data => {
+      const props = data.payload;
+      if (Array.isArray(props)) {
+        const propNames = [];
+        for (const prop of props) {
+          propNames.push(prop.name);
+        }
+        this.setState({ propNames });
+      }
+    })
   }
 
   remove = (k) => {
@@ -42,11 +64,18 @@ class Prop extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        const names = values.keys.map(i => values['names'][i]);
+        const names = values.keys.map(i => {
+          const propName = values['names'][i];
+          for (const prop of this.state.props) {
+            if (prop.name === propName) {
+              return prop.id;
+            }
+          }
+        });
         const counts = values.keys.map(i => values['counts'][i]);
         const params = values.keys.map(i => values['params'][i]);
         console.log({ names, counts, params });
-        let textArr = values.keys.map(i => `道具ID: ${values.names[i]}, 数量: ${values.counts[i]}`);
+        let textArr = values.keys.map(i => `道具: ${values.names[i]}, 数量: ${values.counts[i]}`);
         Modal.confirm({
           title: '确认操作',
           content: (
@@ -106,17 +135,21 @@ class Prop extends React.Component {
     const formItems = keys.map((k, index) => (
       <div key={k}>
         <Form.Item
-          label="道具ID"
+          label="道具名"
           {...formItemLayout}
         >
           {getFieldDecorator(`names[${k}]`, {
             validateTrigger: ['onChange', 'onBlur'],
             rules: [{
               required: true,
-              message: "道具ID不能为空",
+              message: "道具不能为空",
             }],
           })(
-            <Input type="number" placeholder="道具ID" style={{ width: '90%', marginRight: 8 }} />
+            <AutoComplete
+              placeholder="道具名"
+              onSearch={this.handleSearch}
+              dataSource={this.state.propNames}
+              style={{ width: '90%', marginRight: 8 }} />
           )}
           {keys.length > 1 ? (
             <Icon
@@ -145,9 +178,14 @@ class Prop extends React.Component {
           {...formItemLayout}
         >
           {getFieldDecorator(`params[${k}]`, {
+            initialValue: 0,
             validateTrigger: ['onChange', 'onBlur'],
+            rules: [{
+              required: true,
+              message: "扩展ID不能为空",
+            }],
           })(
-            <Input placeholder="扩展ID(可以为空)" type="number" style={{ width: '90%', marginRight: 8 }} />
+            <Input placeholder="扩展ID" type="number" style={{ width: '90%', marginRight: 8 }} />
           )}
         </Form.Item>
       </div>
@@ -174,7 +212,7 @@ class Prop extends React.Component {
           )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">发放</Button>
+          <Button type="primary" htmlType="submit" loading={this.state.loading}>发放</Button>
         </Form.Item>
       </Form>
     );

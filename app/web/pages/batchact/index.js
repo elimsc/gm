@@ -45,7 +45,7 @@ class BatchAct extends React.Component {
               const items = [];
               for (let award of awards) {
                 for (let item of award) {
-                  if (Number.isInteger(item[0])) {
+                  if (Number.isInteger(parseInt((`${item[0]}`).substr(0, 1)))) {
                     const time = (new Date(item[1])).getTime();
                     if (isNaN(time)) {
                       this.setState({

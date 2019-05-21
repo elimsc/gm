@@ -14,11 +14,12 @@ class BatchActController extends BaseController {
     this.banService = this.ctx.service.ban;
   }
 
+  // 批量禁言
   async banTalk() {
     const err_guids = [];
     const { items, reason, part_id } = this.ctx.request.body;
     for (const item of items) {
-      const r = this.banService.banAccount({ guid: item[0], time: parseInt((`${item[1]}`).substr(0, 10)), flag: 1, reason, part_id });
+      const r = await this.banService.banTalk({ guid: `${item[0]}`, time: item[1], flag: 0, reason, part_id });
       if (!r) {
         err_guids.push(item[0]);
       }
@@ -30,11 +31,12 @@ class BatchActController extends BaseController {
     }
   }
 
+  // 批量封号
   async banAccount() {
     const err_uids = [];
     const { items, reason, part_id } = this.ctx.request.body;
     for (const item of items) {
-      const r = this.banService.banAccount({ uid: item[0], time: parseInt((`${item[1]}`).substr(0, 10)), flag: 1, reason, part_id });
+      const r = await this.banService.banAccount({ uid: `${item[0]}`, time: item[1], flag: 0, reason, part_id });
       if (!r) {
         err_uids.push(item[0]);
       }

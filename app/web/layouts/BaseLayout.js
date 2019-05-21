@@ -149,14 +149,14 @@ class BaseLayout extends React.Component {
               {this.state.role >= 3 ?
                 <SubMenu key="sysact" title={<span><Icon type="hdd" /><span>系统操作</span></span>}>
                   <Menu.Item key="/sysact/activity" onClick={() => this.go_route('/sysact/activity')}>
-                    <span>服务与活动管理</span>
+                    <span>活动与功能管理</span>
                   </Menu.Item>
                   <Menu.Item key="/sysact/gmins" onClick={() => this.go_route('/sysact/gmins')}>
-                    <span>GM指令</span>
+                    <span>GM指令（通用）</span>
                   </Menu.Item>
-                  <Menu.Item key="/sysact/srvforcedown" onClick={() => this.go_route('/sysact/srvforcedown')}>
+                  {/* <Menu.Item key="/sysact/srvforcedown" onClick={() => this.go_route('/sysact/srvforcedown')}>
                     <span>服务器强制下线</span>
-                  </Menu.Item>
+                  </Menu.Item> */}
                 </SubMenu>
                 : null}
               {this.state.role >= 3 ?

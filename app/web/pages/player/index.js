@@ -57,7 +57,7 @@ class PlayerMan extends React.PureComponent {
     const menu = v.menu || this.state.menu;
     this.setState({ ...v });
     if (!player || !menu.endsWith('info')) return; // 没有当前选中用户时，不请求服务端
-    this.setState({ dataLoading: true });
+    this.setState({ dataLoading: true, data: [] });
     fetchInfo(menu, { ...player, ...this.props.global }).then(data => {
       this.setState({ data: data.payload, dataLoading: false });
     });
@@ -81,8 +81,8 @@ class PlayerMan extends React.PureComponent {
         key: 'gender',
         render: (text, record) => {
           switch (parseInt(text)) {
-            case 0: return '女';
-            case 1: return '男';
+            case 0: return '男';
+            case 1: return '女';
             default: return '';
           }
         }
@@ -194,6 +194,7 @@ class PlayerMan extends React.PureComponent {
                 {this.props.global.user_role > 1 ?
                   <Menu.SubMenu key="gmact" title="GM操作">
                     <Menu.Item onClick={() => this.select('award')} key="award">物品发放（邮件）</Menu.Item>
+                    <Menu.Item onClick={() => this.select('award-d')} key="award-d">物品发放（直接修改）</Menu.Item>
                     {/* <Menu.Item onClick={() => this.select('money')} key="money">发放货币</Menu.Item> */}
                     {/* <Menu.Item onClick={() => this.select('prop')} key="prop">发放道具</Menu.Item> */}
                     <Menu.Item onClick={() => this.select('pet')} key="pet">修改宠物数据</Menu.Item>
@@ -203,7 +204,7 @@ class PlayerMan extends React.PureComponent {
                     {/* <Menu.Item onClick={() => this.select('prac-level')} key="prac-level">修改修炼等级</Menu.Item> */}
                     {/* <Menu.Item onClick={() => this.select('petsymbol-level')} key="petsymbol-level">修改宠物符等级</Menu.Item> */}
                     <Menu.Item onClick={() => this.select('forcedown')} key="forcedown">踢玩家下线</Menu.Item>
-                    <Menu.Item onClick={() => this.select('secure-code')} key="secure-code">安全码修改</Menu.Item>
+                    {/* <Menu.Item onClick={() => this.select('secure-code')} key="secure-code">安全码修改</Menu.Item> */}
                     <Menu.Item onClick={() => this.select('change-pass')} key="change-pass">修改密码</Menu.Item>
                     <Menu.Item onClick={() => this.select('untie-phone')} key="untie-phone">解除绑定手机</Menu.Item>
                   </Menu.SubMenu> : null
@@ -211,16 +212,16 @@ class PlayerMan extends React.PureComponent {
                 {this.props.global.user_role > 1 ?
                   <Menu.SubMenu key="clear" title="清除数据">
                     <Menu.Item onClick={() => this.select('clear-secure-code')} key="clear-secure-code">清除安全码</Menu.Item>
-                    <Menu.Item onClick={() => this.select('unusual-gang')} key="unusual-gang">清除非正常帮会数据</Menu.Item>
+                    {/* <Menu.Item onClick={() => this.select('unusual-gang')} key="unusual-gang">清除非正常帮会数据</Menu.Item> */}
                     <Menu.Item onClick={() => this.select('unusual-task')} key="unusual-task">清除非正常任务</Menu.Item>
                   </Menu.SubMenu> : null
                 }
                 {this.props.global.user_role > 1 ?
                   <Menu.SubMenu key="ban" title="封号/禁言">
-                    <Menu.Item onClick={() => this.select('ban-account')} key="ban-account">封号</Menu.Item>
-                    <Menu.Item onClick={() => this.select('ban-account-info')} key="ban-account-info">封号记录</Menu.Item>
-                    <Menu.Item onClick={() => this.select('ban-talk')} key="ban-talk">禁言</Menu.Item>
-                    <Menu.Item onClick={() => this.select('ban-talk-info')} key="ban-talk-info">禁言记录</Menu.Item>
+                    <Menu.Item onClick={() => this.select('ban-account')} key="ban-account">封号/解封</Menu.Item>
+                    <Menu.Item onClick={() => this.select('ban-account-info')} key="ban-account-info">封号状态</Menu.Item>
+                    <Menu.Item onClick={() => this.select('ban-talk')} key="ban-talk">禁言/解禁</Menu.Item>
+                    <Menu.Item onClick={() => this.select('ban-talk-info')} key="ban-talk-info">禁言状态</Menu.Item>
                   </Menu.SubMenu> : null
                 }
 

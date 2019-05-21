@@ -30,6 +30,18 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/api/sysdata/prop",
+    "regexp": "/^\\/api\\/sysdata\\/prop(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/api/login",
     "regexp": "/^\\/api\\/login(?:\\/(?=$))?$/",
     "stack": [
@@ -587,6 +599,7 @@
     "regexp": "/^\\/api\\/player\\/gmact\\/forcedown(?:\\/(?=$))?$/",
     "stack": [
       "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -635,10 +648,25 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/api/player/gmact/award-d",
+    "regexp": "/^\\/api\\/player\\/gmact\\/award-d(?:\\/(?=$))?$/",
+    "stack": [
+      "role",
+      "actlog",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/api/player/clear/secure-code",
     "regexp": "/^\\/api\\/player\\/clear\\/secure-code(?:\\/(?=$))?$/",
     "stack": [
       "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -665,6 +693,7 @@
     "regexp": "/^\\/api\\/player\\/clear\\/un-task(?:\\/(?=$))?$/",
     "stack": [
       "role",
+      "actlog",
       "wrappedController"
     ]
   },
@@ -746,6 +775,7 @@
     "regexp": "/^\\/api\\/sysact\\/gmins(?:\\/(?=$))?$/",
     "stack": [
       "role",
+      "actlog",
       "wrappedController"
     ]
   },

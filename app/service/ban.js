@@ -23,22 +23,54 @@ class BanService extends BaseReqService {
     return true;
   }
 
-  // 禁言记录
+  // 禁言记录（禁言状态）
   async banTalkLog({ guid, part_id }) {
     const r = await this.request({ cmd: 3011 }, { guid, part_id }, [ 'guid' ]);
+    console.log(r);
     if (!r) return [];
-    if (r.data && r.data.body && r.data.body.black_list) {
-      return r.data.body.black_list;
+    if (r.data && r.data.body) {
+      const src = r.data.body;
+      const tpl = {
+        guid: '角色GUID',
+        end_time: '禁言截止时间',
+      };
+
+      const end_time_map = end_time => {
+        switch (end_time) {
+          case 0: return '未禁言';
+          default: return this.pretttyTime(end_time);
+        }
+      };
+
+      const fns = { end_time: end_time_map };
+      return this.ctx.helper.tableInfoConv(src, tpl, fns);
     }
     return [];
   }
 
-  // 封号记录
+  // 封号记录（封号状态）
   async banAccountLog({ uid, part_id }) {
     const r = await this.request({ cmd: 3007 }, { uid, part_id }, [ 'uid' ]);
+    console.log(r);
     if (!r) return [];
-    if (r.data && r.data.body && r.data.body.black_list) {
-      return r.data.body.black_list;
+    if (r.data && r.data.body && r.data.body) {
+      const src = r.data.body;
+      const tpl = {
+        uid: '账户UID',
+        part_id: '区服',
+        end_time: '封号截止时间',
+        gm_time: 'GM操作时间',
+      };
+
+      const end_time_map = end_time => {
+        switch (end_time) {
+          case 0: return '未封号';
+          default: return this.pretttyTime(end_time);
+        }
+      };
+
+      const fns = { end_time: end_time_map, gm_time: this.pretttyTime };
+      return this.ctx.helper.tableInfoConv(src, tpl, fns);
     }
     return [];
   }

@@ -1,10 +1,12 @@
 import React from 'react';
-import { Button, message, Modal, Form, Input } from 'antd';
+import { Form, Input, Button, message, Modal } from 'antd';
 
-import { clearUnTask } from '../../../../service/clear';
+import { awardD } from '../../../../../service/gmact';
 
-@Form.create()
-class UnusualTask extends React.Component {
+/**
+ * 玩家经验
+ */
+class Exp extends React.PureComponent {
 
   constructor(props) {
     super(props);
@@ -13,7 +15,7 @@ class UnusualTask extends React.Component {
     }
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     const { guid, part_id } = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
@@ -21,10 +23,10 @@ class UnusualTask extends React.Component {
         console.log(values);
         Modal.confirm({
           title: '确认操作',
-          content: `确认进行该操作？`,
+          content: `添加经验: ${values['jingyan']}`,
           onOk: () => {
             this.setState({ loading: true });
-            clearUnTask({ guid, part_id, task_id: values['task_id'] }).then(data => {
+            awardD({ guid, part_id, type: 0, id: -1, param: -1, cnt: values['jingyan'] }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -39,7 +41,6 @@ class UnusualTask extends React.Component {
       }
     });
   }
-
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -70,8 +71,8 @@ class UnusualTask extends React.Component {
     return (
       <div>
         <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{ marginTop: 80 }}>
-          <Form.Item label="任务ID">
-            {getFieldDecorator('task_id', {
+          <Form.Item label="玩家添加经验">
+            {getFieldDecorator('jingyan', {
               rules: [{
                 required: true, message: '不能为空'
               }],
@@ -80,7 +81,7 @@ class UnusualTask extends React.Component {
             )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit" loading={this.state.loading}>提交</Button>
+            <Button type="primary" htmlType="submit" loading={this.state.loading}>发放</Button>
           </Form.Item>
         </Form>
 
@@ -89,4 +90,4 @@ class UnusualTask extends React.Component {
   }
 }
 
-export default UnusualTask;
+export default Form.create()(Exp);

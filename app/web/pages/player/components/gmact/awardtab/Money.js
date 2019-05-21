@@ -160,7 +160,7 @@ class Money extends React.Component {
 
 
     return (
-      <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{ marginTop: 40 }}>
+      <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{ marginTop: 56 }}>
         {formItems}
         <Form.Item {...tailFormItemLayout}>
           <Button type="dashed" onClick={() => this.add()} style={{ width: '60%' }}>

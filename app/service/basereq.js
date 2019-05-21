@@ -12,7 +12,7 @@ class BaseReqService extends Service {
     const req_url = this.ctx.request.body.req_url; // 服务器ip
     try {
       return await this.ctx.curl(req_url ? req_url : '', {
-        timeout: 1000,
+        timeout: 5000,
         method: 'POST',
         contentType: 'json', // 请求体为json
         dataType: 'json', // 响应体为json
@@ -33,7 +33,7 @@ class BaseReqService extends Service {
 
   // 时间输出函数
   pretttyTime(t) {
-    return moment(t).format('YYYY-MM-DD HH:mm:ss');
+    return moment(parseInt(t + '000')).format('YYYY-MM-DD HH:mm:ss');
   }
 }
 

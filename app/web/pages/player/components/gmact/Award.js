@@ -10,7 +10,7 @@ class Award extends React.PureComponent {
   render() {
     const { guid, part_id } = this.props;
     const types = [
-      { type: 0, name: '经验' },
+      // { type: 0, name: '经验' },
       { type: 1, name: '货币' },
       { type: 2, name: '道具' },
       // { type: 3, name: '宠物经验' },

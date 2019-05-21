@@ -14,12 +14,12 @@ class GmactController extends BaseController {
 
   /**
    * POST /player/gmact/money
-   * 发放货币
+   * 发放货币（邮件）
    */
   async money() {
     const { guid, part_id, counts, names, reason } = this.ctx.request.body;
     const award_list = names.map((name, i) => {
-      return { type: 1, id: name, cnt: parseInt(counts[i]), param: -1 };
+      return { type: 1, id: name, cnt: parseInt(counts[i]), param: 0 };
     });
     const r = await this.gmactService.award({ guid, part_id, reason, award_list });
     if (r) {
@@ -31,12 +31,12 @@ class GmactController extends BaseController {
 
   /**
    * POST /player/gmact/prop
-   * 发放道具
+   * 发放道具（邮件）
    */
   async prop() {
     const { guid, part_id, counts, names, reason, params } = this.ctx.request.body;
     const award_list = names.map((name, i) => {
-      return { type: 2, id: parseInt(name), cnt: parseInt(counts[i]), param: params[i] ? parseInt(params[i]) : -1 };
+      return { type: 2, id: parseInt(name), cnt: parseInt(counts[i]), param: params[i] ? parseInt(params[i]) : 0 };
     });
     const r = await this.gmactService.award({ guid, part_id, reason, award_list });
     if (r) {
@@ -48,11 +48,11 @@ class GmactController extends BaseController {
 
   /**
    * POST /player/gmact/exp
-   * 物品发放 -- 玩家经验
+   * 物品发放 -- 玩家经验（邮件）
    */
   async exp() {
     const { guid, reason, jingyan, part_id } = this.ctx.request.body;
-    const award_list = [{ type: 0, id: -1, cnt: parseInt(jingyan), param: -1 }];
+    const award_list = [{ type: 0, id: -1, cnt: parseInt(jingyan), param: 0 }];
     const r = await this.gmactService.award({ guid, reason, part_id, award_list });
     if (r) {
       this.ctx.body = this.success();
@@ -176,8 +176,12 @@ class GmactController extends BaseController {
    * 踢玩家下线
    */
   async forcedown() {
-    await this.gmactService.forcedown(this.ctx.request.body);
-    this.ctx.body = this.success();
+    const r = await this.gmactService.forcedown(this.ctx.request.body);
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
   }
 
   /**
@@ -194,8 +198,12 @@ class GmactController extends BaseController {
    * 密码修改
    */
   async changePass() {
-    await this.gmactService.changePass(this.ctx.request.body);
-    this.ctx.body = this.success();
+    const r = await this.gmactService.changePass(this.ctx.request.body);
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
   }
 
   /**
@@ -203,8 +211,26 @@ class GmactController extends BaseController {
    * 解除绑定手机
    */
   async untiePhone() {
-    await this.gmactService.untiePhone(this.ctx.request.body);
-    this.ctx.body = this.success();
+    const r = await this.gmactService.untiePhone(this.ctx.request.body);
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
+  }
+
+  /**
+   * POST player/gmact/award-d
+   * 物品发放（直接修改）
+   */
+  async awardD() {
+    const { guid, type, id, cnt, param, part_id } = this.ctx.request.body;
+    const r = this.gmactService.awardD({ guid, type, id, cnt: parseInt(cnt), param, part_id });
+    if (!r) {
+      this.ctx.body = this.error();
+    } else {
+      this.ctx.body = this.success();
+    }
   }
 
 }
