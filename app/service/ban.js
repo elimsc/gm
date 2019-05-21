@@ -9,18 +9,16 @@ const BaseReqService = require('./basereq');
 class BanService extends BaseReqService {
   // 封号/解封
   // flag: 0封号 1解封
-  async banAccount({ uid, flag, time, reason }) {
-    console.log({ uid, flag, time, reason });
-    const r = await this.request({ cmd: 3005 }, { uid, flag, reason, time }, [ 'uid', 'flag', 'time', 'reason' ]);
+  async banAccount({ uid, flag, time, reason, part_id }) {
+    const r = await this.request({ cmd: 3005 }, { uid, flag, reason, time: parseInt((`${time}`).substr(0, 10)), part_id }, [ 'uid', 'flag', 'time', 'reason' ]);
     if (!this.is_success(r)) return false;
     return true;
   }
 
   // 禁言/解除禁言
   // flag: 0禁言 1解禁
-  async banTalk({ guid, flag, time, reason }) {
-    console.log({ guid, flag, time, reason });
-    const r = await this.request({ cmd: 3009 }, { guid, flag, reason, time }, [ 'guid', 'flag', 'time', 'reason' ]);
+  async banTalk({ guid, flag, time, reason, part_id }) {
+    const r = await this.request({ cmd: 3009 }, { guid, flag, reason, time: parseInt((`${time}`).substr(0, 10)), part_id }, [ 'guid', 'flag', 'time', 'reason' ]);
     if (!this.is_success(r)) return false;
     return true;
   }

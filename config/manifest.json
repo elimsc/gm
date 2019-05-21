@@ -2,9 +2,9 @@
   "vendors.css": "vendors.318bf680.chunk.css",
   "vendors.js": "vendors.4a07169e.async.js",
   "layouts__index.css": "layouts__index.abef773a.chunk.css",
-  "layouts__index.js": "layouts__index.ae9d4f0c.async.js",
+  "layouts__index.js": "layouts__index.b0111446.async.js",
   "p__404.js": "p__404.56b2dfaa.async.js",
-  "p__batchact__index.js": "p__batchact__index.c52166b0.async.js",
+  "p__batchact__index.js": "p__batchact__index.702ec28b.async.js",
   "p__broadcast__index.js": "p__broadcast__index.80fb0d58.async.js",
   "p__gmman__ActLogs.js": "p__gmman__ActLogs.1a9db03a.async.js",
   "p__gmman__Add.js": "p__gmman__Add.4c206cf5.async.js",
@@ -19,5 +19,5 @@
   "p__sysact__GmIns.js": "p__sysact__GmIns.ed9a45b9.async.js",
   "p__sysact__SrvForceDown.js": "p__sysact__SrvForceDown.390ff35c.async.js",
   "p__user___layout.js": "p__user___layout.2b6b5ada.async.js",
-  "umi.js": "umi.1437afbb.js"
+  "umi.js": "umi.1d333e0e.js"
 }

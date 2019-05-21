@@ -11,6 +11,39 @@ class BatchActController extends BaseController {
   constructor(props) {
     super(props);
     this.gmactService = this.ctx.service.gmact;
+    this.banService = this.ctx.service.ban;
+  }
+
+  async banTalk() {
+    const err_guids = [];
+    const { items, reason, part_id } = this.ctx.request.body;
+    for (const item of items) {
+      const r = this.banService.banAccount({ guid: item[0], time: parseInt((`${item[1]}`).substr(0, 10)), flag: 1, reason, part_id });
+      if (!r) {
+        err_guids.push(item[0]);
+      }
+    }
+    if (err_guids.length === 0) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.success({}, '', err_guids);
+    }
+  }
+
+  async banAccount() {
+    const err_uids = [];
+    const { items, reason, part_id } = this.ctx.request.body;
+    for (const item of items) {
+      const r = this.banService.banAccount({ uid: item[0], time: parseInt((`${item[1]}`).substr(0, 10)), flag: 1, reason, part_id });
+      if (!r) {
+        err_uids.push(item[0]);
+      }
+    }
+    if (err_uids.length === 0) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.success({}, '', err_uids);
+    }
   }
 
 

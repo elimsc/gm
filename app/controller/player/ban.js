@@ -18,7 +18,7 @@ class BanController extends BaseController {
    */
   async banAccount() {
     const { end, reason, uid, part_id } = this.ctx.request.body;
-    const r = await this.banService.banAccount({ flag: 0, time: end, reason, uid, part_id });
+    const r = await this.banService.banAccount({ flag: 0, time: end, reason, uid: `${uid}`, part_id });
     if (r) {
       this.ctx.body = this.success();
     } else {
@@ -32,7 +32,7 @@ class BanController extends BaseController {
    */
   async removeAccountBan() {
     const { reason, uid, part_id } = this.ctx.request.body;
-    const r = await this.banService.banAccount({ flag: 1, time: 0, reason, uid, part_id });
+    const r = await this.banService.banAccount({ flag: 1, time: 0, reason, uid: `${uid}`, part_id });
     if (r) {
       this.ctx.body = this.success();
     } else {

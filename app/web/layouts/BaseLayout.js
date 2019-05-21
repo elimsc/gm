@@ -189,11 +189,12 @@ class BaseLayout extends React.Component {
               <div className={styles.headerItem}>
                 <Select defaultValue={localStorage.getItem('req_url') ? localStorage.getItem('req_url') : ''} onChange={(req_url) => this.handleEnvSelect(req_url)} className={styles.select} placeholder="选择环境">
                   <Option value="">空</Option>
-                  <Option value="http://192.168.1.205:20843/">默认测试环境</Option>
+                  <Option value="http://192.168.1.205:20843/">本地测试环境</Option>
+                  <Option value="http://192.168.1.205:20143/">内网测试环境</Option>
                 </Select>
 
-                <Select onChange={this.handleSrvSelect} className={styles.select} placeholder="选择区服">
-                  <Option value={-1}>默认服</Option>
+                <Select onChange={this.handleSrvSelect} className={styles.select} defaultActiveFirstOption placeholder="选择区服">
+                  <Option value={-1}>全服</Option>
                   {srvList.map(v => (
                     <Option key={v.part_id} value={v.part_id}>{v.part_name}</Option>
                   ))}

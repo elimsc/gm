@@ -3,7 +3,7 @@ import { Card, Form, Input, Button, message, Select, Upload, Icon, Modal, Alert 
 import XLSX from 'xlsx';
 import { connect } from 'dva'
 
-import { batchAward } from '../../service/batchact';
+import { batchAward, batchBanAccount, batchBanTalk } from '../../service/batchact';
 
 @connect(({ global }) => ({ global }))
 class BatchAct extends React.Component {
@@ -30,9 +30,11 @@ class BatchAct extends React.Component {
             if (type === 1) {
               this.setState({ loading: true });
               batchAward({ ...values, awards, part_id: this.props.global.part_id }).then(data => {
-                console.log(data);
                 if (Array.isArray(data.message)) { // 表面操作结果有错误
-                  this.setState({ errs: data.message });
+                  const err_msgs = data.message.map(m => {
+                    return `对GUID值为 [${m}] 的角色操作失败！`
+                  })
+                  this.setState({ errs: err_msgs });
                 } else {
                   message.success('操作成功');
                 }
@@ -40,7 +42,54 @@ class BatchAct extends React.Component {
                 this.props.form.resetFields(['reason', 'file'])
               });
             } else {
-              message.info('该功能尚未实现');
+              const items = [];
+              for (let award of awards) {
+                for (let item of award) {
+                  if (Number.isInteger(item[0])) {
+                    const time = (new Date(item[1])).getTime();
+                    if (isNaN(time)) {
+                      this.setState({
+                        errs: [`上传文件格式错误`]
+                      });
+                      return;
+                    }
+                    items.push([item[0], time]);
+                  }
+                }
+              }
+
+              if (type == 2) { // 批量封号
+                this.setState({ loading: true });
+                batchBanAccount({ items, reason: values['reason'], part_id: this.props.global.part_id }).then(data => {
+                  if (Array.isArray(data.message)) { // 表面操作结果有错误
+                    const err_msgs = data.message.map(m => {
+                      return `对UID值为 [${m}] 的账户操作失败！`
+                    })
+                    this.setState({ errs: err_msgs });
+                  } else {
+                    message.success('操作成功');
+                  }
+                  this.setState({ loading: false });
+                  this.props.form.resetFields(['reason', 'file'])
+                });
+              }
+
+              if (type == 3) { // 批量禁言
+                this.setState({ loading: true });
+                batchBanTalk({ items, reason: values['reason'], part_id: this.props.global.part_id }).then(data => {
+                  if (Array.isArray(data.message)) { // 表面操作结果有错误
+                    const err_msgs = data.message.map(m => {
+                      return `对GUID值为 [${m}] 的角色操作失败！`
+                    })
+                    this.setState({ errs: err_msgs });
+                  } else {
+                    message.success('操作成功');
+                  }
+                  this.setState({ loading: false });
+                  this.props.form.resetFields(['reason', 'file'])
+                });
+              }
+
             }
           }
 
@@ -108,7 +157,7 @@ class BatchAct extends React.Component {
                 description={(
                   <ul>
                     {errs.map(err => {
-                      return <li key={`${err}`}>{`对GUID值为 [${err}] 的角色操作失败！`}</li>
+                      return <li key={`${err}`}>{err}</li>
                     })}
                   </ul>
                 )}

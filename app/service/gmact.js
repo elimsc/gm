@@ -11,7 +11,6 @@ class GmactService extends BaseReqService {
   // 给玩家发放东西（通过邮件）
   async award({ guid, reason, award_list, part_id }) {
     const r = await this.request({ cmd: 2003 }, { guid, reason, award_list, part_id }, [ 'guid', 'reason' ]);
-    console.log(r);
     if (!this.is_success(r)) return false;
     return true;
   }

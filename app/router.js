@@ -79,6 +79,8 @@ module.exports = app => {
 
   // 批量操作
   router.post('/api/batchact/award', role_operation, actlog({ action: '批量发放道具' }), controller.batchact.award); // 批量发放道具
+  router.post('/api/batchact/ban-account', role_operation, actlog({ action: '批量封号' }), controller.batchact.banAccount); // 批量发放道具
+  router.post('/api/batchact/ban-talk', role_operation, actlog({ action: '批量禁言' }), controller.batchact.banTalk); // 批量发放道具
 
   // 系统操作
   router.post('/api/sysact/activity/update', role_super, controller.sysact.updateActivity);

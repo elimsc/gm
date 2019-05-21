@@ -688,6 +688,34 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/api/batchact/ban-account",
+    "regexp": "/^\\/api\\/batchact\\/ban-account(?:\\/(?=$))?$/",
+    "stack": [
+      "role",
+      "actlog",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/batchact/ban-talk",
+    "regexp": "/^\\/api\\/batchact\\/ban-talk(?:\\/(?=$))?$/",
+    "stack": [
+      "role",
+      "actlog",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/api/sysact/activity/update",
     "regexp": "/^\\/api\\/sysact\\/activity\\/update(?:\\/(?=$))?$/",
     "stack": [
