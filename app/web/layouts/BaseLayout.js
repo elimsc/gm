@@ -189,6 +189,7 @@ class BaseLayout extends React.Component {
               <div className={styles.headerItem}>
                 <Select defaultValue={localStorage.getItem('req_url') ? localStorage.getItem('req_url') : ''} onChange={(req_url) => this.handleEnvSelect(req_url)} className={styles.select} placeholder="选择环境">
                   <Option value="">空</Option>
+                  <Option value="http://172.21.0.3:20143/">外网正式环境</Option>
                   <Option value="http://192.168.1.205:20843/">本地测试环境</Option>
                   <Option value="http://192.168.1.205:20143/">内网测试环境</Option>
                 </Select>
