@@ -149,6 +149,7 @@ class PlayerMan extends React.PureComponent {
                     <Select.Option value="0">角色名</Select.Option>
                     <Select.Option value="1">guid</Select.Option>
                     <Select.Option value="2">uid</Select.Option>
+                    <Select.Option value="3">手机号</Select.Option>
                   </Select>
                 )}
               </Form.Item>
