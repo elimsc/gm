@@ -609,19 +609,6 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/player/gmact/secure-code",
-    "regexp": "/^\\/api\\/player\\/gmact\\/secure-code(?:\\/(?=$))?$/",
-    "stack": [
-      "role",
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
     "path": "/api/player/gmact/change-pass",
     "regexp": "/^\\/api\\/player\\/gmact\\/change-pass(?:\\/(?=$))?$/",
     "stack": [
@@ -745,50 +732,11 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/sysact/activity/update",
-    "regexp": "/^\\/api\\/sysact\\/activity\\/update(?:\\/(?=$))?$/",
-    "stack": [
-      "role",
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
-    "path": "/api/sysact/activity/list",
-    "regexp": "/^\\/api\\/sysact\\/activity\\/list(?:\\/(?=$))?$/",
-    "stack": [
-      "role",
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
     "path": "/api/sysact/gmins",
     "regexp": "/^\\/api\\/sysact\\/gmins(?:\\/(?=$))?$/",
     "stack": [
       "role",
       "actlog",
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
-    "path": "/api/sysact/srvforcedown",
-    "regexp": "/^\\/api\\/sysact\\/srvforcedown(?:\\/(?=$))?$/",
-    "stack": [
-      "role",
       "wrappedController"
     ]
   },

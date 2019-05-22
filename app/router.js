@@ -10,7 +10,7 @@ module.exports = app => {
   const role_operation = app.middleware.role({ role: 2 });
   const actlog = app.middleware.actlog;
 
-  router.get('/api/demo', controller.home.demo);
+  // router.get('/api/demo', controller.home.demo);
 
   // 服务器列表
   router.post('/api/srv/list', controller.srv.list);
@@ -28,8 +28,8 @@ module.exports = app => {
   router.get('/api/user/list', role_super, controller.user.list); // 获取管理员列表
   router.post('/api/user/update', role_super, actlog({ action: '修改管理员权限' }), controller.user.update); // 更新管理员信息
   router.get('/api/user/actlog/list', role_super, controller.user.actlogList); // 所有的操作记录
-  router.get('/api/user/actlog/current', role_super, controller.user.curActlog); // 当前登陆管理员的操作记录
-  router.post('/api/user/change-pass', role_super, actlog({ action: '修改自身密码' }), controller.user.changePass); // 更新管理员信息
+  router.get('/api/user/actlog/current', controller.user.curActlog); // 当前登陆管理员的操作记录
+  router.post('/api/user/change-pass', actlog({ action: '修改自身密码' }), controller.user.changePass); // 更新管理员信息
 
   // 服务器广播
   router.get('/api/broadcast/tpl/list', role_operation, controller.broadcast.listTpl); // 显示所有的公告模板
