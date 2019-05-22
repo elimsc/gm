@@ -5,12 +5,13 @@
   "private": true,
   "scripts": {
     "start": "egg-scripts start --daemon --env prod",
+    "start:l": "egg-scripts start --daemon --env prod --worker=1",
     "stop": "egg-scripts stop",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
-    "build": "UMI_ENV=prod CI=true umi build",
+    "build": "UMI_ENV=prod umi build",
     "umi:dev": "umi dev",
-    "umi:build": "UMI_ENV=prod CI=true umi build",
+    "umi:build": "UMI_ENV=prod umi build",
     "test": "egg-bin test",
     "lint": "eslint ."
   },
