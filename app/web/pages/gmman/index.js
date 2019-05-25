@@ -43,17 +43,15 @@ class GmMan extends React.Component {
   fetch(params = {}) {
     this.setState({ loading: true });
     list({ ...this.state.filter, ...params }).then(data => {
-      setTimeout(() => {
-        if (data.code === 0) {
-          const pagination = { ...this.state.pagination };
-          pagination.total = data.payload.count;
-          this.setState({
-            loading: false,
-            data: data.payload.users,
-            pagination,
-          });
-        }
-      }, 200);
+      if (data.code === 0) {
+        const pagination = { ...this.state.pagination };
+        pagination.total = data.payload.count;
+        this.setState({
+          loading: false,
+          data: data.payload.users,
+          pagination,
+        });
+      }
     })
 
   }
@@ -128,6 +126,8 @@ class GmMan extends React.Component {
       labelCol: { span: 4 },
       wrapperCol: { span: 18, offset: 4 },
     };
+
+    if (!Array.isArray(this.state.data) || this.state.data.length === 0) return null;
 
     return (
       <Card>

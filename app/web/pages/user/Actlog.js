@@ -39,17 +39,15 @@ class ActLog extends React.Component {
   fetch(params = {}) {
     this.setState({ loading: true });
     curActlogList({ ...params }).then(data => {
-      setTimeout(() => {
-        if (data.code === 0) {
-          const pagination = { ...this.state.pagination };
-          pagination.total = data.payload.count;
-          this.setState({
-            loading: false,
-            data: data.payload.logs,
-            pagination,
-          });
-        }
-      }, 200);
+      if (data.code === 0) {
+        const pagination = { ...this.state.pagination };
+        pagination.total = data.payload.count;
+        this.setState({
+          loading: false,
+          data: data.payload.logs,
+          pagination,
+        });
+      }
     })
 
   }
@@ -86,6 +84,8 @@ class ActLog extends React.Component {
         return moment(text).format("YYYY-MM-DD HH:mm:ss");
       }
     }];
+
+    if (!Array.isArray(this.state.data) || this.state.data.length === 0) return null;
 
 
     return (
