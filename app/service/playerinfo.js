@@ -6,7 +6,7 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色列表查询
   async list({ name, type, part_id }) {
-    const result = await this.request({ cmd: 1001 }, { name, type, part_id }, [ 'name', 'type' ]);
+    const result = await this.request({ cmd: 1001 }, { name: name.trim(), type, part_id }, [ 'name', 'type' ]);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.rolelist) {
       return result.data.body.rolelist;
