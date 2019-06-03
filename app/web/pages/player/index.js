@@ -124,6 +124,11 @@ class PlayerMan extends React.PureComponent {
         key: 'part_name',
       },
       {
+        title: '手机号',
+        dataIndex: 'mobile',
+        key: 'mobile',
+      },
+      {
         title: '操作',
         key: 'action',
         render: (data) => (
