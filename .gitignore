@@ -23,3 +23,5 @@
 
 # production config
 /config/config.prod.js
+/app/public/
+/config/manifest.json
