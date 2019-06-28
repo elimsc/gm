@@ -111,25 +111,25 @@ export async function changeSecureCode({ value, part_id, guid }) {
   });
 }
 
-export async function changePass({ value, part_id, guid }) {
+export async function changePass({ value, part_id, uid }) {
   return post(`/api/player/gmact/change-pass`, {
     value,
     part_id,
-    guid,
+    uid,
   });
 }
 
-export async function untiePhone({ part_id, guid }) {
+export async function untiePhone({ part_id, uid }) {
   return post(`/api/player/gmact/untie-phone`, {
     part_id,
-    guid,
+    uid,
   });
 }
 
 /**
  * 直接发放奖励
  */
-export async function awardD({guid, type, id, cnt, param, part_id}) {
+export async function awardD({ guid, type, id, cnt, param, part_id }) {
   return post(`/api/player/gmact/award-d`, {
     part_id,
     guid,

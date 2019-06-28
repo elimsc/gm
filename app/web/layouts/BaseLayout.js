@@ -33,8 +33,6 @@ class BaseLayout extends React.Component {
 
   async componentDidMount() {
     const data = await check();
-    console.log("base layout did mount =================== ")
-    console.log(data);
     if (data.code === -10) { // 未登陆
       router.replace('/login');
     } else {

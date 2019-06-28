@@ -12,14 +12,14 @@ class UntiePhone extends React.Component {
   }
 
   handleClick = () => {
-    const { guid, part_id } = this.props;
+    const { part_id, uid } = this.props;
     Modal.confirm({
       title: '确认操作',
       content: '确认解除绑定手机？',
       onOk: () => {
         this.setState({ loading: true });
 
-        untiePhone({ guid, part_id }).then(data => {
+        untiePhone({ uid, part_id }).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
           } else {

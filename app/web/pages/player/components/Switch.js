@@ -75,7 +75,7 @@ class Switch extends React.PureComponent {
       case 'level':
         return guid ? <Level guid={guid} part_id={part_id} /> : null;
       case 'change-pass':
-        return guid ? <ChangePass guid={guid} part_id={part_id} /> : null;
+        return guid ? <ChangePass guid={guid} part_id={part_id} uid={uid} /> : null;
       case 'forcedown':
         return guid ? <Forcedown guid={guid} part_id={part_id} /> : null;
       case 'petsymbol-level':
@@ -85,9 +85,9 @@ class Switch extends React.PureComponent {
       case 'prop':
         return guid ? <Prop guid={guid} part_id={part_id} /> : null;
       case 'secure-code':
-        return guid ? <SecureCode guid={guid} part_id={part_id} /> : null;
+        return guid ? <SecureCode guid={guid} part_id={part_id} uid={uid} /> : null;
       case 'untie-phone':
-        return guid ? <UntiePhone guid={guid} part_id={part_id} /> : null;
+        return guid ? <UntiePhone guid={guid} part_id={part_id} uid={uid} /> : null;
 
       case 'clear-secure-code':
         return guid ? <ClearSecureCode guid={guid} part_id={part_id} /> : null;

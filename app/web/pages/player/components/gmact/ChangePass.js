@@ -13,17 +13,16 @@ class ChangePass extends React.PureComponent {
   }
 
   handleSubmit = (e) => {
-    const { guid, part_id } = this.props;
+    const { guid, part_id, uid } = this.props;
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log(values);
         Modal.confirm({
           title: '确认操作',
           content: '确认设置新的密码？',
           onOk: () => {
             this.setState({ loading: true });
-            changePass({ value: values['password'], guid, part_id }).then(data => {
+            changePass({ value: values['password'], uid, part_id }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {

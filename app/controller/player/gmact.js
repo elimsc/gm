@@ -198,7 +198,8 @@ class GmactController extends BaseController {
    * 密码修改
    */
   async changePass() {
-    const r = await this.gmactService.changePass(this.ctx.request.body);
+    const { uid, part_id, value } = this.ctx.request.body;
+    const r = await this.gmactService.changePass({ uid, part_id, new_passwd: value });
     if (r) {
       this.ctx.body = this.success();
     } else {

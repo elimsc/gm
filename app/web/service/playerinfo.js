@@ -1,7 +1,6 @@
 import { post } from "../utils/request";
 
 export async function list({ type, name, part_id }) {
-  console.log({ type, name, part_id })
   return post(`/api/player/list`, {
     type,
     name,
