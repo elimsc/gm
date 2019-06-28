@@ -78,14 +78,14 @@ class GmactService extends BaseReqService {
 
   // 密码修改
   async changePass({ uid, new_passwd, part_id }) {
-    const r = await this.request({ cmd: 3015 }, { uid, new_passwd, part_id }, ['uid', 'new_passwd']);
+    const r = await this.request({ cmd: 3015 }, { uid: `${uid}`, new_passwd, part_id }, ['uid', 'new_passwd']);
     if (!this.is_success(r)) return false;
     return true;
   }
 
   // 解除绑定手机
   async untiePhone({ uid, part_id }) {
-    const r = await this.request({ cmd: 3017 }, { uid, part_id }, ['uid']);
+    const r = await this.request({ cmd: 3017 }, { uid: `${uid}`, part_id }, ['uid']);
     if (!this.is_success(r)) return false;
     return true;
   }
