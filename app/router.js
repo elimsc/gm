@@ -92,6 +92,9 @@ module.exports = app => {
   router.post('/api/sysact/gmins', role_super, actlog({ action: 'GM指令' }), controller.sysact.gmins); // GM指令
   // router.post('/api/sysact/srvforcedown', role_super, controller.sysact.srvForceDown);
 
+  // public api
+  router.post('/p/account/ban', actlog({ action: '外部接口:封号' }), controller.player.ban.banAccount); // 封号
+
 
   // router.all('/api/*', controller.home.api);
   router.get('*', controller.home.index);
