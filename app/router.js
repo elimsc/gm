@@ -94,6 +94,7 @@ module.exports = app => {
 
   // public api
   router.post('/p/account/ban', actlog({ action: '外部接口:封号' }), controller.player.ban.banAccount); // 封号
+  router.post('/p/player/forcedown', actlog({ action: '外部接口:强制下线' }), controller.player.gmact.forcedown); // 踢玩家下线
 
 
   // router.all('/api/*', controller.home.api);
