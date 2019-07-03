@@ -11,7 +11,7 @@ module.exports = options => {
       const actlogService = ctx.service.actlog;
       await actlogService.create({
         action,
-        subject: ctx.user.username,
+        subject: ctx.user ? ctx.user.username : "",
         object: ctx.request.body.guid,
         part_id: ctx.request.body.part_id,
         data: JSON.stringify(ctx.request.body),
