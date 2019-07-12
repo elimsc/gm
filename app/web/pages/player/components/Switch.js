@@ -31,6 +31,7 @@ import BanTalkLog from './ban/BanTalkLog';
 import Pet from './gmact/Pet'
 import Player from './gmact/Player';
 import AwardD from './gmact/AwardD';
+import Reissue from './gmact/Reissue';
 
 
 class Switch extends React.PureComponent {
@@ -66,6 +67,8 @@ class Switch extends React.PureComponent {
         return guid ? <Award guid={guid} part_id={part_id} /> : null;
       case 'award-d':
         return guid ? <AwardD guid={guid} part_id={part_id} /> : null;
+      case 'reissue':
+        return guid ? <Reissue guid={guid} part_id={part_id} /> : null;
       case 'pet':
         return guid ? <Pet guid={guid} part_id={part_id} /> : null;
       case 'player':

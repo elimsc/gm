@@ -140,3 +140,10 @@ export async function awardD({ guid, type, id, cnt, param, part_id }) {
   });
 }
 
+/**
+ * 充值补发
+ */
+export async function reIssue({ guid, part_id, pay_type, cp_order_id, diamond_id }) {
+  return post(`/api/player/gmact/reissue`, { guid, part_id, pay_type, cp_order_id, diamond_id });
+}
+

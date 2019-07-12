@@ -62,6 +62,7 @@ module.exports = app => {
   // 玩家操作--GM操作
   router.post('/api/player/gmact/money', role_operation, actlog({ action: '发放货币（邮件）' }), controller.player.gmact.money); // 发放货币
   router.post('/api/player/gmact/prop', role_operation, actlog({ action: '发放道具（邮件）' }), controller.player.gmact.prop); // 发放道具
+  router.post('/api/player/gmact/reissue', role_operation, actlog({ action: '充值补发' }), controller.player.gmact.reissue); // 充值补发
   router.post('/api/player/gmact/exp', role_operation, actlog({ action: '向玩家发放经验（邮件）' }), controller.player.gmact.exp); // 玩家发放经验
   router.post('/api/player/gmact/pet-exp', role_operation, actlog({ action: '向宠物发放经验' }), controller.player.gmact.petExp); // 宠物发放经验
   router.post('/api/player/gmact/player-level', role_operation, actlog({ action: '设置角色等级' }), controller.player.gmact.setPlayerLevel); // 设置玩家等级

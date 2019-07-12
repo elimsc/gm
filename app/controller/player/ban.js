@@ -70,7 +70,7 @@ class BanController extends BaseController {
 
   /**
    * POST /api/player/playerinfo/ban-account-info
-   * 封号记录
+   * 封号状态
    */
   async banAccountLog() {
     const r = await this.banService.banAccountLog({ ...this.ctx.request.body, uid: `${this.ctx.request.body.uid}` });
@@ -79,7 +79,7 @@ class BanController extends BaseController {
 
   /**
    * POST /api/player/playerinfo/ban-talk-info
-   * 封号记录
+   * 禁言状态
    */
   async banTalkLog() {
     const r = await this.banService.banTalkLog(this.ctx.request.body);

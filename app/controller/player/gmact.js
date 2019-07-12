@@ -234,6 +234,19 @@ class GmactController extends BaseController {
     }
   }
 
+  /**
+   * POST player/gmact/reissue
+   * 充值补发
+   */
+  async reissue() {
+    const r = this.gmactService.reissue(this.ctx.request.body);
+    if (!r) {
+      this.ctx.body = this.error();
+    } else {
+      this.ctx.body = this.success();
+    }
+  }
+
 }
 
 module.exports = GmactController;

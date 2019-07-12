@@ -89,6 +89,14 @@ class GmactService extends BaseReqService {
     if (!this.is_success(r)) return false;
     return true;
   }
+
+  async reissue({ guid, part_id, pay_type, cp_order_id, diamond_id }) {
+    const r = await this.request({ cmd: 3037 }, {
+      guid: `${guid}`, pay_type: parseInt(pay_type), cp_order_id: `${cp_order_id}`, diamond_id: parseInt(diamond_id), part_id
+    }, ['guid', 'pay_type', 'cp_order_id', 'diamond_id']);
+    if (!this.is_success(r)) return false;
+    return true;
+  }
 }
 
 module.exports = GmactService;
