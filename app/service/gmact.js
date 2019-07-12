@@ -41,29 +41,6 @@ class GmactService extends BaseReqService {
     return true;
   }
 
-
-  // 添加/扣除经验
-  // async exp() {
-  //   return true;
-  // }
-
-  // 添加删除称号
-  // async titlem({ guid, part_id, title_id, is_del }) {
-  //   const r = await this.request({ cmd: 2009 }, { guid, part_id, title_id, is_del }, [ 'guid', 'title_id', 'is_del' ]);
-  //   if (!this.is_success(r)) return false;
-  //   return true;
-  // }
-
-  // 修改修炼等级
-  // async pracLevel() {
-  //   return true;
-  // }
-
-  // 宠物符等级
-  // async petsymbolLevel() {
-  //   return true;
-  // }
-
   // 踢玩家下线
   async forcedown({ guid, part_id }) {
     const r = await this.request({ cmd: 2009 }, { guid, part_id }, ['guid']);

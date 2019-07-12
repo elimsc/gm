@@ -3,7 +3,9 @@ import { Card, Form, Input, Button, message, Modal, Select } from 'antd';
 
 import { reIssue } from '../../../../service/gmact';
 
-
+/**
+ * 充值补发
+ */
 class Reissue extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -75,7 +77,7 @@ class Reissue extends React.PureComponent {
             }],
           })(
             <Select>
-              <Select.Option value={36}>PayNow</Select.Option>
+              {/* <Select.Option value={36}>PayNow</Select.Option> */}
               <Select.Option value={0}>IAP</Select.Option>
             </Select>
           )}
