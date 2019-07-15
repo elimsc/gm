@@ -32,6 +32,7 @@ import Pet from './gmact/Pet'
 import Player from './gmact/Player';
 import AwardD from './gmact/AwardD';
 import Reissue from './gmact/Reissue';
+import Export from './Export';
 
 
 class Switch extends React.PureComponent {
@@ -107,6 +108,9 @@ class Switch extends React.PureComponent {
         return guid ? <BanAccountLog data={data} /> : null;
       case 'ban-talk-info':
         return guid ? <BanTalkLog data={data} /> : null;
+
+      case 'export':
+        return <Export part_id={part_id} />
 
       default:
         break;

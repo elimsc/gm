@@ -24,6 +24,20 @@ class PlayerInfoController extends BaseController {
   }
 
   /**
+   * POST player/list/batch
+   * 批量查询玩家列表
+   */
+  async batchList() {
+    const { names, type, part_id } = this.ctx.request.body;
+    const results = [];
+    for (let name of names) {
+      const result = await this.playerService.list({ name, type: parseInt(type), part_id });
+      results.push(result);
+    }
+    this.ctx.body = this.success(results);
+  }
+
+  /**
    * POST player/playerinfo/basic-info
    * 玩家基本信息
    */

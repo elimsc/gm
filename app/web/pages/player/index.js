@@ -157,7 +157,7 @@ class PlayerMan extends React.PureComponent {
                   </Select>
                 )}
               </Form.Item>
-              <Form.Item style={{ marginRight: 40 }} label="角色名或GUID">
+              <Form.Item style={{ marginRight: 40 }} label="查询内容">
                 {getFieldDecorator('name', {
                   initialValue: '',
                 })(
@@ -223,7 +223,7 @@ class PlayerMan extends React.PureComponent {
                     <Menu.Item onClick={() => this.select('ban-talk-info')} key="ban-talk-info">禁言状态</Menu.Item>
                   </Menu.SubMenu> : null
                 }
-
+                <Menu.Item onClick={() => this.select('export')} key="export">批量导出</Menu.Item>
               </Menu>
             </Col>
             <Col span={20}>

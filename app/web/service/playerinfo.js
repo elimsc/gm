@@ -8,6 +8,10 @@ export async function list({ type, name, part_id }) {
   })
 }
 
+export async function batchList({ type, names, part_id }) {
+  return post(`/api/player/list/batch`, { type, names, part_id });
+}
+
 
 /**
  * @param {string} type 信息类型：basic-info, bag-info, ...

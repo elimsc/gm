@@ -39,6 +39,7 @@ module.exports = app => {
 
   // 玩家操作--玩家基本信息
   router.post('/api/player/list', controller.player.playerinfo.list); // 玩家列表
+  router.post('/api/player/list/batch', controller.player.playerinfo.batchList); // 批量玩家列表(可以同时查询多个角色名)
   router.post('/api/player/playerinfo/basic-info', controller.player.playerinfo.basicInfo); // 角色基本信息
   router.post('/api/player/playerinfo/bag-info', controller.player.playerinfo.bagInfo); // 角色背包信息
   router.post('/api/player/playerinfo/warehouse-info', controller.player.playerinfo.wareHouseInfo); // 角色仓库信息
