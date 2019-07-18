@@ -4,9 +4,9 @@ import { Form, Input, Button, message, Modal } from 'antd';
 import { awardD } from '../../../../../service/gmact';
 
 /**
- * 玩家经验
+ * 道具
  */
-class Exp extends React.PureComponent {
+class Prop extends React.PureComponent {
 
   constructor(props) {
     super(props);
@@ -22,10 +22,10 @@ class Exp extends React.PureComponent {
       if (!err) {
         Modal.confirm({
           title: '确认操作',
-          content: `添加经验: ${values['jingyan']}`,
+          content: `确认进行该操作？`,
           onOk: () => {
             this.setState({ loading: true });
-            awardD({ guid, part_id, type: 0, id: -1, param: -1, cnt: values['jingyan'] }).then(data => {
+            awardD({ guid, part_id, type: 2, id: parseInt(values["id"]), param: parseInt(values["param"]), cnt: values['cnt'] }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -69,9 +69,27 @@ class Exp extends React.PureComponent {
 
     return (
       <div>
-        <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{ marginTop: 56 }}>
-          <Form.Item label="玩家经验（正加负减）">
-            {getFieldDecorator('jingyan', {
+        <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{ marginTop: 40 }}>
+          <Form.Item label="道具ID">
+            {getFieldDecorator('id', {
+              rules: [{
+                required: true, message: '不能为空'
+              }],
+            })(
+              <Input type="number" />
+            )}
+          </Form.Item>
+          <Form.Item label="数量（正加负减）">
+            {getFieldDecorator('cnt', {
+              rules: [{
+                required: true, message: '不能为空'
+              }],
+            })(
+              <Input type="number" />
+            )}
+          </Form.Item>
+          <Form.Item label="道具扩展ID">
+            {getFieldDecorator('param', {
               rules: [{
                 required: true, message: '不能为空'
               }],
@@ -89,4 +107,4 @@ class Exp extends React.PureComponent {
   }
 }
 
-export default Form.create()(Exp);
+export default Form.create()(Prop);
