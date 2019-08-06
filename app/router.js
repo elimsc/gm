@@ -74,8 +74,8 @@ module.exports = app => {
   router.post('/api/player/gmact/del-title', role_operation, actlog({ action: '删除称号' }), controller.player.gmact.delTitle); // 添加称号
   router.post('/api/player/gmact/forcedown', role_operation, actlog({ action: '强制下线' }), controller.player.gmact.forcedown); // 踢玩家下线
   // router.post('/api/player/gmact/secure-code', role_operation, controller.player.gmact.secureCode); // 安全码修改
-  router.post('/api/player/gmact/change-pass', role_operation, controller.player.gmact.changePass); // 修改密码
-  router.post('/api/player/gmact/untie-phone', role_operation, controller.player.gmact.untiePhone); // 解除绑定手机
+  router.post('/api/player/gmact/change-pass', role_operation, actlog({ action: '修改密码' }), controller.player.gmact.changePass); // 修改密码
+  router.post('/api/player/gmact/untie-phone', role_operation, actlog({ action: '解除绑定手机' }), controller.player.gmact.untiePhone); // 解除绑定手机
   router.post('/api/player/gmact/award-d', role_operation, actlog({ action: '物品发放（直接）' }), controller.player.gmact.awardD); // 物品发放（直接）
 
   // 玩家操作 -- 清除数据
