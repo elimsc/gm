@@ -22,7 +22,6 @@ class BatchAct extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         // 合并发放道具的内容
-
         let awards;
         try {
           awards = Object.values(this.fileContent)
@@ -31,7 +30,9 @@ class BatchAct extends React.Component {
               return sheet.map(award => award.map(item => item.trim()));
             });
         } catch (e) {
-          message.error("excel格式错误，请保证excel的所有内容均为文本格式");
+          this.setState({
+            errs: [`excel格式错误，请保证excel的所有内容均为文本格式`]
+          });
           return;
         }
 
