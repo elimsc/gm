@@ -21,7 +21,20 @@ class BatchAct extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        const awards = Object.values(this.fileContent).map(v => Object.values(v)).flat(); // 合并发放道具的内容
+        // 合并发放道具的内容
+
+        let awards;
+        try {
+          awards = Object.values(this.fileContent)
+            .map(v => Object.values(v)).flat() // 返回一个array，每个sheet对应array的一个元素
+            .map(sheet => {
+              return sheet.map(award => award.map(item => item.trim()));
+            });
+        } catch (e) {
+          message.error("excel格式错误，请保证excel的所有内容均为文本格式");
+          return;
+        }
+
         const type = values['type'];
         Modal.confirm({
           title: '确认操作',

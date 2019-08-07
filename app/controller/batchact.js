@@ -60,13 +60,27 @@ class BatchActController extends BaseController {
       const title = award[0].map(item => item.trim());
       const award_content = award.filter((item, i) => i !== 0);
       for (const item of award_content) {
-        award_lists.push({
-          [title[0]]: item[0],
-          [title[1]]: item[1],
-          [title[2]]: item[2],
-          [title[3]]: item[3],
-          [title[4]]: item[4],
-        });
+        const award = {
+          [title[0]]: `${item[0]}`,
+          [title[1]]: `${item[1]}`,
+          [title[2]]: `${item[2]}`,
+          [title[3]]: `${item[3]}`,
+          [title[4]]: `${item[4]}`,
+        };
+        award['type'] = parseInt(award['type']);
+        award['id'] = parseInt(award['id']);
+        award['cnt'] = parseInt(award['cnt']);
+        award['param'] = parseInt(award['param']);
+
+        award_lists.push(award);
+
+        // award_lists.push({
+        //   [title[0]]: item[0],
+        //   [title[1]]: item[1],
+        //   [title[2]]: item[2],
+        //   [title[3]]: item[3],
+        //   [title[4]]: item[4],
+        // });
       }
     }
 
