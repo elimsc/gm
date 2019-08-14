@@ -11,10 +11,10 @@ class SysdataService extends Service {
   async listPropByName(name) {
     if (!name) return [];
     if (name === '*') {
-      const results = await this.app.mysql.query('select * from prop');
+      const results = await this.app.mysql.query('select * from prop limit 20');
       return results;
     }
-    const results = await this.app.mysql.query(`select * from prop where name like '${name}%'`);
+    const results = await this.app.mysql.query(`select * from prop where name like "${name}%" limit 20`);
     return results;
   }
 }
