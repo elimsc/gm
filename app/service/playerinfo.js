@@ -6,7 +6,7 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色列表查询
   async list({ name, type, part_id }) {
-    const result = await this.request({ cmd: 1001 }, { name: name.trim(), type, part_id }, [ 'name', 'type' ]);
+    const result = await this.request({ cmd: 1001 }, { name: name.trim(), type, part_id }, ['name', 'type']);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.rolelist) {
       return result.data.body.rolelist;
@@ -16,7 +16,7 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色基本信息查询
   async basicInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1003 }, { guid, part_id }, [ 'guid' ]);
+    const result = await this.request({ cmd: 1003 }, { guid, part_id }, ['guid']);
     if (!result) return [];
     if (result.data && result.data.body) {
       // 处理返回结果
@@ -39,9 +39,9 @@ class PlayerinfoService extends BaseReqService {
       };
 
       const fns = {
-        last_login_time: this.pretttyTime,
-        last_logout_time: this.pretttyTime,
-        create_time: this.pretttyTime,
+        last_login_time: this.prettyTime,
+        last_logout_time: this.prettyTime,
+        create_time: this.prettyTime,
       };
 
       return this.ctx.helper.tableInfoConv(src, tpl, fns);
@@ -51,7 +51,7 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色背包信息查询
   async bagInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1005 }, { guid, part_id }, [ 'guid' ]);
+    const result = await this.request({ cmd: 1005 }, { guid, part_id }, ['guid']);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.itemlist) {
       // 处理返回结果
@@ -82,8 +82,8 @@ class PlayerinfoService extends BaseReqService {
         }
       };
       const fns = {
-        timeout: this.pretttyTime,
-        bind_timeout: this.pretttyTime,
+        timeout: this.prettyTime,
+        bind_timeout: this.prettyTime,
         bind_type: bind_type_map,
         bind_state: bind_state_map,
       };
@@ -94,7 +94,7 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色仓库信息查询
   async wareHouseInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1007 }, { guid, part_id }, [ 'guid' ]);
+    const result = await this.request({ cmd: 1007 }, { guid, part_id }, ['guid']);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.itemlist) {
       // 处理返回结果
@@ -126,8 +126,8 @@ class PlayerinfoService extends BaseReqService {
         }
       };
       const fns = {
-        timeout: this.pretttyTime,
-        bind_timeout: this.pretttyTime,
+        timeout: this.prettyTime,
+        bind_timeout: this.prettyTime,
         bind_type: bind_type_map,
         bind_state: bind_state_map,
       };
@@ -138,7 +138,7 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色装备信息查询
   async equipInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1009 }, { guid, part_id }, [ 'guid' ]);
+    const result = await this.request({ cmd: 1009 }, { guid, part_id }, ['guid']);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.equiplist) {
       const src = result.data.body.equiplist;
@@ -171,7 +171,7 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色技能信息查询
   async skillInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1011 }, { guid, part_id }, [ 'guid' ]);
+    const result = await this.request({ cmd: 1011 }, { guid, part_id }, ['guid']);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.skilllist) {
       // 处理返回结果
@@ -190,7 +190,7 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色称号信息查询
   async titleInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1013 }, { guid, part_id }, [ 'guid' ]);
+    const result = await this.request({ cmd: 1013 }, { guid, part_id }, ['guid']);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.titlelist) {
       // 处理返回结果
@@ -210,7 +210,7 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色宠物信息
   async petInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1015 }, { guid, part_id }, [ 'guid' ]);
+    const result = await this.request({ cmd: 1015 }, { guid, part_id }, ['guid']);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.petlist) {
       // 处理返回结果
@@ -242,7 +242,7 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色任务信息
   async taskInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1017 }, { guid, part_id }, [ 'guid' ]);
+    const result = await this.request({ cmd: 1017 }, { guid, part_id }, ['guid']);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.normal_mission_accepted_list) {
       // 处理返回结果
@@ -273,7 +273,7 @@ class PlayerinfoService extends BaseReqService {
   }
 
   async homeInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1019 }, { guid, part_id }, [ 'guid' ]);
+    const result = await this.request({ cmd: 1019 }, { guid, part_id }, ['guid']);
     if (!result) return [];
     if (result.data && result.data.body) {
       // 处理返回结果
@@ -313,7 +313,7 @@ class PlayerinfoService extends BaseReqService {
   }
 
   async emailInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1021 }, { guid, part_id }, [ 'guid' ]);
+    const result = await this.request({ cmd: 1021 }, { guid, part_id }, ['guid']);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.system_mail_list) {
       // 处理返回结果
@@ -336,13 +336,13 @@ class PlayerinfoService extends BaseReqService {
         }
       };
 
-      return this.ctx.helper.tableInfoListConv(src, tpl, { staus: statusMap });
+      return this.ctx.helper.tableInfoListConv(src, tpl, { status: statusMap });
     }
     return [];
   }
 
   async marriageInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1023 }, { guid, part_id }, [ 'guid' ]);
+    const result = await this.request({ cmd: 1023 }, { guid, part_id }, ['guid']);
     if (!result) return [];
     if (result.data && result.data.body) {
       // 处理返回结果
@@ -353,7 +353,7 @@ class PlayerinfoService extends BaseReqService {
       };
 
       const fns = {
-        partner_start_time: this.pretttyTime,
+        partner_start_time: this.prettyTime,
       };
 
       return this.ctx.helper.tableInfoConv(src, tpl, fns);

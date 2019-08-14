@@ -32,7 +32,7 @@ class BaseReqService extends Service {
   }
 
   // 时间输出函数
-  pretttyTime(t) {
+  prettyTime(t) {
     return moment(parseInt(t + '000')).format('YYYY-MM-DD HH:mm:ss');
   }
 }
