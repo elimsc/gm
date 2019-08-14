@@ -48,10 +48,6 @@ class GmactService extends BaseReqService {
     return true;
   }
 
-  // 安全码修改
-  async secureCode() {
-    return false;
-  }
 
   // 密码修改
   async changePass({ uid, new_passwd, part_id }) {

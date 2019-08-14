@@ -65,9 +65,9 @@ class GmactController extends BaseController {
    * POST player/gmact/pet-exp
    * 物品发放 -- 宠物经验
    */
-  async petExp() {
-    this.ctx.body = this.success();
-  }
+  // async petExp() {
+  //   this.ctx.body = this.success();
+  // }
 
   /**
    * POST player/gmact/pet-level
@@ -157,19 +157,19 @@ class GmactController extends BaseController {
    * POST /player/gmact/prac-level
    * 修改修炼等级
    */
-  async pracLevel() {
-    await this.gmactService.pracLevel(this.ctx.request.body);
-    this.ctx.body = this.success();
-  }
+  // async pracLevel() {
+  //   await this.gmactService.pracLevel(this.ctx.request.body);
+  //   this.ctx.body = this.success();
+  // }
 
   /**
    * POST /player/gmact/petsymbol-level
    * 宠物符等级
    */
-  async petsymbolLevel() {
-    await this.gmactService.petsymbolLevel(this.ctx.request.body);
-    this.ctx.body = this.success();
-  }
+  // async petsymbolLevel() {
+  //   await this.gmactService.petsymbolLevel(this.ctx.request.body);
+  //   this.ctx.body = this.success();
+  // }
 
   /**
    * POST /player/gmact/forcedown
@@ -184,14 +184,6 @@ class GmactController extends BaseController {
     }
   }
 
-  /**
-   * POST /player/gmact/secure-code
-   * 安全码修改
-   */
-  async secureCode() {
-    await this.gmactService.secureCode(this.ctx.request.body);
-    this.ctx.body = this.success();
-  }
 
   /**
    * POST /player/gmact/change-pass

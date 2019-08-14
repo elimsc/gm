@@ -65,7 +65,7 @@ module.exports = app => {
   router.post('/api/player/gmact/prop', role_operation, actlog({ action: '发放道具（邮件）' }), controller.player.gmact.prop); // 发放道具
   router.post('/api/player/gmact/reissue', role_operation, actlog({ action: '充值补发' }), controller.player.gmact.reissue); // 充值补发
   router.post('/api/player/gmact/exp', role_operation, actlog({ action: '向玩家发放经验（邮件）' }), controller.player.gmact.exp); // 玩家发放经验
-  router.post('/api/player/gmact/pet-exp', role_operation, actlog({ action: '向宠物发放经验' }), controller.player.gmact.petExp); // 宠物发放经验
+  // router.post('/api/player/gmact/pet-exp', role_operation, actlog({ action: '向宠物发放经验' }), controller.player.gmact.petExp); // 宠物发放经验
   router.post('/api/player/gmact/player-level', role_operation, actlog({ action: '设置角色等级' }), controller.player.gmact.setPlayerLevel); // 设置玩家等级
   router.post('/api/player/gmact/pet-level', role_operation, actlog({ action: '设置宠物等级' }), controller.player.gmact.setPetLevel); // 设置宠物等级
   router.post('/api/player/gmact/pet-lflevel', role_operation, actlog({ action: '设置宠物炼符等级' }), controller.player.gmact.setPetLflevel); // 设置宠物等级
@@ -73,7 +73,6 @@ module.exports = app => {
   router.post('/api/player/gmact/add-title', role_operation, actlog({ action: '添加称号' }), controller.player.gmact.addTitle); // 添加称号
   router.post('/api/player/gmact/del-title', role_operation, actlog({ action: '删除称号' }), controller.player.gmact.delTitle); // 添加称号
   router.post('/api/player/gmact/forcedown', role_operation, actlog({ action: '强制下线' }), controller.player.gmact.forcedown); // 踢玩家下线
-  // router.post('/api/player/gmact/secure-code', role_operation, controller.player.gmact.secureCode); // 安全码修改
   router.post('/api/player/gmact/change-pass', role_operation, actlog({ action: '修改密码' }), controller.player.gmact.changePass); // 修改密码
   router.post('/api/player/gmact/untie-phone', role_operation, actlog({ action: '解除绑定手机' }), controller.player.gmact.untiePhone); // 解除绑定手机
   router.post('/api/player/gmact/award-d', role_operation, actlog({ action: '物品发放（直接）' }), controller.player.gmact.awardD); // 物品发放（直接）
