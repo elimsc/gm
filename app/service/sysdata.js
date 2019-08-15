@@ -10,11 +10,17 @@ class SysdataService extends Service {
   // 根据道具名获取可选名
   async listPropByName(name) {
     if (!name) return [];
-    if (name === '*') {
-      const results = await this.app.mysql.query('select * from prop limit 20');
-      return results;
+    let results;
+
+    try {
+      if (name === '*') {
+        results = await this.app.mysql.query('select * from prop limit 20');
+      }
+      results = await this.app.mysql.query(`select * from prop where name like "${name}%" limit 20`);
+    } catch (e) {
+      results = [];
     }
-    const results = await this.app.mysql.query(`select * from prop where name like "${name}%" limit 20`);
+
     return results;
   }
 }
