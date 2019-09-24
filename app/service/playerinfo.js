@@ -3,10 +3,13 @@
 const BaseReqService = require('./basereq');
 
 class PlayerinfoService extends BaseReqService {
-
   // 角色列表查询
   async list({ name, type, part_id }) {
-    const result = await this.request({ cmd: 1001 }, { name: name.trim(), type, part_id }, ['name', 'type']);
+    const result = await this.request(
+      { cmd: 1001 },
+      { name: name.trim(), type, part_id },
+      [ 'name', 'type' ]
+    );
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.rolelist) {
       return result.data.body.rolelist;
@@ -16,7 +19,9 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色基本信息查询
   async basicInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1003 }, { guid, part_id }, ['guid']);
+    const result = await this.request({ cmd: 1003 }, { guid, part_id }, [
+      'guid',
+    ]);
     if (!result) return [];
     if (result.data && result.data.body) {
       // 处理返回结果
@@ -51,7 +56,9 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色背包信息查询
   async bagInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1005 }, { guid, part_id }, ['guid']);
+    const result = await this.request({ cmd: 1005 }, { guid, part_id }, [
+      'guid',
+    ]);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.itemlist) {
       // 处理返回结果
@@ -65,20 +72,28 @@ class PlayerinfoService extends BaseReqService {
         bind_state: '绑定状态', // 非0表示绑定
         timeout: '过期时间',
         bind_timeout: '绑定过期时间',
+        index: '所在格子号',
       };
       const bind_type_map = bind_type => {
         switch (bind_type) {
-          case 0: return '永久不绑定';
-          case 1: return '限时绑定';
-          case 2: return '使用绑定';
-          case 3: return '永久绑定';
-          default: break;
+          case 0:
+            return '永久不绑定';
+          case 1:
+            return '限时绑定';
+          case 2:
+            return '使用绑定';
+          case 3:
+            return '永久绑定';
+          default:
+            break;
         }
       };
       const bind_state_map = bind_state => {
         switch (bind_state) {
-          case 0: return '未绑定';
-          default: return '绑定';
+          case 0:
+            return '未绑定';
+          default:
+            return '绑定';
         }
       };
       const fns = {
@@ -94,7 +109,9 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色仓库信息查询
   async wareHouseInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1007 }, { guid, part_id }, ['guid']);
+    const result = await this.request({ cmd: 1007 }, { guid, part_id }, [
+      'guid',
+    ]);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.itemlist) {
       // 处理返回结果
@@ -108,21 +125,29 @@ class PlayerinfoService extends BaseReqService {
         bind_state: '绑定状态', // 非0表示绑定
         timeout: '过期时间',
         bind_timeout: '绑定过期时间',
+        index: '所在格子号',
       };
 
       const bind_type_map = bind_type => {
         switch (bind_type) {
-          case 0: return '永久不绑定';
-          case 1: return '限时绑定';
-          case 2: return '使用绑定';
-          case 3: return '永久绑定';
-          default: break;
+          case 0:
+            return '永久不绑定';
+          case 1:
+            return '限时绑定';
+          case 2:
+            return '使用绑定';
+          case 3:
+            return '永久绑定';
+          default:
+            break;
         }
       };
       const bind_state_map = bind_state => {
         switch (bind_state) {
-          case 0: return '未绑定';
-          default: return '绑定';
+          case 0:
+            return '未绑定';
+          default:
+            return '绑定';
         }
       };
       const fns = {
@@ -138,7 +163,9 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色装备信息查询
   async equipInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1009 }, { guid, part_id }, ['guid']);
+    const result = await this.request({ cmd: 1009 }, { guid, part_id }, [
+      'guid',
+    ]);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.equiplist) {
       const src = result.data.body.equiplist;
@@ -149,11 +176,11 @@ class PlayerinfoService extends BaseReqService {
         strength_level: '强化等级',
         refine_level: '精炼等级',
         gem_list: '宝石列表',
-        // gem_id: '宝石ID',
+        gem_id: '宝石ID',
         gem_name: '宝石名字',
         gem_level: '宝石等级',
         spirit_list: '器灵列表',
-        // spirit_id: '器灵ID',
+        spirit_id: '器灵ID',
         spirit_name: '器灵名字',
         spirit_level: '器灵等级',
         spirit_evolution_level: '器灵进化等级',
@@ -166,12 +193,35 @@ class PlayerinfoService extends BaseReqService {
       return this.ctx.helper.tableInfoListConv(src, tpl, fns);
     }
     return [];
+  }
 
+  // 角色饰品信息查询
+  async decInfo({ guid, part_id }) {
+    const result = await this.request({ cmd: 1025 }, { guid, part_id }, [
+      'guid',
+    ]);
+    if (!result) return [];
+    if (result.data && result.data.body && result.data.body.declist) {
+      const src = result.data.body.declist;
+
+      const tpl = {
+        id: 'ID',
+        name: '名字',
+        level: '等级',
+        quality: '品质',
+        strength_level: '突破等级',
+      };
+
+      return this.ctx.helper.tableInfoListConv(src, tpl);
+    }
+    return [];
   }
 
   // 角色技能信息查询
   async skillInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1011 }, { guid, part_id }, ['guid']);
+    const result = await this.request({ cmd: 1011 }, { guid, part_id }, [
+      'guid',
+    ]);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.skilllist) {
       // 处理返回结果
@@ -190,7 +240,9 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色称号信息查询
   async titleInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1013 }, { guid, part_id }, ['guid']);
+    const result = await this.request({ cmd: 1013 }, { guid, part_id }, [
+      'guid',
+    ]);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.titlelist) {
       // 处理返回结果
@@ -210,7 +262,9 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色宠物信息
   async petInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1015 }, { guid, part_id }, ['guid']);
+    const result = await this.request({ cmd: 1015 }, { guid, part_id }, [
+      'guid',
+    ]);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.petlist) {
       // 处理返回结果
@@ -242,9 +296,15 @@ class PlayerinfoService extends BaseReqService {
 
   // 角色任务信息
   async taskInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1017 }, { guid, part_id }, ['guid']);
+    const result = await this.request({ cmd: 1017 }, { guid, part_id }, [
+      'guid',
+    ]);
     if (!result) return [];
-    if (result.data && result.data.body && result.data.body.normal_mission_accepted_list) {
+    if (
+      result.data &&
+      result.data.body &&
+      result.data.body.normal_mission_accepted_list
+    ) {
       // 处理返回结果
       const src = result.data.body.normal_mission_accepted_list;
       const tpl = {
@@ -255,12 +315,18 @@ class PlayerinfoService extends BaseReqService {
 
       const stateMap = state => {
         switch (state) {
-          case 0: return '无';
-          case 1: return '进行';
-          case 2: return '完成';
-          case 3: return '失败';
-          case 4: return '提交';
-          default: return '无';
+          case 0:
+            return '无';
+          case 1:
+            return '进行';
+          case 2:
+            return '完成';
+          case 3:
+            return '失败';
+          case 4:
+            return '提交';
+          default:
+            return '无';
         }
       };
       const fns = {
@@ -273,7 +339,9 @@ class PlayerinfoService extends BaseReqService {
   }
 
   async homeInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1019 }, { guid, part_id }, ['guid']);
+    const result = await this.request({ cmd: 1019 }, { guid, part_id }, [
+      'guid',
+    ]);
     if (!result) return [];
     if (result.data && result.data.body) {
       // 处理返回结果
@@ -295,17 +363,24 @@ class PlayerinfoService extends BaseReqService {
       };
       const careerMap = career => {
         switch (career) {
-          case 0: return '工匠';
-          case 1: return '宝石匠';
-          case 2: return '木匠';
-          case 3: return '郎中';
-          case 4: return '方士';
-          default: return '';
+          case 0:
+            return '工匠';
+          case 1:
+            return '宝石匠';
+          case 2:
+            return '木匠';
+          case 3:
+            return '郎中';
+          case 4:
+            return '方士';
+          default:
+            return '';
         }
       };
       const fns = {
         building_list: src => this.ctx.helper.tableInfoListConv(src, tpl1),
-        worker_list: src => this.ctx.helper.tableInfoListConv(src, tpl2, { career: careerMap }),
+        worker_list: src =>
+          this.ctx.helper.tableInfoListConv(src, tpl2, { career: careerMap }),
       };
       return this.ctx.helper.tableInfoConv(src, tpl, fns);
     }
@@ -313,7 +388,9 @@ class PlayerinfoService extends BaseReqService {
   }
 
   async emailInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1021 }, { guid, part_id }, ['guid']);
+    const result = await this.request({ cmd: 1021 }, { guid, part_id }, [
+      'guid',
+    ]);
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.system_mail_list) {
       // 处理返回结果
@@ -328,11 +405,16 @@ class PlayerinfoService extends BaseReqService {
 
       const statusMap = status => {
         switch (status) {
-          case -1: return '未确认';
-          case 0: return '未读';
-          case 1: return '已读';
-          case 2: return '附件已提取';
-          default: return '';
+          case -1:
+            return '未确认';
+          case 0:
+            return '未读';
+          case 1:
+            return '已读';
+          case 2:
+            return '附件已提取';
+          default:
+            return '';
         }
       };
 
@@ -342,7 +424,9 @@ class PlayerinfoService extends BaseReqService {
   }
 
   async marriageInfo({ guid, part_id }) {
-    const result = await this.request({ cmd: 1023 }, { guid, part_id }, ['guid']);
+    const result = await this.request({ cmd: 1023 }, { guid, part_id }, [
+      'guid',
+    ]);
     if (!result) return [];
     if (result.data && result.data.body) {
       // 处理返回结果

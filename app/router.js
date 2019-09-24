@@ -44,6 +44,7 @@ module.exports = app => {
   router.post('/api/player/playerinfo/bag-info', controller.player.playerinfo.bagInfo); // 角色背包信息
   router.post('/api/player/playerinfo/warehouse-info', controller.player.playerinfo.wareHouseInfo); // 角色仓库信息
   router.post('/api/player/playerinfo/equip-info', controller.player.playerinfo.equipInfo); // 角色装备信息
+  router.post('/api/player/playerinfo/dec-info', controller.player.playerinfo.decInfo); // 角色饰品信息
   router.post('/api/player/playerinfo/skill-info', controller.player.playerinfo.skillInfo); // 角色技能信息
   router.post('/api/player/playerinfo/title-info', controller.player.playerinfo.titleInfo); // 角色称号信息
   router.post('/api/player/playerinfo/pet-info', controller.player.playerinfo.petInfo); // 角色宠物信息

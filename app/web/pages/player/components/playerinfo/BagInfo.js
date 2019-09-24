@@ -6,7 +6,7 @@ import TableInfoList from '@/components/TableInfoList';
 class BagInfo extends React.PureComponent {
   render() {
     return (
-      <TableInfoList data={this.props.data} />
+      <TableInfoList data={this.props.data} defaultPageSize={20} />
     );
   }
 }

@@ -154,6 +154,7 @@ class PlayerMan extends React.PureComponent {
                     <Select.Option value="1">guid</Select.Option>
                     <Select.Option value="2">uid</Select.Option>
                     <Select.Option value="3">手机号</Select.Option>
+                    <Select.Option value="4">模糊角色名</Select.Option>
                   </Select>
                 )}
               </Form.Item>
@@ -188,6 +189,7 @@ class PlayerMan extends React.PureComponent {
                   <Menu.Item onClick={() => this.select('bag-info')} key="bag-info">背包信息</Menu.Item>
                   <Menu.Item onClick={() => this.select('warehouse-info')} key="warehouse-info">仓库信息</Menu.Item>
                   <Menu.Item onClick={() => this.select('equip-info')} key="equip-info">装备信息</Menu.Item>
+                  <Menu.Item onClick={() => this.select('dec-info')} key="dec-info">饰品信息</Menu.Item>
                   <Menu.Item onClick={() => this.select('skill-info')} key="skill-info">技能信息</Menu.Item>
                   <Menu.Item onClick={() => this.select('title-info')} key="title-info">称号信息</Menu.Item>
                   <Menu.Item onClick={() => this.select('pet-info')} key="pet-info">宠物信息</Menu.Item>
@@ -206,6 +208,7 @@ class PlayerMan extends React.PureComponent {
                     <Menu.Item onClick={() => this.select('forcedown')} key="forcedown">踢玩家下线</Menu.Item>
                     <Menu.Item onClick={() => this.select('change-pass')} key="change-pass">修改密码</Menu.Item>
                     <Menu.Item onClick={() => this.select('untie-phone')} key="untie-phone">解除绑定手机</Menu.Item>
+                    <Menu.Item onClick={() => this.select('gm-ins')} key="gm-ins">GM指令</Menu.Item>
                   </Menu.SubMenu> : null
                 }
                 {this.props.global.user_role > 1 ?

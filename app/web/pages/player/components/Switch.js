@@ -4,6 +4,7 @@ import BasicInfo from './playerinfo/BasicInfo';
 import BagInfo from './playerinfo/BagInfo';
 import WarehouseInfo from './playerinfo/WarehouseInfo';
 import EquipInfo from './playerinfo/EquipInfo';
+import DecInfo from './playerinfo/DecInfo';
 import SkillInfo from './playerinfo/SkillInfo';
 import TitleInfo from './playerinfo/TitleInfo';
 import PetInfo from './playerinfo/PetInfo';
@@ -20,6 +21,7 @@ import PracLevel from './gmact/PracLevel';
 import Prop from './gmact/Prop';
 import SecureCode from './gmact/SecureCode';
 import UntiePhone from './gmact/UntiePhone';
+import GmIns from './gmact/GmIns';
 import ClearSecureCode from './clear/ClearSecureCode';
 import UnusualGang from './clear/UnusualGang';
 import UnusualTask from './clear/UnusualTask';
@@ -49,6 +51,8 @@ class Switch extends React.PureComponent {
         return <WarehouseInfo data={data} />;
       case 'equip-info':
         return <EquipInfo data={data} />;
+      case 'dec-info':
+        return <DecInfo data={data} />;
       case 'skill-info':
         return <SkillInfo data={data} />;
       case 'title-info':
@@ -92,6 +96,8 @@ class Switch extends React.PureComponent {
         return guid ? <SecureCode guid={guid} part_id={part_id} uid={uid} /> : null;
       case 'untie-phone':
         return guid ? <UntiePhone guid={guid} part_id={part_id} uid={uid} /> : null;
+      case 'gm-ins':
+        return guid ? <GmIns guid={guid} part_id={part_id} /> : null;
 
       case 'clear-secure-code':
         return guid ? <ClearSecureCode guid={guid} part_id={part_id} /> : null;

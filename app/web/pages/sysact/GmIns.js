@@ -18,7 +18,7 @@ class GmIns extends React.Component {
           title: '确认操作',
           content: '确认执行该操作？',
           onOk: () => {
-            gmIns({ ...values, part_id }).then(data => {
+            gmIns({ ...values, part_id, guid: '0' }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -68,13 +68,6 @@ class GmIns extends React.Component {
               rules: [{ required: true, message: '内容不能为空' }]
             })(
               <Input />
-            )}
-          </Form.Item>
-          <Form.Item label="GUID">
-            {getFieldDecorator('guid', {
-              rules: [{ required: true, message: '内容不能为空' }]
-            })(
-              <Input type="number" />
             )}
           </Form.Item>
           <Form.Item label="Content">
