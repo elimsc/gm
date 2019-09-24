@@ -14,9 +14,10 @@ class SysdataService extends Service {
 
     try {
       if (name === '*') {
-        results = await this.app.mysql.query('select * from prop limit 20');
+        results = await this.app.mysql.query('select * from prop');
+      } else {
+        results = await this.app.mysql.query(`select * from prop where name like "${name}%" limit 20`);
       }
-      results = await this.app.mysql.query(`select * from prop where name like "${name}%" limit 20`);
     } catch (e) {
       results = [];
     }
