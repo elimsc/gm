@@ -1,11 +1,11 @@
 import React from 'react';
 
-import TableInfoListWithSub from '@/components/TableInfoListWithSub';
+import TableInfoList from '@/components/TableInfoList';
 
 class DecInfo extends React.PureComponent {
   render() {
     return (
-      <TableInfoListWithSub data={this.props.data} defaultPageSize={3} />
+      <TableInfoList data={this.props.data} defaultPageSize={3} />
     );
   }
 }
