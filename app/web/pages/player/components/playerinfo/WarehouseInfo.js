@@ -62,13 +62,11 @@ class WarehouseInfo extends React.PureComponent {
     return (
       <div>
         <Input.Search
-          allowClear
           placeholder="按ID查询"
           onSearch={(id) => this.setState({ idInput: id.trim() })}
           style={{ width: '35%', marginLeft: '8%' }}
         />
         <Input.Search
-          allowClear
           placeholder="按名字查询"
           onSearch={(name) => this.setState({ nameInput: name.trim() })}
           style={{ width: '35%', marginLeft: '8%' }}
