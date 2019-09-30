@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Form, Input, Button, message, Modal, Select } from 'antd';
+import { Card, Form, Input, Button, message, Modal, Select, Checkbox } from 'antd';
 
 import { reIssue } from '../../../../service/gmact';
 
@@ -11,6 +11,18 @@ class Reissue extends React.PureComponent {
     super(props);
     this.state = {
       loading: false,
+      gmDirectChecked: false,
+    };
+    this.gm_direct_order_id = 'MT0VLXDZW4'; // // GM直充订单id
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.gmDirectChecked !== this.state.gmDirectChecked) {
+      if (this.state.gmDirectChecked === true) {
+        this.props.form.setFields({ cp_order_id: { value: this.gm_direct_order_id } });
+      } else {
+        this.props.form.setFields({ cp_order_id: { value: '' } });
+      }
     }
   }
 
@@ -42,6 +54,24 @@ class Reissue extends React.PureComponent {
 
   render() {
     const { getFieldDecorator } = this.props.form;
+
+    // 配表id与具体内容的映射
+    const diamond_id_map = {
+      0: '6元',
+      1: '30元',
+      2: '68元',
+      3: '128元',
+      4: '228元',
+      5: '328元',
+      6: '488元',
+      7: '648元',
+      8: '特权VIP月卡',
+      9: '白金月卡',
+      10: '成长基金',
+      11: '30元档0元购',
+      12: '68元档0元购',
+      13: '128元档0元购',
+    };
 
     const formItemLayout = {
       labelCol: {
@@ -86,13 +116,16 @@ class Reissue extends React.PureComponent {
         <Form.Item
           label="订单号"
         >
-          {getFieldDecorator('cp_order_id', {
-            rules: [{
-              required: true, message: '订单号不能为空',
-            }],
-          })(
-            <Input />
-          )}
+          <div>
+            {getFieldDecorator('cp_order_id', {
+              rules: [{
+                required: true, message: '订单号不能为空',
+              }],
+            })(
+              <Input />
+            )}
+            <Checkbox checked={this.state.gmDirectChecked} onChange={e => this.setState({ gmDirectChecked: e.target.checked })}>GM直充</Checkbox>
+          </div>
         </Form.Item>
 
         <Form.Item
@@ -103,7 +136,17 @@ class Reissue extends React.PureComponent {
               required: true, message: '配表id不能为空',
             }],
           })(
-            <Input />
+            <Select>
+              {Object.keys(diamond_id_map).map(k => {
+                let numK = -1;
+                try {
+                  numK = parseInt(k);
+                } catch (e) {
+                  diamond_id_map[k] = "无效选项"
+                }
+                return <Select.Option key={k} value={numK}>{diamond_id_map[k]}</Select.Option>
+              })}
+            </Select>
           )}
         </Form.Item>
 
