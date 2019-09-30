@@ -401,6 +401,10 @@ class PlayerinfoService extends BaseReqService {
         sub_type: '子类型',
         content: '内容',
         status: '状态',
+        attachment_list: '邮件列表',
+        type: '奖励类型',
+        id: '奖励ID',
+        num: '奖励数量',
       };
 
       const statusMap = status => {
@@ -417,8 +421,12 @@ class PlayerinfoService extends BaseReqService {
             return '';
         }
       };
+      const fns = {
+        status: statusMap,
+        attachment_list: src => this.ctx.helper.tableInfoConv(src, tpl),
+      };
 
-      return this.ctx.helper.tableInfoListConv(src, tpl, { status: statusMap });
+      return this.ctx.helper.tableInfoListConv(src, tpl, fns);
     }
     return [];
   }

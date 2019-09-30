@@ -1,11 +1,11 @@
 import React from 'react';
 
-import TableInfoList from '../../../../components/TableInfoList';
+import TableInfoListWithSub from '../../../../components/TableInfoListWithSub';
 
 class EmailInfo extends React.PureComponent {
   render() {
     return (
-      <TableInfoList data={this.props.data} />
+      <TableInfoListWithSub data={this.props.data} />
     );
   }
 }
