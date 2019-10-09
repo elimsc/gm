@@ -8,7 +8,7 @@ class PlayerinfoService extends BaseReqService {
     const result = await this.request(
       { cmd: 1001 },
       { name: name.trim(), type, part_id },
-      [ 'name', 'type' ]
+      ['name', 'type']
     );
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.rolelist) {
@@ -401,7 +401,7 @@ class PlayerinfoService extends BaseReqService {
         sub_type: '子类型',
         content: '内容',
         status: '状态',
-        attachment_list: '邮件列表',
+        attachment_list: '附件列表',
         type: '奖励类型',
         id: '奖励ID',
         num: '奖励数量',
@@ -423,7 +423,7 @@ class PlayerinfoService extends BaseReqService {
       };
       const fns = {
         status: statusMap,
-        attachment_list: src => this.ctx.helper.tableInfoConv(src, tpl),
+        attachment_list: src => this.ctx.helper.tableInfoListConv(src, tpl),
       };
 
       return this.ctx.helper.tableInfoListConv(src, tpl, fns);
