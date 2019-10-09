@@ -42,7 +42,7 @@ class Reissue extends React.PureComponent {
               } else {
                 message.error('操作失败');
               }
-              this.setState({ loading: false });
+              this.setState({ loading: false, gmDirectChecked: false });
               this.props.form.resetFields();
             });
           }
