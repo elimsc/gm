@@ -8,7 +8,7 @@ class PlayerinfoService extends BaseReqService {
     const result = await this.request(
       { cmd: 1001 },
       { name: name.trim(), type, part_id },
-      ['name', 'type']
+      [ 'name', 'type' ]
     );
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.rolelist) {
