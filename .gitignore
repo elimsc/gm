@@ -18,6 +18,7 @@
 .umi-production
 
 # logs
+/logs
 /run/**
 /logs/**/*.log
 

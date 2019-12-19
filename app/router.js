@@ -88,6 +88,15 @@ module.exports = app => {
   router.post('/api/batchact/ban-account', role_operation, actlog({ action: '批量封号' }), controller.batchact.banAccount); // 批量发放道具
   router.post('/api/batchact/ban-talk', role_operation, actlog({ action: '批量禁言' }), controller.batchact.banTalk); // 批量发放道具
 
+  // 帮会操作
+  router.post('/api/gang/list', role_operation, controller.gang.list); // 帮会列表
+  router.post('/api/gang/info', role_operation, controller.gang.info); // 帮会信息
+  router.post('/api/gang/ban', role_operation, actlog({ action: '帮会操作--封号' }), controller.gang.ban);
+  router.post('/api/gang/notice', role_operation, actlog({ action: '帮会操作--修改公告' }), controller.gang.notice);
+  router.post('/api/gang/dismiss', role_operation, actlog({ action: '帮会操作--解散帮会' }), controller.gang.dismiss);
+  router.post('/api/gang/gmins', role_operation, actlog({ action: '帮会操作--GM指令' }), controller.gang.gmIns);
+
+
   // 系统操作
   // router.post('/api/sysact/activity/update', role_super, controller.sysact.updateActivity);
   // router.post('/api/sysact/activity/list', role_super, controller.sysact.activityList);

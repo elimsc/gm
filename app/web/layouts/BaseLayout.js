@@ -139,6 +139,10 @@ class BaseLayout extends React.Component {
                 <Icon type="team" />
                 <span>玩家操作</span>
               </Menu.Item>
+              <Menu.Item onClick={() => this.go_route("/gang")} key="/gang">
+                <Icon type="appstore" />
+                <span>帮会操作</span>
+              </Menu.Item>
               {this.state.role >= 2 ? (
                 <Menu.Item
                   key="/batchact"
