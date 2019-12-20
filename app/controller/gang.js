@@ -82,7 +82,12 @@ class GangController extends BaseController {
    */
   async gmIns() {
     const { gang_guid, part_id, gang_cmd, params } = this.ctx.request.body;
-    const r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `${gang_cmd}=${gang_guid}=${params}`, part_id });
+    let r;
+    if (!params) {
+      r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `${gang_cmd}=${gang_guid}`, part_id });
+    } else {
+      r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `${gang_cmd}=${gang_guid}=${params}`, part_id });
+    }
     if (r) {
       this.ctx.body = this.success();
     } else {
