@@ -54,7 +54,7 @@ class GangController extends BaseController {
    */
   async notice() {
     const { gang_guid, part_id, notice } = this.ctx.request.body;
-    const r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `changenotice=[${gang_guid}]=[${notice}]`, part_id });
+    const r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `changenotice=${gang_guid}=${notice}`, part_id });
     if (r) {
       this.ctx.body = this.success();
     } else {
@@ -68,7 +68,7 @@ class GangController extends BaseController {
    */
   async dismiss() {
     const { gang_guid, part_id } = this.ctx.request.body;
-    const r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `dismiss=[${gang_guid}]`, part_id });
+    const r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `dismiss=${gang_guid}`, part_id });
     if (r) {
       this.ctx.body = this.success();
     } else {
@@ -82,7 +82,7 @@ class GangController extends BaseController {
    */
   async gmIns() {
     const { gang_guid, part_id, gang_cmd, params } = this.ctx.request.body;
-    const r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `[${gang_cmd}]=[${gang_guid}]=[${params}]`, part_id });
+    const r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `${gang_cmd}=${gang_guid}=${params}`, part_id });
     if (r) {
       this.ctx.body = this.success();
     } else {
