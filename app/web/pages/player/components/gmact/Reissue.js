@@ -57,7 +57,7 @@ class Reissue extends React.PureComponent {
 
     // 配表id与具体内容的映射
     const diamond_id_map = {
-      0: '6元',
+      0: '6元 - 配表id0',
       1: '30元',
       2: '68元',
       3: '128元',
