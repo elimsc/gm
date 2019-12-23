@@ -57,7 +57,7 @@ class Reissue extends React.PureComponent {
 
     // 配表id与具体内容的映射
     const diamond_id_map = {
-      0: '6元 - 配表id0',
+      0: '6元',
       1: '30元',
       2: '68元',
       3: '128元',
@@ -145,7 +145,7 @@ class Reissue extends React.PureComponent {
                 } catch (e) {
                   diamond_id_map[k] = "无效选项"
                 }
-                return <Select.Option key={k} value={numK}>{diamond_id_map[k]}</Select.Option>
+                return <Select.Option key={k} value={numK}>{diamond_id_map[k]} - 配表id{numK}</Select.Option>
               })}
             </Select>
           )}
