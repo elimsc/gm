@@ -2,11 +2,11 @@ import { post } from "../utils/request";
 
 // 封号
 // type 0封号 1解封
-export async function banAccount({ type, start, end, reason, uid, part_id }) {
+export async function banAccount({ type, start, end, reason, uid, part_id, ban_type }) {
   if (type === 0) {
-    return post(`/api/player/ban/account`, { start, end, reason, uid, part_id });
+    return post(`/api/player/ban/account`, { type: ban_type, start, end, reason, uid, part_id });
   } else {
-    return post(`/api/player/ban/account-r`, { reason, uid, part_id });
+    return post(`/api/player/ban/account-r`, { type: ban_type, reason, uid, part_id });
   }
 }
 

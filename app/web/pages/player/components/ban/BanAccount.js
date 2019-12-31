@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, message, DatePicker, Divider, Modal } from 'antd';
+import { Form, Input, Button, message, DatePicker, Divider, Modal, Select } from 'antd';
 
 import { banAccount } from '../../../../service/ban';
 
@@ -7,32 +7,37 @@ import { banAccount } from '../../../../service/ban';
 class BanAccount extends React.Component {
   constructor(props) {
     super(props);
+    this.banTypes = {
+      0: '账号',
+      1: '手机号',
+      2: '身份证号',
+    }
     this.state = {
       loading: false,
       loading2: false,
     }
   }
 
+
   handleSubmit1 = (e) => {
     const { uid, part_id } = this.props;
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll(['time_range', 'reason'], (err, values) => {
+    this.props.form.validateFieldsAndScroll(['time_range', 'reason', 'type1'], (err, values) => {
       if (!err) {
         const start = values['time_range'][0].toDate().getTime();
         const end = values['time_range'][1].toDate().getTime();
-        console.log({ reason: values['reason'], uid, part_id, start, end });
         Modal.confirm({
           title: '确认操作',
           content: '确认对该账号进行封号操作？',
           onOk: () => {
             this.setState({ loading: true });
-            banAccount({ reason: values['reason'], uid, part_id, start, end, type: 0 }).then(data => {
+            banAccount({ reason: values['reason'], uid, part_id, start, end, type: 0, ban_type: parseInt(values['type1']) }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
                 message.error('操作失败');
               }
-              this.props.form.resetFields(['time_range', 'reason']);
+              this.props.form.resetFields(['time_range', 'reason', 'type1']);
               this.setState({ loading: false });
             });
           }
@@ -44,21 +49,20 @@ class BanAccount extends React.Component {
   handleSubmit2 = (e) => {
     const { uid, part_id } = this.props;
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll(['reason2'], (err, values) => {
+    this.props.form.validateFieldsAndScroll(['reason2', 'type2'], (err, values) => {
       if (!err) {
-        console.log({ ...values, uid, part_id });
         Modal.confirm({
           title: '确认操作',
           content: '确认解除该账号的封号？',
           onOk: () => {
             this.setState({ loading2: true });
-            banAccount({ reason: values['reason2'], uid, part_id, start: 0, end: 0, type: 1 }).then(data => {
+            banAccount({ reason: values['reason2'], uid, part_id, start: 0, end: 0, type: 1, ban_type: parseInt(values['type2']) }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
                 message.error('操作失败');
               }
-              this.props.form.resetFields(['reason2']);
+              this.props.form.resetFields(['reason2', 'type2']);
               this.setState({ loading2: false });
             });
           },
@@ -103,6 +107,19 @@ class BanAccount extends React.Component {
               <DatePicker.RangePicker showTime />
             )}
           </Form.Item>
+          <Form.Item label="封号级别">
+            {getFieldDecorator('type1', {
+              rules: [{
+                required: true, message: '请输入封号级别',
+              }],
+            })(
+              <Select>
+                {Object.keys(this.banTypes).map(k => (
+                  <Select.Option key={k} value={k}>{this.banTypes[k]}</Select.Option>
+                ))}
+              </Select>
+            )}
+          </Form.Item>
           <Form.Item label="原因">
             {getFieldDecorator('reason', {
               rules: [{
@@ -119,7 +136,19 @@ class BanAccount extends React.Component {
         </Form>
         <Divider />
         <Form {...formItemLayout} onSubmit={this.handleSubmit2} style={{ marginTop: 50 }}>
-
+          <Form.Item label="解封级别">
+            {getFieldDecorator('type2', {
+              rules: [{
+                required: true, message: '请输入解封级别',
+              }],
+            })(
+              <Select>
+                {Object.keys(this.banTypes).map(k => (
+                  <Select.Option key={k} value={k}>{this.banTypes[k]}</Select.Option>
+                ))}
+              </Select>
+            )}
+          </Form.Item>
           <Form.Item label="原因">
             {getFieldDecorator('reason2', {
               rules: [{

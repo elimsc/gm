@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Row, Input, Button, Table, Form, Select, Spin, Tabs, message, Icon } from 'antd';
+import { Card, Row, Input, Button, Table, Form, Spin, Tabs, message, Icon } from 'antd';
 import { connect } from 'dva';
 
 import { list, info } from '../../service/gang';
@@ -89,7 +89,7 @@ class GangMan extends React.PureComponent {
       </div>
     ),
     filterIcon: filtered => (
-      <Icon type="search" style={{ color: filtered ? '#1890ff' : undefined }} />
+      <Icon type="search" style={{ color: filtered ? '#1890ff' : '#333' }} />
     ),
     onFilter: (value, record) =>
       record[dataIndex]

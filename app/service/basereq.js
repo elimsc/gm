@@ -3,9 +3,6 @@
 const Service = require('egg').Service;
 const moment = require('moment');
 
-
-const URL = 'http://192.168.1.205:20843/';
-
 class BaseReqService extends Service {
   async request(head = {}, body = {}, token_param_list = []) {
     const genBody = this.ctx.helper.genBody;

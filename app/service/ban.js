@@ -9,8 +9,9 @@ const BaseReqService = require('./basereq');
 class BanService extends BaseReqService {
   // 封号/解封
   // flag: 0封号 1解封
-  async banAccount({ uid, flag, time, reason, part_id }) {
-    const r = await this.request({ cmd: 3005 }, { uid, flag, reason, time: parseInt((`${time}`).substr(0, 10)), part_id }, ['uid', 'flag', 'time', 'reason']);
+  async banAccount({ type, uid, flag, time, reason, part_id }) {
+    const r = await this.request({ cmd: 3005 }, { type, uid, flag, reason, time: parseInt((`${time}`).substr(0, 10)), part_id }, ['type', 'uid', 'flag', 'time', 'reason']);
+    // console.log(r);
     if (!this.is_success(r)) return false;
     return true;
   }
@@ -26,7 +27,6 @@ class BanService extends BaseReqService {
   // 禁言记录（禁言状态）
   async banTalkLog({ guid, part_id }) {
     const r = await this.request({ cmd: 3011 }, { guid, part_id }, ['guid']);
-    console.log(r);
     if (!r) return [];
     if (r.data && r.data.body) {
       const src = r.data.body;
@@ -51,7 +51,6 @@ class BanService extends BaseReqService {
   // 封号记录（封号状态）
   async banAccountLog({ uid, part_id }) {
     const r = await this.request({ cmd: 3007 }, { uid, part_id }, ['uid']);
-    console.log(r);
     if (!r) return [];
     if (r.data && r.data.body && r.data.body) {
       const src = r.data.body;
@@ -60,6 +59,7 @@ class BanService extends BaseReqService {
         part_id: '区服',
         end_time: '封号截止时间',
         gm_time: 'GM操作时间',
+        type: '封号级别',
       };
 
       const end_time_map = end_time => {
@@ -69,7 +69,16 @@ class BanService extends BaseReqService {
         }
       };
 
-      const fns = { end_time: end_time_map, gm_time: this.prettyTime };
+      const type_map = type => {
+        switch (type) {
+          case 0: return '账号';
+          case 1: return '手机号';
+          case 2: return '身份证号';
+          default: return type;
+        }
+      };
+
+      const fns = { end_time: end_time_map, gm_time: this.prettyTime, type: type_map };
       return this.ctx.helper.tableInfoConv(src, tpl, fns);
     }
     return [];

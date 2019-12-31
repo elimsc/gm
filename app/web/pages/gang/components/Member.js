@@ -62,7 +62,7 @@ class Member extends React.PureComponent {
       </div>
     ),
     filterIcon: filtered => (
-      <Icon type="search" style={{ color: filtered ? '#1890ff' : undefined }} />
+      <Icon type="search" style={{ color: filtered ? '#1890ff' : '#333' }} />
     ),
     onFilter: (value, record) =>
       record[dataIndex]
@@ -127,6 +127,16 @@ class Member extends React.PureComponent {
             default: return v;
           }
         }
+      },
+      {
+        title: '等级',
+        dataIndex: 'level',
+        key: 'level',
+      },
+      {
+        title: '资历',
+        dataIndex: 'zili',
+        key: 'zili',
       },
       {
         title: '操作',
