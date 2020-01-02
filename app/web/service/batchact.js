@@ -1,4 +1,4 @@
-import { post } from "../utils/request";
+import { post, pureGet } from "../utils/request";
 
 
 // 批量发放道具
@@ -12,4 +12,8 @@ export async function batchBanAccount({ items, reason, part_id }) {
 
 export async function batchBanTalk({ items, reason, part_id }) {
   return post(`/api/batchact/ban-talk`, { items, reason, part_id });
+}
+
+export async function exportChatlog({ start, end }) {
+  return pureGet(`/api/batchact/export-chatlog?start=${start}&end=${end}`);
 }

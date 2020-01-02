@@ -31,7 +31,7 @@ module.exports = options => {
             role = user.role;
           }
           // 重新生成token
-          if (ctx.request.url !== '/api/sysdata/prop') { // 频繁请求的接口，不重新生成token
+          if (ctx.request.url !== '/api/sysdata/prop' && ctx.request.method.toUpperCase() !== 'GET') { // 频繁请求的接口，不重新生成token
             const r = await userService.login({ username: user.username, password: user.password }, false);
             if (r) {
               token = r.token;

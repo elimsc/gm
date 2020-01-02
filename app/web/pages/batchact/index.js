@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Form, Input, Button, message, Select, Upload, Icon, Modal, Alert } from 'antd';
+import { Card, Form, Input, Button, message, Select, Upload, Icon, Modal, Alert, Divider } from 'antd';
 import XLSX from 'xlsx';
 import { connect } from 'dva'
 
@@ -158,75 +158,77 @@ class BatchAct extends React.Component {
     };
 
     return (
-      <Card>
-        <Form {...formItemLayout} style={{ marginTop: 50 }} onSubmit={this.handleSubmit}>
-          <Form.Item {...tailFormItemLayout}>
-            {errs.length === 0 ? null : (
-              <Alert
-                closable
-                afterClose={() => {
-                  this.setState({ errs: [] })
-                }}
-                type="error"
-                description={(
-                  <ul>
-                    {errs.map(err => {
-                      return <li key={`${err}`}>{err}</li>
-                    })}
-                  </ul>
-                )}
-              />
-            )}
-          </Form.Item>
-          <Form.Item
-            label="操作类型"
-          >
-            {getFieldDecorator('type', {
-              rules: [{
-                required: true, message: '操作类型不能为空',
-              }],
-            })(
-              <Select placeholder="请选择操作类型">
-                <Select.Option value={1}>批量发放道具</Select.Option>
-                <Select.Option value={2}>批量封号</Select.Option>
-                <Select.Option value={3}>批量禁言</Select.Option>
-              </Select>
-            )}
-          </Form.Item>
-          <Form.Item
-            label="批量操作文件(txt)"
-          >
-            {getFieldDecorator('file', {
-              getValueFromEvent: this.normFile,
-              rules: [{
-                required: true, message: '文件不能为空',
-              }],
-            })(
-              <Upload
-                beforeUpload={this.beforeUpload}
-                onRemove={(file) => {
-                  delete (this.fileContent[file.uid]);
-                  return true;
-                }
-                }>
-                <Button><Icon type="upload" /> 选中文件</Button>
-              </Upload>
-            )}
-          </Form.Item>
-          <Form.Item
-            label="原因"
-          >
-            {getFieldDecorator('reason', {
-              rules: [{ required: true, message: '原因不能为空' }],
-            })(
-              <Input.TextArea placeholder="说明原因" rows={6} />
-            )}
-          </Form.Item>
-          <Form.Item {...tailFormItemLayout}>
-            <Button loading={this.state.loading} type="primary" htmlType="submit">提交</Button>
-          </Form.Item>
-        </Form>
-      </Card>
+      <div>
+        <Card>
+          <Form {...formItemLayout} style={{ marginTop: 50 }} onSubmit={this.handleSubmit}>
+            <Form.Item {...tailFormItemLayout}>
+              {errs.length === 0 ? null : (
+                <Alert
+                  closable
+                  afterClose={() => {
+                    this.setState({ errs: [] })
+                  }}
+                  type="error"
+                  description={(
+                    <ul>
+                      {errs.map(err => {
+                        return <li key={`${err}`}>{err}</li>
+                      })}
+                    </ul>
+                  )}
+                />
+              )}
+            </Form.Item>
+            <Form.Item
+              label="操作类型"
+            >
+              {getFieldDecorator('type', {
+                rules: [{
+                  required: true, message: '操作类型不能为空',
+                }],
+              })(
+                <Select placeholder="请选择操作类型">
+                  <Select.Option value={1}>批量发放道具</Select.Option>
+                  <Select.Option value={2}>批量封号</Select.Option>
+                  <Select.Option value={3}>批量禁言</Select.Option>
+                </Select>
+              )}
+            </Form.Item>
+            <Form.Item
+              label="批量操作文件(txt)"
+            >
+              {getFieldDecorator('file', {
+                getValueFromEvent: this.normFile,
+                rules: [{
+                  required: true, message: '文件不能为空',
+                }],
+              })(
+                <Upload
+                  beforeUpload={this.beforeUpload}
+                  onRemove={(file) => {
+                    delete (this.fileContent[file.uid]);
+                    return true;
+                  }
+                  }>
+                  <Button><Icon type="upload" /> 选中文件</Button>
+                </Upload>
+              )}
+            </Form.Item>
+            <Form.Item
+              label="原因"
+            >
+              {getFieldDecorator('reason', {
+                rules: [{ required: true, message: '原因不能为空' }],
+              })(
+                <Input.TextArea placeholder="说明原因" rows={6} />
+              )}
+            </Form.Item>
+            <Form.Item {...tailFormItemLayout}>
+              <Button loading={this.state.loading} type="primary" htmlType="submit">提交</Button>
+            </Form.Item>
+          </Form>
+        </Card>
+      </div>
     );
   }
 }

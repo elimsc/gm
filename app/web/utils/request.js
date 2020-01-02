@@ -1,6 +1,15 @@
 import router from 'umi/router';
 
 
+export async function pureGet(url) {
+  const token = localStorage.getItem(window.location.href.split("/")[2]);
+  const headers = {
+    'Authorization': `Bearer ${token}`,
+    'content-type': 'application/json',
+  };
+  localStorage.setItem(window.location.href.split("/")[2], token);
+  return fetch(url, { headers });
+}
 
 export async function get(url) {
   const token = localStorage.getItem(window.location.href.split("/")[2]);

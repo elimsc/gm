@@ -144,13 +144,27 @@ class BaseLayout extends React.Component {
                 <span>帮会操作</span>
               </Menu.Item>
               {this.state.role >= 2 ? (
-                <Menu.Item
-                  key="/batchact"
-                  onClick={() => this.go_route("/batchact")}
-                >
-                  <Icon type="form" />
-                  <span>批量操作</span>
-                </Menu.Item>
+                <SubMenu
+                  key="batchact"
+                  title={
+                    <span>
+                      <Icon type="form" />
+                      <span>批量操作</span>
+                    </span>
+                  }>
+                  <Menu.Item
+                    key="/batchact"
+                    onClick={() => this.go_route("/batchact")}
+                  >
+                    <span>批量操作</span>
+                  </Menu.Item>
+                  <Menu.Item
+                    key="/batchact/chatlog"
+                    onClick={() => this.go_route("/batchact/chatlog")}
+                  >
+                    <span>导出聊天记录</span>
+                  </Menu.Item>
+                </SubMenu>
               ) : null}
               {this.state.role >= 2 ? (
                 <Menu.Item
