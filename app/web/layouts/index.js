@@ -3,7 +3,7 @@ import BaseLayout from './BaseLayout';
 import LoginLayout from './LoginLayout';
 import { message, ConfigProvider } from 'antd';
 
-import zhCN from 'antd/es/locale/zh_CN';
+import zhCN from 'antd/lib/locale-provider/zh_CN'
 
 const BasicLayout = props => {
   message.config({
