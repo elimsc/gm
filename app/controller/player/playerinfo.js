@@ -34,12 +34,21 @@ class PlayerInfoController extends BaseController {
     const { names, type, part_id } = this.ctx.request.body;
     const results = [];
     for (const name of names) {
-      const result = await this.playerService.list({
+      const accounts = await this.playerService.list({
         name,
         type: parseInt(type),
         part_id,
       });
-      results.push(result);
+      for (const account of accounts) {
+        const r = await this.playerService.basicInfo({ guid: account['guid'], part_id });
+        for (const item of r) {
+          // 添加create_time到导出结果
+          if (item['key'] === 'create_time') {
+            account['create_time'] = item['value'];
+          }
+        }
+      }
+      results.push(accounts);
     }
     this.ctx.body = this.success(results);
   }

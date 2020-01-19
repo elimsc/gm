@@ -59,6 +59,7 @@ class Export extends React.PureComponent {
                   'UID': item.uid,
                   '所在服务器': item.part_name,
                   '手机号': item.mobile,
+                  '角色创建时间': item.create_time,
                 }
               });
 
