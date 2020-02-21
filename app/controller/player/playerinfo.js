@@ -40,11 +40,15 @@ class PlayerInfoController extends BaseController {
         part_id,
       });
       for (const account of accounts) {
-        const r = await this.playerService.basicInfo({ guid: account['guid'], part_id });
+        const r = await this.playerService.basicInfo({ guid: account.guid, part_id });
         for (const item of r) {
           // 添加create_time到导出结果
-          if (item['key'] === 'create_time') {
-            account['create_time'] = item['value'];
+          if (item.key === 'create_time') {
+            account.create_time = item.value;
+          }
+          // 添加last_login_time到导出结果
+          if (item.key === 'last_login_time') {
+            account.last_login_time = item.value;
           }
         }
       }

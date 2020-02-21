@@ -60,6 +60,7 @@ class Export extends React.PureComponent {
                   '所在服务器': item.part_name,
                   '手机号': item.mobile,
                   '角色创建时间': item.create_time,
+                  '角色最后登陆时间': item.last_login_time,
                 }
               });
 
