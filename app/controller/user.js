@@ -119,6 +119,21 @@ class UserController extends BaseController {
       this.ctx.body = this.failed();
     }
   }
+
+  /**
+   * POST user/delete
+   * 通过用户id删除管理员，供超级管理员使用
+   */
+  async delete() {
+    const { id } = this.ctx.request.body;
+    const userService = this.ctx.service.user;
+    const success = await userService.delete(id);
+    if (success) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.failed();
+    }
+  }
 }
 
 module.exports = UserController;

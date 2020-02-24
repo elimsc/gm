@@ -17,8 +17,8 @@ class UserService extends Service {
     }
     const users = await this.app.mysql.select('user', {
       where: condition,
-      columns: [ 'id', 'username', 'role' ],
-      orders: [[ 'id', 'desc' ]],
+      columns: ['id', 'username', 'role'],
+      orders: [['id', 'desc']],
       limit: pageSize,
       offset: pageSize * (page - 1),
     });
@@ -53,9 +53,9 @@ class UserService extends Service {
   }
 
   // 删除用户
-  async delete(username) {
+  async delete(id) {
     try {
-      const result = await this.app.mysql.delete('user', { username });
+      const result = await this.app.mysql.delete('user', { id });
       return result.affectedRows === 1;
     } catch (e) {
       // this.logger.error(e);

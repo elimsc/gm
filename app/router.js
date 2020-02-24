@@ -26,10 +26,12 @@ module.exports = app => {
   // GM管理
   router.post('/api/user', role_super, actlog({ action: '添加管理员' }), controller.user.create); // 添加管理员
   router.get('/api/user/list', role_super, controller.user.list); // 获取管理员列表
-  router.post('/api/user/update', role_super, actlog({ action: '修改管理员权限' }), controller.user.update); // 更新管理员信息
+  router.post('/api/user/update', role_super, actlog({ action: '超级管理员更新管理员信息' }), controller.user.update); // 更新管理员信息
   router.get('/api/user/actlog/list', role_super, controller.user.actlogList); // 所有的操作记录
   router.get('/api/user/actlog/current', controller.user.curActlog); // 当前登陆管理员的操作记录
   router.post('/api/user/change-pass', actlog({ action: '修改自身密码' }), controller.user.changePass); // 更新管理员信息
+  router.post('/api/user/delete', role_super, actlog({ action: '超级管理员删除管理员' }), controller.user.delete);
+
 
   // 服务器广播
   router.get('/api/broadcast/tpl/list', role_operation, controller.broadcast.listTpl); // 显示所有的公告模板

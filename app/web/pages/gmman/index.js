@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Table, Card, Modal, Form, Select, Input, message } from 'antd';
 
-import { list, changeRole } from '../../service/user';
+import { list, update, deleteById } from '../../service/user';
 
 const role_map = {
   1: '普通管理员',
@@ -19,7 +19,7 @@ class GmMan extends React.Component {
       pagination: {},
       loading: false,
       selectUser: {},
-      showAuthorityModal: false,
+      showUpdateModal: false,
       filter: {},
     }
   }
@@ -56,18 +56,18 @@ class GmMan extends React.Component {
 
   }
 
-  handleAuthoritySubmit = (e) => {
+  handleUpdate = (e) => {
     e.preventDefault();
-    this.props.form.validateFields(['id', 'role'], (err, values) => {
+    this.props.form.validateFields(['id', 'role', 'password'], (err, values) => {
       if (!err) {
         this.setState({ loading: true });
-        changeRole(values).then(data => {
+        update(values).then(data => {
           if (data.code === 0) {
             message.success('修改成功');
           } else {
             message.error('修改失败');
           }
-          this.setState({ loading: false, showAuthorityModal: false });
+          this.setState({ loading: false, showUpdateModal: false });
           this.fetch({
             pageSize: this.state.pagination.pageSize,
             page: this.state.pagination.current,
@@ -93,6 +93,22 @@ class GmMan extends React.Component {
     });
   }
 
+  handleDelete = record => {
+    this.setState({ loading: true });
+    deleteById(record.id).then(data => {
+      this.setState({ loading: false });
+      if (data.code === 0) {
+        message.success('修改成功');
+        this.fetch({
+          pageSize: this.state.pagination.pageSize,
+          page: this.state.pagination.current,
+        });
+      } else {
+        message.error('修改失败');
+      }
+    })
+  }
+
   render() {
     const { getFieldDecorator } = this.props.form;
 
@@ -112,9 +128,19 @@ class GmMan extends React.Component {
     }, {
       title: '操作',
       render: (record) => (
-        <div><Button onClick={() => {
-          this.setState({ selectUser: record, showAuthorityModal: true })
-        }} type="primary">编辑权限</Button></div>
+        <div>
+          <Button onClick={() => {
+            this.setState({ selectUser: record, showUpdateModal: true })
+          }} type="primary">编辑</Button>
+          <Button style={{ marginLeft: 7 }} onClick={() => {
+            Modal.confirm({
+              title: '确认删除该管理员?',
+              onOk: () => {
+                this.handleDelete(record);
+              }
+            })
+          }} type="danger">删除</Button>
+        </div>
       ),
     }];
 
@@ -132,12 +158,12 @@ class GmMan extends React.Component {
     return (
       <Card>
         <Modal
-          onCancel={() => this.setState({ showAuthorityModal: false })}
+          onCancel={() => this.setState({ showUpdateModal: false })}
           footer={null}
           destroyOnClose
-          visible={this.state.showAuthorityModal}
+          visible={this.state.showUpdateModal}
         >
-          <Form style={{ marginTop: 40 }} onSubmit={this.handleAuthoritySubmit}>
+          <Form style={{ marginTop: 40 }} onSubmit={this.handleUpdate}>
             {getFieldDecorator('id', {
               initialValue: this.state.selectUser.id,
             })(
@@ -157,6 +183,10 @@ class GmMan extends React.Component {
                   <Select.Option value={3}>{role_map[3]}</Select.Option>
                 </Select>
               )}
+            </Form.Item>
+            <Form.Item label="密码" {...formItemLayout}>
+              {getFieldDecorator('password', {
+              })(<Input type="password" placeholder="保留空白说明不修改" />)}
             </Form.Item>
             <Form.Item {...formTailLayout}>
               <Button htmlType="submit" type="primary">提交</Button>

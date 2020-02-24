@@ -24,14 +24,23 @@ export async function list(params = {}) {
   return get(url);
 }
 
-// 修改管理员权限
-export async function changeRole({ id, role }) {
-  return post('/api/user/update', { id: parseInt(id), role: parseInt(role) });
+// 编辑管理员, 通用
+export async function update({ id, role, password }) {
+  let new_pass = password;
+  if (password) {
+    new_pass = md5(password, MD5_KEY);
+  }
+  return post('/api/user/update', { id: parseInt(id), role: parseInt(role), password: new_pass });
 }
 
 // 修改当前登陆管理员密码
 export async function changePass({ password }) {
   return post('/api/user/change-pass', { password: md5(password, MD5_KEY) });
+}
+
+// 通过id删除管理员
+export async function deleteById(id) {
+  return post(`/api/user/delete`, { id });
 }
 
 // 操作记录列表
