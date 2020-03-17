@@ -10,8 +10,6 @@ module.exports = app => {
   const role_operation = app.middleware.role({ role: 2 });
   const actlog = app.middleware.actlog;
 
-  // router.get('/api/demo', controller.home.demo);
-
   // 服务器列表
   router.post('/api/srv/list', controller.srv.list);
 
@@ -89,7 +87,8 @@ module.exports = app => {
   router.post('/api/batchact/award', role_operation, actlog({ action: '批量发放道具' }), controller.batchact.award); // 批量发放道具
   router.post('/api/batchact/ban-account', role_operation, actlog({ action: '批量封号' }), controller.batchact.banAccount); // 批量发放道具
   router.post('/api/batchact/ban-talk', role_operation, actlog({ action: '批量禁言' }), controller.batchact.banTalk); // 批量发放道具
-  router.get('/api/batchact/export-chatlog', role_operation, controller.batchact.exportChatlog); // 导出聊天记录
+  router.get('/api/batchact/export-chatlog', role_operation, actlog({ action: '导出聊天记录' }), controller.batchact.exportChatlog); // 导出聊天记录
+  router.post('/api/batchact/export-blacklist', role_operation, actlog({ action: '导出黑名单' }), controller.batchact.exportBlacklist); // 导出黑名单
 
   // 帮会操作
   router.post('/api/gang/list', role_operation, controller.gang.list); // 帮会列表
@@ -99,12 +98,8 @@ module.exports = app => {
   router.post('/api/gang/dismiss', role_operation, actlog({ action: '帮会操作--解散帮会' }), controller.gang.dismiss);
   router.post('/api/gang/gmins', role_operation, actlog({ action: '帮会操作--GM指令' }), controller.gang.gmIns);
 
-
   // 系统操作
-  // router.post('/api/sysact/activity/update', role_super, controller.sysact.updateActivity);
-  // router.post('/api/sysact/activity/list', role_super, controller.sysact.activityList);
   router.post('/api/sysact/gmins', role_super, actlog({ action: 'GM指令' }), controller.sysact.gmins); // GM指令
-  // router.post('/api/sysact/srvforcedown', role_super, controller.sysact.srvForceDown);
 
   // public api
   router.post('/p/account/ban', actlog({ action: '外部接口:封号' }), controller.player.ban.banAccount); // 封号

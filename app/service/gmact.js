@@ -12,7 +12,7 @@ class GmactService extends BaseReqService {
     const r = await this.request(
       { cmd: 2003 },
       { guid, reason, award_list, part_id },
-      [ 'guid', 'reason' ]
+      ['guid', 'reason']
     );
     if (!this.is_success(r)) return false;
     return true;
@@ -23,7 +23,7 @@ class GmactService extends BaseReqService {
     const r = await this.request(
       { cmd: 2001 },
       { guid, type, id, cnt, param, part_id },
-      [ 'guid', 'type', 'id', 'cnt', 'param' ]
+      ['guid', 'type', 'id', 'cnt', 'param']
     );
     if (!this.is_success(r)) return false;
     return true;
@@ -38,7 +38,7 @@ class GmactService extends BaseReqService {
     const r = await this.request(
       { cmd: 2007 },
       { guid, pet_guid, type, value_type, new_value },
-      [ 'guid', 'pet_guid', 'type', 'value_type', 'new_value' ]
+      ['guid', 'pet_guid', 'type', 'value_type', 'new_value']
     );
     if (!this.is_success(r)) return false;
     return true;
@@ -50,7 +50,7 @@ class GmactService extends BaseReqService {
     const r = await this.request(
       { cmd: 2005 },
       { guid, part_id, type, new_value },
-      [ 'guid', 'type', 'new_value' ]
+      ['guid', 'type', 'new_value']
     );
     if (!this.is_success(r)) return false;
     return true;
@@ -58,7 +58,7 @@ class GmactService extends BaseReqService {
 
   // 踢玩家下线
   async forcedown({ guid, part_id }) {
-    const r = await this.request({ cmd: 2009 }, { guid, part_id }, [ 'guid' ]);
+    const r = await this.request({ cmd: 2009 }, { guid, part_id }, ['guid']);
     if (!this.is_success(r)) return false;
     return true;
   }
@@ -68,7 +68,7 @@ class GmactService extends BaseReqService {
     const r = await this.request(
       { cmd: 3015 },
       { uid: `${uid}`, new_passwd, part_id },
-      [ 'uid', 'new_passwd' ]
+      ['uid', 'new_passwd']
     );
     if (!this.is_success(r)) return false;
     return true;
@@ -83,6 +83,7 @@ class GmactService extends BaseReqService {
     return true;
   }
 
+  // 充值补发
   async reissue({ guid, part_id, pay_type, cp_order_id, diamond_id }) {
     const r = await this.request(
       { cmd: 3037 },
@@ -93,7 +94,7 @@ class GmactService extends BaseReqService {
         diamond_id: parseInt(diamond_id),
         part_id,
       },
-      [ 'guid', 'pay_type', 'cp_order_id', 'diamond_id' ]
+      ['guid', 'pay_type', 'cp_order_id', 'diamond_id']
     );
     if (!this.is_success(r)) return false;
     return true;

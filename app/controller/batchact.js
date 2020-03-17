@@ -16,6 +16,17 @@ class BatchActController extends BaseController {
     this.gmactService = this.ctx.service.gmact;
     this.banService = this.ctx.service.ban;
     this.sysdataService = this.ctx.service.sysdata;
+    this.exportService = this.ctx.service.export;
+  }
+
+  /**
+   * 黑名单导出
+   * GET batchact/export-blacklist
+   */
+  async exportBlacklist() {
+    const { part_id } = this.ctx.request.body;
+    const r = await this.exportService.blacklist({ part_id });
+    this.ctx.body = this.success(r);
   }
 
   /**

@@ -164,6 +164,12 @@ class BaseLayout extends React.Component {
                   >
                     <span>导出聊天记录</span>
                   </Menu.Item>
+                  <Menu.Item
+                    key="/batchact/blacklist"
+                    onClick={() => this.go_route("/batchact/blacklist")}
+                  >
+                    <span>导出黑名单</span>
+                  </Menu.Item>
                 </SubMenu>
               ) : null}
               {this.state.role >= 2 ? (
