@@ -2,12 +2,12 @@
 
 
 // 记录用户操作
-module.exports = options => {
+module.exports = action => {
   return async function actlog(ctx, next) {
     await next();
 
     if (ctx.body.code === 0) { // 表示操作成功
-      const action = options.action;
+      // const action = options.action;
       const actlogService = ctx.service.actlog;
       await actlogService.create({
         action,
