@@ -13,22 +13,6 @@ class SysActControler extends BaseController {
     this.sysactService = this.ctx.service.sysact;
   }
 
-  // 服务与活动列表
-  async activityList() {
-    const r = await this.sysactService.fetchActivity();
-    this.ctx.body = this.success(r);
-  }
-
-  // 更新服务与活动信息
-  async updateActivity() {
-    const r = await this.sysactService.updateActivity();
-    if (r) {
-      this.ctx.body = this.success();
-    } else {
-      this.ctx.body = this.error();
-    }
-  }
-
   // GM指令
   // POST /sysact/gmins
   async gmins() {
@@ -40,15 +24,36 @@ class SysActControler extends BaseController {
     }
   }
 
-  // 服务器强制下线
-  async srvForceDown() {
-    const r = await this.sysactService.forcedown();
+  // 查询现在支付黑白名单
+  // POST /sysact/listpayblacklist
+  async listPayBlacklist() {
+    const { part_id, mode } = this.ctx.request.body;
+    const r = await this.sysactService.listPayBlacklist({ part_id, mode });
+
+    const isPhone = v => /^\d{11}$/.test(v);
+    const isUID = v => /^\d+$/.test(v);
+    const typeMap = v => {
+      if (isPhone(v)) return '手机号';
+      if (isUID(v)) return 'UID';
+      return "IMEI";
+    }
+
+    const data = r.map((v, i) => { return { value: v, type: typeMap(v), key: i } });
+    this.ctx.body = this.success(data);
+  }
+
+  // 增删现在支付黑白名单
+  // POST /sysact/updatepayblacklist
+  async updatePayBlacklist() {
+    const { part_id, mode, add_list, del_list } = this.ctx.request.body;
+    const r = await this.sysactService.updatePayBlacklist({ part_id, mode, add_list, del_list });
     if (r) {
       this.ctx.body = this.success();
     } else {
       this.ctx.body = this.error();
     }
   }
+
 }
 
 module.exports = SysActControler;

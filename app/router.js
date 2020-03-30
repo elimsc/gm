@@ -100,6 +100,9 @@ module.exports = app => {
 
   // 系统操作
   router.post('/api/sysact/gmins', role_super, actlog('GM指令'), controller.sysact.gmins); // GM指令
+  router.post('/api/sysact/listpayblacklist', role_super, controller.sysact.listPayBlacklist); // 查询现在支付黑白名单
+  router.post('/api/sysact/updatepayblacklist', role_super, actlog('增删现在支付黑白名单'), controller.sysact.updatePayBlacklist);
+
 
   // public api
   router.post('/p/account/ban', actlog('外部接口:封号'), controller.player.ban.banAccount); // 封号

@@ -13,7 +13,6 @@ class GmIns extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
         Modal.confirm({
           title: '确认操作',
           content: '确认执行该操作？',

@@ -19,7 +19,6 @@ class Activity extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
         const type = values['type'];
         Modal.confirm({
           title: '确认操作',

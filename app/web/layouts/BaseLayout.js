@@ -203,9 +203,9 @@ class BaseLayout extends React.Component {
                   >
                     <span>GM指令（通用）</span>
                   </Menu.Item>
-                  {/* <Menu.Item key="/sysact/srvforcedown" onClick={() => this.go_route('/sysact/srvforcedown')}>
-                    <span>服务器强制下线</span>
-                  </Menu.Item> */}
+                  <Menu.Item key="/sysact/payblacklist" onClick={() => this.go_route('/sysact/payblacklist')}>
+                    <span>现在支付黑白名单</span>
+                  </Menu.Item>
                 </SubMenu>
               ) : null}
               {this.state.role >= 3 ? (
