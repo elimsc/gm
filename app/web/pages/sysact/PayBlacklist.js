@@ -133,7 +133,7 @@ class PayBlacklist extends React.Component {
 
   // 获取黑白名单列表
   getList = (mode) => {
-    if (mode != 0 && mode != 1) return;
+    if (mode != 1 && mode != 2) return;
 
     const { part_id } = this.props.global;
     this.setState({ loading: true });
