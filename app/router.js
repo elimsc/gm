@@ -102,6 +102,7 @@ module.exports = app => {
   router.post('/api/sysact/gmins', role_super, actlog('GM指令'), controller.sysact.gmins); // GM指令
   router.post('/api/sysact/listpayblacklist', role_super, controller.sysact.listPayBlacklist); // 查询现在支付黑白名单
   router.post('/api/sysact/updatepayblacklist', role_super, actlog('增删现在支付黑白名单'), controller.sysact.updatePayBlacklist);
+  router.post('/api/sysact/snapshotimport', role_super, actlog('角色快照导入'), controller.sysact.snapshotImport); // 角色快照导入
 
 
   // public api

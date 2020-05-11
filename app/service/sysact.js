@@ -34,6 +34,12 @@ class SysactService extends BaseReqService {
     if (!this.is_success(r)) return false;
     return true;
   }
+
+  // 角色快照导入
+  async snapshotImport({ from_part_ids, from_guids, to_guids, keys, to_part_id }) {
+    console.log({ from_part_ids, from_guids, to_guids, keys, to_part_id });
+    return true;
+  }
 }
 
 module.exports = SysactService;

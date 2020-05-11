@@ -5,6 +5,7 @@
  */
 
 const BaseController = require('./base');
+const child_process = require('child_process');
 
 class SysActControler extends BaseController {
 
@@ -52,6 +53,27 @@ class SysActControler extends BaseController {
     } else {
       this.ctx.body = this.error();
     }
+  }
+
+  // 角色快照导入
+  // POST /sysact/snapshotimport
+  async snapshotImport() {
+    const { from_part_ids, from_guids, to_guids, keys, to_part_id } = this.ctx.request.body;
+    const script = this.config.snapshotimport_scirpt || "";
+    if (!script) {
+      this.ctx.body = this.error("脚本不存在，请在内网环境下执行");
+    }
+    const n = from_part_ids.length;
+    for (let i = 0; i < n; i++) {
+      child_process.execFile(script, [from_part_ids[i], from_guids[i], to_guids[i], keys[i], to_part_id], (err, stdout, stderr) => {
+        if (err) {
+          this.logger.error(err);
+          this.ctx.body = this.error('执行脚本失败');
+          return;
+        }
+      })
+    }
+    this.ctx.body = this.success();
   }
 
 }

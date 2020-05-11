@@ -115,7 +115,6 @@ class BaseLayout extends React.Component {
         <Layout
           style={{
             height: "100vh",
-            minHeight: 800
           }}
         >
           <Sider
@@ -205,6 +204,9 @@ class BaseLayout extends React.Component {
                   </Menu.Item>
                   <Menu.Item key="/sysact/payblacklist" onClick={() => this.go_route('/sysact/payblacklist')}>
                     <span>现在支付黑白名单</span>
+                  </Menu.Item>
+                  <Menu.Item key="/sysact/snapshotimport" onClick={() => this.go_route('/sysact/snapshotimport')}>
+                    <span>角色快照导入</span>
                   </Menu.Item>
                 </SubMenu>
               ) : null}
