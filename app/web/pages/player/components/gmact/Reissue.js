@@ -108,7 +108,7 @@ class Reissue extends React.PureComponent {
             }],
           })(
             <Select>
-              {/* <Select.Option value={36}>PayNow</Select.Option> */}
+              <Select.Option value={36}>PayNow</Select.Option>
               <Select.Option value={0}>IAP</Select.Option>
             </Select>
           )}

@@ -59,7 +59,7 @@ class SysActControler extends BaseController {
   // POST /sysact/snapshotimport
   async snapshotImport() {
     const { from_part_ids, from_guids, to_guids, keys, to_part_id } = this.ctx.request.body;
-    const script = this.config.snapshotimport_scirpt || "";
+    const script = this.config.snapshotimport_scirpt || "/usr/local/ifgame/script/export_role_data_remote.sh";
     if (!script) {
       this.ctx.body = this.error("脚本不存在，请在内网环境下执行");
     }
