@@ -128,6 +128,11 @@ class PlayerMan extends React.PureComponent {
         key: 'mobile',
       },
       {
+        title: '身份证号',
+        dataIndex: 'real_id',
+        key: 'real_id',
+      },
+      {
         title: '操作',
         key: 'action',
         render: (data) => (
