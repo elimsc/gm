@@ -56,6 +56,7 @@ class PlayerMan extends React.PureComponent {
     const menu = v.menu || this.state.menu;
     this.setState({ ...v });
     if (!player || !menu.endsWith('info')) return; // 没有当前选中用户时，不请求服务端
+    localStorage.setItem(player.guid, player.name);
     this.setState({ dataLoading: true, data: [] });
     fetchInfo(menu, { ...player, ...this.props.global }).then(data => {
       this.setState({ data: data.payload, dataLoading: false });
