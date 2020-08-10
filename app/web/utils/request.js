@@ -40,10 +40,11 @@ export async function post(url, data = {}) {
     'Authorization': `Bearer ${token}`,
     'content-type': 'application/json',
   }
+
   return fetch(url, {
     headers,
     method: 'POST',
-    body: JSON.stringify({ ...data, req_url }),
+    body: JSON.stringify({ ...data, req_url, role_name: data.guid ? localStorage.getItem(data.guid) : '' }),
   }).then(res => {
     return res.json();
   }).then(data => {
