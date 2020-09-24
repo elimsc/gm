@@ -40,7 +40,7 @@ class GangController extends BaseController {
    */
   async ban() {
     const { uid, part_id } = this.ctx.request.body;
-    const r = await this.banService.banAccount({ type: 0, flag: 0, time: 0, reason: 'GM帮会操作封号', uid: `${uid}`, part_id });
+    const r = await this.banService.banAccount({ type: -1, flag: 0, time: 0, reason: 'GM帮会操作封号', uid: `${uid}`, part_id });
     if (r) {
       this.ctx.body = this.success();
     } else {

@@ -8,6 +8,7 @@ class BanAccount extends React.Component {
   constructor(props) {
     super(props);
     this.banTypes = {
+      "-1": '所有',
       0: '账号',
       1: '手机号',
       2: '身份证号',
