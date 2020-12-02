@@ -73,6 +73,9 @@ class Reissue extends React.PureComponent {
       13: '128元档0元购',
       14: '3240元',
       15: '钻石年卡',
+      16: '30每日',
+      17: '68每日',
+      18: '328每日',
     };
 
     const formItemLayout = {
