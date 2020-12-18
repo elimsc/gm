@@ -76,6 +76,7 @@ class Reissue extends React.PureComponent {
       16: '30每日',
       17: '68每日',
       18: '328每日',
+      19: '648每日',
     };
 
     const formItemLayout = {
