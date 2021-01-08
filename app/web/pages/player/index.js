@@ -32,6 +32,7 @@ class PlayerMan extends React.PureComponent {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
+        this.setState({ data: [], selectedPlayer: null });
         if (values.name === "") { // 输入框内容为空时，清除玩家列表数据
           this.setState({ playerList: [] });
         } else {
