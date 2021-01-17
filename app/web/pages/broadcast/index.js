@@ -26,7 +26,6 @@ class Broadcast extends React.PureComponent {
     e.preventDefault();
     this.props.form.validateFields(['content', 'duration', 'frequency', 'part_id'], (err, values) => {
       if (!err) {
-        console.log(values);
         Modal.confirm({
           title: '确认操作',
           content: '确认发布广播？',

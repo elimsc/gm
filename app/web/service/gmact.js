@@ -147,3 +147,10 @@ export async function reIssue({ guid, part_id, pay_type, cp_order_id, diamond_id
   return post(`/api/player/gmact/reissue`, { guid, part_id, pay_type, cp_order_id, diamond_id });
 }
 
+/**
+ * 删除邮件
+ */
+export async function delMail({ guid, part_id, mail_id_list }) {
+  return post(`/api/player/gmact/del-mail`, { guid, part_id, mail_id_list });
+}
+

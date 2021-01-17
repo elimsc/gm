@@ -1,21 +1,22 @@
 import React from 'react';
 
-import { Form, Input, Button, Card, message, Modal } from 'antd';
+import { Form, Input, Button, message, Modal } from 'antd';
 
-import { gmIns } from '../../../../service/sysact';
+import { delMail } from '../../../../service/gmact';
 
-class GmIns extends React.Component {
+class DelMail extends React.Component {
 
   handleSubmit = e => {
     const { part_id, guid } = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
+      const mail_id_list = values.mail_id_list.trim().split("\n").map(v => v.trim());
       if (!err) {
         Modal.confirm({
           title: '确认操作',
           content: '确认执行该操作？',
           onOk: () => {
-            gmIns({ ...values, part_id, guid }).then(data => {
+            delMail({ mail_id_list, part_id, guid }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -52,19 +53,11 @@ class GmIns extends React.Component {
 
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{ marginTop: 40 }}>
-        <Form.Item label="CMD">
-          {getFieldDecorator('cmd', {
+        <Form.Item label="邮件GUID">
+          {getFieldDecorator('mail_id_list', {
             rules: [{ required: true, message: '内容不能为空' }]
           })(
-            <Input />
-          )}
-        </Form.Item>
-
-        <Form.Item label="Content">
-          {getFieldDecorator('content', {
-            rules: [{ required: true, message: '内容不能为空' }]
-          })(
-            <Input.TextArea rows={5} />
+            <Input.TextArea rows={8} placeholder="每行一个GUID值" />
           )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
@@ -75,4 +68,4 @@ class GmIns extends React.Component {
   }
 }
 
-export default Form.create()(GmIns);
+export default Form.create()(DelMail);

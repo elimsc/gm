@@ -215,6 +215,7 @@ class PlayerMan extends React.PureComponent {
                     <Menu.Item onClick={() => this.select('forcedown')} key="forcedown">踢玩家下线</Menu.Item>
                     <Menu.Item onClick={() => this.select('change-pass')} key="change-pass">修改密码</Menu.Item>
                     <Menu.Item onClick={() => this.select('untie-phone')} key="untie-phone">解除绑定手机</Menu.Item>
+                    <Menu.Item onClick={() => this.select('del-mail')} key="del-mail">删除邮件</Menu.Item>
                     <Menu.Item onClick={() => this.select('gm-ins')} key="gm-ins">GM指令</Menu.Item>
                   </Menu.SubMenu> : null
                 }

@@ -41,10 +41,18 @@ export async function post(url, data = {}) {
     'content-type': 'application/json',
   }
 
+  const role_name = data.guid ? localStorage.getItem(data.guid) : ''; // 用于记录操作的角色的名字
+  let bodyObj; // 请求的数据
+  if (role_name) {
+    bodyObj = { ...data, req_url, role_name };
+  } else {
+    bodyObj = { ...data, req_url };
+  }
+
   return fetch(url, {
     headers,
     method: 'POST',
-    body: JSON.stringify({ ...data, req_url, role_name: data.guid ? localStorage.getItem(data.guid) : '' }),
+    body: JSON.stringify(bodyObj),
   }).then(res => {
     return res.json();
   }).then(data => {

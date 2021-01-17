@@ -77,6 +77,7 @@ module.exports = app => {
   router.post('/api/player/gmact/change-pass', role_operation, actlog('修改密码'), controller.player.gmact.changePass); // 修改密码
   router.post('/api/player/gmact/untie-phone', role_operation, actlog('解除绑定手机'), controller.player.gmact.untiePhone); // 解除绑定手机
   router.post('/api/player/gmact/award-d', role_operation, actlog('物品发放（直接）'), controller.player.gmact.awardD); // 物品发放（直接）
+  router.post('/api/player/gmact/del-mail', role_operation, actlog('删除邮件'), controller.player.gmact.delMail); // 删除邮件
 
   // 玩家操作 -- 清除数据
   router.post('/api/player/clear/secure-code', role_operation, actlog('清除安全码'), controller.player.clear.clearSecureCode); // 清除安全码
@@ -97,6 +98,9 @@ module.exports = app => {
   router.post('/api/gang/notice', role_operation, actlog('帮会操作--修改公告'), controller.gang.notice);
   router.post('/api/gang/dismiss', role_operation, actlog('帮会操作--解散帮会'), controller.gang.dismiss);
   router.post('/api/gang/gmins', role_operation, actlog('帮会操作--GM指令'), controller.gang.gmIns);
+
+  // 充值上报
+  router.post('/api/moneyreport/report', role_operation, actlog('充值上报'), controller.moneyreport.report);
 
   // 系统操作
   router.post('/api/sysact/gmins', role_super, actlog('GM指令'), controller.sysact.gmins); // GM指令

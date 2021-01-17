@@ -131,7 +131,7 @@ class Export extends React.PureComponent {
               required: true, message: '不能为空',
             }],
           })(
-            <Input.TextArea rows={15} />
+            <Input.TextArea rows={15} placeholder="每行一个值" />
           )}
         </Form.Item>
 

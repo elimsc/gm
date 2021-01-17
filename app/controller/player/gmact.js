@@ -239,6 +239,19 @@ class GmactController extends BaseController {
     }
   }
 
+  /**
+   * POST player/gmact/del-mail
+   * 删除邮件
+   */
+  async delMail() {
+    const r = this.gmactService.delMail(this.ctx.request.body);
+    if (!r) {
+      this.ctx.body = this.error();
+    } else {
+      this.ctx.body = this.success();
+    }
+  }
+
 }
 
 module.exports = GmactController;

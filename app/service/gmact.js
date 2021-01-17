@@ -99,6 +99,14 @@ class GmactService extends BaseReqService {
     if (!this.is_success(r)) return false;
     return true;
   }
+
+  // 删除邮件
+  async delMail({ guid, part_id, mail_id_list }) {
+    const r = await this.request({ cmd: 3023 }, { guid: `${guid}`, mail_id_list, part_id }, ['guid']);
+    console.log(r);
+    if (!this.is_success(r)) return false;
+    return true;
+  }
 }
 
 module.exports = GmactService;

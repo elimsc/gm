@@ -142,6 +142,29 @@ class BaseLayout extends React.Component {
                 <Icon type="appstore" />
                 <span>帮会操作</span>
               </Menu.Item>
+              <SubMenu
+                key="moneyreport"
+                title={
+                  <span>
+                    <Icon type="fund" />
+                    <span>充值上报控制</span>
+                  </span>
+                }>
+                <Menu.Item
+                  key="/moneyreport/moneyreport"
+                  onClick={() => this.go_route("/moneyreport/moneyreport")}
+                >
+                  <span>金额上报控制</span>
+                </Menu.Item>
+                <Menu.Item
+                  key="/moneyreport/uidreport"
+                  onClick={() => this.go_route("/moneyreport/uidreport")}
+                >
+                  <span>uid上报控制</span>
+                </Menu.Item>
+
+              </SubMenu>
+
               {this.state.role >= 2 ? (
                 <SubMenu
                   key="batchact"
