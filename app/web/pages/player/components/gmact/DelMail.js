@@ -22,6 +22,7 @@ class DelMail extends React.Component {
               } else {
                 message.error('出错了');
               }
+              this.props.form.resetFields();
             })
           }
         });

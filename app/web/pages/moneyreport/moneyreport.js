@@ -4,6 +4,11 @@ import { connect } from 'dva';
 
 import { getMoneyList, addMoneyList, delMoneyList } from '../../service/moneyreport';
 
+function isSuccess(data) {
+  // return data.payload.moneylist.length != 0;
+  return data.payload.mode;
+}
+
 @connect(({ global }) => ({ global }))
 class MoneyReport extends React.PureComponent {
 
@@ -40,7 +45,7 @@ class MoneyReport extends React.PureComponent {
       if (!err) {
         this.setState({ loading: true });
         addMoneyList({ part_id, list: [values] }).then(data => {
-          if (data.payload.moneylist.length != 0) {
+          if (isSuccess(data)) {
             message.success('添加成功');
             if (this.state.hasFetched) {
               this.setState({ loading: false, showAddModal: false, list: this.state.list.concat(values) });
@@ -66,7 +71,7 @@ class MoneyReport extends React.PureComponent {
       onOk: () => {
         this.setState({ loading: true });
         delMoneyList({ part_id, list: [v] }).then(data => {
-          if (data.payload.moneylist.length != 0) {
+          if (isSuccess(data)) {
             message.success('删除成功');
             this.setState({ loading: false, list: this.state.list.filter(item => item.low != v.low || item.high != v.high) });
           } else {

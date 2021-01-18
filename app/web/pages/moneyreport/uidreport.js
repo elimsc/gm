@@ -4,6 +4,11 @@ import { connect } from 'dva';
 import XLSX from 'xlsx';
 import { getUidList, addUidList, delUidList } from '../../service/moneyreport';
 
+function isSuccess(data) {
+  // return data.payload.uid_list.length != 0;
+  return data.payload.mode;
+}
+
 @connect(({ global }) => ({ global }))
 class UidReport extends React.PureComponent {
 
@@ -41,7 +46,7 @@ class UidReport extends React.PureComponent {
       if (!err) {
         this.setState({ loading: true });
         addUidList({ part_id, list: [values.uid.trim()] }).then(data => {
-          if (data.payload.uid_list.length != 0) {
+          if (isSuccess(data)) {
             message.success('添加成功');
             if (this.state.hasFetched) {
               this.setState({ loading: false, showAddModal: false, list: this.state.list.concat(values) });
@@ -67,7 +72,7 @@ class UidReport extends React.PureComponent {
       onOk: () => {
         this.setState({ loading: true });
         delUidList({ part_id, list: [v.uid] }).then(data => {
-          if (data.payload.uid_list.length != 0) {
+          if (isSuccess(data)) {
             message.success('删除成功');
             this.setState({ loading: false, list: this.state.list.filter(item => item.uid != v.uid) });
           } else {
