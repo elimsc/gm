@@ -3,6 +3,7 @@ import { Card, Row, Input, Button, Table, Form, Spin, Tabs, message, Icon, Modal
 import { connect } from 'dva';
 import XLSX from 'xlsx';
 import { getUidList, addUidList, delUidList } from '../../service/moneyreport';
+import TextArea from 'antd/lib/input/TextArea';
 
 function isSuccess(data) {
   // return data.payload.uid_list.length != 0;
@@ -45,11 +46,12 @@ class UidReport extends React.PureComponent {
     this.props.form.validateFields(['uid'], (err, values) => {
       if (!err) {
         this.setState({ loading: true });
-        addUidList({ part_id, list: [values.uid.trim()] }).then(data => {
+        const list = values.uid.trim().split('\n').map(v => v.trim());
+        addUidList({ part_id, list }).then(data => {
           if (isSuccess(data)) {
             message.success('添加成功');
             if (this.state.hasFetched) {
-              this.setState({ loading: false, showAddModal: false, list: this.state.list.concat(values) });
+              this.setState({ loading: false, showAddModal: false, list: this.state.list.concat(list.map(v => ({ uid: v }))) });
             } else {
               this.setState({ loading: false, showAddModal: false });
             }
@@ -150,7 +152,7 @@ class UidReport extends React.PureComponent {
                     message: 'uid不能为空',
                   }],
                 })(
-                  <Input />
+                  <TextArea rows={6} placeholder="每行一个值" />
                 )}
               </Form.Item>
               <Form.Item {...formTailLayout}>
