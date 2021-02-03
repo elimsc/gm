@@ -79,7 +79,7 @@ class Reissue extends React.PureComponent {
       19: '648每日',
       20: '12元每日',
       21: '128每日',
-      // 22: '3240每日',
+      22: '3240元',
     };
 
     const formItemLayout = {
