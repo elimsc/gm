@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, message, DatePicker, Divider, Modal, Select } from 'antd';
+import { Form, Input, Button, message, DatePicker, Divider, Modal, Select, Checkbox } from 'antd';
 
 import { banAccount } from '../../../../service/ban';
 
@@ -16,6 +16,7 @@ class BanAccount extends React.Component {
     this.state = {
       loading: false,
       loading2: false,
+      banLongTime: true,
     }
   }
 
@@ -23,6 +24,31 @@ class BanAccount extends React.Component {
   handleSubmit1 = (e) => {
     const { uid, part_id } = this.props;
     e.preventDefault();
+    if (this.state.banLongTime) {
+      const start = new Date().getTime();
+      const end = new Date("2100").getTime();
+      const reason = this.props.form.getFieldValue('reason') + "";
+      console.log(this.props.form.getFieldsValue());
+      const ban_type = parseInt(this.props.form.getFieldValue("type1"));
+      console.log(start, end, reason, ban_type);
+      Modal.confirm({
+        title: '确认操作',
+        content: '确认对该账号进行永久封号操作？',
+        onOk: () => {
+          this.setState({ loading: true });
+          banAccount({ reason, uid, part_id, start, end, type: 0, ban_type }).then(data => {
+            if (data.code === 0) {
+              message.success('操作成功');
+            } else {
+              message.error('操作失败');
+            }
+            this.props.form.resetFields(['time_range', 'reason', 'type1']);
+            this.setState({ loading: false });
+          });
+        }
+      });
+      return;
+    }
     this.props.form.validateFieldsAndScroll(['time_range', 'reason', 'type1'], (err, values) => {
       if (!err) {
         const start = values['time_range'][0].toDate().getTime();
@@ -108,11 +134,17 @@ class BanAccount extends React.Component {
               <DatePicker.RangePicker showTime />
             )}
           </Form.Item>
+          <Form.Item {...tailFormItemLayout}>
+            <Checkbox checked={this.state.banLongTime} onChange={e => this.setState({ banLongTime: !this.state.banLongTime })}>
+              永久封号
+          </Checkbox>
+          </Form.Item>
           <Form.Item label="封号级别">
             {getFieldDecorator('type1', {
               rules: [{
                 required: true, message: '请输入封号级别',
               }],
+              initialValue: '-1',
             })(
               <Select>
                 {Object.keys(this.banTypes).map(k => (
@@ -126,6 +158,7 @@ class BanAccount extends React.Component {
               rules: [{
                 required: true, message: '请输入封号原因',
               }],
+              initialValue: '',
             })(
               <Input.TextArea rows={5} placeholder="封号原因" />
             )}
@@ -155,6 +188,7 @@ class BanAccount extends React.Component {
               rules: [{
                 required: true, message: '请输入原因',
               }],
+
             })(
               <Input.TextArea rows={5} placeholder="操作原因" />
             )}
