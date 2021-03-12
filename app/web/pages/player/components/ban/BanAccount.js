@@ -26,11 +26,10 @@ class BanAccount extends React.Component {
     e.preventDefault();
     if (this.state.banLongTime) {
       const start = new Date().getTime();
-      const end = new Date("2100").getTime();
+      const end = new Date("2035").getTime();
       const reason = this.props.form.getFieldValue('reason') + "";
       console.log(this.props.form.getFieldsValue());
       const ban_type = parseInt(this.props.form.getFieldValue("type1"));
-      console.log(start, end, reason, ban_type);
       Modal.confirm({
         title: '确认操作',
         content: '确认对该账号进行永久封号操作？',
