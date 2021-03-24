@@ -8,7 +8,7 @@ class PlayerinfoService extends BaseReqService {
     const result = await this.request(
       { cmd: 1001 },
       { name: name.trim(), type, part_id },
-      [ 'name', 'type' ]
+      ['name', 'type']
     );
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.rolelist) {
@@ -435,19 +435,48 @@ class PlayerinfoService extends BaseReqService {
     const result = await this.request({ cmd: 1023 }, { guid, part_id }, [
       'guid',
     ]);
+
     if (!result) return [];
     if (result.data && result.data.body) {
       // 处理返回结果
       const src = result.data.body;
+      src.self_info = [{
+        partner_guid: src.partner_guid,
+        partner_start_time: src.partner_start_time,
+        master_guid: src.master_guid,
+        master_start_time: src.master_start_time,
+        is_graduate: src.is_graduate,
+        graduate_cnt: src.graduate_cnt,
+      }];
       const tpl = {
+        self_info: '个人社交信息',
+        student_list: '正在学习的徒弟列表',
+      }
+      const tpl1 = {
         partner_guid: '配偶GUID',
         partner_start_time: '结婚时间',
+        master_guid: '师父GUID',
+        master_start_time: "拜师时间",
+        is_graduate: "自己是否已出师",
+        graduate_cnt: '已出师徒弟数量',
       };
+      const tpl2 = {
+        student_guid: '徒弟GUID',
+        student_start_time: '拜师时间',
+      }
 
       const fns = {
-        partner_start_time: this.prettyTime,
+        self_info: src => this.ctx.helper.tableInfoListConv(src, tpl1, {
+          partner_start_time: this.prettyTime,
+          master_start_time: this.prettyTime,
+          is_graduate: v => {
+            if (v === true || v === false) return v === true ? '是' : '否';
+            return v;
+          }
+        }),
+        student_list: src =>
+          this.ctx.helper.tableInfoListConv(src, tpl2, { student_start_time: this.prettyTime }),
       };
-
       return this.ctx.helper.tableInfoConv(src, tpl, fns);
     }
     return [];

@@ -1,11 +1,12 @@
 import React from 'react';
 
-import TableInfo from '../../../../components/TableInfo';
+import TabTableInfoList from '../../../../components/TabTableInfoList';
 
 class MarriageInfo extends React.PureComponent {
   render() {
+    console.log(this.props.data);
     return (
-      <TableInfo data={this.props.data} />
+      <TabTableInfoList data={this.props.data} />
     );
   }
 }

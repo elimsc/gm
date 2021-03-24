@@ -203,7 +203,7 @@ class PlayerMan extends React.PureComponent {
                   <Menu.Item onClick={() => this.select('task-info')} key="task-info">任务</Menu.Item>
                   <Menu.Item onClick={() => this.select('home-info')} key="home-info">家园</Menu.Item>
                   <Menu.Item onClick={() => this.select('email-info')} key="email-info">邮件</Menu.Item>
-                  <Menu.Item onClick={() => this.select('marriage-info')} key="marriage-info">婚姻</Menu.Item>
+                  <Menu.Item onClick={() => this.select('marriage-info')} key="marriage-info">社交</Menu.Item>
                 </Menu.SubMenu>
                 {this.props.global.user_role > 1 ?
                   <Menu.SubMenu key="gmact" title="GM操作">
