@@ -22,7 +22,7 @@ class BanAccount extends React.Component {
 
 
   handleSubmit1 = (e) => {
-    const { uid, part_id } = this.props;
+    const { uid, part_id, guid } = this.props;
     e.preventDefault();
     if (this.state.banLongTime) {
       const start = new Date().getTime();
@@ -35,7 +35,7 @@ class BanAccount extends React.Component {
         content: '确认对该账号进行永久封号操作？',
         onOk: () => {
           this.setState({ loading: true });
-          banAccount({ reason, uid, part_id, start, end, type: 0, ban_type }).then(data => {
+          banAccount({ guid, reason, uid, part_id, start, end, type: 0, ban_type }).then(data => {
             if (data.code === 0) {
               message.success('操作成功');
             } else {
@@ -57,7 +57,7 @@ class BanAccount extends React.Component {
           content: '确认对该账号进行封号操作？',
           onOk: () => {
             this.setState({ loading: true });
-            banAccount({ reason: values['reason'], uid, part_id, start, end, type: 0, ban_type: parseInt(values['type1']) }).then(data => {
+            banAccount({ guid, reason: values['reason'], uid, part_id, start, end, type: 0, ban_type: parseInt(values['type1']) }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -73,7 +73,7 @@ class BanAccount extends React.Component {
   }
 
   handleSubmit2 = (e) => {
-    const { uid, part_id } = this.props;
+    const { uid, part_id, guid } = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll(['reason2', 'type2'], (err, values) => {
       if (!err) {
@@ -82,7 +82,7 @@ class BanAccount extends React.Component {
           content: '确认解除该账号的封号？',
           onOk: () => {
             this.setState({ loading2: true });
-            banAccount({ reason: values['reason2'], uid, part_id, start: 0, end: 0, type: 1, ban_type: parseInt(values['type2']) }).then(data => {
+            banAccount({ guid, reason: values['reason2'], uid, part_id, start: 0, end: 0, type: 1, ban_type: parseInt(values['type2']) }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {

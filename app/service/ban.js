@@ -9,8 +9,8 @@ const BaseReqService = require('./basereq');
 class BanService extends BaseReqService {
   // 封号/解封
   // flag: 0封号 1解封
-  async banAccount({ type, uid, flag, time, reason, part_id }) {
-    const r = await this.request({ cmd: 3005 }, { type, uid, flag, reason, time: parseInt((`${time}`).substr(0, 10)), part_id }, ['type', 'uid', 'flag', 'time', 'reason']);
+  async banAccount({ type, uid, flag, time, reason, part_id, guid }) {
+    const r = await this.request({ cmd: 3005 }, { type, uid, flag, reason, time: parseInt((`${time}`).substr(0, 10)), part_id, guid }, ['type', 'uid', 'flag', 'time', 'reason', 'guid']);
     // console.log(r);
     if (!this.is_success(r)) return false;
     return true;
@@ -49,8 +49,8 @@ class BanService extends BaseReqService {
   }
 
   // 封号记录（封号状态）
-  async banAccountLog({ uid, part_id }) {
-    const r = await this.request({ cmd: 3007 }, { uid, part_id }, ['uid']);
+  async banAccountLog({ uid, part_id, guid }) {
+    const r = await this.request({ cmd: 3007 }, { uid, part_id, guid }, ['uid', 'guid']);
     if (!r) return [];
     if (r.data && r.data.body && r.data.body) {
       const src = r.data.body;

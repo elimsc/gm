@@ -56,7 +56,7 @@ module.exports = app => {
   // 玩家操作--封号禁言
   router.post('/api/player/ban/account', role_operation, actlog('封号'), controller.player.ban.banAccount); // 封号
   router.post('/api/player/ban/account-r', role_operation, actlog('解除封号'), controller.player.ban.removeAccountBan); // 解除封号
-  router.post('/api/player/playerinfo/ban-account-info', role_operation, controller.player.ban.banAccountLog); // 禁言记录
+  router.post('/api/player/playerinfo/ban-account-info', role_operation, controller.player.ban.banAccountLog); // 封号记录
   router.post('/api/player/playerinfo/ban-talk-info', role_operation, controller.player.ban.banTalkLog); // 禁言记录
   router.post('/api/player/ban/talk', role_operation, actlog('禁言'), controller.player.ban.banTalk); // 禁言
   router.post('/api/player/ban/talk-r', role_operation, actlog('解除禁言'), controller.player.ban.removeTalkBan); // 解除禁言

@@ -19,7 +19,7 @@ export async function batchList({ type, names, part_id }) {
  */
 export async function fetchInfo(type, { guid, uid, part_id }) {
   if (type === 'ban-account-info') {
-    return post(`/api/player/playerinfo/${type}`, { uid, part_id });
+    return post(`/api/player/playerinfo/${type}`, { uid, part_id, guid });
   } else {
     return post(`/api/player/playerinfo/${type}`, { guid, part_id });
   }
