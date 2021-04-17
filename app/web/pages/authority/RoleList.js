@@ -51,7 +51,7 @@ class RoleList extends React.Component {
   render() {
     const channel_map = {
       '-1': '所有渠道',
-      '3': '天佑',
+      '3': '天拓',
     }
 
     const columns = [
