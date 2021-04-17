@@ -11,7 +11,7 @@
  Target Server Version : 50727
  File Encoding         : 65001
 
- Date: 17/04/2021 13:39:18
+ Date: 17/04/2021 15:01:00
 */
 
 SET NAMES utf8mb4;
@@ -53,7 +53,7 @@ INSERT INTO `menu` VALUES (17, '6-2', 'GM指令（通用）', 'POST /api/sysact/
 INSERT INTO `menu` VALUES (18, '6-3', '现在支付黑白名单', 'POST /api/sysact/listpayblacklist\nPOST /api/sysact/updatepayblacklist');
 INSERT INTO `menu` VALUES (19, '6-4', '角色快照导入', 'POST /api/sysact/snapshotimport');
 INSERT INTO `menu` VALUES (20, '4-1', '批量操作', 'POST /api/batchact/award\nPOST /api/batchact/ban-account\nPOST /api/batchact/ban-talk');
-INSERT INTO `menu` VALUES (21, '4-2', '导出聊天记录', 'POST /api/batchact/export-chatlog');
+INSERT INTO `menu` VALUES (21, '4-2', '导出聊天记录', 'GET /api/batchact/export-chatlog');
 INSERT INTO `menu` VALUES (22, '4-3', '导出黑名单', 'POST /api/batchact/export-blacklist');
 INSERT INTO `menu` VALUES (23, '3-1', '金额上报控制', 'POST /api/moneyreport/report');
 INSERT INTO `menu` VALUES (24, '3-2', 'uid上报控制', 'POST /api/moneyreport/report');
@@ -62,7 +62,7 @@ INSERT INTO `menu` VALUES (26, '1-2', 'GM操作', NULL);
 INSERT INTO `menu` VALUES (27, '1-3', '清除数据', NULL);
 INSERT INTO `menu` VALUES (28, '1-4', '封号/禁言', NULL);
 INSERT INTO `menu` VALUES (29, '1-5', '批量导出', 'POST /api/player/list/batch');
-INSERT INTO `menu` VALUES (30, '1-1-1', '玩家基本信息', 'POST /api/player/playerinfo/basic-info');
+INSERT INTO `menu` VALUES (30, '1-1-1', '玩家基本信息', 'POST /api/player/playerinfo/basic-info\nPOST /api/player/list');
 INSERT INTO `menu` VALUES (31, '1-1-2', '背包信息', 'POST /api/player/playerinfo/bag-info');
 INSERT INTO `menu` VALUES (32, '1-1-3', '仓库信息', 'POST /api/player/playerinfo/warehouse-info');
 INSERT INTO `menu` VALUES (33, '1-1-4', '装备信息', 'POST /api/player/playerinfo/equip-info');
@@ -83,7 +83,7 @@ INSERT INTO `menu` VALUES (47, '1-2-6', '踢玩家下线', 'POST /api/player/gma
 INSERT INTO `menu` VALUES (48, '1-2-7', '修改密码', 'POST /api/player/gmact/change-pass');
 INSERT INTO `menu` VALUES (49, '1-2-8', '解除绑定手机', 'POST /api/player/gmact/untie-phone');
 INSERT INTO `menu` VALUES (50, '1-2-9', '删除邮件', 'POST /api/player/gmact/del-mail');
-INSERT INTO `menu` VALUES (51, '1-2-10', 'GM指令', NULL);
+INSERT INTO `menu` VALUES (51, '1-2-10', 'GM指令', 'POST /api/sysact/gmins');
 INSERT INTO `menu` VALUES (52, '1-3-1', '清除安全码', 'POST /api/player/clear/secure-code');
 INSERT INTO `menu` VALUES (53, '1-3-2', '清除非正常任务', 'POST /api/player/clear/un-task');
 INSERT INTO `menu` VALUES (54, '1-4-1', '封号/解封', 'POST /api/player/ban/account\nPOST /api/player/ban/account-r');
