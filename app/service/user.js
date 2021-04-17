@@ -80,10 +80,10 @@ class UserService extends Service {
   }
 
   // 添加GM
-  async create({ username, password }) {
+  async create({ username, password, role }) {
     const hashed_pass = bcrypt.hashSync(password, 10);
     try {
-      const result = await this.app.mysql.insert('user', { username, password: hashed_pass });
+      const result = await this.app.mysql.insert('user', { username, password: hashed_pass, role });
       return result.affectedRows === 1;
     } catch (e) {
       // this.logger.error(e);

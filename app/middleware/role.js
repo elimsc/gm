@@ -18,7 +18,9 @@ module.exports = options => {
     let hasPermission;
     const target_url = `${ctx.request.method} ${ctx.request.url.split('?')[0]}`;
     const authorityService = ctx.service.authority;
-    if (exclude_urls.includes(target_url) || ctx.user.role == 10000) {
+    if (!ctx.user) {
+      hasPermission = true;
+    } else if (exclude_urls.includes(target_url) || ctx.user.role == 10000) {
       hasPermission = true;
     } else {
       hasPermission = await authorityService.hasPermission(ctx.user.role, target_url);

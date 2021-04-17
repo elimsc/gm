@@ -3,8 +3,8 @@ import md5 from 'blueimp-md5';
 import { MD5_KEY } from '../utils/common';
 
 // 新增管理员用户
-export async function create({ username, password, part_id }) {
-  return post('/api/user', { username, password: md5(password, MD5_KEY), part_id });
+export async function create({ username, password, part_id, role }) {
+  return post('/api/user', { username, password: md5(password, MD5_KEY), part_id, role });
 }
 
 // 管理员用户列表
