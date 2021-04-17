@@ -64,6 +64,16 @@ class PlayerMan extends React.PureComponent {
     });
   }
 
+  showMenu = (sid, component) => {
+    const { menu_sids } = this.props.global;
+    for (let i = 0; i < menu_sids.length; i++) {
+      if (menu_sids[i].startsWith(sid)) {
+        return component
+      }
+    }
+    return null;
+  }
+
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -191,50 +201,113 @@ class PlayerMan extends React.PureComponent {
           <Row>
             <Col span={4}>
               <Menu mode="inline" selectedKeys={[this.state.menu]} defaultOpenKeys={['playerinfo']}>
-                <Menu.SubMenu key="playerinfo" title="玩家信息">
-                  <Menu.Item onClick={() => this.select('basic-info')} key="basic-info">玩家基本信息</Menu.Item>
-                  <Menu.Item onClick={() => this.select('bag-info')} key="bag-info">背包信息</Menu.Item>
-                  <Menu.Item onClick={() => this.select('warehouse-info')} key="warehouse-info">仓库信息</Menu.Item>
-                  <Menu.Item onClick={() => this.select('equip-info')} key="equip-info">装备信息</Menu.Item>
-                  <Menu.Item onClick={() => this.select('dec-info')} key="dec-info">饰品信息</Menu.Item>
-                  <Menu.Item onClick={() => this.select('skill-info')} key="skill-info">技能信息</Menu.Item>
-                  <Menu.Item onClick={() => this.select('title-info')} key="title-info">称号信息</Menu.Item>
-                  <Menu.Item onClick={() => this.select('pet-info')} key="pet-info">宠物信息</Menu.Item>
-                  <Menu.Item onClick={() => this.select('task-info')} key="task-info">任务</Menu.Item>
-                  <Menu.Item onClick={() => this.select('home-info')} key="home-info">家园</Menu.Item>
-                  <Menu.Item onClick={() => this.select('email-info')} key="email-info">邮件</Menu.Item>
-                  <Menu.Item onClick={() => this.select('marriage-info')} key="marriage-info">社交</Menu.Item>
-                </Menu.SubMenu>
-                {this.props.global.user_role > 1 ?
+                {this.showMenu('1-1', (
+                  <Menu.SubMenu key="playerinfo" title="玩家信息">
+                    {this.showMenu('1-1-1', (
+                      <Menu.Item onClick={() => this.select('basic-info')} key="basic-info">玩家基本信息</Menu.Item>
+                    ))}
+                    {this.showMenu('1-1-2', (
+                      <Menu.Item onClick={() => this.select('bag-info')} key="bag-info">背包信息</Menu.Item>
+                    ))}
+                    {this.showMenu('1-1-3', (
+                      <Menu.Item onClick={() => this.select('warehouse-info')} key="warehouse-info">仓库信息</Menu.Item>
+                    ))}
+                    {this.showMenu('1-1-4', (
+                      <Menu.Item onClick={() => this.select('equip-info')} key="equip-info">装备信息</Menu.Item>
+                    ))}
+                    {this.showMenu('1-1-5', (
+                      <Menu.Item onClick={() => this.select('dec-info')} key="dec-info">饰品信息</Menu.Item>
+                    ))}
+                    {this.showMenu('1-1-6', (
+                      <Menu.Item onClick={() => this.select('skill-info')} key="skill-info">技能信息</Menu.Item>
+                    ))}
+                    {this.showMenu('1-1-7', (
+                      <Menu.Item onClick={() => this.select('title-info')} key="title-info">称号信息</Menu.Item>
+                    ))}
+                    {this.showMenu('1-1-8', (
+                      <Menu.Item onClick={() => this.select('pet-info')} key="pet-info">宠物信息</Menu.Item>
+                    ))}
+                    {this.showMenu('1-1-9', (
+                      <Menu.Item onClick={() => this.select('task-info')} key="task-info">任务</Menu.Item>
+                    ))}
+                    {this.showMenu('1-1-10', (
+                      <Menu.Item onClick={() => this.select('home-info')} key="home-info">家园</Menu.Item>
+                    ))}
+                    {this.showMenu('1-1-11', (
+                      <Menu.Item onClick={() => this.select('email-info')} key="email-info">邮件</Menu.Item>
+                    ))}
+                    {this.showMenu('1-1-12', (
+                      <Menu.Item onClick={() => this.select('marriage-info')} key="marriage-info">社交</Menu.Item>
+                    ))}
+                  </Menu.SubMenu>
+                ))}
+                {this.showMenu('1-2', (
                   <Menu.SubMenu key="gmact" title="GM操作">
-                    <Menu.Item onClick={() => this.select('award')} key="award">物品发放（邮件）</Menu.Item>
-                    <Menu.Item onClick={() => this.select('award-d')} key="award-d">物品发放（直接修改）</Menu.Item>
-                    <Menu.Item onClick={() => this.select('reissue')} key="reissue">充值补发</Menu.Item>
-                    <Menu.Item onClick={() => this.select('pet')} key="pet">修改宠物数据</Menu.Item>
-                    <Menu.Item onClick={() => this.select('player')} key="player">修改角色数据</Menu.Item>
-                    <Menu.Item onClick={() => this.select('forcedown')} key="forcedown">踢玩家下线</Menu.Item>
-                    <Menu.Item onClick={() => this.select('change-pass')} key="change-pass">修改密码</Menu.Item>
-                    <Menu.Item onClick={() => this.select('untie-phone')} key="untie-phone">解除绑定手机</Menu.Item>
-                    <Menu.Item onClick={() => this.select('del-mail')} key="del-mail">删除邮件</Menu.Item>
-                    <Menu.Item onClick={() => this.select('gm-ins')} key="gm-ins">GM指令</Menu.Item>
-                  </Menu.SubMenu> : null
-                }
-                {this.props.global.user_role > 1 ?
+                    {this.showMenu('1-2-1', (
+                      <Menu.Item onClick={() => this.select('award')} key="award">物品发放（邮件）</Menu.Item>
+                    ))}
+                    {this.showMenu('1-2-2', (
+                      <Menu.Item onClick={() => this.select('award-d')} key="award-d">物品发放（直接修改）</Menu.Item>
+                    ))}
+                    {this.showMenu('1-2-3', (
+                      <Menu.Item onClick={() => this.select('reissue')} key="reissue">充值补发</Menu.Item>
+                    ))}
+                    {this.showMenu('1-2-4', (
+                      <Menu.Item onClick={() => this.select('pet')} key="pet">修改宠物数据</Menu.Item>
+                    ))}
+                    {this.showMenu('1-2-5', (
+                      <Menu.Item onClick={() => this.select('player')} key="player">修改角色数据</Menu.Item>
+                    ))}
+                    {this.showMenu('1-2-6', (
+                      <Menu.Item onClick={() => this.select('forcedown')} key="forcedown">踢玩家下线</Menu.Item>
+                    ))}
+                    {this.showMenu('1-2-7', (
+                      <Menu.Item onClick={() => this.select('change-pass')} key="change-pass">修改密码</Menu.Item>
+                    ))}
+                    {this.showMenu('1-2-8', (
+                      <Menu.Item onClick={() => this.select('untie-phone')} key="untie-phone">解除绑定手机</Menu.Item>
+                    ))}
+                    {this.showMenu('1-2-9', (
+                      <Menu.Item onClick={() => this.select('del-mail')} key="del-mail">删除邮件</Menu.Item>
+                    ))}
+                    {this.showMenu('1-2-10', (
+                      <Menu.Item onClick={() => this.select('gm-ins')} key="gm-ins">GM指令</Menu.Item>
+
+                    ))}
+                  </Menu.SubMenu>
+                ))}
+                {this.showMenu('1-3', (
                   <Menu.SubMenu key="clear" title="清除数据">
-                    <Menu.Item onClick={() => this.select('clear-secure-code')} key="clear-secure-code">清除安全码</Menu.Item>
-                    {/* <Menu.Item onClick={() => this.select('unusual-gang')} key="unusual-gang">清除非正常帮会数据</Menu.Item> */}
-                    <Menu.Item onClick={() => this.select('unusual-task')} key="unusual-task">清除非正常任务</Menu.Item>
-                  </Menu.SubMenu> : null
-                }
-                {this.props.global.user_role > 1 ?
+                    {this.showMenu('1-4', (
+                      <Menu.Item onClick={() => this.select('clear-secure-code')} key="clear-secure-code">清除安全码</Menu.Item>
+                    ))}
+                    {this.showMenu('1-5', (
+                      <Menu.Item onClick={() => this.select('unusual-task')} key="unusual-task">清除非正常任务</Menu.Item>
+                    ))}
+                  </Menu.SubMenu>
+                ))}
+
+                {this.showMenu('1-4', (
                   <Menu.SubMenu key="ban" title="封号/禁言">
-                    <Menu.Item onClick={() => this.select('ban-account')} key="ban-account">封号/解封</Menu.Item>
-                    <Menu.Item onClick={() => this.select('ban-account-info')} key="ban-account-info">封号状态</Menu.Item>
-                    <Menu.Item onClick={() => this.select('ban-talk')} key="ban-talk">禁言/解禁</Menu.Item>
-                    <Menu.Item onClick={() => this.select('ban-talk-info')} key="ban-talk-info">禁言状态</Menu.Item>
-                  </Menu.SubMenu> : null
-                }
-                <Menu.Item onClick={() => this.select('export')} key="export">批量导出</Menu.Item>
+                    {this.showMenu('1-4-1', (
+                      <Menu.Item onClick={() => this.select('ban-account')} key="ban-account">封号/解封</Menu.Item>
+                    ))}
+                    {this.showMenu('1-4-2', (
+                      <Menu.Item onClick={() => this.select('ban-account-info')} key="ban-account-info">封号状态</Menu.Item>
+                    ))}
+                    {this.showMenu('1-4-3', (
+                      <Menu.Item onClick={() => this.select('ban-talk')} key="ban-talk">禁言/解禁</Menu.Item>
+                    ))}
+                    {this.showMenu('1-4-4', (
+                      <Menu.Item onClick={() => this.select('ban-talk-info')} key="ban-talk-info">禁言状态</Menu.Item>
+                    ))}
+                  </Menu.SubMenu>
+                ))}
+
+                {this.showMenu('1-5', (
+                  <Menu.Item onClick={() => this.select('export')} key="export">批量导出</Menu.Item>
+                ))}
+
               </Menu>
             </Col>
             <Col span={20}>

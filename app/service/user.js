@@ -25,6 +25,45 @@ class UserService extends Service {
     return users;
   }
 
+  // 获取可选角色列表
+  async roleList() {
+    const roles = await this.app.mysql.select('role', {
+      columns: ['id', 'role_name'],
+    });
+    return roles;
+  }
+
+  // 获取用户对应角色channel_id
+  async channelIdByRole(role) {
+    const item = await this.app.mysql.get('role', { id: role });
+    if (item) {
+      return item.channel_id;
+    }
+    return -1;
+  }
+
+  // 获取角色对应的menu_sid列表
+  async menuSids(role_id) {
+    if (role_id == 10000) {
+      const menus = await this.app.mysql.select('menu', {
+        columns: ['menu_sid']
+      });
+      return menus.map(item => item.menu_sid);
+    }
+    console.log(role_id);
+    const role = await this.app.mysql.get('role', { id: role_id });
+    if (!role) {
+      return [];
+    }
+    const menu_ids = role.menu_ids.split(',').map(v => parseInt(v));
+    const menus = await this.app.mysql.select('menu', {
+      where: { id: menu_ids },
+      columns: ['menu_sid']
+    });
+    const menu_sids = menus.map(item => item.menu_sid);
+    return menu_sids;
+  }
+
   // 指定条件下的用户数量
   async count({ username }) {
     const condition = {};

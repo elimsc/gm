@@ -74,3 +74,10 @@ export async function curActlogList(params = {}) {
   return get(url);
 }
 
+export async function roleList() {
+  return get(`/api/user/rolelist`);
+}
+
+export async function menuSids() {
+  return get(`/api/user/menu_sids`);
+}

@@ -14,21 +14,17 @@ class BroadcastController extends BaseController {
   async addTpl() {
     const anntplService = this.ctx.service.anntpl;
     const res = await anntplService.create(this.ctx.request.body);
-    if (res) {
-      this.ctx.body = this.success();
-    } else {
-      this.ctx.body = this.failed();
-    }
+    this.ctx.body = this.successOrFailed(res);
   }
 
   /**
-   * DELETE /broadcast/tpl/:id
+   * POST /broadcast/tpl/delete
    * 删除指定id的广播模板
    */
   async deleteTpl() {
     const anntplService = this.ctx.service.anntpl;
-    const tplId = this.ctx.params.id;
-    const result = await anntplService.delete(tplId);
+    const { id } = this.ctx.request.body;
+    const result = await anntplService.delete({ id });
     if (result) {
       this.ctx.body = this.success();
     } else {

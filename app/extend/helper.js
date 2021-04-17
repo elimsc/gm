@@ -14,6 +14,7 @@ const PAYLOAD = {
     // login_type: -1,
     // pay_type: -1,
     part_id: -1,
+    channel_id: -1,
   },
 };
 

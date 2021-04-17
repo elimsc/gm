@@ -20,7 +20,7 @@ class AnntplService extends Service {
     }
   }
 
-  async delete(id) {
+  async delete({ id }) {
     try {
       const result = await this.app.mysql.delete('anntpl', { id });
       return result.affectedRows === 1;

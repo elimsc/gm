@@ -32,6 +32,7 @@ class BaseLayout extends React.Component {
       router.replace("/login");
     } else {
       this.fetchSrvList();
+      this.fetchMenuSids();
       this.setState({
         loading: false,
         username: data.payload.username,
@@ -49,6 +50,15 @@ class BaseLayout extends React.Component {
     this.props.dispatch({
       // 获取服务器列表
       type: "global/fetchSrvList",
+      payload: {}
+    });
+  };
+
+  // 获取菜单列表
+  fetchMenuSids = () => {
+    this.props.dispatch({
+      // 获取服务器列表
+      type: "global/fetchMenuSids",
       payload: {}
     });
   };
@@ -91,7 +101,18 @@ class BaseLayout extends React.Component {
     });
   };
 
+  showMenu = (sid, component) => {
+    const { menu_sids } = this.props.global;
+    for (let i = 0; i < menu_sids.length; i++) {
+      if (menu_sids[i].startsWith(sid)) {
+        return component
+      }
+    }
+    return null;
+  }
+
   render() {
+
     const userDropDown = (
       <Menu>
         <Menu.Item onClick={() => this.go_route("/user/actlog")} key="actlog">
@@ -134,38 +155,47 @@ class BaseLayout extends React.Component {
               selectedKeys={[this.props.children.props.location.pathname]}
               mode="inline"
             >
-              <Menu.Item onClick={() => this.go_route("/player")} key="/player">
-                <Icon type="team" />
-                <span>玩家操作</span>
-              </Menu.Item>
-              <Menu.Item onClick={() => this.go_route("/gang")} key="/gang">
-                <Icon type="appstore" />
-                <span>帮会操作</span>
-              </Menu.Item>
-              <SubMenu
-                key="moneyreport"
-                title={
-                  <span>
-                    <Icon type="fund" />
-                    <span>充值上报控制</span>
-                  </span>
-                }>
-                <Menu.Item
-                  key="/moneyreport/moneyreport"
-                  onClick={() => this.go_route("/moneyreport/moneyreport")}
-                >
-                  <span>金额上报控制</span>
+              {this.showMenu('1', (
+                <Menu.Item onClick={() => this.go_route("/player")} key="/player">
+                  <Icon type="team" />
+                  <span>玩家操作</span>
+                </Menu.Item>))}
+              {this.showMenu('2', (
+                <Menu.Item onClick={() => this.go_route("/gang")} key="/gang">
+                  <Icon type="appstore" />
+                  <span>帮会操作</span>
                 </Menu.Item>
-                <Menu.Item
-                  key="/moneyreport/uidreport"
-                  onClick={() => this.go_route("/moneyreport/uidreport")}
-                >
-                  <span>uid上报控制</span>
-                </Menu.Item>
+              ))}
+              {this.showMenu('3', (
+                <SubMenu
+                  key="moneyreport"
+                  title={
+                    <span>
+                      <Icon type="fund" />
+                      <span>充值上报控制</span>
+                    </span>
+                  }>
+                  {this.showMenu('3-1', (
+                    <Menu.Item
+                      key="/moneyreport/moneyreport"
+                      onClick={() => this.go_route("/moneyreport/moneyreport")}
+                    >
+                      <span>金额上报控制</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('3-2', (
+                    <Menu.Item
+                      key="/moneyreport/uidreport"
+                      onClick={() => this.go_route("/moneyreport/uidreport")}
+                    >
+                      <span>uid上报控制</span>
+                    </Menu.Item>
+                  ))}
+                </SubMenu>
+              ))}
 
-              </SubMenu>
 
-              {this.state.role >= 2 ? (
+              {this.showMenu('4', (
                 <SubMenu
                   key="batchact"
                   title={
@@ -174,27 +204,33 @@ class BaseLayout extends React.Component {
                       <span>批量操作</span>
                     </span>
                   }>
-                  <Menu.Item
-                    key="/batchact"
-                    onClick={() => this.go_route("/batchact")}
-                  >
-                    <span>批量操作</span>
-                  </Menu.Item>
-                  <Menu.Item
-                    key="/batchact/chatlog"
-                    onClick={() => this.go_route("/batchact/chatlog")}
-                  >
-                    <span>导出聊天记录</span>
-                  </Menu.Item>
-                  <Menu.Item
-                    key="/batchact/blacklist"
-                    onClick={() => this.go_route("/batchact/blacklist")}
-                  >
-                    <span>导出黑名单</span>
-                  </Menu.Item>
+                  {this.showMenu('4-1', (
+                    <Menu.Item
+                      key="/batchact"
+                      onClick={() => this.go_route("/batchact")}
+                    >
+                      <span>批量操作</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('4-2', (
+                    <Menu.Item
+                      key="/batchact/chatlog"
+                      onClick={() => this.go_route("/batchact/chatlog")}
+                    >
+                      <span>导出聊天记录</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('4-3', (
+                    <Menu.Item
+                      key="/batchact/blacklist"
+                      onClick={() => this.go_route("/batchact/blacklist")}
+                    >
+                      <span>导出黑名单</span>
+                    </Menu.Item>
+                  ))}
                 </SubMenu>
-              ) : null}
-              {this.state.role >= 2 ? (
+              ))}
+              {this.showMenu('5', (
                 <Menu.Item
                   key="/broadcast"
                   onClick={() => this.go_route("/broadcast")}
@@ -202,8 +238,8 @@ class BaseLayout extends React.Component {
                   <Icon type="sound" />
                   <span>服务器广播</span>
                 </Menu.Item>
-              ) : null}
-              {this.state.role >= 3 ? (
+              ))}
+              {this.showMenu('6', (
                 <SubMenu
                   key="sysact"
                   title={
@@ -213,27 +249,35 @@ class BaseLayout extends React.Component {
                     </span>
                   }
                 >
-                  <Menu.Item
-                    key="/sysact/activity"
-                    onClick={() => this.go_route("/sysact/activity")}
-                  >
-                    <span>活动与功能管理</span>
-                  </Menu.Item>
-                  <Menu.Item
-                    key="/sysact/gmins"
-                    onClick={() => this.go_route("/sysact/gmins")}
-                  >
-                    <span>GM指令（通用）</span>
-                  </Menu.Item>
-                  <Menu.Item key="/sysact/payblacklist" onClick={() => this.go_route('/sysact/payblacklist')}>
-                    <span>现在支付黑白名单</span>
-                  </Menu.Item>
-                  <Menu.Item key="/sysact/snapshotimport" onClick={() => this.go_route('/sysact/snapshotimport')}>
-                    <span>角色快照导入</span>
-                  </Menu.Item>
+                  {this.showMenu('6-1', (
+                    <Menu.Item
+                      key="/sysact/activity"
+                      onClick={() => this.go_route("/sysact/activity")}
+                    >
+                      <span>活动与功能管理</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('6-2', (
+                    <Menu.Item
+                      key="/sysact/gmins"
+                      onClick={() => this.go_route("/sysact/gmins")}
+                    >
+                      <span>GM指令（通用）</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('6-3', (
+                    <Menu.Item key="/sysact/payblacklist" onClick={() => this.go_route('/sysact/payblacklist')}>
+                      <span>现在支付黑白名单</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('6-4', (
+                    <Menu.Item key="/sysact/snapshotimport" onClick={() => this.go_route('/sysact/snapshotimport')}>
+                      <span>角色快照导入</span>
+                    </Menu.Item>
+                  ))}
                 </SubMenu>
-              ) : null}
-              {this.state.role >= 3 ? (
+              ))}
+              {this.showMenu('7', (
                 <SubMenu
                   key="gmman"
                   title={
@@ -243,29 +287,76 @@ class BaseLayout extends React.Component {
                     </span>
                   }
                 >
-                  <Menu.Item
-                    key="/gmman"
-                    onClick={() => this.go_route("/gmman")}
-                  >
-                    <span>GM列表</span>
-                  </Menu.Item>
-                  <Menu.Item
-                    key="/gmman/add"
-                    onClick={() => this.go_route("/gmman/add")}
-                  >
-                    <span>添加GM</span>
-                  </Menu.Item>
-                  {/* <Menu.Item key="/gmman/authority" onClick={() => this.go_route('/gmman/authority')}>
-                    <span>权限分配</span>
-                  </Menu.Item> */}
-                  <Menu.Item
-                    key="/gmman/actlogs"
-                    onClick={() => this.go_route("/gmman/actlogs")}
-                  >
-                    <span>操作日志</span>
-                  </Menu.Item>
+                  {this.showMenu('7-1', (
+                    <Menu.Item
+                      key="/gmman"
+                      onClick={() => this.go_route("/gmman")}
+                    >
+                      <span>GM列表</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('7-2', (
+                    <Menu.Item
+                      key="/gmman/add"
+                      onClick={() => this.go_route("/gmman/add")}
+                    >
+                      <span>添加GM</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('7-3', (
+                    <Menu.Item
+                      key="/gmman/actlogs"
+                      onClick={() => this.go_route("/gmman/actlogs")}
+                    >
+                      <span>操作日志</span>
+                    </Menu.Item>
+                  ))}
                 </SubMenu>
-              ) : null}
+              ))}
+              {this.showMenu('8', (
+                <SubMenu
+                  key="authority"
+                  title={
+                    <span>
+                      <Icon type="lock" />
+                      <span>权限管理</span>
+                    </span>
+                  }
+                >
+                  {this.showMenu('8-1', (
+                    <Menu.Item
+                      key="/authority/rolelist"
+                      onClick={() => this.go_route("/authority/rolelist")}
+                    >
+                      <span>角色列表</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('8-2', (
+                    <Menu.Item
+                      key="/authority/createrole"
+                      onClick={() => this.go_route("/authority/createrole")}
+                    >
+                      <span>新增角色</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('8-3', (
+                    <Menu.Item
+                      key="/authority/menulist"
+                      onClick={() => this.go_route("/authority/menulist")}
+                    >
+                      <span>菜单列表</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('8-4', (
+                    <Menu.Item
+                      key="/authority/createmenu"
+                      onClick={() => this.go_route("/authority/createmenu")}
+                    >
+                      <span>新增菜单</span>
+                    </Menu.Item>
+                  ))}
+                </SubMenu>
+              ))}
             </Menu>
           </Sider>
           <Layout>

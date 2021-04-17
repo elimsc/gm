@@ -66,6 +66,7 @@ class UserController extends BaseController {
     let pageSize = 10;
     let page = 1;
     let subject = '';
+    let channel_id = -1;
     if (queries.pageSize) {
       pageSize = queries.pageSize[0];
     }
@@ -75,9 +76,12 @@ class UserController extends BaseController {
     if (queries.subject) {
       subject = queries.subject[0];
     }
+    if (this.ctx.user.channel_id) {
+      channel_id = this.ctx.user.channel_id;
+    }
 
-    const logs = await actlogService.list({ page, pageSize, subject });
-    const count = await actlogService.count({ subject });
+    const logs = await actlogService.list({ page, pageSize, subject, channel_id });
+    const count = await actlogService.count({ subject, channel_id });
 
     this.ctx.body = this.success({ logs, count });
   }
@@ -133,6 +137,20 @@ class UserController extends BaseController {
     } else {
       this.ctx.body = this.failed();
     }
+  }
+
+  // GET /api/user/rolelist
+  async roleList() {
+    const userService = this.ctx.service.user;
+    const role_list = await userService.roleList();
+    this.ctx.body = this.success(role_list);
+  }
+
+  // GET /api/user/menu_sids
+  async menuSids() {
+    const userService = this.ctx.service.user;
+    const menu_sids = await userService.menuSids(this.ctx.user.role);
+    this.ctx.body = this.success(menu_sids);
   }
 }
 

@@ -20,6 +20,14 @@ class BaseController extends Controller {
     return { code: 1, message, token: current_token };
   }
 
+  successOrFailed(success) {
+    if (success) {
+      return this.success();
+    } else {
+      return this.failed();
+    }
+  }
+
   // 一般错误，一般在客户端数据正确而服务端错误时返回
   error(message = '服务端错误') {
     const current_token = this.ctx.user && this.ctx.user.token ? this.ctx.user.token : '';

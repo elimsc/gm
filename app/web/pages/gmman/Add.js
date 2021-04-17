@@ -1,11 +1,23 @@
 import React from 'react';
-import { Card, Form, Input, Button, message } from 'antd';
+import { Card, Form, Input, Button, message, Select } from 'antd';
 import { connect } from 'dva';
 
-import { create } from '../../service/user';
+import { create, roleList } from '../../service/user';
 
-@connect(({ global }) => ({global}))
+@connect(({ global }) => ({ global }))
 class Add extends React.Component {
+
+  state = {
+    roles: [],
+  }
+
+  componentDidMount() {
+    if (this.state.roles.length === 0) {
+      roleList().then(data => {
+        this.setState({ roles: data.payload });
+      });
+    }
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -58,6 +70,7 @@ class Add extends React.Component {
       },
     };
 
+
     return (
       <Card>
         <Form {...formItemLayout} style={{ marginTop: 50 }} onSubmit={this.handleSubmit}>
@@ -70,6 +83,21 @@ class Add extends React.Component {
               }],
             })(
               <Input placeholder="用户名" />
+            )}
+          </Form.Item>
+          <Form.Item
+            label="角色"
+          >
+            {getFieldDecorator('role', {
+              rules: [{
+                required: true, message: '角色不能为空',
+              }],
+            })(
+              <Select placeholder="角色">
+                {this.state.roles.map(role => (
+                  <Select.Option key={`${role.id}`} value={role.id}>{role.role_name}</Select.Option>
+                ))}
+              </Select>
             )}
           </Form.Item>
           <Form.Item

@@ -74,6 +74,15 @@ class ActLogs extends React.Component {
       title: '操作者',
       dataIndex: 'subject',
     }, {
+      title: '渠道',
+      dataIndex: 'channel_id',
+      render: id => {
+        if (!id) {
+          return -1;
+        }
+        return id;
+      }
+    }, {
       title: '动作描述',
       dataIndex: 'action',
     }, {
@@ -82,7 +91,8 @@ class ActLogs extends React.Component {
     }, {
       title: '区服',
       dataIndex: 'part_id',
-    }, {
+    },
+    {
       title: '数据',
       dataIndex: 'data',
       width: 600,
@@ -99,7 +109,7 @@ class ActLogs extends React.Component {
       }
     }];
 
-    if (!Array.isArray(this.state.data) || this.state.data.length === 0) return null;
+    // if (!Array.isArray(this.state.data) || this.state.data.length === 0) return null;
 
     return (
       <Card>

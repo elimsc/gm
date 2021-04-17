@@ -1,13 +1,7 @@
 import React from 'react';
 import { Button, Table, Card, Modal, Form, Select, Input, message } from 'antd';
 
-import { list, update, deleteById } from '../../service/user';
-
-const role_map = {
-  1: '普通管理员',
-  2: '运营管理员',
-  3: '超级管理员',
-}
+import { list, update, deleteById, roleList } from '../../service/user';
 
 
 class GmMan extends React.Component {
@@ -21,10 +15,24 @@ class GmMan extends React.Component {
       selectUser: {},
       showUpdateModal: false,
       filter: {},
+      roles: [],
+      role_map: {},
     }
   }
 
+
   componentDidMount() {
+    if (this.state.roles.length === 0) {
+      roleList().then(data => {
+        const roles = data.payload;
+        const role_map = {};
+        for (let i = 0; i < roles.length; i++) {
+          const role = roles[i];
+          role_map[role.id] = role.role_name;
+        }
+        this.setState({ roles, role_map });
+      });
+    }
     this.fetch();
   }
 
@@ -111,6 +119,7 @@ class GmMan extends React.Component {
 
   render() {
     const { getFieldDecorator } = this.props.form;
+    const { role_map, roles } = this.state;
 
     const columns = [{
       title: '用户名',
@@ -178,9 +187,9 @@ class GmMan extends React.Component {
                 }],
               })(
                 <Select>
-                  <Select.Option value={1}>{role_map[1]}</Select.Option>
-                  <Select.Option value={2}>{role_map[2]}</Select.Option>
-                  <Select.Option value={3}>{role_map[3]}</Select.Option>
+                  {roles.map(role => (
+                    <Select.Option key={`${role.id}`} value={role.id}>{role.role_name}</Select.Option>
+                  ))}
                 </Select>
               )}
             </Form.Item>

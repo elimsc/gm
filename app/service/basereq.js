@@ -7,6 +7,7 @@ class BaseReqService extends Service {
   async request(head = {}, body = {}, token_param_list = []) {
     const genBody = this.ctx.helper.genBody;
     const req_url = this.ctx.request.body.req_url; // 服务器ip
+    body.channel_id = this.ctx.user.channel_id; // channel_id
     try {
       return await this.ctx.curl(req_url ? req_url : '', {
         timeout: 5000,

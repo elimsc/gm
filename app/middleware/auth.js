@@ -15,7 +15,6 @@ module.exports = options => {
     const authrization = ctx.get('Authorization');
     const userService = ctx.service.user;
 
-
     if (authrization) {
       try {
         let token = authrization.split('Bearer ')[1];
@@ -37,7 +36,11 @@ module.exports = options => {
               token = r.token;
             }
           }
-          ctx.user = { username, id: user.id, role, token };
+
+          const channel_id = await userService.channelIdByRole(role);
+          // console.log(channel_id);
+
+          ctx.user = { username, id: user.id, role, token, channel_id };
           await next();
         } else {
           ctx.body = {
