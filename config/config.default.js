@@ -7,7 +7,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_151376544123219_5858';
 
   // add your config here
-  config.middleware = [ 'auth' ];
+  config.middleware = ['auth', 'role'];
 
   config.auth = {
     key: '123456',
@@ -39,6 +39,9 @@ module.exports = appInfo => {
     csrf: false,
   };
 
+  config.chat_log_path = "/Users/zh/Desktop"
+  config.snapshotimport_script = "/Users/zh/Desktop/1.sh"
+
   config.mysql = {
     // 单数据库信息配置
     client: {
@@ -49,7 +52,7 @@ module.exports = appInfo => {
       // 用户名
       user: 'root',
       // 密码
-      password: 'root',
+      password: '',
       // 数据库名
       database: 'gm',
     },
