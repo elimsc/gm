@@ -112,7 +112,7 @@ class CreateRole extends React.Component {
             })(
               <Select>
                 <Select.Option value={-1}>所有渠道</Select.Option>
-                <Select.Option value={3}>天佑</Select.Option>
+                <Select.Option value={3}>天拓</Select.Option>
               </Select>
             )}
           </Form.Item>
