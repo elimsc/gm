@@ -7,6 +7,7 @@ const BaseController = require('./base');
 const moment = require('moment');
 const path = require('path');
 const fs = require('fs');
+const readline = require('readline');
 const MultiStream = require('multistream');
 
 class BatchActController extends BaseController {
@@ -36,6 +37,7 @@ class BatchActController extends BaseController {
   async exportChatlog() {
     const { start, end } = this.ctx.request.query;
     const start_date = moment(start, "YYYYMMDD");
+    const channel_id = this.ctx.user.channel_id;
     const end_date = moment(end, "YYYYMMDD");
     const dates = [];
     let cur = start_date;
@@ -56,14 +58,32 @@ class BatchActController extends BaseController {
       }
     });
 
-    const streams = [];
-    for (const file of files) {
-      streams.push(fs.createReadStream(file));
-    }
+    if (channel_id == -1) { // 直接合并文件
+      const streams = [];
+      for (const file of files) {
+        streams.push(fs.createReadStream(file));
+      }
 
-    this.ctx.attachment(`${start}_${end}.txt`);
-    this.ctx.set('Content-Type', 'application/octet-stream');
-    this.ctx.body = new MultiStream(streams);
+      this.ctx.attachment(`${start}_${end}.txt`);
+      this.ctx.set('Content-Type', 'application/octet-stream');
+      this.ctx.body = new MultiStream(streams);
+    } else { // 需要在内存中筛选
+      const contents = [];
+      for (const file of files) {
+        const readStream = fs.createReadStream(file);
+        const rl = readline.createInterface({
+          input: readStream,
+        });
+        for await (const line of rl) {
+          if (line[line.length - 1] == channel_id) { // 判断该聊天记录的渠道
+            contents.push(line);
+          }
+        }
+        this.ctx.attachment(`${start}_${end}.txt`);
+        this.ctx.set('Content-Type', 'application/octet-stream');
+        this.ctx.body = contents.join("\r\n");
+      }
+    }
   }
 
   // 批量禁言
