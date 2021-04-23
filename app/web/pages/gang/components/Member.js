@@ -15,14 +15,14 @@ class Member extends React.PureComponent {
     }
   }
 
-  handleBan = (uid) => {
+  handleBan = (uid, guid) => {
     const { part_id } = this.props;
     Modal.confirm({
       title: '确认操作',
       content: '确认对该账号进行封号？',
       onOk: () => {
         this.setState({ loading: true });
-        ban({ part_id, uid }).then(data => {
+        ban({ part_id, uid, guid }).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
           } else {
@@ -143,7 +143,7 @@ class Member extends React.PureComponent {
         key: 'action',
         render: (data) => (
           <Button onClick={() => {
-            this.handleBan(data.uid)
+            this.handleBan(data.uid, data.guid)
           }} type="primary">封号</Button>
         )
       }

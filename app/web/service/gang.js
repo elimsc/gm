@@ -11,8 +11,8 @@ export async function info({ part_id, gang_guid }) {
 }
 
 // 封号
-export async function ban({ part_id, uid }) {
-  return post('/api/gang/ban', { part_id, uid });
+export async function ban({ part_id, uid, guid }) {
+  return post('/api/gang/ban', { part_id, uid, guid });
 }
 
 // 修改公告
