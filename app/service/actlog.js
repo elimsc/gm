@@ -17,6 +17,7 @@ class ActlogService extends Service {
 
     const logs = await this.app.mysql.select('actlog', {
       where: condition,
+      columns: ['subject', 'object', 'part_id', 'channel_id', 'action', 'data', 'created_at'],
       orders: [['id', 'desc']],
       limit: pageSize,
       offset: pageSize * (page - 1),
