@@ -56,6 +56,7 @@ class Reissue extends React.PureComponent {
     const { getFieldDecorator } = this.props.form;
 
     // 配表id与具体内容的映射
+    const diamond_id_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 15, 23, 20, 16, 17, 21, 18, 19, 22];
     const diamond_id_map = {
       0: '6元',
       1: '30元',
@@ -73,13 +74,14 @@ class Reissue extends React.PureComponent {
       // 13: '128元档0元购',
       14: '3240元',
       15: '钻石年卡',
-      16: '30每日',
-      17: '68每日',
-      18: '328每日',
-      19: '648每日',
+      16: '30元每日',
+      17: '68元每日',
+      18: '328元每日',
+      19: '648元每日',
       20: '12元每日',
-      21: '128每日',
+      21: '128元每日',
       22: '3240元每日',
+      23: '6元每日',
     };
 
     const formItemLayout = {
@@ -146,7 +148,7 @@ class Reissue extends React.PureComponent {
             }],
           })(
             <Select>
-              {Object.keys(diamond_id_map).map(k => {
+              {diamond_id_list.map(k => {
                 let numK = -1;
                 try {
                   numK = parseInt(k);
