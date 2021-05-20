@@ -57,6 +57,13 @@ export async function actLogList(params = {}) {
   if (params.subject) {
     url += `&subject=${params.subject}`;
   }
+  if (params.startTime) {
+    url += `&startTime=${params.startTime}`
+  }
+  if (params.endTime) {
+    url += `&endTime=${params.endTime}`
+  }
+  // console.log(url);
   return get(url);
 }
 

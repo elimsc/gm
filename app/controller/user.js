@@ -67,6 +67,8 @@ class UserController extends BaseController {
     let page = 1;
     let subject = '';
     let channel_id = -1;
+    let startTime;
+    let endTime;
     if (queries.pageSize) {
       pageSize = queries.pageSize[0];
     }
@@ -79,9 +81,15 @@ class UserController extends BaseController {
     if (this.ctx.user.channel_id) {
       channel_id = this.ctx.user.channel_id;
     }
+    if (queries.startTime) {
+      startTime = queries.startTime[0];
+    }
+    if (queries.endTime) {
+      endTime = queries.endTime[0];
+    }
 
-    const logs = await actlogService.list({ page, pageSize, subject, channel_id });
-    const count = await actlogService.count({ subject, channel_id });
+    const logs = await actlogService.list({ page, pageSize, subject, channel_id, startTime, endTime });
+    const count = await actlogService.count({ subject, channel_id, startTime, endTime });
 
     this.ctx.body = this.success({ logs, count });
   }

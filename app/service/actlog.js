@@ -6,35 +6,70 @@ const Service = require('egg').Service;
  * GM操作日志
  */
 class ActlogService extends Service {
-  async list({ pageSize, page, subject, channel_id }) {
-    const condition = {};
+  async list({ pageSize, page, subject, channel_id, startTime, endTime }) {
+
+    let wheresql = '';
+    const whereVals = [];
     if (subject) {
-      condition.subject = subject;
+      wheresql += "AND subject = ? "
+      whereVals.push(subject);
     }
     if (channel_id && channel_id !== -1) {
-      condition.channel_id = channel_id;
+      wheresql += "AND channel_id = ? ";
+      whereVals.push(channel_id);
+    }
+    if (startTime && endTime) {
+      wheresql += "AND created_at >= ? AND created_at <= ? ";
+      whereVals.push(startTime);
+      whereVals.push(endTime);
     }
 
-    const logs = await this.app.mysql.select('actlog', {
-      where: condition,
-      columns: ['subject', 'object', 'part_id', 'channel_id', 'action', 'data', 'created_at'],
-      orders: [['id', 'desc']],
-      limit: pageSize,
-      offset: pageSize * (page - 1),
-    });
+    const sql = `
+    SELECT id,subject,object,part_id,channel_id,action,data,created_at
+    FROM actlog
+    WHERE 1=1 ${wheresql}
+    ORDER BY id desc
+    LIMIT ${pageSize}
+    OFFSET ${pageSize * (page - 1)}
+    `;
+    // console.log(sql);
+    const logs = await this.app.mysql.query(sql, whereVals);
+
+    // const logs = await this.app.mysql.select('actlog', {
+    //   where: condition,
+    //   columns: ['subject', 'object', 'part_id', 'channel_id', 'action', 'data', 'created_at', 'id'],
+    //   orders: [['id', 'desc']],
+    //   limit: pageSize,
+    //   offset: pageSize * (page - 1),
+    // });
     return logs;
   }
 
-  async count({ subject, channel_id }) {
-    const condition = {};
+  async count({ subject, channel_id, startTime, endTime }) {
+    let wheresql = '';
+    const whereVals = [];
     if (subject) {
-      condition.subject = subject;
+      wheresql += "AND subject = ? "
+      whereVals.push(subject);
     }
     if (channel_id && channel_id !== -1) {
-      condition.channel_id = channel_id;
+      wheresql += "AND channel_id = ? ";
+      whereVals.push(channel_id);
     }
-    const count = await this.app.mysql.count('actlog', condition);
-    return count;
+    if (startTime && endTime) {
+      wheresql += "AND created_at >= ? AND created_at <= ? ";
+      whereVals.push(startTime);
+      whereVals.push(endTime);
+    }
+
+    const sql = `
+    SELECT count(*) as count
+    FROM actlog
+    WHERE 1=1 ${wheresql}
+    `;
+    const count = await this.app.mysql.query(sql, whereVals);
+    // console.log(count[0].count)
+    return count[0].count;
   }
 
   async create({ subject, object, action, part_id, data, channel_id }) {
