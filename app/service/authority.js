@@ -1,14 +1,14 @@
 'use strict';
 
-const Service = require('egg').Service;
+const DBGMService = require('./dbgm');
 
 /**
  * 权限管理
  */
-class AuthorityService extends Service {
+class AuthorityService extends DBGMService {
   async createMenu({ menu_name, menu_sid, urls }) {
     try {
-      const result = await this.app.mysql.insert('menu', { menu_name, menu_sid, urls });
+      const result = await this.db.insert('menu', { menu_name, menu_sid, urls });
       return result.affectedRows === 1;
     } catch (e) {
       return false;
@@ -17,7 +17,7 @@ class AuthorityService extends Service {
 
   async deleteMenu(id) {
     try {
-      const result = await this.app.mysql.delete('menu', { id });
+      const result = await this.db.delete('menu', { id });
       return result.affectedRows === 1;
     } catch (e) {
       return false;
@@ -26,7 +26,7 @@ class AuthorityService extends Service {
 
   async updateMenu({ id, menu_name, menu_sid, urls }) {
     try {
-      const result = await this.app.mysql.update('menu', { id, menu_name, menu_sid, urls });
+      const result = await this.db.update('menu', { id, menu_name, menu_sid, urls });
       return result.affectedRows === 1;
     } catch (e) {
       this.logger.error(e);
@@ -36,7 +36,7 @@ class AuthorityService extends Service {
 
   async menuList() {
     const condition = {};
-    const menus = await this.app.mysql.select('menu', {
+    const menus = await this.db.select('menu', {
       where: condition,
       columns: ['id', 'menu_name', 'menu_sid', 'urls'],
       orders: [['id', 'desc']],
@@ -46,7 +46,7 @@ class AuthorityService extends Service {
 
   async menuTree() {
     const condition = {};
-    let menus = await this.app.mysql.select('menu', {
+    let menus = await this.db.select('menu', {
       where: condition,
       columns: ['id', 'menu_sid', 'menu_name'],
       orders: [['menu_sid', 'asc']],
@@ -57,7 +57,7 @@ class AuthorityService extends Service {
 
   async createRole({ role_name, channel_id, menu_ids }) {
     try {
-      const result = await this.app.mysql.insert('role', { role_name, channel_id, menu_ids });
+      const result = await this.db.insert('role', { role_name, channel_id, menu_ids });
       return result.affectedRows === 1;
     } catch (e) {
       return false;
@@ -66,7 +66,7 @@ class AuthorityService extends Service {
 
   async deleteRole(id) {
     try {
-      const result = await this.app.mysql.delete('role', { id });
+      const result = await this.db.delete('role', { id });
       return result.affectedRows === 1;
     } catch (e) {
       return false;
@@ -75,7 +75,7 @@ class AuthorityService extends Service {
 
   async updateRole({ id, role_name, channel_id, menu_ids }) {
     try {
-      const result = await this.app.mysql.update('role', { id, role_name, channel_id, menu_ids });
+      const result = await this.db.update('role', { id, role_name, channel_id, menu_ids });
       return result.affectedRows === 1;
     } catch (e) {
       this.logger.error(e);
@@ -85,7 +85,7 @@ class AuthorityService extends Service {
 
   async roleList() {
     const condition = {};
-    const roles = await this.app.mysql.select('role', {
+    const roles = await this.db.select('role', {
       where: condition,
       columns: ['id', 'role_name', 'channel_id'],
       orders: [['id', 'desc']],
@@ -94,15 +94,15 @@ class AuthorityService extends Service {
   }
 
   async oneRole(id) {
-    const role = await this.app.mysql.get('role', { id });
+    const role = await this.db.get('role', { id });
     return role;
   }
 
   // 根据role_id判断role是否有权访问某url
   async hasPermission(role_id, url) {
-    const role = await this.app.mysql.get('role', { id: role_id });
+    const role = await this.db.get('role', { id: role_id });
     const menu_ids = role.menu_ids.split(',').map(v => parseInt(v));
-    const menus = await this.app.mysql.select('menu', {
+    const menus = await this.db.select('menu', {
       where: { id: menu_ids },
       columns: ['urls']
     });

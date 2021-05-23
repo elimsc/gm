@@ -1,19 +1,19 @@
 'use strict';
 
-const Service = require('egg').Service;
+const DBGMService = require('./dbgm')
 
 /**
  * 公告模板相关的service
  */
-class AnntplService extends Service {
+class AnntplService extends DBGMService {
   async list() {
-    const tpls = await this.app.mysql.select('anntpl');
+    const tpls = await this.db.select('anntpl');
     return tpls;
   }
 
   async create({ content }) {
     try {
-      const result = await this.app.mysql.insert('anntpl', { content });
+      const result = await this.db.insert('anntpl', { content });
       return result.affectedRows === 1;
     } catch (e) {
       return false;
@@ -22,7 +22,7 @@ class AnntplService extends Service {
 
   async delete({ id }) {
     try {
-      const result = await this.app.mysql.delete('anntpl', { id });
+      const result = await this.db.delete('anntpl', { id });
       return result.affectedRows === 1;
     } catch (e) {
       return false;

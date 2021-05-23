@@ -1,13 +1,13 @@
 'use strict';
 
-const Service = require('egg').Service;
+const DBGMService = require('./dbgm');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 /**
  * GM管理
  */
-class UserService extends Service {
+class UserService extends DBGMService {
 
   // GM列表
   async list({ pageSize, page, username }) {
@@ -15,7 +15,7 @@ class UserService extends Service {
     if (username) {
       condition.username = username;
     }
-    const users = await this.app.mysql.select('user', {
+    const users = await this.db.select('user', {
       where: condition,
       columns: ['id', 'username', 'role'],
       orders: [['id', 'desc']],
@@ -27,7 +27,7 @@ class UserService extends Service {
 
   // 获取可选角色列表
   async roleList() {
-    const roles = await this.app.mysql.select('role', {
+    const roles = await this.db.select('role', {
       columns: ['id', 'role_name'],
     });
     return roles;
@@ -35,7 +35,7 @@ class UserService extends Service {
 
   // 获取用户对应角色channel_id
   async channelIdByRole(role) {
-    const item = await this.app.mysql.get('role', { id: role });
+    const item = await this.db.get('role', { id: role });
     if (item) {
       return item.channel_id;
     }
@@ -45,18 +45,18 @@ class UserService extends Service {
   // 获取角色对应的menu_sid列表
   async menuSids(role_id) {
     if (role_id == 10000) {
-      const menus = await this.app.mysql.select('menu', {
+      const menus = await this.db.select('menu', {
         columns: ['menu_sid']
       });
       return menus.map(item => item.menu_sid);
     }
     console.log(role_id);
-    const role = await this.app.mysql.get('role', { id: role_id });
+    const role = await this.db.get('role', { id: role_id });
     if (!role) {
       return [];
     }
     const menu_ids = role.menu_ids.split(',').map(v => parseInt(v));
-    const menus = await this.app.mysql.select('menu', {
+    const menus = await this.db.select('menu', {
       where: { id: menu_ids },
       columns: ['menu_sid']
     });
@@ -70,12 +70,12 @@ class UserService extends Service {
     if (username) {
       condition.username = username;
     }
-    const users_count = await this.app.mysql.count('user', condition);
+    const users_count = await this.db.count('user', condition);
     return users_count;
   }
 
   async findByUsername(username) {
-    const user = await this.app.mysql.get('user', { username });
+    const user = await this.db.get('user', { username });
     return user;
   }
 
@@ -83,7 +83,7 @@ class UserService extends Service {
   async create({ username, password, role }) {
     const hashed_pass = bcrypt.hashSync(password, 10);
     try {
-      const result = await this.app.mysql.insert('user', { username, password: hashed_pass, role });
+      const result = await this.db.insert('user', { username, password: hashed_pass, role });
       return result.affectedRows === 1;
     } catch (e) {
       // this.logger.error(e);
@@ -94,7 +94,7 @@ class UserService extends Service {
   // 删除用户
   async delete(id) {
     try {
-      const result = await this.app.mysql.delete('user', { id });
+      const result = await this.db.delete('user', { id });
       return result.affectedRows === 1;
     } catch (e) {
       // this.logger.error(e);
@@ -116,7 +116,7 @@ class UserService extends Service {
 
     let result;
     try {
-      result = await this.app.mysql.update('user', value);
+      result = await this.db.update('user', value);
       return result.affectedRows === 1;
     } catch (e) {
       this.logger.error(e);

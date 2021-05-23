@@ -1,11 +1,11 @@
 'use strict';
 
-const Service = require('egg').Service;
+const DBGMService = require('./dbgm');
 
 /**
  * 系统数据相关service
  */
-class SysdataService extends Service {
+class SysdataService extends DBGMService {
 
   // 根据道具名获取可选名
   async listPropByName(name) {
@@ -14,9 +14,9 @@ class SysdataService extends Service {
 
     try {
       if (name === '*') {
-        results = await this.app.mysql.query('select * from prop');
+        results = await this.db.query('select * from prop');
       } else {
-        results = await this.app.mysql.query(`select * from prop where name like "${name}%" limit 20`);
+        results = await this.db.query(`select * from prop where name like "${name}%" limit 20`);
       }
     } catch (e) {
       results = [];

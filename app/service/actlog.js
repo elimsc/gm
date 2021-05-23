@@ -1,11 +1,11 @@
 'use strict';
 
-const Service = require('egg').Service;
+const DBGMService = require('./dbgm')
 
 /**
  * GM操作日志
  */
-class ActlogService extends Service {
+class ActlogService extends DBGMService {
   async list({ pageSize, page, subject, channel_id, startTime, endTime }) {
 
     let wheresql = '';
@@ -33,9 +33,9 @@ class ActlogService extends Service {
     OFFSET ${pageSize * (page - 1)}
     `;
     // console.log(sql);
-    const logs = await this.app.mysql.query(sql, whereVals);
+    const logs = await this.db.query(sql, whereVals);
 
-    // const logs = await this.app.mysql.select('actlog', {
+    // const logs = await this.db.select('actlog', {
     //   where: condition,
     //   columns: ['subject', 'object', 'part_id', 'channel_id', 'action', 'data', 'created_at', 'id'],
     //   orders: [['id', 'desc']],
@@ -67,14 +67,14 @@ class ActlogService extends Service {
     FROM actlog
     WHERE 1=1 ${wheresql}
     `;
-    const count = await this.app.mysql.query(sql, whereVals);
+    const count = await this.db.query(sql, whereVals);
     // console.log(count[0].count)
     return count[0].count;
   }
 
   async create({ subject, object, action, part_id, data, channel_id }) {
     try {
-      const result = await this.app.mysql.insert('actlog', { subject, object, action, part_id, data, channel_id });
+      const result = await this.db.insert('actlog', { subject, object, action, part_id, data, channel_id });
       return result.affectedRows === 1;
     } catch (e) {
       this.logger.error(e);
@@ -84,7 +84,7 @@ class ActlogService extends Service {
 
   async delete(id) {
     try {
-      const result = await this.app.mysql.delete('actlog', { id });
+      const result = await this.db.delete('actlog', { id });
       return result.affectedRows === 1;
     } catch (e) {
       this.logger.error(e);
