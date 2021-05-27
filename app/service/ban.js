@@ -16,6 +16,17 @@ class BanService extends BaseReqService {
     return true;
   }
 
+  // 通过guid封号/解封
+  async banAccountByGuid({ type, guid, flag, time, reason, part_id }) {
+    const players = await this.ctx.service.playerinfo.list({ name: guid, type: 1, part_id });
+    if (players.length == 0) {
+      return false;
+    }
+    const player = players[0];
+    const r = await this.banAccount({ type, guid, flag, time, reason, part_id, uid: `${player.uid}` });
+    return r;
+  }
+
   // 禁言/解除禁言
   // flag: 0禁言 1解禁
   async banTalk({ guid, flag, time, reason, part_id }) {

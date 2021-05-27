@@ -166,6 +166,12 @@ class BaseLayout extends React.Component {
                   <span>帮会操作</span>
                 </Menu.Item>
               ))}
+              {this.showMenu('9', (
+                <Menu.Item onClick={() => this.go_route("/jubao")} key="/jubao">
+                  <Icon type="exception" />
+                  <span>举报信息查询</span>
+                </Menu.Item>
+              ))}
               {this.showMenu('3', (
                 <SubMenu
                   key="moneyreport"

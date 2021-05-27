@@ -201,11 +201,11 @@ class GmMan extends React.Component {
               <Button htmlType="submit" type="primary">提交</Button>
             </Form.Item>
 
-            <div style={{ marginLeft: 30, marginTop: -10 }}>
+            {/* <div style={{ marginLeft: 30, marginTop: -10 }}>
               普通管理员：仅具有浏览玩家信息权限 <br />
               运营管理员：浏览+修改玩家数据权限+服务器广播权限 <br />
               超级管理员：拥有所有权限+管理GM用户 <br />
-            </div>
+            </div> */}
           </Form>
         </Modal>
         <Form layout="inline" onSubmit={this.handleSearch}>

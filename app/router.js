@@ -48,6 +48,13 @@ module.exports = app => {
   router.post('/api/authority/role/update', actlog('权限-更新角色'), controller.authority.updateRole); // 更新角色
   router.post('/api/authority/role/delete', actlog('权限-删除角色'), controller.authority.deleteRole); // 删除角色
 
+  // 举报信息查询
+  router.get('/api/jubao/listgroup', controller.jubao.listGroupByTargetGuid);
+  router.get('/api/jubao/detailByGuid', controller.jubao.detailByTargetGuid);
+  router.post('/api/jubao/deleteByGuid', actlog('举报页面-删除记录'), controller.jubao.deleteByTargetGuid);
+  router.post('/api/jubao/ban', actlog('举报信息查询页面-封号'), controller.jubao.ban);
+  router.post('/api/jubao/ban-talk', actlog('举报信息查询页面-禁言'), controller.jubao.banTalk);
+
   // 服务器广播
   router.get('/api/broadcast/tpl/list', controller.broadcast.listTpl); // 显示所有的公告模板
   router.post('/api/broadcast/tpl/add', actlog('添加公告模板'), controller.broadcast.addTpl); // 添加公告模板
