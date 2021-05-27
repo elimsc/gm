@@ -43,7 +43,7 @@ module.exports = appInfo => {
   config.snapshotimport_script = "/Users/zh/Desktop/1.sh"
 
   config.mysql = {
-    // 单数据库信息配置
+    // 多数据库信息配置
     clients: {
       gm: {
         // host
@@ -56,6 +56,8 @@ module.exports = appInfo => {
         password: '',
         // 数据库名
         database: 'gm',
+        bigNumberStrings: true,
+        supportBigNumbers: true,
       },
       db_sdk_common: {
         // host
@@ -68,6 +70,8 @@ module.exports = appInfo => {
         password: '',
         // 数据库名
         database: 'db_sdk_common',
+        bigNumberStrings: true,
+        supportBigNumbers: true,
       }
     },
     // 是否加载到 app 上，默认开启
