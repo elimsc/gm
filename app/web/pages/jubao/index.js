@@ -40,7 +40,6 @@ class Jubao extends React.Component {
     this.setState({ selectedGuid: guid, loading2: true });
     detailByTargetGuid(guid).then(data => {
       if (data.code === 0) {
-        console.log(data.payload)
         this.setState({ loading2: false, detail: data.payload });
       }
     })
@@ -157,7 +156,7 @@ class Jubao extends React.Component {
         dataIndex: 'jubao_time',
         width: '20%',
         render: (record) => {
-          return moment(record.jubao_time).format('YYYY-MM-DD HH:mm:ss')
+          return moment(record).format('YYYY-MM-DD HH:mm:ss')
         }
       }, {
         title: '举报内容',
