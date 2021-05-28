@@ -18,8 +18,8 @@ export async function deleteByTargetGuid(guid) {
 }
 
 // 封号
-export async function ban({ guid, part_id }) {
-  return post('/api/jubao/ban', { guid, part_id });
+export async function ban({ guid, part_id, uid }) {
+  return post('/api/jubao/ban', { guid, part_id, uid });
 }
 
 // 禁言

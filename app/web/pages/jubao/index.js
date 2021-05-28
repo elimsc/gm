@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Table, Card, Form, Input, DatePicker, Modal, message } from 'antd';
 import { listgroup, detailByTargetGuid, deleteByTargetGuid, ban, banTalk } from '../../service/jubao';
 
+import moment from 'moment';
 
 /**
  * 举报信息查询
@@ -39,18 +40,19 @@ class Jubao extends React.Component {
     this.setState({ selectedGuid: guid, loading2: true });
     detailByTargetGuid(guid).then(data => {
       if (data.code === 0) {
+        console.log(data.payload)
         this.setState({ loading2: false, detail: data.payload });
       }
     })
   }
 
-  handleBan(guid, part_id) {
+  handleBan(uid, guid, part_id) {
     Modal.confirm({
       title: '确认',
       content: '确认进行该操作？',
       onOk: () => {
         this.setState({ loading: true });
-        ban({ guid: `${guid}`, part_id }).then(data => {
+        ban({ uid: `${uid}`, guid: `${guid}`, part_id }).then(data => {
           if (data.code == 0) {
             message.success("封号成功");
           } else {
@@ -121,7 +123,7 @@ class Jubao extends React.Component {
       render: (record) => {
         return (
           <div>
-            <Button onClick={() => this.handleBan(record.target_guid, record.part_id)} >封号</Button>
+            <Button onClick={() => this.handleBan(record.target_uid, record.target_guid, record.part_id)} >封号</Button>
             <Button onClick={() => this.handleBanTalk(record.target_guid, record.part_id)} style={{ marginLeft: 10 }} >禁言</Button>
           </div>
         )
@@ -142,13 +144,20 @@ class Jubao extends React.Component {
       {
         title: '举报人GUID',
         dataIndex: 'informant_guid',
-        width: '20%',
+        width: '15%',
       }, {
         title: '类型',
         dataIndex: 'type',
-        width: '20%',
+        width: '10%',
         render: (record) => {
           return typeMap[record];
+        }
+      }, {
+        title: '举报时间',
+        dataIndex: 'jubao_time',
+        width: '20%',
+        render: (record) => {
+          return moment(record.jubao_time).format('YYYY-MM-DD HH:mm:ss')
         }
       }, {
         title: '举报内容',

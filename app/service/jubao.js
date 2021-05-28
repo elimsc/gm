@@ -9,9 +9,9 @@ class JubaoService extends DBSdkCommonService {
   async listGroupByTargetGuid() {
     // SELECT target_guid, part_id, COUNT("*") as count FROM t_jubao_info GROUP BY target_guid, part_id;
     const sql = `
-    SELECT target_guid, part_id, COUNT("*") as count 
+    SELECT target_guid, part_id, target_uid, COUNT("*") as count 
     FROM t_jubao_info 
-    GROUP BY target_guid, part_id`;
+    GROUP BY target_guid, part_id, target_uid`;
     const list = await this.db.query(sql);
     return list
   }
@@ -19,7 +19,7 @@ class JubaoService extends DBSdkCommonService {
   async detailByTargetGuid(guid) {
     // SELECT id,informant_guid,type,content FROM t_jubao_info WHERE target_guid = '3333' ORDER BY id DESC;
     const sql = `
-    SELECT id,informant_guid,type,content 
+    SELECT id,informant_guid,type,content, jubao_time
     FROM t_jubao_info 
     WHERE target_guid = ? 
     ORDER BY id DESC;

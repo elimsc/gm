@@ -44,8 +44,8 @@ class JubaoController extends BaseController {
   * 封号
   */
   async ban() {
-    const { part_id, guid } = this.ctx.request.body;
-    const r = await this.banService.banAccountByGuid({ type: -1, flag: 0, time: 0, reason: '举报页面封号', part_id, guid });
+    const { part_id, guid, uid } = this.ctx.request.body;
+    const r = await this.banService.banAccount({ type: -1, flag: 0, time: 0, reason: '举报页面封号', part_id, guid, uid });
     if (r) {
       this.ctx.body = this.success();
     } else {
