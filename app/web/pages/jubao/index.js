@@ -21,7 +21,7 @@ class Jubao extends React.Component {
   }
 
   componentDidMount() {
-    this.fetch();
+    // this.fetch();
   }
 
   fetch() {
@@ -169,6 +169,7 @@ class Jubao extends React.Component {
     return (
       <div>
         <Card>
+          <Button style={{ marginTop: 5 }} onClick={() => this.fetch()} htmlType="submit" type="primary">获取被举报信息</Button>
           <Table
             columns={columns}
             rowKey={record => `${record.target_guid}`}
