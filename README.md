@@ -1,5 +1,9 @@
 ## GM
 
+node v10.18.0  
+eggjs https://eggjs.org/zh-cn/intro/  
+antd3.x https://3x.ant.design/index-cn  
+
 ### 本地开发
 
 ```bash
