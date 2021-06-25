@@ -315,6 +315,7 @@ class PlayerMan extends React.PureComponent {
                 <Switch
                   menu={menu}
                   data={data}
+                  global={this.props.global}
                   guid={selectedPlayer && selectedPlayer.guid ? selectedPlayer.guid : false}
                   part_id={this.props.global.part_id}
                   uid={selectedPlayer && selectedPlayer.uid ? selectedPlayer.uid : ''}

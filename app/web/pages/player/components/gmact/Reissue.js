@@ -3,6 +3,14 @@ import { Card, Form, Input, Button, message, Modal, Select, Checkbox } from 'ant
 
 import { reIssue } from '../../../../service/gmact';
 
+function needFormReset() {
+  const req_url = localStorage.getItem('req_url');
+  if (req_url.startsWith('http://192') || req_url.startsWith('http://ifgame')) {
+    return false;
+  }
+  return true;
+}
+
 /**
  * 充值补发
  */
@@ -42,8 +50,11 @@ class Reissue extends React.PureComponent {
               } else {
                 message.error('操作失败');
               }
-              this.setState({ loading: false, gmDirectChecked: false });
-              this.props.form.resetFields();
+              this.setState({ loading: false });
+              if (needFormReset()) {
+                this.props.form.resetFields();
+                this.setState({ gmDirectChecked: false });
+              }
             });
           }
         });

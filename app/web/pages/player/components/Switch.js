@@ -42,7 +42,7 @@ class Switch extends React.PureComponent {
 
 
   render() {
-    const { data, menu, guid, part_id, uid } = this.props;
+    const { data, menu, guid, part_id, uid, global } = this.props;
     switch (menu) {
       case 'basic-info':
         return <BasicInfo data={data} />;
@@ -74,7 +74,7 @@ class Switch extends React.PureComponent {
       case 'award-d':
         return guid ? <AwardD guid={guid} part_id={part_id} /> : null;
       case 'reissue':
-        return guid ? <Reissue guid={guid} part_id={part_id} /> : null;
+        return guid ? <Reissue guid={guid} part_id={part_id} global={global} /> : null;
       case 'pet':
         return guid ? <Pet guid={guid} part_id={part_id} /> : null;
       case 'player':
