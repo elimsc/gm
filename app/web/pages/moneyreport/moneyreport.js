@@ -41,7 +41,7 @@ class MoneyReport extends React.PureComponent {
   handleAdd = e => {
     const { part_id } = this.props.global;
     e.preventDefault();
-    this.props.form.validateFields(['low', 'high'], (err, values) => {
+    this.props.form.validateFields(['low', 'high', 'uaid'], (err, values) => {
       if (!err) {
         this.setState({ loading: true });
         addMoneyList({ part_id, list: [values] }).then(data => {
@@ -56,7 +56,7 @@ class MoneyReport extends React.PureComponent {
             message.error('添加失败');
             this.setState({ loading: false, showAddModal: false });
           }
-          this.props.form.resetFields(['low', 'high']);
+          this.props.form.resetFields(['low', 'high', 'uaid']);
         });
       }
     });
@@ -88,6 +88,11 @@ class MoneyReport extends React.PureComponent {
     const { getFieldDecorator } = this.props.form;
 
     const columns = [
+      {
+        title: 'uaid',
+        dataIndex: 'uaid',
+        key: 'uaid',
+      },
       {
         title: '下限',
         dataIndex: 'low',
@@ -129,6 +134,12 @@ class MoneyReport extends React.PureComponent {
             visible={this.state.showAddModal}
           >
             <Form style={{ marginTop: 40 }} onSubmit={this.handleAdd}>
+              <Form.Item label="uaid" {...formItemLayout}>
+                {getFieldDecorator('uaid', {
+                })(
+                  <Input />
+                )}
+              </Form.Item>
               <Form.Item label="下限" {...formItemLayout}>
                 {getFieldDecorator('low', {
                   rules: [{
