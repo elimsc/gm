@@ -43,7 +43,6 @@ class MoneyReport extends React.PureComponent {
     e.preventDefault();
     this.props.form.validateFields(['low', 'high', 'uaid', 'percent'], (err, values) => {
       if (!err) {
-        values['percent'] = Number(values['percent']);
         this.setState({ loading: true });
         addMoneyList({ part_id, list: [values] }).then(data => {
           if (isSuccess(data)) {
@@ -168,6 +167,10 @@ class MoneyReport extends React.PureComponent {
               </Form.Item>
               <Form.Item label="百分比" {...formItemLayout}>
                 {getFieldDecorator('percent', {
+                  rules: [{
+                    required: true,
+                    message: '不能为空',
+                  }],
                 })(
                   <Input type="number" />
                 )}
