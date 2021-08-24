@@ -21,9 +21,8 @@ class MoneyreportService extends BaseReqService {
     //   }
     // }
 
-    // console.log({ part_id, mode, moneylist, uid_list });
+    this.logger.debug({ part_id, mode, moneylist, uid_list });
     const result = await this.request({ cmd: 3025 }, { part_id, mode, moneylist, uid_list }, ['mode']);
-    // console.log(result.data.body);
     try {
       return result.data.body;
     } catch (e) {

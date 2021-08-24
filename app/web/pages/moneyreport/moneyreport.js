@@ -41,8 +41,9 @@ class MoneyReport extends React.PureComponent {
   handleAdd = e => {
     const { part_id } = this.props.global;
     e.preventDefault();
-    this.props.form.validateFields(['low', 'high', 'uaid'], (err, values) => {
+    this.props.form.validateFields(['low', 'high', 'uaid', 'percent'], (err, values) => {
       if (!err) {
+        values['percent'] = Number(values['percent']);
         this.setState({ loading: true });
         addMoneyList({ part_id, list: [values] }).then(data => {
           if (isSuccess(data)) {
@@ -56,7 +57,7 @@ class MoneyReport extends React.PureComponent {
             message.error('添加失败');
             this.setState({ loading: false, showAddModal: false });
           }
-          this.props.form.resetFields(['low', 'high', 'uaid']);
+          this.props.form.resetFields(['low', 'high', 'uaid', 'percent']);
         });
       }
     });
@@ -156,6 +157,12 @@ class MoneyReport extends React.PureComponent {
                     required: true,
                     message: '上限不能为空',
                   }],
+                })(
+                  <Input type="number" />
+                )}
+              </Form.Item>
+              <Form.Item label="百分比" {...formItemLayout}>
+                {getFieldDecorator('percent', {
                 })(
                   <Input type="number" />
                 )}
