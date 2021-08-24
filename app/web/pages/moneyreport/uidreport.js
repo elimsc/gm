@@ -34,7 +34,11 @@ class UidReport extends React.PureComponent {
     const { part_id } = this.props.global;
     this.setState({ loading: true, list: [] });
     getUidList({ part_id }).then(data => {
-      const dataList = data.payload.uid_list.map(uid => ({ uid }));
+      let uid_list = data.payload.uid_list
+      if (!uid_list) {
+        uid_list = [];
+      }
+      const dataList = uid_list.map(uid => ({ uid }));
       this.setState({ loading: false, list: dataList, hasFetched: true });
     });
   }

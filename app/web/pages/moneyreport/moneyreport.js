@@ -33,7 +33,11 @@ class MoneyReport extends React.PureComponent {
     const { part_id } = this.props.global;
     this.setState({ loading: true, list: [] });
     getMoneyList({ part_id }).then(data => {
-      this.setState({ loading: false, list: data.payload.moneylist, hasFetched: true });
+      let moneylist = data.payload.moneylist;
+      if (!moneylist) {
+        moneylist = [];
+      }
+      this.setState({ loading: false, list: moneylist, hasFetched: true });
     });
   }
 
@@ -139,10 +143,10 @@ class MoneyReport extends React.PureComponent {
             visible={this.state.showAddModal}
           >
             <Form style={{ marginTop: 40 }} onSubmit={this.handleAdd}>
-              <Form.Item label="uaid" {...formItemLayout}>
+              <Form.Item label="uaid" {...formItemLayout} extra="每一条金额范围可指定uaid，也可留空。空表示默认配置，指定uaid的配置会覆盖默认配置">
                 {getFieldDecorator('uaid', {
                 })(
-                  <Input />
+                  <Input placeholder="" />
                 )}
               </Form.Item>
               <Form.Item label="下限" {...formItemLayout}>
@@ -152,7 +156,7 @@ class MoneyReport extends React.PureComponent {
                     message: '下限不能为空',
                   }],
                 })(
-                  <Input type="number" />
+                  <Input type="number" placeholder="闭区间" />
                 )}
               </Form.Item>
               <Form.Item label="上限" {...formItemLayout}>
@@ -162,7 +166,7 @@ class MoneyReport extends React.PureComponent {
                     message: '上限不能为空',
                   }],
                 })(
-                  <Input type="number" />
+                  <Input type="number" placeholder="闭区间" />
                 )}
               </Form.Item>
               <Form.Item label="百分比" {...formItemLayout}>
@@ -172,7 +176,7 @@ class MoneyReport extends React.PureComponent {
                     message: '不能为空',
                   }],
                 })(
-                  <Input type="number" />
+                  <Input type="number" placeholder="范围0-100,100表示百分百不上报" />
                 )}
               </Form.Item>
               <Form.Item {...formTailLayout}>
