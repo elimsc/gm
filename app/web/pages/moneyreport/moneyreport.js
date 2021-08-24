@@ -105,6 +105,11 @@ class MoneyReport extends React.PureComponent {
         key: 'high',
       },
       {
+        title: '百分比',
+        dataIndex: 'percent',
+        key: 'percent',
+      },
+      {
         title: '操作',
         key: 'action',
         render: (data) => (
