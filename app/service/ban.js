@@ -64,6 +64,7 @@ class BanService extends BaseReqService {
     const r = await this.request({ cmd: 3007 }, { uid, part_id, guid }, ['guid', 'uid']);
     if (!r) return [];
     if (r.data && r.data.body && r.data.body) {
+      this.logger.debug(r.data.body);
       const src = r.data.body;
       const tpl = {
         uid: '账户UID',
