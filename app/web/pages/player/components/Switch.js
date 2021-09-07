@@ -116,7 +116,7 @@ class Switch extends React.PureComponent {
       case 'ban-account-info':
         return guid ? <BanAccountLog data={data} /> : null;
       case 'uid-ban-account-info':
-        return guid ? <BanAccountLog data={data} /> : null;
+        return <BanAccountLog data={data} />;
       case 'ban-talk-info':
         return guid ? <BanTalkLog data={data} /> : null;
 

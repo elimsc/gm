@@ -18,6 +18,7 @@ class PlayerMan extends React.PureComponent {
       selectedPlayer: null, // 当前选中玩家
       data: [],
       dataLoading: false,
+      searchUid: "",
     }
   }
 
@@ -32,7 +33,10 @@ class PlayerMan extends React.PureComponent {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        this.setState({ data: [], selectedPlayer: null });
+        this.setState({ data: [], selectedPlayer: null, searchUid: "" });
+        if (values['type'] == 2) {
+          this.setState({ searchUid: values['name'] })
+        }
         if (values.name === "") { // 输入框内容为空时，清除玩家列表数据
           this.setState({ playerList: [] });
         } else {
@@ -53,13 +57,18 @@ class PlayerMan extends React.PureComponent {
 
   // 根据选中玩家和选中菜单获取数据并更新状态
   fetchData(v) {
+    const searchUid = this.state.searchUid;
     const player = v.selectedPlayer || this.state.selectedPlayer || null;
     const menu = v.menu || this.state.menu;
     this.setState({ ...v });
-    if (!player || !menu.endsWith('info')) return; // 没有当前选中用户时，不请求服务端
-    localStorage.setItem(player.guid, player.name);
+    if ((!player && !searchUid) || !menu.endsWith('info')) return; // 没有当前选中用户时，不请求服务端
+    if (!player && menu != 'uid-ban-account-info') return;
+
+    if (player) {
+      localStorage.setItem(player.guid, player.name);
+    }
     this.setState({ dataLoading: true, data: [] });
-    fetchInfo(menu, { ...player, ...this.props.global }).then(data => {
+    fetchInfo(menu, { uid: searchUid, ...player, ...this.props.global }).then(data => {
       this.setState({ data: data.payload, dataLoading: false });
     });
   }
