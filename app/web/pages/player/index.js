@@ -34,7 +34,7 @@ class PlayerMan extends React.PureComponent {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         this.setState({ data: [], selectedPlayer: null, searchUid: "" });
-        if (values['type'] == 2) {
+        if (values['type'] == 2) { // 如果是通过uid进行查询，设置searchUid的值
           this.setState({ searchUid: values['name'] })
         }
         if (values.name === "") { // 输入框内容为空时，清除玩家列表数据
@@ -61,8 +61,8 @@ class PlayerMan extends React.PureComponent {
     const player = v.selectedPlayer || this.state.selectedPlayer || null;
     const menu = v.menu || this.state.menu;
     this.setState({ ...v });
-    if ((!player && !searchUid) || !menu.endsWith('info')) return; // 没有当前选中用户时，不请求服务端
-    if (!player && menu != 'uid-ban-account-info') return;
+    if ((!player && !searchUid) || !menu.endsWith('info')) return; // 没有当前选中用户并且没有searchUid时时，不请求服务端
+    if (!player && menu != 'uid-ban-account-info') return; // 如果有searchUid但请求目录不是uid-ban-account-info时，也直接返回
 
     if (player) {
       localStorage.setItem(player.guid, player.name);

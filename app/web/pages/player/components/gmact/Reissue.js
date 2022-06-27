@@ -15,7 +15,8 @@ function needFormReset() {
 const diamond_id_list_map = {
   1: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 15, 23, 20, 16, 17, 21, 18, 19, 22],
   2: [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35],
-  3: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
+  3: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+  4: [46, 47, 48, 49, 50, 51, 52],
 };
 
 /**
@@ -122,6 +123,13 @@ class Reissue extends React.PureComponent {
       43: '35层仙礼包30元',
       44: '45层仙礼包6元',
       45: '45层仙礼包30元',
+      46: '连续充值-第1天',
+      47: '连续充值-第2天',
+      48: '连续充值-第3天',
+      49: '连续充值-第4天',
+      50: '连续充值-第5天',
+      51: '连续充值-第6天',
+      52: '连续充值-第7天',
     };
 
     const formItemLayout = {
@@ -131,7 +139,7 @@ class Reissue extends React.PureComponent {
       },
       wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 8 },
+        sm: { span: 10 },
       },
     };
     const tailFormItemLayout = {
@@ -154,6 +162,7 @@ class Reissue extends React.PureComponent {
             <Radio value={1}>常规</Radio>
             <Radio value={2}>等级礼包</Radio>
             <Radio value={3}>仙境礼包</Radio>
+            <Radio value={4}>连续充值</Radio>
           </Radio.Group>
         </Form.Item>
         <Form.Item
