@@ -132,6 +132,20 @@ module.exports = app => {
   router.post('/api/sysact/updatepayblacklist', actlog('增删现在支付黑白名单'), controller.sysact.updatePayBlacklist);
   router.post('/api/sysact/snapshotimport', actlog('角色快照导入'), controller.sysact.snapshotImport); // 角色快照导入
 
+  // ProjectA公告
+  router.post('/api/projecta/ann/create-type', actlog('ProjectA-创建公告类型'), controller.projecta.ann.createType);
+  router.get('/api/projecta/ann/list-type', controller.projecta.ann.listType);
+  router.post('/api/projecta/ann/update-type', actlog('ProjectA-更新公告类型'), controller.projecta.ann.updateType);
+  router.post('/api/projecta/ann/delete-type', actlog('ProjectA-删除公告类型'), controller.projecta.ann.deleteType);
+  router.post('/api/projecta/ann/create-ann', actlog('ProjectA-创建公告'), controller.projecta.ann.createAnn);
+  router.get('/api/projecta/ann/list-ann', controller.projecta.ann.listAnn);
+  router.post('/api/projecta/ann/update-ann', actlog('ProjectA-更新公告'), controller.projecta.ann.updateAnn);
+  router.post('/api/projecta/ann/delete-ann', actlog('ProjectA-删除公告'), controller.projecta.ann.deleteAnn);
+  router.post('/api/projecta/ann/create-subcontent', actlog('ProjectA-创建公告子标题'), controller.projecta.ann.createAnnSubcontent);
+  router.get('/api/projecta/ann/list-subcontent', controller.projecta.ann.listAnnSubcontent);
+  router.post('/api/projecta/ann/update-subcontent', actlog('ProjectA-更新公告子标题'), controller.projecta.ann.updateAnnSubcontent);
+  router.post('/api/projecta/ann/delete-subcontent', actlog('ProjectA-删除公告子标题'), controller.projecta.ann.deleteAnnSubcontent);
+
 
   // public api
   router.post('/p/account/ban', actlog('外部接口:封号'), controller.player.ban.banAccount); // 封号

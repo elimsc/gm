@@ -12,7 +12,7 @@ module.exports = options => {
       'POST /api/logout',
       'GET /api/user/actlog/current',
       'POST /api/user/change-pass',
-      'GET /api/user/menu_sids'
+      'GET /api/user/menu_sids',
     ];
 
     let hasPermission;

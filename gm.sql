@@ -62,6 +62,7 @@ CREATE TABLE `actlog` (
   `action` varchar(255) NOT NULL DEFAULT '' COMMENT '动作名称',
   `part_id` int(11) DEFAULT NULL COMMENT '区服id',
   `data` text NOT NULL COMMENT '操作相关数据',
+  `channel_id` smallint NOT NULL COMMENT '渠道id', 
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

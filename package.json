@@ -30,6 +30,7 @@
     "multistream": "^4.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-quill": "^2.0.0",
     "umi-plugin-react": "^1.7.5",
     "xlsx": "^0.14.3"
   },

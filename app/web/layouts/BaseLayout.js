@@ -283,6 +283,58 @@ class BaseLayout extends React.Component {
                   ))}
                 </SubMenu>
               ))}
+              {this.showMenu('9', (
+                <SubMenu
+                  key="projecta"
+                  title={
+                    <span>
+                      <Icon type="solution" />
+                      <span>ProjectA公告管理</span>
+                    </span>
+                  }
+                >
+                  {this.showMenu('9-1', (
+                    <Menu.Item
+                      key="/projecta/AnnType"
+                      onClick={() => this.go_route("/projecta/AnnType")}
+                    >
+                      <span>公告类型</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('9-2', (
+                    <Menu.Item
+                      key="/projecta/AnnList"
+                      onClick={() => this.go_route("/projecta/AnnList")}
+                    >
+                      <span>公告列表</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('9-3', (
+                    <Menu.Item
+                      key="/projecta/AddAnn"
+                      onClick={() => this.go_route("/projecta/AddAnn")}
+                    >
+                      <span>添加公告</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('9-4', (
+                    <Menu.Item
+                      key="/projecta/SubcontentList"
+                      onClick={() => this.go_route("/projecta/SubcontentList")}
+                    >
+                      <span>公告子标题列表</span>
+                    </Menu.Item>
+                  ))}
+                  {this.showMenu('9-5', (
+                    <Menu.Item
+                      key="/projecta/AddSubcontent"
+                      onClick={() => this.go_route("/projecta/AddSubcontent")}
+                    >
+                      <span>添加公告子标题</span>
+                    </Menu.Item>
+                  ))}
+                </SubMenu>
+              ))}
               {this.showMenu('7', (
                 <SubMenu
                   key="gmman"
