@@ -283,7 +283,7 @@ class BaseLayout extends React.Component {
                   ))}
                 </SubMenu>
               ))}
-              {this.showMenu('9', (
+              {this.showMenu('10', (
                 <SubMenu
                   key="projecta"
                   title={
@@ -293,7 +293,7 @@ class BaseLayout extends React.Component {
                     </span>
                   }
                 >
-                  {this.showMenu('9-1', (
+                  {this.showMenu('10-1', (
                     <Menu.Item
                       key="/projecta/AnnType"
                       onClick={() => this.go_route("/projecta/AnnType")}
@@ -301,7 +301,7 @@ class BaseLayout extends React.Component {
                       <span>公告类型</span>
                     </Menu.Item>
                   ))}
-                  {this.showMenu('9-2', (
+                  {this.showMenu('10-2', (
                     <Menu.Item
                       key="/projecta/AnnList"
                       onClick={() => this.go_route("/projecta/AnnList")}
@@ -309,7 +309,7 @@ class BaseLayout extends React.Component {
                       <span>公告列表</span>
                     </Menu.Item>
                   ))}
-                  {this.showMenu('9-3', (
+                  {this.showMenu('10-3', (
                     <Menu.Item
                       key="/projecta/AddAnn"
                       onClick={() => this.go_route("/projecta/AddAnn")}
@@ -317,7 +317,7 @@ class BaseLayout extends React.Component {
                       <span>添加公告</span>
                     </Menu.Item>
                   ))}
-                  {this.showMenu('9-4', (
+                  {this.showMenu('10-4', (
                     <Menu.Item
                       key="/projecta/SubcontentList"
                       onClick={() => this.go_route("/projecta/SubcontentList")}
@@ -325,7 +325,7 @@ class BaseLayout extends React.Component {
                       <span>公告子标题列表</span>
                     </Menu.Item>
                   ))}
-                  {this.showMenu('9-5', (
+                  {this.showMenu('10-5', (
                     <Menu.Item
                       key="/projecta/AddSubcontent"
                       onClick={() => this.go_route("/projecta/AddSubcontent")}
