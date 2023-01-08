@@ -41,9 +41,3 @@ create table gm.projecta_ann_type
         unique (identity)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `menu` VALUES (58, '9', 'ProjectA公告管理', NULL);
-INSERT INTO `menu` VALUES (59, '9-1', '公告类型', 'GET /api/projecta/ann/list-type\nPOST /api/projecta/ann/create-type\nPOST /api/projecta/ann/delete-type\nPOST /api/projecta/ann/update-type');
-INSERT INTO `menu` VALUES (53, '9-2', '公告列表', 'GET /api/projecta/ann/list-ann\nPOST /api/projecta/ann/delete-ann\nPOST /api/projecta/ann/update-ann');
-INSERT INTO `menu` VALUES (54, '9-3', '添加公告', 'POST /api/projecta/ann/create-ann');
-INSERT INTO `menu` VALUES (55, '9-4', '公告子标题列表', 'GET /api/projecta/ann/list-subcontent\nPOST /api/projecta/ann/delete-subcontent\nPOST /api/projecta/ann/update-subcontent');
-INSERT INTO `menu` VALUES (56, '9-5', '添加公告子标题', 'POST /api/projecta/ann/create-subcontent');
