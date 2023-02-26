@@ -135,6 +135,7 @@ class EditAnn extends React.Component {
                 self.setState({pic: this.result})
              }
             }} />
+             <Button onClick={() => this.setState({pic: ""})}>清空图片</Button>
             {this.state.pic ? <img style={{width: '100%'}} src={this.state.pic} /> : null}
           </Form.Item>
           

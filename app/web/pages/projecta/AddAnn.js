@@ -110,7 +110,7 @@ class AddAnn extends React.Component {
           <Form.Item
             label="图片"
           >
-            <Input type="file" required onChange={e => {
+            <Input type="file" onChange={e => {
               const file = e.target.files[0];
               let reader = new FileReader();
               reader.readAsDataURL(file);
@@ -120,6 +120,8 @@ class AddAnn extends React.Component {
                 self.setState({pic: this.result})
              }
             }} />
+            <Button onClick={() => this.setState({pic: ""})}>清空图片</Button>
+
             {this.state.pic ? <img style={{width: '100%'}} src={this.state.pic} /> : null}
           </Form.Item>
           
