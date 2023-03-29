@@ -1,0 +1,1 @@
+INSERT INTO `menu`(menu_sid, menu_name, urls) VALUES ('1-2-11', '解除R2Game账号绑定', 'POST /api/player/gmact/untie-r2');

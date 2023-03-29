@@ -83,6 +83,14 @@ class GmactService extends BaseReqService {
     return true;
   }
 
+  async untieR2({uid, part_id}) {
+    const r = await this.request({cmd: 3045}, { uid: `${uid}`, part_id }, [
+      'uid',
+    ]);
+    if (!this.is_success(r)) return false;
+    return true;
+  }
+
   // 充值补发
   async reissue({ guid, part_id, pay_type, cp_order_id, diamond_id }) {
     const r = await this.request(

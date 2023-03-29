@@ -139,6 +139,11 @@ class PlayerMan extends React.PureComponent {
         key: 'uid',
       },
       {
+        title: 'R2账号',
+        dataIndex: 'r2id',
+        key: 'r2id',
+      },
+      {
         title: '所在服务器',
         dataIndex: 'part_name',
         key: 'part_name',
@@ -181,6 +186,7 @@ class PlayerMan extends React.PureComponent {
                     <Select.Option value="2">uid</Select.Option>
                     <Select.Option value="3">手机号</Select.Option>
                     <Select.Option value="4">模糊角色名</Select.Option>
+                    <Select.Option value="5">R2账号</Select.Option>
                   </Select>
                 )}
               </Form.Item>
@@ -275,6 +281,9 @@ class PlayerMan extends React.PureComponent {
                     ))}
                     {this.showMenu('1-2-8', (
                       <Menu.Item onClick={() => this.select('untie-phone')} key="untie-phone">解除绑定手机</Menu.Item>
+                    ))}
+                    {this.showMenu('1-2-11', (
+                      <Menu.Item onClick={() => this.select('untie-r2')} key="untie-r2">解除R2Game账号绑定</Menu.Item>
                     ))}
                     {this.showMenu('1-2-9', (
                       <Menu.Item onClick={() => this.select('del-mail')} key="del-mail">删除邮件</Menu.Item>

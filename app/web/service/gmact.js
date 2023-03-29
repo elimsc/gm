@@ -126,6 +126,13 @@ export async function untiePhone({ part_id, uid }) {
   });
 }
 
+export async function untieR2({ part_id, uid }) {
+  return post(`/api/player/gmact/untie-r2`, {
+    part_id,
+    uid,
+  });
+}
+
 /**
  * 直接发放奖励
  */

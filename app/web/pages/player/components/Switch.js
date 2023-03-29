@@ -36,6 +36,7 @@ import AwardD from './gmact/AwardD';
 import Reissue from './gmact/Reissue';
 import Export from './Export';
 import DelMail from './gmact/DelMail';
+import UntieR2 from './gmact/UntieR2';
 
 
 class Switch extends React.PureComponent {
@@ -97,6 +98,8 @@ class Switch extends React.PureComponent {
         return guid ? <SecureCode guid={guid} part_id={part_id} uid={uid} /> : null;
       case 'untie-phone':
         return guid ? <UntiePhone guid={guid} part_id={part_id} uid={uid} /> : null;
+      case 'untie-r2':
+        return guid ? <UntieR2 guid={guid} part_id={part_id} uid={uid} /> : null;
       case 'del-mail':
         return guid ? <DelMail guid={guid} part_id={part_id} /> : null;
       case 'gm-ins':

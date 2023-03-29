@@ -100,6 +100,7 @@ module.exports = app => {
   router.post('/api/player/gmact/forcedown', actlog('强制下线'), controller.player.gmact.forcedown); // 踢玩家下线
   router.post('/api/player/gmact/change-pass', actlog('修改密码'), controller.player.gmact.changePass); // 修改密码
   router.post('/api/player/gmact/untie-phone', actlog('解除绑定手机'), controller.player.gmact.untiePhone); // 解除绑定手机
+  router.post('/api/player/gmact/untie-r2', actlog('解除R2Game账号绑定'), controller.player.gmact.untieR2); // 解除R2Game账号绑定
   router.post('/api/player/gmact/award-d', actlog('物品发放（直接）'), controller.player.gmact.awardD); // 物品发放（直接）
   router.post('/api/player/gmact/del-mail', actlog('删除邮件'), controller.player.gmact.delMail); // 删除邮件
 

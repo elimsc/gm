@@ -212,6 +212,19 @@ class GmactController extends BaseController {
     }
   }
 
+   /**
+   * POST /player/gmact/untie-r2
+   * 解除R2Game账号绑定
+   */
+   async untieR2() {
+    const r = await this.gmactService.untieR2(this.ctx.request.body);
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
+  }
+
   /**
    * POST player/gmact/award-d
    * 物品发放（直接修改）
