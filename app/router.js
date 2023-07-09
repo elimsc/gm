@@ -84,6 +84,8 @@ module.exports = app => {
   router.post('/api/player/playerinfo/ban-talk-info', controller.player.ban.banTalkLog); // 禁言记录
   router.post('/api/player/ban/talk', actlog('禁言'), controller.player.ban.banTalk); // 禁言
   router.post('/api/player/ban/talk-r', actlog('解除禁言'), controller.player.ban.removeTalkBan); // 解除禁言
+  router.post('/api/player/playerinfo/black-list-info', controller.player.ban.blackListInfo); // 黑名单记录
+  router.post('/api/player/ban/set-black-list', actlog('设置黑名单'), controller.player.ban.setBlackList); // 设置黑名单
 
   // 玩家操作--GM操作
   router.post('/api/player/gmact/money', actlog('发放货币（邮件）'), controller.player.gmact.money); // 发放货币

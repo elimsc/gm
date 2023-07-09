@@ -37,9 +37,11 @@ import Reissue from './gmact/Reissue';
 import Export from './Export';
 import DelMail from './gmact/DelMail';
 import UntieR2 from './gmact/UntieR2';
+import BlackList from './ban/BlackList';
 
 
 class Switch extends React.PureComponent {
+
 
 
   render() {
@@ -120,6 +122,8 @@ class Switch extends React.PureComponent {
         return guid ? <BanAccountLog data={data} /> : null;
       case 'uid-ban-account-info':
         return <BanAccountLog data={data} />;
+      case 'black-list-info':
+        return uid ? <BlackList uid={uid} data={data} /> : null;
       case 'ban-talk-info':
         return guid ? <BanTalkLog data={data} /> : null;
 

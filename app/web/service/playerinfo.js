@@ -23,7 +23,7 @@ export async function fetchInfo(type, { guid, uid, part_id }) {
   } else if (type == 'uid-ban-account-info') {
     return post(`/api/player/playerinfo/ban-account-info`, { uid, part_id, guid: '0' });
   } else {
-    return post(`/api/player/playerinfo/${type}`, { guid, part_id });
+    return post(`/api/player/playerinfo/${type}`, { guid, part_id, uid });
   }
 }
 

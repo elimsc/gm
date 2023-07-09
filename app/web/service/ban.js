@@ -24,3 +24,12 @@ export async function banTalk({ type, start, end, reason, guid, part_id }) {
 // export async function banLog({ guid, part_id }) {
 //   return post(`/api/player/ban/log`, { guid, part_id });
 // }
+
+
+export async function blackListInfo({uid}) {
+  return post(`/api/player/ban/black-list-info`, {uid})
+}
+
+export async function setBlackList({uid, type, time, reason}) {
+  return post(`/api/player/ban/set-black-list`, {uid, type, time, reason})
+}

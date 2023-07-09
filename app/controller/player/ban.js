@@ -85,6 +85,22 @@ class BanController extends BaseController {
     const r = await this.banService.banTalkLog(this.ctx.request.body);
     this.ctx.body = this.success(r);
   }
+
+  // POST /api/player/playerinfo/black-list-info
+  async blackListInfo() {
+    const r = await this.banService.blackListInfo(this.ctx.request.body);
+    this.ctx.body = this.success(r);
+  }
+
+  // POST /api/player/ban/set-black-list
+  async setBlackList() {
+    const r = await this.banService.setBlackList(this.ctx.request.body);
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
+  }
 }
 
 module.exports = BanController;

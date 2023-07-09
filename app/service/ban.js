@@ -95,6 +95,42 @@ class BanService extends BaseReqService {
     }
     return [];
   }
+
+  // UID的黑名单列表
+  async blackListInfo({uid}) {
+    const r = await this.request({ cmd: 3029 }, { uid }, ['uid']);
+    if (!r) return [];
+    if (r.data && r.data.body && r.data.body.black_list) {
+      return r.data.body.black_list;
+    } else {
+      return [
+        {
+          type: 11,
+          part_id: -1,
+          gm_time: 0,
+          end_time: -1
+        },
+        {
+          type: 12,
+          part_id: -1,
+          gm_time: 0,
+          end_time: 0
+        },
+        {
+          type: 13,
+          part_id: -1,
+          gm_time: 1688910896,
+          end_time: 1688910896,
+        },
+      ];
+    }
+  }
+
+  async setBlackList({uid,type,time,reason}) {
+    const r = await this.request({ cmd: 3027 }, { type, uid,reason, time: parseInt((`${time}`).substr(0, 10)) }, ['type',  'uid', 'time', 'reason']);
+    if (!this.is_success(r)) return false;
+    return true;
+  }
 }
 
 module.exports = BanService;

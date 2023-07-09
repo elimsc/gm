@@ -5,11 +5,12 @@ const moment = require('moment');
 
 class BaseReqService extends Service {
   async request(head = {}, body = {}, token_param_list = []) {
+    this.logger.info({head, body, token_param_list})
     const genBody = this.ctx.helper.genBody;
     const req_url = this.ctx.request.body.req_url; // 服务器ip
     body.channel_id = this.ctx.user.channel_id; // channel_id
     try {
-      return await this.ctx.curl(req_url ? req_url : '', {
+      const resp = await this.ctx.curl(req_url ? req_url : '', {
         timeout: 5000,
         method: 'POST',
         contentType: 'json', // 请求体为json
@@ -17,6 +18,8 @@ class BaseReqService extends Service {
         data: genBody(head, body, token_param_list),
         nestedQuerystring: true,
       });
+      this.logger.info({resp: JSON.stringify(resp)})
+      return resp
     } catch (e) {
       this.logger.error(e);
       return false;

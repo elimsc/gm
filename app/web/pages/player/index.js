@@ -316,6 +316,9 @@ class PlayerMan extends React.PureComponent {
                     {this.showMenu('1-4-5', (
                       <Menu.Item onClick={() => this.select('uid-ban-account-info')} key="uid-ban-account-info">封号状态(UID级别)</Menu.Item>
                     ))}
+                     {this.showMenu('1-4-6', (
+                      <Menu.Item onClick={() => this.select('black-list-info')} key="black-list-info">黑名单</Menu.Item>
+                    ))}
                     {this.showMenu('1-4-3', (
                       <Menu.Item onClick={() => this.select('ban-talk')} key="ban-talk">禁言/解禁</Menu.Item>
                     ))}
