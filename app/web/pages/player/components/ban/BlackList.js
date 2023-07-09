@@ -30,6 +30,7 @@ class BlackList extends React.Component {
         setBlackList({...values, time: values['time'].unix()}).then(data => {
             if (data.code === 0) {
                 message.success('操作成功');
+                this.setState({showModal: false})
             } else {
                 message.error('操作失败');
             }
@@ -168,7 +169,7 @@ class BlackList extends React.Component {
             </Form.Item>
             <Form.Item label='结束时间' {...formItemLayout}>
             {getFieldDecorator('time', {
-              initialValue: moment(this.state.curData.time),
+              initialValue: moment.unix(this.state.curData.time),
             })(
               <DatePicker showTime={true} allowClear disabled={this.state.curAct !== 'edit'}  />
             )}
