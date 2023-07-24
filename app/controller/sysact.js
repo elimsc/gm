@@ -12,6 +12,7 @@ class SysActControler extends BaseController {
   constructor(props) {
     super(props);
     this.sysactService = this.ctx.service.sysact;
+    this.ipBlackListService = this.ctx.service.ipblacklist
   }
 
   // GM指令
@@ -75,6 +76,35 @@ class SysActControler extends BaseController {
     }
     this.ctx.body = this.success();
   }
+
+  // 添加ip黑名单
+  async addIpBlackList() {
+    const {rows} = this.ctx.request.body;
+    const r = await this.ipBlackListService.create({rows});
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
+  }
+
+  // 删除ip黑名单
+  async delIpBlackList() {
+    const {id} = this.ctx.request.body;
+    const r = await this.ipBlackListService.delete({id});
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
+  }
+
+  // ip黑名单列表
+  async listIpBlackList() {
+    const black_list = await this.ipBlackListService.list();
+    this.ctx.body = this.success({black_list});
+  }
+
 
 }
 

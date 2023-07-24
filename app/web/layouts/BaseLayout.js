@@ -281,7 +281,13 @@ class BaseLayout extends React.Component {
                       <span>角色快照导入</span>
                     </Menu.Item>
                   ))}
+                  {this.showMenu('6-5', (
+                    <Menu.Item key="/sysact/ipblacklist" onClick={() => this.go_route('/sysact/ipblacklist')}>
+                      <span>ip黑名单</span>
+                    </Menu.Item>
+                  ))}
                 </SubMenu>
+                
               ))}
               {this.showMenu('10', (
                 <SubMenu

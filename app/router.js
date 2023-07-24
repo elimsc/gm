@@ -134,6 +134,9 @@ module.exports = app => {
   router.post('/api/sysact/listpayblacklist', controller.sysact.listPayBlacklist); // 查询现在支付黑白名单
   router.post('/api/sysact/updatepayblacklist', actlog('增删现在支付黑白名单'), controller.sysact.updatePayBlacklist);
   router.post('/api/sysact/snapshotimport', actlog('角色快照导入'), controller.sysact.snapshotImport); // 角色快照导入
+  router.post('/api/sysact/add_ip_black_list', actlog('添加ip黑名单'), controller.sysact.addIpBlackList);
+  router.post('/api/sysact/del_ip_black_list', actlog('删除ip黑名单'), controller.sysact.delIpBlackList);
+  router.get('/api/sysact/ip_black_list', controller.sysact.listIpBlackList);
 
   // ProjectA公告
   router.post('/api/projecta/ann/create-type', actlog('ProjectA-创建公告类型'), controller.projecta.ann.createType);
