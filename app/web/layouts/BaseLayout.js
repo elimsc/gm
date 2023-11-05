@@ -444,11 +444,11 @@ class BaseLayout extends React.Component {
                   placeholder="选择环境"
                 >
                   <Option value="">空</Option>
-                  <Option value="http://192.168.6.6:20143/">外网正式环境</Option>
-                  <Option value="http://192.168.1.205:20843/">
+                  <Option value="http://172.21.0.3:50143/">外网正式环境</Option>
+                  <Option value="http://192.168.1.204:50843/">
                     本地测试环境
                   </Option>
-                  <Option value="http://192.168.1.205:20143/">
+                  <Option value="http://192.168.1.204:50143/">
                     内网测试环境
                   </Option>
                   <Option value="http://ifgame.f3322.net:20143/">
