@@ -23,7 +23,7 @@ class Notice extends React.PureComponent {
         const content = values['notice'];
         Modal.confirm({
           title: '确认操作',
-          content: '确认修改该帮会的公告？',
+          content: '确认修改该联盟的公告？',
           onOk: () => {
             this.setState({ loading: true });
             notice({ gang_guid, part_id, notice: content }).then(data => {

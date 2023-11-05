@@ -80,6 +80,36 @@ class PlayerInfoController extends BaseController {
   }
 
   /**
+   * POST player/playerinfo/hero-info
+   */
+  async heroInfo() {
+    const result = await this.playerService.heroInfo({
+      ...this.ctx.request.body,
+    })
+    this.ctx.body = this.success(result);
+  }
+
+  /**
+   * POST player/playerinfo/entrust-info
+   */
+  async entrustInfo() {
+    const result = await this.playerService.entrustInfo({
+      ...this.ctx.request.body,
+    })
+    this.ctx.body = this.success(result);
+  }
+
+  /**
+   * POST player/playerinfo/dress-info
+   */
+  async dressInfo() {
+    const result = await this.playerService.dressInfo({
+      ...this.ctx.request.body,
+    })
+    this.ctx.body = this.success(result);
+  }
+
+  /**
    * POST player/playerinfo/warehouse-info
    * 玩家仓库信息
    */
@@ -187,6 +217,15 @@ class PlayerInfoController extends BaseController {
       ...this.ctx.request.body,
     });
     this.ctx.body = this.success(result);
+  }
+
+  async entrustOffline() {
+    const r = this.playerService.entrustOffline(this.ctx.request.body);
+    if (!r) {
+      this.ctx.body = this.error();
+    } else {
+      this.ctx.body = this.success();
+    }
   }
 }
 

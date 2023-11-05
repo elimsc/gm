@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, message, Modal } from 'antd';
 
-import { setPlayerLevel } from '../../../../../service/gmact';
+import { changePlayerData } from '../../../../../service/gmact';
 
 
 class Level extends React.PureComponent {
@@ -18,22 +18,22 @@ class Level extends React.PureComponent {
   handleSubmit2 = (e) => {
     const { guid, part_id } = this.props;
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll(['player_level'], (err, values) => {
+    this.props.form.validateFieldsAndScroll(['value'], (err, values) => {
       if (!err) {
         console.log(values);
         Modal.confirm({
           title: '确认操作',
-          content: `设置玩家等级为: ${values['player_level']}`,
+          content: `设置玩家等级为: ${values['value']}`,
           onOk: () => {
             this.setState({ loading2: true });
-            setPlayerLevel({ level: values['player_level'], guid, part_id }).then(data => {
+            changePlayerData({type: 1, new_value: values['value'], guid, part_id }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
                 message.error('操作失败');
               }
               this.setState({ loading2: false });
-              this.props.form.resetFields(['player_level']);
+              this.props.form.resetFields(['value']);
             });
           }
         });
@@ -74,7 +74,7 @@ class Level extends React.PureComponent {
 
         <Form {...formItemLayout} onSubmit={this.handleSubmit2} style={{ marginTop: 46 }}>
           <Form.Item label="设置玩家等级">
-            {getFieldDecorator('player_level', {
+            {getFieldDecorator('value', {
               rules: [{
                 required: true, message: '不能为空'
               }],

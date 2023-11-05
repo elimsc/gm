@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Form, Input, Button, message, Select, Modal, List, Spin } from 'antd';
+import { Card, Form, Input, Button, message, Select, Modal, List, Spin, Switch } from 'antd';
 import { connect } from 'dva';
 
 import { create, listTpl, delTpl } from '../../service/anntpl';
@@ -15,6 +15,7 @@ class Broadcast extends React.PureComponent {
       showTplListModal: false,
       loadingTplList: false,
       loading: false,
+      partIdDontSelect: false,
     }
   }
 
@@ -30,7 +31,7 @@ class Broadcast extends React.PureComponent {
           title: '确认操作',
           content: '确认发布广播？',
           onOk: () => {
-            addBroadcast(values).then(data => {
+            addBroadcast({...values, part_id: parseInt(values['part_id'])}).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -180,7 +181,20 @@ class Broadcast extends React.PureComponent {
                 <Input type="number" />
               )}
             </Form.Item>
-            <Form.Item
+            <Form.Item label='手动输入服务器'>
+            <Switch onChange={checked => this.setState({partIdDontSelect: checked})} />
+            </Form.Item>
+            {this.state.partIdDontSelect ? <Form.Item
+              label="服务器"
+            >
+              {getFieldDecorator('part_id', {
+                rules: [{
+                  required: true, message: '至少需要选择一个服务器',
+                }],
+              })(
+                <Input />
+              )}
+            </Form.Item> : <Form.Item
               label="服务器"
             >
               {getFieldDecorator('part_id', {
@@ -195,7 +209,7 @@ class Broadcast extends React.PureComponent {
                   ))}
                 </Select>
               )}
-            </Form.Item>
+            </Form.Item>}
 
 
             <Form.Item {...tailFormItemLayout}>

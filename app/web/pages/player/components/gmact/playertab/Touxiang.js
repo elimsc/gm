@@ -1,11 +1,11 @@
 import React from 'react';
 import { Form, Input, Button, message, Divider, Modal } from 'antd';
 
-import { titlem } from '../../../../../service/gmact';
+import { changePlayerData } from '../../../../../service/gmact';
 
 
 
-class TitleM extends React.Component {
+class Touxiang extends React.Component {
 
   constructor(props) {
     super(props);
@@ -18,22 +18,22 @@ class TitleM extends React.Component {
   handleSubmit1 = (e) => {
     const { guid, part_id } = this.props;
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll(['add_title'], (err, values) => {
+    this.props.form.validateFieldsAndScroll(['value_add'], (err, values) => {
       if (!err) {
         console.log(values);
         Modal.confirm({
           title: '确认操作',
-          content: `添加称号: ${values['add_title']}`,
+          content: `添加头像: ${values['value_add']}`,
           onOk: () => {
             this.setState({ loading1: true });
-            titlem({ type: 1, title: values['add_title'], guid, part_id }).then(data => {
+            changePlayerData({ type: 2, new_value: parseInt(values['value_add']), guid, part_id }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
                 message.error('操作失败');
               }
               this.setState({ loading1: false });
-              this.props.form.resetFields(['add_title']);
+              this.props.form.resetFields(['value_add']);
             });
           }
         });
@@ -44,22 +44,22 @@ class TitleM extends React.Component {
   handleSubmit2 = (e) => {
     const { guid, part_id } = this.props;
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll(['del_title'], (err, values) => {
+    this.props.form.validateFieldsAndScroll(['value_del'], (err, values) => {
       if (!err) {
         console.log(values);
         Modal.confirm({
           title: '确认操作',
-          content: `删除称号: ${values['del_title']}`,
+          content: `删除头像: ${values['value_del']}`,
           onOk: () => {
             this.setState({ loading2: true });
-            titlem({ type: 2, title: values['del_title'], guid, part_id }).then(data => {
+            changePlayerData({ type: 2, new_value: -parseInt(values['value_del']), guid, part_id }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
                 message.error('操作失败');
               }
               this.setState({ loading2: false });
-              this.props.form.resetFields(['del_title']);
+              this.props.form.resetFields(['value_del']);
             });
           }
         });
@@ -97,8 +97,8 @@ class TitleM extends React.Component {
     return (
       <div>
         <Form {...formItemLayout} onSubmit={this.handleSubmit1} style={{ marginTop: 30 }}>
-          <Form.Item label="添加称号">
-            {getFieldDecorator('add_title', {
+          <Form.Item label="添加头像">
+            {getFieldDecorator('value_add', {
               rules: [{
                 required: true, message: '不能为空'
               }],
@@ -113,8 +113,8 @@ class TitleM extends React.Component {
         <Divider />
 
         <Form {...formItemLayout} onSubmit={this.handleSubmit2} style={{ marginTop: 50 }}>
-          <Form.Item label="删除称号">
-            {getFieldDecorator('del_title', {
+          <Form.Item label="删除头像">
+            {getFieldDecorator('value_del', {
               rules: [{
                 required: true, message: '不能为空'
               }],
@@ -131,4 +131,4 @@ class TitleM extends React.Component {
   }
 }
 
-export default Form.create()(TitleM);
+export default Form.create()(Touxiang);

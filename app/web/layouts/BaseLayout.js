@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Menu, Icon, Select, Dropdown, Spin, Button } from "antd";
+import { Layout, Menu, Icon, Select, Dropdown, Spin, Button, Switch, Input } from "antd";
 import router from "umi/router";
 import { connect } from "dva";
 import withRouter from "umi/withRouter";
@@ -21,7 +21,8 @@ class BaseLayout extends React.Component {
       collapsed: false,
       username: "",
       loading: true,
-      role: 1
+      role: 1,
+      inputSrvId: false,
     };
   }
 
@@ -102,6 +103,7 @@ class BaseLayout extends React.Component {
   };
 
   showMenu = (sid, component) => {
+    return component
     const { menu_sids } = this.props.global;
     for (let i = 0; i < menu_sids.length; i++) {
       if (menu_sids[i].startsWith(sid)) {
@@ -163,7 +165,7 @@ class BaseLayout extends React.Component {
               {this.showMenu('2', (
                 <Menu.Item onClick={() => this.go_route("/gang")} key="/gang">
                   <Icon type="appstore" />
-                  <span>帮会操作</span>
+                  <span>联盟信息</span>
                 </Menu.Item>
               ))}
               {this.showMenu('9', (
@@ -433,6 +435,7 @@ class BaseLayout extends React.Component {
                 />
               </div>
               <div className={styles.headerItem}>
+               
                 <Select
                   defaultValue={
                     localStorage.getItem("req_url")
@@ -456,19 +459,24 @@ class BaseLayout extends React.Component {
                   </Option>
                 </Select>
 
+                <span style={{padding: '0 5px 0 15px'}}>手动输入区服</span>
+                <Switch onChange={checked => this.setState({inputSrvId: checked})} />
+
+                {this.state.inputSrvId ? 
+                <Input onChange={e => this.handleSrvSelect(parseInt(e.target.value))} className={styles.select} placeholder="区服id" /> : 
                 <Select
-                  onChange={this.handleSrvSelect}
-                  className={styles.select}
-                  defaultActiveFirstOption
-                  placeholder="选择区服"
-                >
-                  <Option value={-1}>全服</Option>
-                  {srvList.map(v => (
-                    <Option key={v.part_id} value={v.part_id}>
-                      {v.part_name}
-                    </Option>
-                  ))}
-                </Select>
+                onChange={this.handleSrvSelect}
+                className={styles.select}
+                defaultActiveFirstOption
+                placeholder="选择区服"
+              >
+                <Option value={-1}>全服</Option>
+                {srvList.map(v => (
+                  <Option key={v.part_id} value={v.part_id}>
+                    {v.part_name}
+                  </Option>
+                ))}
+              </Select>}
               </div>
               <div
                 className={styles.headerItem}

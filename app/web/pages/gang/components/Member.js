@@ -134,9 +134,14 @@ class Member extends React.PureComponent {
         key: 'level',
       },
       {
-        title: '资历',
-        dataIndex: 'zili',
-        key: 'zili',
+        title: '战力',
+        dataIndex: 'score',
+        key: 'score',
+      },
+      {
+        title: '7日活跃度',
+        dataIndex: 'energy',
+        key: 'energy',
       },
       {
         title: '操作',

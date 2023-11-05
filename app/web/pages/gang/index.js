@@ -19,7 +19,7 @@ class GangMan extends React.PureComponent {
       gangList: [],
       gangListLoading: false,
       // selectedGang: null,
-      data: {}, // 帮会信息
+      data: {}, // 联盟信息
       dataLoading: false,
 
       searchText: '',
@@ -28,7 +28,7 @@ class GangMan extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    // 清空搜索结果, 清空选中帮会
+    // 清空搜索结果, 清空选中联盟
     if (prevProps.global.part_id !== this.props.global.part_id) {
       this.setState({ gangList: [], data: [] })
     }
@@ -52,7 +52,7 @@ class GangMan extends React.PureComponent {
     });
   }
 
-  // 获取帮会的具体信息
+  // 获取联盟的具体信息
   fetchData = (gang_guid) => {
     const { part_id } = this.props.global;
     this.setState({ dataLoading: true, data: [] });
@@ -124,7 +124,7 @@ class GangMan extends React.PureComponent {
 
     const columns = [
       {
-        title: '帮会名',
+        title: '联盟名',
         dataIndex: 'name',
         key: 'name',
         ...this.getColumnSearchProps('name'),
@@ -148,8 +148,8 @@ class GangMan extends React.PureComponent {
     const tabs = [
       { index: 0, name: '管理成员' },
       { index: 1, name: '公告修改' },
-      { index: 2, name: '帮会GM指令' },
-      { index: 3, name: '解散帮会' },
+      { index: 2, name: '联盟GM指令' },
+      { index: 3, name: '解散联盟' },
     ];
 
     const selectTab = tab => {
@@ -176,7 +176,7 @@ class GangMan extends React.PureComponent {
                   initialValue: '0',
                 })(
                   <Select style={{ width: 100 }}>
-                    <Select.Option value="0">帮会名</Select.Option>
+                    <Select.Option value="0">联盟名</Select.Option>
                   </Select>
                 )}
               </Form.Item> */}
@@ -188,7 +188,7 @@ class GangMan extends React.PureComponent {
                 )}
               </Form.Item> */}
 
-              <Button style={{ marginTop: 5 }} htmlType="submit" type="primary">获取帮会列表</Button>
+              <Button style={{ marginTop: 5 }} htmlType="submit" type="primary">获取联盟列表</Button>
             </Row>
           </Form>
           <Table
@@ -200,16 +200,17 @@ class GangMan extends React.PureComponent {
             dataSource={gangList} />
         </Card>
         <Card style={{ marginTop: 30, minHeight: 600, marginBottom: 40 }} title={<p>
-          当前选中帮会：
-          {data && data.name ? <span style={{ fontWeight: 'bold' }}>{`${data.name}`}</span> : '无选中帮会'}
+          当前选中联盟：
+          {data && data.name ? <span style={{ fontWeight: 'bold' }}>{`${data.name}`}</span> : '无选中联盟'}
         </p>}>
           <Row>
             <Spin tip="加载中..." spinning={dataLoading}>
               <TableInfo data={[
-                { title: '帮会GUID', value: data.guid },
-                { title: '帮会名', value: data.name },
+                { title: '联盟GUID', value: data.guid },
+                { title: '联盟名', value: data.name },
                 { title: '公告', value: data.notice },
                 { title: '等级', value: data.level },
+                { title: '7日活跃度', value: data.energy },
               ]} />
 
               <Tabs type="card">

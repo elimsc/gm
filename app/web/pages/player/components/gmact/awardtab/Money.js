@@ -15,16 +15,15 @@ class Money extends React.Component {
       loading: false,
     };
     this.moneyTypes = [
-      { id: 0, name: '银两' },
-      { id: 1, name: '仙缘' },
-      { id: 2, name: '点券' },
-      { id: 3, name: '帮贡' },
-      { id: 4, name: '门派威望' },
-      { id: 5, name: '侠义值' },
-      { id: 6, name: '绑定仙缘' },
-      { id: 7, name: '恩爱值' },
-      { id: 8, name: '队长值' },
-
+      { id: 1, name: '金币' },
+      { id: 2, name: '钻石' },
+      { id: 3, name: '英雄经验' },
+      { id: 4, name: '友情点' },
+      { id: 5, name: '同调币' },
+      { id: 6, name: '博物馆纪念币' },
+      { id: 7, name: '竞技场代币' },
+      { id: 8, name: '公会代币' },
+      { id: 8, name: '遣散币' },
     ];
   }
 

@@ -1,5 +1,5 @@
 /**
- * 帮会操作
+ * 联盟操作
  */
 
 import React from 'react';
@@ -18,7 +18,7 @@ class Act extends React.Component {
     const { part_id, gang_guid } = this.props;
     Modal.confirm({
       title: '确认操作',
-      content: '确认解散该帮会？',
+      content: '确认解散该联盟？',
       onOk: () => {
         this.setState({ loading: true });
         dismiss({ part_id, gang_guid }).then(data => {
@@ -36,7 +36,7 @@ class Act extends React.Component {
   render() {
     return (
       <div style={{ width: '30%', margin: '50px auto' }}>
-        <Button loading={this.state.loading} size="large" onClick={() => this.handleClick()} block type="danger">解散帮会</Button>
+        <Button loading={this.state.loading} size="large" onClick={() => this.handleClick()} block type="danger">解散联盟</Button>
       </div >
     );
   }

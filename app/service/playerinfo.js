@@ -5,6 +5,7 @@ const BaseReqService = require('./basereq');
 class PlayerinfoService extends BaseReqService {
   // 角色列表查询
   async list({ name, type, part_id }) {
+
     const result = await this.request(
       { cmd: 1001 },
       { name: name.trim(), type, part_id },
@@ -17,6 +18,17 @@ class PlayerinfoService extends BaseReqService {
     return [];
   }
 
+  // 角色交易下线
+  async entrustOffline({guid, part_id, entrust_id}) {
+    const r = await this.request(
+      { cmd: 1011 },
+      {guid, part_id, entrust_id},
+      ['guid']
+    );
+    if (!this.is_success(r)) return false;
+    return true;
+  }
+
   // 角色基本信息查询
   async basicInfo({ guid, part_id }) {
     const result = await this.request({ cmd: 1003 }, { guid, part_id }, [
@@ -26,21 +38,25 @@ class PlayerinfoService extends BaseReqService {
     if (result.data && result.data.body) {
       // 处理返回结果
       const src = result.data.body;
-
       const tpl = {
-        mt_leader_value: '队长值',
-        mt_heroic_value: '侠义值',
-        mt_love: '恩爱值',
-        mt_xianyuan: '仙缘',
-        mt_bind_xianyuan: '绑定仙缘',
-        mt_yinliang: '银两',
-        mt_dianquan: '点券',
-        mt_banggong: '帮贡',
-        mt_menpaiweiwang: '门派威望',
+        MT_GOLD: '金币',
+        MT_DIAMOND: '钻石',
+        MT_HERO_EXP: '英雄经验',
+        MT_FRIENDLY_POINT: '友情点',
+        MT_TONGTIAO: '同调币',
+        MT_MUSEUM: '博物馆纪念币',
+        MT_ADVANCE_ARENA: '竞技场代币',
+        MT_GANG: '公会代币',
+        MT_QIANSAN: '遣散币',
+        MT_ABYSS: '深渊币',
+        level: '玩家等级',
+        cur_section_id: '主线章节',
+        cur_stage_id: '主线关卡',
+        score: '战力',
         last_login_time: '最后一次登录时间',
         last_logout_time: '最后一次登出时间',
         create_time: '角色创建时间',
-        scene_id: '角色所在场景',
+        gang_guid: '联盟ID', // TODO: 联盟名称
       };
 
       const fns = {
@@ -62,52 +78,135 @@ class PlayerinfoService extends BaseReqService {
     if (!result) return [];
     if (result.data && result.data.body && result.data.body.itemlist) {
       // 处理返回结果
-      const src = result.data.body.itemlist;
+      const fns = {
+        timeout: this.prettyTime,
+      };
 
       const tpl = {
         id: 'ID',
         name: '名字',
         cnt: '数量',
-        bind_type: '绑定类型', // 0永久不绑定/1限时绑定/2使用绑定/3永久绑定
-        bind_state: '绑定状态', // 非0表示绑定
         timeout: '过期时间',
-        bind_timeout: '绑定过期时间',
         index: '所在格子号',
       };
-      const bind_type_map = bind_type => {
-        switch (bind_type) {
-          case 0:
-            return '永久不绑定';
-          case 1:
-            return '限时绑定';
-          case 2:
-            return '使用绑定';
-          case 3:
-            return '永久绑定';
-          default:
-            break;
-        }
-      };
-      const bind_state_map = bind_state => {
-        switch (bind_state) {
-          case 0:
-            return '未绑定';
-          default:
-            return '绑定';
-        }
-      };
-      const fns = {
-        timeout: this.prettyTime,
-        bind_timeout: this.prettyTime,
-        bind_type: bind_type_map,
-        bind_state: bind_state_map,
-      };
-      return this.ctx.helper.tableInfoListConv(src, tpl, fns);
+
+      const itemlist_src = result.data.body.itemlist;
+      const equiplist_src = result.data.body.equiplist;
+      const herofraglist_src = result.data.body.herofraglist;
+      const cangpinlist_src = result.data.body.cangpinlist;
+      var total = [];
+      total = total.concat(itemlist_src).concat(equiplist_src).concat(herofraglist_src).concat(cangpinlist_src);
+      return {
+        itemlist: this.ctx.helper.tableInfoListConv(itemlist_src, tpl, fns),
+        equiplist: this.ctx.helper.tableInfoListConv(equiplist_src, tpl, fns),
+        herofraglist: this.ctx.helper.tableInfoListConv(herofraglist_src, tpl, fns),
+        cangpinlist: this.ctx.helper.tableInfoListConv(cangpinlist_src, tpl, fns),
+        total: this.ctx.helper.tableInfoListConv(total, tpl, fns),
+      }
     }
     return [];
   }
 
-  // 角色仓库信息查询
+  // 角色英雄信息查询
+  async heroInfo({guid, part_id}) {
+    const result = await this.request({ cmd: 1007 }, { guid, part_id }, [
+      'guid',
+    ]);
+    if (!result) return [];
+    if (result.data && result.data.body && result.data.body.herolist) {
+      var herolistresp = [];
+      const basic_tpl = {
+        id: "ID",
+        name: "名字",
+        index: "在英雄背包中的索引",
+        cnt: "数量",
+        level: "等级",
+        tongtiao_level: "同调等级",
+        final_quality: "最终品质",
+        bind_equip_level: "绑定装备等级",
+      };
+      const basic_fns = {};
+      const equip_tpl = {
+        part: "装备部位",
+        item_id: "装备ID",
+        name: "名字",
+        camp: "阵营",
+        level: "等级",
+        exp: "经验",
+      }
+      const equip_fns = {
+        part: part => {
+          switch (part) {
+            case 1: return '武器';
+            case 2: return '防具';
+            case 3: return '帽子';
+            case 4: return '鞋子';
+          }
+        }
+      }
+      const cangpin_tpl = {
+        part: "部位",
+        item_id: "藏品ID",
+        name: "名字",
+        star: "星级"
+      }
+      const cangpin_fns = {}
+      for (const hero of result.data.body.herolist) {
+        const basic_src = hero;
+        const equips_src = hero.equips;
+        const cangpins_src = hero.cangpins;
+        herolistresp = herolistresp.concat({
+          name: hero.name,
+          basic: this.ctx.helper.tableInfoConv(basic_src, basic_tpl, basic_fns),
+          equips: this.ctx.helper.tableInfoListConv(equips_src, equip_tpl, equip_fns),
+          cangpins: this.ctx.helper.tableInfoListConv(cangpins_src, cangpin_tpl, cangpin_fns),
+        })
+      }
+      return herolistresp;
+    }
+    return [];
+  }
+
+  // 角色交易信息查询
+  async entrustInfo({ guid, part_id }) {
+    const result = await this.request({ cmd: 1009 }, { guid, part_id }, [
+      'guid',
+    ]);
+    if (!result) return [];
+    if (result.data && result.data.body && result.data.body.entrustlist) {
+      return result.data.body.entrustlist;
+    }
+    return [];
+  }
+
+  // 个性化装扮信息查询
+  async dressInfo({ guid, part_id }) {
+    const result = await this.request({ cmd: 1013 }, { guid, part_id }, [
+      'guid',
+    ]);
+    if (!result) return {};
+    if (result.data && result.data.body) {
+      const body = result.data.body;
+      var dressData = {};
+      const tpl = {
+        id: "ID",
+        name: "名字",
+      };
+      const fns = {};
+      if (body.headlist) {
+        dressData.headlist = this.ctx.helper.tableInfoListConv(body.headlist, tpl, fns);
+      }
+      if (body.headframelist) {
+        dressData.headframelist = this.ctx.helper.tableInfoListConv(body.headframelist, tpl, fns);
+      }
+      if (body.backgroudlist) {
+        dressData.backgroudlist = this.ctx.helper.tableInfoListConv(body.backgroudlist, tpl, fns);
+      }
+      return dressData
+    }
+    return {};
+  }
+
   async wareHouseInfo({ guid, part_id }) {
     const result = await this.request({ cmd: 1007 }, { guid, part_id }, [
       'guid',

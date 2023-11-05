@@ -13,11 +13,18 @@ export default {
   effects: {
     *fetchSrvList({ payload }, { put, call }) {
       const data = yield call(list, { ...payload });
-      const srvList = data.payload;
+      const {partlist, itemlist, herolist, headlist, headframelist, backgroudlist, rechargelist} = data.payload;
       yield put({
         type: 'save',
         payload: {
-          srvList
+          srvList: partlist,
+          partlist,
+          itemlist,
+          herolist,
+          headlist,
+          headframelist,
+          backgroudlist,
+          rechargelist,
         }
       })
     },

@@ -265,6 +265,24 @@ class GmactController extends BaseController {
     }
   }
 
+  async changeHeroData() {
+    const r = this.gmactService.changeHeroData(this.ctx.request.body);
+    if (!r) {
+      this.ctx.body = this.error();
+    } else {
+      this.ctx.body = this.success();
+    }
+  }
+
+  async changePlayerData() {
+    const r = this.gmactService.changePlayerData(this.ctx.request.body);
+    if (!r) {
+      this.ctx.body = this.error();
+    } else {
+      this.ctx.body = this.success();
+    }
+  }
+
 }
 
 module.exports = GmactController;

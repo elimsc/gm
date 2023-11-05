@@ -2,60 +2,63 @@ import React from 'react';
 import { Tabs } from 'antd';
 
 import { fetchInfo } from '../../../../service/playerinfo';
-import Level from './pettab/Level';
-import PracLevel from './pettab/PracLevel';
-import LfLevel from './pettab/LfLevel';
+import BasicData from './herotab/BasicData';
+import BasicEquip from './herotab/BasicEquip';
+import UniqEquip from './herotab/UniqEquip';
+import Cangpin from './herotab/Cangpin';
 
 /**
- * 修改宠物数据
+ * 修改英雄数据
  */
 class Pet extends React.PureComponent {
 
   constructor(props) {
     super(props);
     this.state = {
-      pets: [],
+      heros: [],
     }
   }
 
   componentDidMount() {
     const { guid, part_id, uid } = this.props;
-    fetchInfo('pet-info', { guid, part_id, uid }).then(data => {
-      const pets = data.payload.map(pet => {
-        let pet_guid = '';
-        let pet_name = '';
-        pet.forEach(item => {
-          if (item.key === 'guid') {
-            pet_guid = item.value;
+    fetchInfo('hero-info', { guid, part_id, uid }).then(data => {
+      const heros = data.payload.map(hero => {
+        let hero_id = '';
+        let hero_name = '';
+        hero.basic.forEach(item => {
+          if (item.key === 'id') {
+            hero_id = item.value;
           }
           if (item.key === 'name') {
-            pet_name = item.value;
+            hero_name = item.value;
           }
         });
-        if (pet_guid && pet_name) {
-          return { guid: pet_guid, name: pet_name };
+        if (hero_id && hero_name) {
+          return { id: hero_id, name: hero_name };
         }
       });
-      this.setState({ pets });
+      this.setState({ heros });
     });
   }
 
   selectType = (type) => {
     const { guid, part_id } = this.props;
-    const { pets } = this.state;
+    const { heros } = this.state;
     switch (type.type) {
-      case 3: return <Level pets={pets} guid={guid} part_id={part_id} />;
-      case 4: return <PracLevel pets={pets} guid={guid} part_id={part_id} />;
-      case 5: return <LfLevel pets={pets} guid={guid} part_id={part_id} />;
+      case 1: return <BasicData heros={heros} guid={guid} part_id={part_id} />;
+      case 2: return <BasicEquip heros={heros} guid={guid} part_id={part_id} />;
+      case 3: return <UniqEquip heros={heros} guid={guid} part_id={part_id} />;
+      case 4: return <Cangpin heros={heros} guid={guid} part_id={part_id} />;
       default: return null;
     }
   }
 
   render() {
     const types = [
-      { type: 3, name: '等级' },
-      { type: 4, name: '修炼等级' },
-      { type: 5, name: '炼符等级' },
+      { type: 1, name: '基础数据' },
+      { type: 2, name: '基础装备' },
+      { type: 3, name: '专属装备' },
+      { type: 4, name: '藏品' },
     ];
     return (
       <Tabs type="card">

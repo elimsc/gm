@@ -74,6 +74,7 @@ class PlayerMan extends React.PureComponent {
   }
 
   showMenu = (sid, component) => {
+    return component;
     const { menu_sids } = this.props.global;
     for (let i = 0; i < menu_sids.length; i++) {
       if (menu_sids[i].startsWith(sid)) {
@@ -119,6 +120,7 @@ class PlayerMan extends React.PureComponent {
             case 3: return '天魔';
             case 4: return '万妖';
             case 5: return '森罗';
+            case -1: return '无门派';
             default: return '';
           }
         }
@@ -225,15 +227,15 @@ class PlayerMan extends React.PureComponent {
                       <Menu.Item onClick={() => this.select('bag-info')} key="bag-info">背包信息</Menu.Item>
                     ))}
                     {this.showMenu('1-1-3', (
-                      <Menu.Item onClick={() => this.select('warehouse-info')} key="warehouse-info">仓库信息</Menu.Item>
+                      <Menu.Item onClick={() => this.select('hero-info')} key="hero-info">英雄信息</Menu.Item>
                     ))}
                     {this.showMenu('1-1-4', (
-                      <Menu.Item onClick={() => this.select('equip-info')} key="equip-info">装备信息</Menu.Item>
+                      <Menu.Item onClick={() => this.select('entrust-info')} key="entrust-info">交易信息</Menu.Item>
                     ))}
                     {this.showMenu('1-1-5', (
-                      <Menu.Item onClick={() => this.select('dec-info')} key="dec-info">饰品信息</Menu.Item>
+                      <Menu.Item onClick={() => this.select('dress-info')} key="dress-info">个性化装扮</Menu.Item>
                     ))}
-                    {this.showMenu('1-1-6', (
+                    {/* {this.showMenu('1-1-6', (
                       <Menu.Item onClick={() => this.select('skill-info')} key="skill-info">技能信息</Menu.Item>
                     ))}
                     {this.showMenu('1-1-7', (
@@ -247,13 +249,13 @@ class PlayerMan extends React.PureComponent {
                     ))}
                     {this.showMenu('1-1-10', (
                       <Menu.Item onClick={() => this.select('home-info')} key="home-info">家园</Menu.Item>
-                    ))}
+                    ))} */}
                     {this.showMenu('1-1-11', (
                       <Menu.Item onClick={() => this.select('email-info')} key="email-info">邮件</Menu.Item>
                     ))}
-                    {this.showMenu('1-1-12', (
+                    {/* {this.showMenu('1-1-12', (
                       <Menu.Item onClick={() => this.select('marriage-info')} key="marriage-info">社交</Menu.Item>
-                    ))}
+                    ))} */}
                   </Menu.SubMenu>
                 ))}
                 {this.showMenu('1-2', (
@@ -268,7 +270,7 @@ class PlayerMan extends React.PureComponent {
                       <Menu.Item onClick={() => this.select('reissue')} key="reissue">充值补发</Menu.Item>
                     ))}
                     {this.showMenu('1-2-4', (
-                      <Menu.Item onClick={() => this.select('pet')} key="pet">修改宠物数据</Menu.Item>
+                      <Menu.Item onClick={() => this.select('pet')} key="pet">修改英雄数据</Menu.Item>
                     ))}
                     {this.showMenu('1-2-5', (
                       <Menu.Item onClick={() => this.select('player')} key="player">修改角色数据</Menu.Item>
@@ -296,10 +298,10 @@ class PlayerMan extends React.PureComponent {
                 ))}
                 {this.showMenu('1-3', (
                   <Menu.SubMenu key="clear" title="清除数据">
-                    {this.showMenu('1-4', (
+                    {this.showMenu('1-3-1', (
                       <Menu.Item onClick={() => this.select('clear-secure-code')} key="clear-secure-code">清除安全码</Menu.Item>
                     ))}
-                    {this.showMenu('1-5', (
+                    {this.showMenu('1-3-2', (
                       <Menu.Item onClick={() => this.select('unusual-task')} key="unusual-task">清除非正常任务</Menu.Item>
                     ))}
                   </Menu.SubMenu>

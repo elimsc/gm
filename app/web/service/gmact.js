@@ -64,6 +64,16 @@ export async function setPetLflevel({ part_id, level, guid, pet_guid, type }) {
   return post(`/api/player/gmact/pet-lflevel`, { part_id, level, guid, pet_guid, type });
 }
 
+// 设置英雄数据
+export async function setHeroData({part_id, guid, hero_id, type, sub_type, value_type, new_value}) {
+  return post(`/api/player/gmact/change-hero-data`, {part_id, guid, hero_id, type, sub_type: parseInt(sub_type), value_type: parseInt(value_type), new_value: parseInt(new_value)});
+}
+
+// 修改玩家数据
+export async function changePlayerData({part_id, guid, type, new_value}) {
+  return post(`/api/player/gmact/change-player-data`, {part_id, guid, type, new_value: parseInt(new_value)});
+}
+
 /**
  * type: 1--添加 2--删除
  */
@@ -150,8 +160,8 @@ export async function awardD({ guid, type, id, cnt, param, part_id }) {
 /**
  * 充值补发
  */
-export async function reIssue({ guid, part_id, pay_type, cp_order_id, diamond_id }) {
-  return post(`/api/player/gmact/reissue`, { guid, part_id, pay_type, cp_order_id, diamond_id });
+export async function reIssue({ guid, part_id, pay_type, cp_order_id, recharge_id }) {
+  return post(`/api/player/gmact/reissue`, { guid, part_id, pay_type, cp_order_id, recharge_id });
 }
 
 /**

@@ -44,8 +44,19 @@ class GmactService extends BaseReqService {
     return true;
   }
 
+  // 修改英雄数据
+  async changeHeroData({guid, hero_id, type, sub_type, value_type, new_value}) {
+    const r = await this.request(
+      { cmd: 2007 },
+      {guid, hero_id, type, sub_type, value_type, new_value},
+      ['guid', 'hero_id', 'type','sub_type', 'value_type', 'new_value']
+    );
+    if (!this.is_success(r)) return false;
+    return true;
+  }
+
+
   // 修改玩家数据
-  // type: 类型,1等级/2称号
   async changePlayerData({ guid, part_id, type, new_value }) {
     const r = await this.request(
       { cmd: 2005 },
@@ -92,17 +103,17 @@ class GmactService extends BaseReqService {
   }
 
   // 充值补发
-  async reissue({ guid, part_id, pay_type, cp_order_id, diamond_id }) {
+  async reissue({ guid, part_id, pay_type, cp_order_id, recharge_id }) {
     const r = await this.request(
       { cmd: 3037 },
       {
         guid: `${guid}`,
         pay_type: parseInt(pay_type),
         cp_order_id: `${cp_order_id}`,
-        diamond_id: parseInt(diamond_id),
+        recharge_id: parseInt(recharge_id),
         part_id,
       },
-      ['guid', 'pay_type', 'cp_order_id', 'diamond_id']
+      ['guid', 'pay_type', 'cp_order_id', 'recharge_id']
     );
     if (!this.is_success(r)) return false;
     return true;

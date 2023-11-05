@@ -25,7 +25,7 @@ class Exp extends React.PureComponent {
           content: `添加经验: ${values['jingyan']}`,
           onOk: () => {
             this.setState({ loading: true });
-            awardD({ guid, part_id, type: 0, id: -1, param: -1, cnt: values['jingyan'] }).then(data => {
+            awardD({ guid, part_id, type: 3, id: 0, param: -1, cnt: values['jingyan'] }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {

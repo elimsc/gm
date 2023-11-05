@@ -66,6 +66,9 @@ module.exports = app => {
   router.post('/api/player/list/batch', controller.player.playerinfo.batchList); // 批量玩家列表(可以同时查询多个角色名)
   router.post('/api/player/playerinfo/basic-info', controller.player.playerinfo.basicInfo); // 角色基本信息
   router.post('/api/player/playerinfo/bag-info', controller.player.playerinfo.bagInfo); // 角色背包信息
+  router.post('/api/player/playerinfo/hero-info', controller.player.playerinfo.heroInfo); // 英雄信息
+  router.post('/api/player/playerinfo/entrust-info', controller.player.playerinfo.entrustInfo); // 交易信息
+  router.post('/api/player/playerinfo/dress-info', controller.player.playerinfo.dressInfo); // 个性化装扮信息
   router.post('/api/player/playerinfo/warehouse-info', controller.player.playerinfo.wareHouseInfo); // 角色仓库信息
   router.post('/api/player/playerinfo/equip-info', controller.player.playerinfo.equipInfo); // 角色装备信息
   router.post('/api/player/playerinfo/dec-info', controller.player.playerinfo.decInfo); // 角色饰品信息
@@ -76,6 +79,8 @@ module.exports = app => {
   router.post('/api/player/playerinfo/home-info', controller.player.playerinfo.homeInfo); // 角色家园信息
   router.post('/api/player/playerinfo/email-info', controller.player.playerinfo.emailInfo); // 角色邮件信息
   router.post('/api/player/playerinfo/marriage-info', controller.player.playerinfo.marriageInfo); // 社交信息
+  router.post('/api/player/entrust-offline', controller.player.playerinfo.entrustOffline); // 交易下线
+  
 
   // 玩家操作--封号禁言
   router.post('/api/player/ban/account', actlog('封号'), controller.player.ban.banAccount); // 封号
@@ -94,6 +99,8 @@ module.exports = app => {
   router.post('/api/player/gmact/exp', actlog('向玩家发放经验（邮件）'), controller.player.gmact.exp); // 玩家发放经验
   // router.post('/api/player/gmact/pet-exp',  actlog( '向宠物发放经验' ), controller.player.gmact.petExp); // 宠物发放经验
   router.post('/api/player/gmact/player-level', actlog('设置角色等级'), controller.player.gmact.setPlayerLevel); // 设置玩家等级
+  router.post('/api/player/gmact/change-hero-data', actlog('修改英雄数据'), controller.player.gmact.changeHeroData);
+  router.post('/api/player/gmact/change-player-data', actlog('修改角色数据'), controller.player.gmact.changePlayerData);
   router.post('/api/player/gmact/pet-level', actlog('设置宠物等级'), controller.player.gmact.setPetLevel); // 设置宠物等级
   router.post('/api/player/gmact/pet-lflevel', actlog('设置宠物炼符等级'), controller.player.gmact.setPetLflevel); // 设置宠物等级
   router.post('/api/player/gmact/pet-praclevel', actlog('设置宠物修炼等级'), controller.player.gmact.setPetPraclevel); // 设置宠物等级
@@ -108,7 +115,7 @@ module.exports = app => {
 
   // 玩家操作 -- 清除数据
   router.post('/api/player/clear/secure-code', actlog('清除安全码'), controller.player.clear.clearSecureCode); // 清除安全码
-  router.post('/api/player/clear/un-gang', actlog('清除非正常帮会数据'), controller.player.clear.clearUnGang); // 清除非正常帮会数据
+  router.post('/api/player/clear/un-gang', actlog('清除非正常联盟数据'), controller.player.clear.clearUnGang); // 清除非正常联盟数据
   router.post('/api/player/clear/un-task', actlog('清除非正常任务'), controller.player.clear.clearUnTask); // 清除非正常任务
 
   // 批量操作
@@ -118,13 +125,13 @@ module.exports = app => {
   router.get('/api/batchact/export-chatlog', actlog('导出聊天记录'), controller.batchact.exportChatlog); // 导出聊天记录
   router.post('/api/batchact/export-blacklist', actlog('导出黑名单'), controller.batchact.exportBlacklist); // 导出黑名单
 
-  // 帮会操作
-  router.post('/api/gang/list', controller.gang.list); // 帮会列表
-  router.post('/api/gang/info', controller.gang.info); // 帮会信息
-  router.post('/api/gang/ban', actlog('帮会操作--封号'), controller.gang.ban);
-  router.post('/api/gang/notice', actlog('帮会操作--修改公告'), controller.gang.notice);
-  router.post('/api/gang/dismiss', actlog('帮会操作--解散帮会'), controller.gang.dismiss);
-  router.post('/api/gang/gmins', actlog('帮会操作--GM指令'), controller.gang.gmIns);
+  // 联盟操作
+  router.post('/api/gang/list', controller.gang.list); // 联盟列表
+  router.post('/api/gang/info', controller.gang.info); // 联盟信息
+  router.post('/api/gang/ban', actlog('联盟操作--封号'), controller.gang.ban);
+  router.post('/api/gang/notice', actlog('联盟操作--修改公告'), controller.gang.notice);
+  router.post('/api/gang/dismiss', actlog('联盟操作--解散联盟'), controller.gang.dismiss);
+  router.post('/api/gang/gmins', actlog('联盟操作--GM指令'), controller.gang.gmIns);
 
   // 充值上报
   router.post('/api/moneyreport/report', actlog('充值上报'), controller.moneyreport.report);

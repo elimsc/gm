@@ -38,6 +38,9 @@ import Export from './Export';
 import DelMail from './gmact/DelMail';
 import UntieR2 from './gmact/UntieR2';
 import BlackList from './ban/BlackList';
+import HeroInfo from './playerinfo/HeroInfo';
+import EntrustInfo from './playerinfo/EntrustInfo';
+import DressInfo from './playerinfo/dressInfo';
 
 
 class Switch extends React.PureComponent {
@@ -51,6 +54,12 @@ class Switch extends React.PureComponent {
         return <BasicInfo data={data} />;
       case 'bag-info':
         return <BagInfo data={data} />;
+      case 'hero-info':
+        return <HeroInfo data={data} />;
+      case 'entrust-info':
+        return <EntrustInfo data={data} guid={guid} part_id={part_id} />
+      case 'dress-info':
+        return <DressInfo data={data} />;
       case 'warehouse-info':
         return <WarehouseInfo data={data} />;
       case 'equip-info':

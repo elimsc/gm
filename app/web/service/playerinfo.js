@@ -27,3 +27,7 @@ export async function fetchInfo(type, { guid, uid, part_id }) {
   }
 }
 
+export async function entrustOffline({guid, part_id, entrust_id}) {
+  return post(`/api/player/entrust-offline`, {guid, part_id, entrust_id})
+}
+

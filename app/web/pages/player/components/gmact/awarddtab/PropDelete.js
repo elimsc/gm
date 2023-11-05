@@ -90,7 +90,7 @@ class PropDelete extends React.PureComponent {
             })(
               <Select>
                 <Select.Option value={2}>背包</Select.Option>
-                <Select.Option value={-1}>仓库</Select.Option>
+                {/* <Select.Option value={-1}>仓库</Select.Option> */}
               </Select>
             )}
           </Form.Item>
