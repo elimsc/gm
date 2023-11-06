@@ -317,10 +317,10 @@ class BaseReqService extends Service {
   async request(head = {}, body = {}, token_param_list = []) {
 
     // mock
-    var cmd = head.cmd
-    if (cmdMockResp[cmd]) {
-      return cmdMockResp[cmd]
-    }
+    // var cmd = head.cmd
+    // if (cmdMockResp[cmd]) {
+    //   return cmdMockResp[cmd]
+    // }
 
     this.logger.info({head, body, token_param_list})
     const genBody = this.ctx.helper.genBody;
