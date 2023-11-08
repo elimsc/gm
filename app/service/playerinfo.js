@@ -118,7 +118,7 @@ class PlayerinfoService extends BaseReqService {
       const basic_tpl = {
         id: "ID",
         name: "名字",
-        index: "在英雄背包中的索引",
+        index: "在背包中的索引",
         cnt: "数量",
         level: "等级",
         tongtiao_level: "同调等级",

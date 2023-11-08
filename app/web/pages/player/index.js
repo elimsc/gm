@@ -180,15 +180,16 @@ class PlayerMan extends React.PureComponent {
             <Row>
               <Form.Item style={{ marginRight: 40 }} label="选中输入类型" >
                 {getFieldDecorator('type', {
-                  initialValue: '0',
+                  initialValue: '1',
                 })(
                   <Select style={{ width: 100 }}>
-                    <Select.Option value="0">角色名</Select.Option>
+                    {/* <Select.Option value="0">角色名</Select.Option> */}
                     <Select.Option value="1">guid</Select.Option>
                     <Select.Option value="2">uid</Select.Option>
                     <Select.Option value="3">手机号</Select.Option>
-                    <Select.Option value="4">模糊角色名</Select.Option>
+                    {/* <Select.Option value="4">模糊角色名</Select.Option> */}
                     <Select.Option value="5">R2账号</Select.Option>
+                    <Select.Option value="6">角色ID</Select.Option>
                   </Select>
                 )}
               </Form.Item>

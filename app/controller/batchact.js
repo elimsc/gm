@@ -18,6 +18,7 @@ class BatchActController extends BaseController {
     this.banService = this.ctx.service.ban;
     this.sysdataService = this.ctx.service.sysdata;
     this.exportService = this.ctx.service.export;
+    this.playerService = this.ctx.service.playerinfo;
   }
 
   /**
@@ -117,6 +118,22 @@ class BatchActController extends BaseController {
       this.ctx.body = this.success();
     } else {
       this.ctx.body = this.success({}, '', err_uids);
+    }
+  }
+
+  async entrustOffline() {
+    const err_guids = [];
+    const {items, reason, part_id} = this.ctx.request.body;
+    for (const item of items) {
+      const r = await this.playerService.entrustOffline({part_id, guid: item, entrust_id: ''})
+      if (!r) {
+        err_guids.push(item)
+      }
+    }
+    if (err_guids.length === 0) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.success({}, '', err_guids);
     }
   }
 

@@ -124,6 +124,7 @@ module.exports = app => {
   router.post('/api/batchact/ban-talk', actlog('批量禁言'), controller.batchact.banTalk); // 批量发放道具
   router.get('/api/batchact/export-chatlog', actlog('导出聊天记录'), controller.batchact.exportChatlog); // 导出聊天记录
   router.post('/api/batchact/export-blacklist', actlog('导出黑名单'), controller.batchact.exportBlacklist); // 导出黑名单
+  router.post('/api/batchact/entrust-offline', actlog('批量交易下线'), controller.batchact.entrustOffline);
 
   // 联盟操作
   router.post('/api/gang/list', controller.gang.list); // 联盟列表

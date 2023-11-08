@@ -21,3 +21,7 @@ export async function exportChatlog({ start, end }) {
 export async function exportBlacklist({ part_id }) {
   return post(`/api/batchact/export-blacklist`, { part_id });
 }
+
+export async function batchEntrustOffline({items, reason, part_id}) {
+  return post(`/api/batchact/entrust-offline`, {items, reason, part_id})
+}

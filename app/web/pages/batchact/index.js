@@ -3,7 +3,7 @@ import { Card, Form, Input, Button, message, Select, Upload, Icon, Modal, Alert,
 import XLSX from 'xlsx';
 import { connect } from 'dva'
 
-import { batchAward, batchBanAccount, batchBanTalk } from '../../service/batchact';
+import { batchAward, batchBanAccount, batchBanTalk, batchEntrustOffline } from '../../service/batchact';
 
 @connect(({ global }) => ({ global }))
 class BatchAct extends React.Component {
@@ -55,7 +55,7 @@ class BatchAct extends React.Component {
                 this.setState({ loading: false });
                 this.props.form.resetFields(['reason', 'file'])
               });
-            } else {
+            } else if (type == 2 || type == 3) {
               const items = [];
               for (let award of awards) {
                 for (let item of award) {
@@ -103,7 +103,28 @@ class BatchAct extends React.Component {
                   this.props.form.resetFields(['reason', 'file'])
                 });
               }
-
+            } else if (type == 4) { // 批量交易下架
+              const items = [];
+              for (let award of awards) {
+                for (let item of award) {
+                  if (Number.isInteger(parseInt((`${item[0]}`).substr(0, 1)))) {
+                    items.push(item[0])
+                  }
+                }
+              }
+              this.setState({ loading: true });
+              batchEntrustOffline({ items, reason: values['reason'], part_id: this.props.global.part_id }).then(data => {
+                if (Array.isArray(data.message)) { // 表面操作结果有错误
+                  const err_msgs = data.message.map(m => {
+                    return `对GUID值为 [${m}] 的角色操作失败！`
+                  })
+                  this.setState({ errs: err_msgs });
+                } else {
+                  message.success('操作成功');
+                }
+                this.setState({ loading: false });
+                this.props.form.resetFields(['reason', 'file'])
+              });
             }
           }
 
@@ -191,6 +212,7 @@ class BatchAct extends React.Component {
                   <Select.Option value={1}>批量发放道具</Select.Option>
                   <Select.Option value={2}>批量封号</Select.Option>
                   <Select.Option value={3}>批量禁言</Select.Option>
+                  <Select.Option value={4}>批量交易下架</Select.Option>
                 </Select>
               )}
             </Form.Item>
