@@ -129,7 +129,10 @@ class BaseLayout extends React.Component {
       </Menu>
     );
 
-    const { srvList } = this.props.global;
+    var { srvList } = this.props.global;
+    if (!srvList) {
+      srvList = [];
+    }
 
     if (this.state.loading) return null;
 
