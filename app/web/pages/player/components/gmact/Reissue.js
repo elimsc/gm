@@ -159,19 +159,7 @@ class Reissue extends React.PureComponent {
 
     return (
       <Form {...formItemLayout} style={{ marginTop: 50 }} onSubmit={this.handleSubmit}>
-        <Form.Item label="类型">
-        {getFieldDecorator('recharge_id', {
-            rules: [{
-              required: true, message: '类型不能为空',
-            }],
-          })(
-            <Select>
-             {this.props.global.rechargelist.map(v => (
-              <Select.Option value={v['recharge_id']}>{v['recharge_name']}</Select.Option>
-             ))}
-            </Select>
-          )}
-        </Form.Item>
+        
         <Form.Item
           label="支付类型"
         >
@@ -202,29 +190,20 @@ class Reissue extends React.PureComponent {
             {/* <Checkbox checked={this.state.gmDirectChecked} onChange={e => this.setState({ gmDirectChecked: e.target.checked })}>GM直充</Checkbox> */}
           </div>
         </Form.Item>
-
-        <Form.Item
-          label="配表id"
-        >
-          {getFieldDecorator('diamond_id', {
+        <Form.Item label="配表id">
+        {getFieldDecorator('recharge_id', {
             rules: [{
               required: true, message: '配表id不能为空',
             }],
           })(
-            // <Select>
-            //   {this.state.diamond_id_list.map(k => {
-            //     let numK = -1;
-            //     try {
-            //       numK = parseInt(k);
-            //     } catch (e) {
-            //       diamond_id_map[k] = "无效选项"
-            //     }
-            //     return <Select.Option key={k} value={numK}>{diamond_id_map[k]} - 配表id{numK}</Select.Option>
-            //   })}
-            // </Select>
-            <Input />
+            <Select>
+             {this.props.global.rechargelist.map(v => (
+              <Select.Option value={v['recharge_id']}>{v['recharge_name']}</Select.Option>
+             ))}
+            </Select>
           )}
         </Form.Item>
+
 
         <Form.Item {...tailFormItemLayout}>
           <Button loading={this.state.loading} type="primary" htmlType="submit">提交</Button>

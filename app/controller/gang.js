@@ -53,8 +53,8 @@ class GangController extends BaseController {
    * 修改公告
    */
   async notice() {
-    const { gang_guid, part_id, notice } = this.ctx.request.body;
-    const r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `changenotice=${gang_guid}=${notice}`, part_id });
+    const { gang_guid, gang_id, notice } = this.ctx.request.body;
+    const r = await this.gangService.gmIns({ command: 'bulletin', gang_id, gang_guid, string_param: notice });
     if (r) {
       this.ctx.body = this.success();
     } else {
@@ -67,8 +67,8 @@ class GangController extends BaseController {
    * 解散帮会
    */
   async dismiss() {
-    const { gang_guid, part_id } = this.ctx.request.body;
-    const r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `dismiss=${gang_guid}`, part_id });
+    const { gang_guid, gang_id } = this.ctx.request.body;
+    const r = await this.gangService.gmIns({ command: 'destroy', gang_id, gang_guid});
     if (r) {
       this.ctx.body = this.success();
     } else {
@@ -81,13 +81,8 @@ class GangController extends BaseController {
    * 帮会GM指令
    */
   async gmIns() {
-    const { gang_guid, part_id, gang_cmd, params } = this.ctx.request.body;
-    let r;
-    if (!params) {
-      r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `${gang_cmd}=${gang_guid}`, part_id });
-    } else {
-      r = await this.sysactService.gmIns({ cmd: 'gang', guid: '0', content: `${gang_cmd}=${gang_guid}=${params}`, part_id });
-    }
+    const { gang_guid, command, gang_id, string_param, int_param } = this.ctx.request.body;
+    const r = await this.gangService.gmIns({ gang_guid, command, gang_id, string_param, int_param});
     if (r) {
       this.ctx.body = this.success();
     } else {

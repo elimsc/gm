@@ -103,17 +103,21 @@ class Prop extends React.Component {
     const formItems = keys.map((k, index) => (
       <div key={k}>
         <Form.Item
-          label="道具名"
+          label="道具"
           {...formItemLayout}
         >
           {getFieldDecorator(`names[${k}]`, {
             validateTrigger: ['onChange', 'onBlur'],
             rules: [{
               required: true,
-              message: "道具名不能为空",
+              message: "道具不能为空",
             }],
           })(
-            <Input placeholder="道具名" style={{ width: '90%', marginRight: 8 }} />
+            <Select>
+            {this.props.global.itemlist.map(v => (
+             <Select.Option value={v['item_id']}>{v['item_name']}</Select.Option>
+            ))}
+           </Select>
           )}
           {keys.length > 1 ? (
             <Icon

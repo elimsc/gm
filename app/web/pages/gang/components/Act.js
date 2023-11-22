@@ -15,13 +15,14 @@ class Act extends React.Component {
   }
 
   handleClick = () => {
-    const { part_id, gang_guid } = this.props;
+    console.log(this.props);
+    const { gang_guid, gang_id } = this.props;
     Modal.confirm({
       title: '确认操作',
       content: '确认解散该联盟？',
       onOk: () => {
         this.setState({ loading: true });
-        dismiss({ part_id, gang_guid }).then(data => {
+        dismiss({ gang_id, gang_guid }).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
           } else {

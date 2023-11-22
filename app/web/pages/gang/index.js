@@ -39,15 +39,11 @@ class GangMan extends React.PureComponent {
     const { part_id } = this.props.global;
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        if (part_id === -1) {
-          message.error("请选择区服");
-        } else {
           this.setState({ gangListLoading: true });
           list({ part_id }).then((data) => {
             this.setState({ gangList: data.payload });
             this.setState({ gangListLoading: false });
           })
-        }
       }
     });
   }
@@ -155,13 +151,13 @@ class GangMan extends React.PureComponent {
     const selectTab = tab => {
       switch (tab.index) {
         case 0:
-          return <Member data={data.memberlist} part_id={part_id} gang_guid={data.guid} />;
+          return <Member data={data.memberlist} part_id={part_id} gang_guid={data.guid} gang_id={data.gang_id} />;
         case 1:
-          return <Notice notice={data.notice} gang_guid={data.guid} part_id={part_id} />;
+          return <Notice notice={data.notice} gang_guid={data.guid} part_id={part_id} gang_id={data.gang_id} />;
         case 2:
-          return <GmIns gang_guid={data.guid} part_id={part_id} />;
+          return <GmIns gang_guid={data.guid} part_id={part_id} gang_id={data.gang_id} />;
         case 3:
-          return <Act gang_guid={data.guid} part_id={part_id} />
+          return <Act gang_guid={data.guid} part_id={part_id} gang_id={data.gang_id} />
         default: return null;
       }
     }

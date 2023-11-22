@@ -150,7 +150,7 @@ class BaseLayout extends React.Component {
             width={240}
           >
             <div className={styles.logo}>
-              <span>御天剑道GM平台</span>
+              <span>ProjectA</span>
             </div>
             <Menu
               defaultOpenKeys={[

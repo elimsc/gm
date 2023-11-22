@@ -16,7 +16,7 @@ class Notice extends React.PureComponent {
   }
 
   handleSubmit = e => {
-    const { gang_guid, part_id } = this.props;
+    const { gang_guid, gang_id } = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
@@ -26,7 +26,7 @@ class Notice extends React.PureComponent {
           content: '确认修改该联盟的公告？',
           onOk: () => {
             this.setState({ loading: true });
-            notice({ gang_guid, part_id, notice: content }).then(data => {
+            notice({ gang_guid, gang_id, notice: content }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {

@@ -16,18 +16,16 @@ class GmIns extends React.PureComponent {
   }
 
   handleSubmit = e => {
-    const { gang_guid, part_id } = this.props;
+    const { gang_guid, gang_id } = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        const gang_cmd = values['gang_cmd'];
-        const params = values['params'];
         Modal.confirm({
           title: '确认操作',
           content: '确认执行该指令？',
           onOk: () => {
             this.setState({ loading: true });
-            gmIns({ gang_guid, part_id, gang_cmd, params }).then(data => {
+            gmIns({ gang_guid, gang_id, ...values }).then(data => {
               if (data.code === 0) {
                 message.success('操作成功');
               } else {
@@ -71,15 +69,20 @@ class GmIns extends React.PureComponent {
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
         <Form.Item label="CMD">
-          {getFieldDecorator('gang_cmd', {
+          {getFieldDecorator('command', {
             rules: [{ required: true, message: '不能为空' }],
           })(
             <Input />
           )}
         </Form.Item>
-        <Form.Item label="参数" >
-          {getFieldDecorator('params')(
+        <Form.Item label="字符串参数" >
+          {getFieldDecorator('string_param')(
             <Input />
+          )}
+        </Form.Item>
+        <Form.Item label="数值参数" >
+          {getFieldDecorator('int_param')(
+            <Input type='number' />
           )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>

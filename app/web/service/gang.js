@@ -16,19 +16,16 @@ export async function ban({ part_id, uid, guid }) {
 }
 
 // 修改公告
-export async function notice({ part_id, gang_guid, notice }) {
-  console.log({ part_id, gang_guid, notice });
-  return post('/api/gang/notice', { part_id, gang_guid, notice });
+export async function notice({gang_id, gang_guid, notice }) {
+  return post('/api/gang/notice', { gang_id, gang_guid, notice });
 }
 
 // 解散帮会
-export async function dismiss({ part_id, gang_guid }) {
-  console.log({ part_id, gang_guid });
-  return post('/api/gang/dismiss', { part_id, gang_guid });
+export async function dismiss({ gang_id, gang_guid }) {
+  return post('/api/gang/dismiss', { gang_id, gang_guid });
 }
 
 // GM指令
-export async function gmIns({ part_id, gang_guid, gang_cmd, params }) {
-  console.log({ part_id, gang_guid, gang_cmd, params });
-  return post('/api/gang/gmins', { part_id, gang_guid, gang_cmd, params });
+export async function gmIns({ gang_id, gang_guid, command, string_param, int_param }) {
+  return post('/api/gang/gmins', { gang_id, gang_guid, command, string_param, int_param });
 }

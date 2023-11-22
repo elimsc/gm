@@ -297,7 +297,7 @@ class PlayerMan extends React.PureComponent {
                     ))}
                   </Menu.SubMenu>
                 ))}
-                {this.showMenu('1-3', (
+                {/* {this.showMenu('1-3', (
                   <Menu.SubMenu key="clear" title="清除数据">
                     {this.showMenu('1-3-1', (
                       <Menu.Item onClick={() => this.select('clear-secure-code')} key="clear-secure-code">清除安全码</Menu.Item>
@@ -306,7 +306,7 @@ class PlayerMan extends React.PureComponent {
                       <Menu.Item onClick={() => this.select('unusual-task')} key="unusual-task">清除非正常任务</Menu.Item>
                     ))}
                   </Menu.SubMenu>
-                ))}
+                ))} */}
 
                 {this.showMenu('1-4', (
                   <Menu.SubMenu key="ban" title="封号/禁言">
