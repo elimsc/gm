@@ -187,7 +187,7 @@ class Reissue extends React.PureComponent {
             })(
               <Input />
             )}
-            {/* <Checkbox checked={this.state.gmDirectChecked} onChange={e => this.setState({ gmDirectChecked: e.target.checked })}>GM直充</Checkbox> */}
+            <Checkbox checked={this.state.gmDirectChecked} onChange={e => this.setState({ gmDirectChecked: e.target.checked })}>GM直充</Checkbox>
           </div>
         </Form.Item>
         <Form.Item label="配表id">

@@ -90,10 +90,10 @@ class PlayerinfoService extends BaseReqService {
         index: '所在格子号',
       };
 
-      const itemlist_src = result.data.body.itemlist;
-      const equiplist_src = result.data.body.equiplist;
-      const herofraglist_src = result.data.body.herofraglist;
-      const cangpinlist_src = result.data.body.cangpinlist;
+      const itemlist_src = result.data.body.itemlist || [];
+      const equiplist_src = result.data.body.equiplist || [];
+      const herofraglist_src = result.data.body.herofraglist || [];
+      const cangpinlist_src = result.data.body.cangpinlist || [];
       var total = [];
       total = total.concat(itemlist_src).concat(equiplist_src).concat(herofraglist_src).concat(cangpinlist_src);
       return {

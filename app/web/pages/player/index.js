@@ -109,23 +109,6 @@ class PlayerMan extends React.PureComponent {
         }
       },
       {
-        title: '门派',
-        dataIndex: 'menpai',
-        key: 'menpai',
-        render: (text, record) => {
-          switch (parseInt(text)) {
-            case 0: return '正剑门';
-            case 1: return '百花';
-            case 2: return '昆仑';
-            case 3: return '天魔';
-            case 4: return '万妖';
-            case 5: return '森罗';
-            case -1: return '无门派';
-            default: return '';
-          }
-        }
-      },
-      {
         title: '等级',
         dataIndex: 'level',
         key: 'level',
@@ -144,6 +127,11 @@ class PlayerMan extends React.PureComponent {
         title: 'R2账号',
         dataIndex: 'r2id',
         key: 'r2id',
+      },
+      {
+        title: '角色ID',
+        dataIndex: 'role_id',
+        key: 'role_id',
       },
       {
         title: '所在服务器',

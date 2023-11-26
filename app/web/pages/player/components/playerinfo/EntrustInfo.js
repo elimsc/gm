@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Divider, Tabs, Table, Button, Modal, message } from 'antd';
+import { Input, Divider, Tabs, Table, Button, Modal, message, Card } from 'antd';
 import TableInfoList from '@/components/TableInfoList';
 import {entrustOffline} from '../../../../service/playerinfo';
 
@@ -25,6 +25,23 @@ class EntrustInfo extends React.PureComponent {
             message.error('操作失败');
           }
           
+        });
+      }
+    })
+  }
+
+  handleAllEntrustOffline() {
+    const { guid, part_id } = this.props;
+    Modal.confirm({
+      title: '确认操作',
+      content: `是否确认下架 全部 商品？`,
+      onOk: () => {
+        entrustOffline({ entrust_id: "0", guid, part_id }).then(data => {
+          if (data.code === 0) {
+            message.success('操作成功');
+          } else {
+            message.error('操作失败');
+          }
         });
       }
     })
@@ -87,7 +104,10 @@ class EntrustInfo extends React.PureComponent {
       ];
 
     return (
-    <Table dataSource={this.props.data} columns={columns} key='entrust_id' />
+    <>
+      <Button type='danger' style={{margin: 10}} onClick={() => this.handleAllEntrustOffline()}>全部下架</Button>
+      <Table dataSource={this.props.data} columns={columns} key='entrust_id' />
+    </>
     );
   }
 }
