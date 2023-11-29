@@ -100,12 +100,12 @@ class Jubao extends React.Component {
   render() {
 
     const typeMap = {
-      1: '垃圾广告',
+      1: '违规昵称',
       2: '诈骗信息',
-      3: '收号卖号',
-      4: '举报外挂',
-      5: '呢称不雅',
-      6: '举报其他',
+      3: '非法广告',
+      4: '人身攻击、脏话',
+      5: '涉黄涉政',
+      6: '其他',
     }
 
     const columns = [{

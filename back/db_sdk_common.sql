@@ -16,14 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `t_device_open`
---
-
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-/*!40000 ALTER TABLE `t_device_open` DISABLE KEYS */;
-
---
 -- Table structure for table `t_jubao_info`
 --
 

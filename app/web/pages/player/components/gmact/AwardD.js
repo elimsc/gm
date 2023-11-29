@@ -13,7 +13,7 @@ class AwardD extends React.PureComponent {
       { type: 0, name: "经验" },
       { type: 1, name: "货币" },
       { type: 2, name: "道具增加" },
-      { type: 3, name: "道具删除" },
+      // { type: 3, name: "道具删除" },
       // { type: 4, name: "仙气值" }
     ];
     const selectType = type => {
@@ -24,8 +24,8 @@ class AwardD extends React.PureComponent {
           return <Money guid={guid} part_id={part_id} />;
         case 2:
           return <PropAdd guid={guid} part_id={part_id} />;
-        case 3:
-          return <PropDelete guid={guid} part_id={part_id} />;
+        // case 3:
+        //   return <PropDelete guid={guid} part_id={part_id} />;
         // case 4:
         //   return <GodExp guid={guid} part_id={part_id} />
         default:

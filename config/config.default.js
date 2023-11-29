@@ -69,7 +69,7 @@ module.exports = appInfo => {
         // 密码
         password: '',
         // 数据库名
-        database: 'db_sdk_common',
+        database: 'gm_projecta',
         bigNumberStrings: true,
         supportBigNumbers: true,
       }
