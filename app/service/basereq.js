@@ -144,7 +144,7 @@ var cmdMockResp = {
     [
         {
             "id" : 1,           //ID
-            "name" : "",           //名字
+            "name" : "n1",           //名字
             "cnt" : 1,           //数量
             "timeout" : 0,             //过期时间，时间戳
             "index" : 1,             //在背包中的索引
@@ -154,7 +154,7 @@ var cmdMockResp = {
     [
         {
             "id" : 2,           //ID
-            "name" : "",           //名字
+            "name" : "n2",           //名字
             "cnt" : 1,           //数量
             "timeout" : 0,             //过期时间，时间戳
             "index" : 1,             //在背包中的索引
@@ -164,7 +164,7 @@ var cmdMockResp = {
     [
         {
             "id" : 3,           //ID
-            "name" : "",           //名字
+            "name" : "n3",           //名字
             "cnt" : 2,           //数量
             "timeout" : 0,             //过期时间，时间戳
             "index" : 3,             //在背包中的索引
@@ -174,7 +174,7 @@ var cmdMockResp = {
     [
         {
             "id" : 4,           //ID
-            "name" : "",           //名字
+            "name" : "n4",           //名字
             "cnt" : 1,           //数量
             "timeout" : 0,             //过期时间，时间戳
             "index" : 2,             //在背包中的索引

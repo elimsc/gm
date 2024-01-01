@@ -20,6 +20,11 @@ export async function notice({gang_id, gang_guid, notice }) {
   return post('/api/gang/notice', { gang_id, gang_guid, notice });
 }
 
+// 修改招募公告
+export async function recruit({gang_id, gang_guid, recruit }) {
+  return post('/api/gang/recruit', { gang_id, gang_guid, recruit });
+}
+
 // 解散帮会
 export async function dismiss({ gang_id, gang_guid }) {
   return post('/api/gang/dismiss', { gang_id, gang_guid });

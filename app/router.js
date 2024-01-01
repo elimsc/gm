@@ -131,6 +131,7 @@ module.exports = app => {
   router.post('/api/gang/info', controller.gang.info); // 联盟信息
   router.post('/api/gang/ban', actlog('联盟操作--封号'), controller.gang.ban);
   router.post('/api/gang/notice', actlog('联盟操作--修改公告'), controller.gang.notice);
+  router.post('/api/gang/recruit', actlog('联盟操作--修改招募公告'), controller.gang.recruit);
   router.post('/api/gang/dismiss', actlog('联盟操作--解散联盟'), controller.gang.dismiss);
   router.post('/api/gang/gmins', actlog('联盟操作--GM指令'), controller.gang.gmIns);
 

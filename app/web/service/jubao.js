@@ -9,7 +9,7 @@ export async function listgroup() {
 
 // 举报信息详情 by targetGuid
 export async function detailByTargetGuid(guid) {
-  return get(`api/jubao/detailByGuid?guid=${guid}`);
+  return get(`/api/jubao/detailByGuid?guid=${guid}`);
 }
 
 // 删除举报信息 by targetGuid

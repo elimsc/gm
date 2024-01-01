@@ -26,7 +26,10 @@ class PlayerinfoService extends BaseReqService {
       ['guid']
     );
     if (!this.is_success(r)) return false;
-    return true;
+    if (r.data && r.data.body && r.data.body.entrustlist) {
+      return r.data.body.entrustlist;
+    }
+    return false;
   }
 
   // 角色基本信息查询

@@ -220,11 +220,11 @@ class PlayerInfoController extends BaseController {
   }
 
   async entrustOffline() {
-    const r = this.playerService.entrustOffline(this.ctx.request.body);
+    const r = await this.playerService.entrustOffline(this.ctx.request.body);
     if (!r) {
       this.ctx.body = this.error();
     } else {
-      this.ctx.body = this.success();
+      this.ctx.body = this.success(r);
     }
   }
 }

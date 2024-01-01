@@ -8,6 +8,7 @@ import Act from './components/Act';
 import Notice from './components/Notice';
 import TableInfo from '../../components/TableInfo';
 import GmIns from './components/GmIns';
+import Recruit from './components/Recruit';
 
 
 @connect(({ global }) => ({ global }))
@@ -146,6 +147,7 @@ class GangMan extends React.PureComponent {
       { index: 1, name: '公告修改' },
       { index: 2, name: '联盟GM指令' },
       { index: 3, name: '解散联盟' },
+      { index: 4, name: '招募公告修改' },
     ];
 
     const selectTab = tab => {
@@ -158,6 +160,8 @@ class GangMan extends React.PureComponent {
           return <GmIns gang_guid={data.guid} part_id={part_id} gang_id={data.gang_id} />;
         case 3:
           return <Act gang_guid={data.guid} part_id={part_id} gang_id={data.gang_id} />
+        case 4:
+            return <Recruit recruit={data.recruit} gang_guid={data.guid} part_id={part_id} gang_id={data.gang_id} />;
         default: return null;
       }
     }
@@ -207,6 +211,7 @@ class GangMan extends React.PureComponent {
                 { title: '公告', value: data.notice },
                 { title: '等级', value: data.level },
                 { title: '7日活跃度', value: data.energy },
+                { title: '招募公告', value: data.recruit },
               ]} />
 
               <Tabs type="card">

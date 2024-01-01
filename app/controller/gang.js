@@ -63,6 +63,20 @@ class GangController extends BaseController {
   }
 
   /**
+   * POST gang/recruit
+   * 修改招募公告
+   */
+  async recruit() {
+    const { gang_guid, gang_id, recruit } = this.ctx.request.body;
+    const r = await this.gangService.gmIns({ command: 'recruit', gang_id, gang_guid, string_param: recruit });
+    if (r) {
+      this.ctx.body = this.success();
+    } else {
+      this.ctx.body = this.error();
+    }
+  }
+
+  /**
    * POST gang/dismiss
    * 解散帮会
    */

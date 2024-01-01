@@ -6,6 +6,19 @@ import {entrustOffline} from '../../../../service/playerinfo';
 
 class EntrustInfo extends React.PureComponent {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: this.props.data,
+    }
+   }
+
+   componentDidUpdate(prevProps, prevState) {
+    if (this.props.data.length !== prevProps.data.length) {
+      this.setState({data: this.props.data})
+    }
+   }
+
 
   handleEntrustOffline(v) {
     const { guid, part_id } = this.props;
@@ -21,6 +34,7 @@ class EntrustInfo extends React.PureComponent {
         entrustOffline({ entrust_id: v.entrust_id, guid, part_id }).then(data => {
           if (data.code === 0) {
             message.success('操作成功');
+            this.setState({data: data.payload});
           } else {
             message.error('操作失败');
           }
@@ -106,7 +120,7 @@ class EntrustInfo extends React.PureComponent {
     return (
     <>
       <Button type='danger' style={{margin: 10}} onClick={() => this.handleAllEntrustOffline()}>全部下架</Button>
-      <Table dataSource={this.props.data} columns={columns} key='entrust_id' />
+      <Table dataSource={this.state.data} columns={columns} key='entrust_id' />
     </>
     );
   }
